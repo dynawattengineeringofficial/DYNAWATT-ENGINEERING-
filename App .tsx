@@ -8,6 +8,13 @@ import FAQ from './components/FAQ';
 import ServicesDetail from './components/ServicesDetail';
 import SafetyChecklist from './components/SafetyChecklist';
 import TrustpilotReviews from './components/TrustpilotReviews';
+import ChatBot from './components/ChatBot';
+import About from './components/About';
+import Solar from './components/Solar';
+import Location from './components/Location';
+import Contact from './components/Contact';
+import Blog from './components/Blog';
+import Footer from './components/Footer';
 import { Icons } from './components/Icons';
 import { Lead, Page, SiteConfig } from './types';
 
@@ -21,7 +28,7 @@ function App() {
     emergencyMode: false,
     contactPhone: '+256 751 473 830',
     whatsapp: '+256 751 473 830',
-    heroHeadline: 'DYNAWATT ENGINEERING'
+    heroHeadline: 'Dynawatt Engineering: Premier Electrical & Lighting Solutions in Uganda'
   });
 
   const [leads, setLeads] = useState<Lead[]>([]);
@@ -103,6 +110,12 @@ function App() {
       initial: "R"
     },
     {
+      name: "Centenary Bank Masaka Branch",
+      location: "Masaka City",
+      text: "Highly reliable electrical maintenance for our banking facility. Their team handled our 3-phase power balancing and backup generator servicing with extreme professionalism.",
+      initial: "C"
+    },
+    {
       name: "Aisha N.",
       location: "Kawuku, Entebbe Road",
       text: "Dynawatt handled the complete wiring for my rentals. They finished on time and the workmanship is very neat.",
@@ -113,12 +126,6 @@ function App() {
       location: "Kitukutwe, Kira Municipality",
       text: "The profile lighting installed at my home is beautiful. They really know how to bring out the elegance of a house.",
       initial: "H"
-    },
-    {
-      name: "Three 60inc",
-      location: "Nkrumah Road",
-      text: "We hired them for office wiring modification and lighting for our advertising agency. Great service for businesses.",
-      initial: "T"
     },
     {
       name: "Alex",
@@ -206,7 +213,7 @@ function App() {
         </div>
       )}
 
-      <Navbar setPage={setPage} contactPhone={config.contactPhone} />
+      <Navbar setPage={setPage} page={page} contactPhone={config.contactPhone} />
 
       {page === Page.HOME ? (
         <>
@@ -221,24 +228,22 @@ function App() {
                   <span className="flex h-2 w-2 rounded-full bg-amber-500 mr-2"></span>
                   DYNAWATT - Licensed & Insured
                 </div>
-                <h1 className="text-3xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                  {config.heroHeadline}
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                  Electrical & Solar Installation Company in Kampala, Uganda
                 </h1>
                 <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-lg">
-                  Your premier electrical engineering partner in Uganda. Residential wiring, commercial power systems, and solar energy solutions.
+                  DYNAWATT ENGINEERING is a trusted electrical and solar company in Kampala, Uganda, delivering safe, efficient, and affordable solutions.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="#quote" onClick={scrollToQuote} className="inline-flex justify-center items-center px-6 py-3 md:px-8 md:py-4 border border-transparent text-base md:text-lg font-bold rounded-lg text-slate-900 bg-amber-500 hover:bg-amber-600 transition shadow-lg hover:shadow-xl">
-                    Get a Quote
-                  </a>
+                  <button onClick={() => setPage(Page.CONTACT)} className="inline-flex justify-center items-center px-6 py-3 md:px-8 md:py-4 border border-transparent text-base md:text-lg font-bold rounded-lg text-slate-900 bg-amber-500 hover:bg-amber-600 transition shadow-lg hover:shadow-xl">
+                    Get a Free Quote
+                  </button>
                   <a 
-                    href={`https://wa.me/${config.whatsapp.replace(/[^0-9]/g, '')}?text=${whatsappMessage}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex justify-center items-center px-6 py-3 md:px-8 md:py-4 border border-green-500 text-base md:text-lg font-bold rounded-lg text-white bg-green-600 hover:bg-green-700 transition"
+                    href={`tel:${config.contactPhone.replace(/[^0-9+]/g, '')}`}
+                    className="inline-flex justify-center items-center px-6 py-3 md:px-8 md:py-4 border border-white text-base md:text-lg font-bold rounded-lg text-white bg-transparent hover:bg-white/10 transition"
                   >
-                    <Icons.MessageCircle className="h-5 w-5 mr-2" />
-                    WhatsApp
+                    <Icons.Phone className="h-5 w-5 mr-2" />
+                    Call Now
                   </a>
                 </div>
               </div>
@@ -249,116 +254,119 @@ function App() {
             </div>
           </header>
 
-          {/* Trust Badges */}
-          <div className="bg-slate-100 border-b border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 py-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
-                <div className="flex flex-col items-center">
-                  <Icons.Shield className="h-6 w-6 md:h-8 md:w-8 text-slate-400 mb-2" />
-                  <span className="font-semibold text-slate-700 text-sm md:text-base">Certified Engineers</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <Icons.Zap className="h-6 w-6 md:h-8 md:w-8 text-slate-400 mb-2" />
-                  <span className="font-semibold text-slate-700 text-sm md:text-base">24/7 Support</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <Icons.CheckCircle className="h-6 w-6 md:h-8 md:w-8 text-slate-400 mb-2" />
-                  <span className="font-semibold text-slate-700 text-sm md:text-base">Quality Guaranteed</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <Icons.MapPin className="h-6 w-6 md:h-8 md:w-8 text-slate-400 mb-2" />
-                  <span className="font-semibold text-slate-700 text-sm md:text-base">Ugandan Owned</span>
-                </div>
+          {/* Trust Section */}
+          <section className="py-12 bg-slate-50 border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl font-bold text-slate-900">Trusted by homeowners and businesses across Kampala</h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { title: "Skilled Technicians", desc: "Experienced and certified team." },
+                  { title: "Quality Materials", desc: "High-quality workmanship." },
+                  { title: "Transparent Pricing", desc: "Affordable and clear costs." },
+                  { title: "Fast Delivery", desc: "Quick response and delivery." }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center space-x-4 bg-white p-4 rounded-xl shadow-sm">
+                    <Icons.CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-sm">{item.title}</h4>
+                      <p className="text-slate-500 text-xs">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* Welcome & Guarantee Section - Enhanced */}
-          <section className="py-12 md:py-20 bg-gradient-to-b from-slate-50 to-white border-b border-slate-100">
-            <div className="max-w-5xl mx-auto px-4 text-center">
-              
-              <div className="inline-flex items-center gap-2 p-2 px-4 bg-amber-50 border border-amber-200 rounded-full text-amber-800 font-bold text-sm mb-6 md:mb-8 shadow-sm">
-                <Icons.Star className="h-4 w-4 fill-amber-500 text-amber-500" />
-                <span>Welcome to Dynawatt Engineering</span>
+          {/* New SEO Content Section: Authority & Expertise Boost */}
+          <section className="py-12 md:py-24 bg-gradient-to-b from-white to-slate-50 border-b border-slate-100 relative overflow-hidden">
+            {/* Subtle background decorative elements */}
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-slate-200/50 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div className="max-w-5xl mx-auto px-4 relative z-10">
+              <div className="text-center mb-12 md:mb-16">
+                <div className="inline-flex items-center gap-2 p-2 px-4 bg-amber-50 border border-amber-200 rounded-full text-amber-800 font-bold text-sm mb-6 shadow-sm">
+                  <Icons.Star className="h-4 w-4 fill-amber-500 text-amber-500" />
+                  <span>The Standard of Engineering in Uganda</span>
+                </div>
+                
+                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 leading-tight tracking-tight">
+                  Reliable Electrical Engineering & <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">Modern Lighting Solutions</span>
+                </h2>
               </div>
-              
-              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight tracking-tight">
-                Certified Electrical Excellence in <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">Kampala & Central Uganda</span>
-              </h2>
-              
-              <p className="text-lg md:text-xl text-slate-600 mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed">
-                Your Trusted Partner for Reliable House Wiring, Security Systems, and Quality Electrical Supplies.
-              </p>
-              
-              <p className="text-slate-600 mb-10 md:mb-12 leading-relaxed text-base md:text-lg max-w-4xl mx-auto font-medium">
-                At <strong className="text-slate-900">Dynawatt Engineering</strong>, we don’t just install wires; we power your peace of mind. Whether you are building a new home in <strong className="text-slate-900">Kira</strong>, securing an industrial site in <strong className="text-slate-900">Mukono</strong>, or upgrading your lighting in <strong className="text-slate-900">Kampala</strong>, our certified team is ready to deliver.
-              </p>
 
-              <div className="bg-white border-t-4 border-amber-500 rounded-2xl p-6 md:p-12 mb-12 shadow-2xl shadow-slate-200/50 hover:shadow-amber-500/10 transition-all duration-300">
-                <h3 className="text-2xl font-bold text-slate-900 mb-8 md:mb-10 flex items-center justify-center">
-                  <div className="bg-amber-100 p-2 rounded-full mr-3">
-                    <Icons.CheckCircle className="h-6 w-6 text-amber-600" />
+              <div className="prose prose-lg max-w-none text-slate-600 space-y-6 md:space-y-8">
+                <p className="text-lg md:text-xl leading-relaxed">
+                  At <strong>Dynawatt Engineering</strong>, we provide certified electrical solutions for residential and commercial clients across <strong>Kampala</strong> and the greater central region. 
+                  From complex industrial 3-phase wiring to high-end architectural lighting, our team ensures every project meets international safety standards while maintaining modern aesthetics.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-8 md:gap-12 py-6">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-slate-900 flex items-center">
+                      <Icons.LayoutDashboard className="h-5 w-5 mr-2 text-amber-500" />
+                      Industrial & Commercial Depth
+                    </h3>
+                    <p className="text-sm md:text-base leading-relaxed">
+                      Our engineering expertise extends to large-scale industrial fit-outs. We specialize in 3-phase power distribution, motor control systems, and factory-grade lighting that reduces energy overheads. Businesses in <strong>Mukono</strong> and <strong>Namanve</strong> trust us for reliable maintenance that eliminates costly downtime.
+                    </p>
                   </div>
-                  The Dynawatt Difference
-                </h3>
-                <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 md:gap-y-8 text-left">
-                  <div className="flex items-start group">
-                    <div className="flex-shrink-0 bg-slate-50 p-3 rounded-xl shadow-sm mr-4 border border-slate-100 group-hover:border-amber-200 group-hover:bg-amber-50 transition-colors">
-                      <Icons.Shield className="h-6 w-6 text-amber-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-lg mb-1">3-Month Repair Guarantee</h4>
-                      <p className="text-slate-500 text-sm leading-relaxed">We offer 3 months of free repairs on all full house wiring installations because we stand by our craftsmanship.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start group">
-                    <div className="flex-shrink-0 bg-slate-50 p-3 rounded-xl shadow-sm mr-4 border border-slate-100 group-hover:border-amber-200 group-hover:bg-amber-50 transition-colors">
-                      <Icons.Users className="h-6 w-6 text-amber-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-lg mb-1">Personalized Service</h4>
-                      <p className="text-slate-500 text-sm leading-relaxed">We provide detailed site visits to understand your custom preferences before we even start.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start group">
-                    <div className="flex-shrink-0 bg-slate-50 p-3 rounded-xl shadow-sm mr-4 border border-slate-100 group-hover:border-amber-200 group-hover:bg-amber-50 transition-colors">
-                      <Icons.Clock className="h-6 w-6 text-amber-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-lg mb-1">Fast & Reliable</h4>
-                      <p className="text-slate-500 text-sm leading-relaxed">From free quotations to quick online bookings, we prioritize your schedule and deadlines.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start group">
-                    <div className="flex-shrink-0 bg-slate-50 p-3 rounded-xl shadow-sm mr-4 border border-slate-100 group-hover:border-amber-200 group-hover:bg-amber-50 transition-colors">
-                      <Icons.Package className="h-6 w-6 text-amber-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-lg mb-1">Quality Supplies</h4>
-                      <p className="text-slate-500 text-sm leading-relaxed">We supply premium cables, sockets, and luxury chandeliers (spotlights and strip lights) at competitive market prices.</p>
-                    </div>
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-slate-900 flex items-center">
+                      <Icons.Lightbulb className="h-5 w-5 mr-2 text-amber-500" />
+                      Luxury Architectural Lighting
+                    </h3>
+                    <p className="text-sm md:text-base leading-relaxed">
+                      We are the pioneers of elegant home illumination. Whether you need a <strong>floating chandelier installation in Munyonyo</strong> or sophisticated <strong>aluminum profile lighting</strong> for a penthouse in <strong>Kololo</strong>, our technicians possess the precision and architectural eye required for premium finishes.
+                    </p>
                   </div>
                 </div>
+
+                <p className="text-lg md:text-xl leading-relaxed">
+                  Building a new home in <strong>Kira</strong> or <strong>Najjera</strong>? Our comprehensive house wiring services include a full 3-month repair guarantee. We don't just pull cables; we design systems. This includes conducting energy-saving <strong>Yaka audits</strong> to troubleshoot high consumption and installing high-performance lightning arrestors to protect your valuable electronics.
+                </p>
+
+                <p className="text-base md:text-lg leading-relaxed bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm italic">
+                  "At Dynawatt, we bridge the gap between technical complexity and customer peace of mind. We power your property with the same care we would our own homes, ensuring every joint, breaker, and fixture is a testament to Ugandan engineering excellence."
+                </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-5">
+              {/* The Dynawatt Difference - Compacted Grid */}
+              <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { title: "3-Month Repair Guarantee", desc: "On all full-house wiring projects.", icon: <Icons.Shield /> },
+                  { title: "Personalized Site Visits", desc: "Custom consulting before we start.", icon: <Icons.Users /> },
+                  { title: "24/7 Rapid Response", desc: "Emergency help when you need it.", icon: <Icons.Clock /> },
+                  { title: "Premium Material Supply", desc: "Only certified cables and fixtures.", icon: <Icons.Package /> }
+                ].map((item, i) => (
+                  <div key={i} className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm hover:border-amber-200 transition-all group">
+                    <div className="text-amber-500 mb-4 group-hover:scale-110 transition-transform">
+                      {React.cloneElement(item.icon as React.ReactElement, { className: "h-8 w-8" })}
+                    </div>
+                    <h4 className="font-bold text-slate-900 mb-2">{item.title}</h4>
+                    <p className="text-sm text-slate-500">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-16 flex flex-col sm:flex-row justify-center gap-4 md:gap-5">
                 <a 
                   href="#quote" 
                   onClick={scrollToQuote}
-                  className="group inline-flex justify-center items-center px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-bold rounded-xl text-slate-900 bg-amber-500 hover:bg-amber-400 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 ring-4 ring-amber-500/20"
+                  className="group inline-flex justify-center items-center px-6 py-4 md:px-10 text-base md:text-lg font-bold rounded-xl text-slate-900 bg-amber-500 hover:bg-amber-400 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 ring-4 ring-amber-500/20"
                 >
-                  <span className="flex items-center">
-                    Get a Free Quotation
-                    <Icons.ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </span>
+                  Get a Free Quotation
+                  <Icons.ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </a>
                 
                 <a 
                   href={`tel:${config.contactPhone.replace(/[^0-9+]/g, '')}`} 
-                  className="group inline-flex justify-center items-center px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-bold rounded-xl text-white bg-slate-900 hover:bg-slate-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                  className="group inline-flex justify-center items-center px-6 py-4 md:px-10 text-base md:text-lg font-bold rounded-xl text-white bg-slate-900 hover:bg-slate-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
                 >
                   <Icons.Phone className="h-5 w-5 mr-2 group-hover:animate-bounce" />
-                  Call Us: {config.contactPhone}
+                  {config.contactPhone}
                 </a>
               </div>
             </div>
@@ -367,157 +375,57 @@ function App() {
           {/* Trustpilot Reviews Section */}
           <TrustpilotReviews />
 
-          {/* Services Section */}
-          <section id="services" className="py-12 md:py-20 bg-slate-50 scroll-mt-24">
+          {/* Core Services Section */}
+          <section id="services" className="py-12 md:py-20 bg-white scroll-mt-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-10 md:mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Services</h2>
-                <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">From simple socket repairs to complex industrial solar systems, Dynawatt handles it all with professional precision.</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Core Services</h2>
+                <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">Professional electrical and solar solutions tailored to your needs.</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                {/* Residential */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group border border-slate-200 flex flex-col">
-                  <div className="h-48 md:h-56 overflow-hidden relative">
-                    <img 
-                      src="/images/service-residential.jpg" 
-                      alt="Residential Wiring" 
-                      loading="lazy"
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" 
-                    />
-                    <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-amber-600 shadow-sm">
-                        <Icons.Home className="h-5 w-5" />
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* Electrical Installation */}
+                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
+                  <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Icons.Zap className="h-8 w-8" />
                   </div>
-                  <div className="p-5 md:p-8 flex flex-col flex-grow">
-                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3">Residential Wiring</h3>
-                    <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-4">Complete house wiring, socket installation, lighting upgrades, and safety inspections for your home.</p>
-                    <ul className="text-sm md:text-base text-slate-600 space-y-2 font-medium mt-auto">
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Full House Wiring</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Fuse Box Upgrades</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Yaka (UEDCL) Meter Help</li>
-                    </ul>
-                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Electrical Installation Services</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    Professional wiring, rewiring, and electrical system installations for homes, offices, and industrial buildings.
+                  </p>
                 </div>
 
-                {/* Solar */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group border border-slate-200 flex flex-col relative">
-                  <div className="absolute top-4 left-4 bg-amber-500 text-xs font-bold px-3 py-1 text-white rounded-full z-10">POPULAR</div>
-                  <div className="h-48 md:h-56 overflow-hidden relative">
-                    <img 
-                      src="/images/service-solar.jpg" 
-                      alt="Solar Systems" 
-                      loading="lazy"
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" 
-                    />
-                     <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-amber-600 shadow-sm">
-                        <Icons.Sun className="h-5 w-5" />
-                    </div>
+                {/* Solar Installation */}
+                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
+                  <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Icons.Sun className="h-8 w-8" />
                   </div>
-                  <div className="p-5 md:p-8 flex flex-col flex-grow">
-                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3">Solar Systems</h3>
-                    <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-4">Beat the load shedding. We design and install backup solar and battery inverter systems.</p>
-                    <ul className="text-sm md:text-base text-slate-600 space-y-2 font-medium mt-auto">
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Panel Installation</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Battery Backups</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Hybrid Inverters</li>
-                    </ul>
-                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Solar Installation Services</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    Efficient solar power solutions designed to reduce electricity costs and provide reliable backup power.
+                  </p>
                 </div>
 
-                {/* 3 Phase Systems */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group border border-slate-200 flex flex-col">
-                  <div className="h-48 md:h-56 overflow-hidden relative">
-                    <img 
-                      src="/images/service-commercial.jpg" 
-                      alt="3 Phase Systems" 
-                      loading="lazy"
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" 
-                    />
-                     <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-amber-600 shadow-sm">
-                        <Icons.LayoutDashboard className="h-5 w-5" />
-                    </div>
+                {/* Repairs & Maintenance */}
+                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
+                  <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Icons.Wrench className="h-8 w-8" />
                   </div>
-                  <div className="p-5 md:p-8 flex flex-col flex-grow">
-                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3">3 Phase Systems</h3>
-                    <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-4">Specialized setup and troubleshooting for industrial and commercial 3-phase power systems.</p>
-                    <ul className="text-sm md:text-base text-slate-600 space-y-2 font-medium mt-auto">
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Motor Installation</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Distribution Boards</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Load Balancing</li>
-                    </ul>
-                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Electrical Repairs & Maintenance</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    Fast fault detection, repair, and maintenance to ensure safety and performance.
+                  </p>
                 </div>
 
-                {/* Generator Repair */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group border border-slate-200 flex flex-col">
-                  <div className="h-48 md:h-56 overflow-hidden relative">
-                    <img 
-                      src="/images/service-generator.jpg" 
-                      alt="Generator Repair" 
-                      loading="lazy"
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" 
-                    />
-                     <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-amber-600 shadow-sm">
-                        <Icons.Wrench className="h-5 w-5" />
-                    </div>
+                {/* Smart Home Solutions */}
+                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
+                  <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Icons.Home className="h-8 w-8" />
                   </div>
-                  <div className="p-5 md:p-8 flex flex-col flex-grow">
-                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3">Generator Repair</h3>
-                    <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-4">Expert servicing for diesel and petrol generators to ensure you never go dark.</p>
-                    <ul className="text-sm md:text-base text-slate-600 space-y-2 font-medium mt-auto">
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> ATS Installation</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Routine Servicing</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Emergency Repairs</li>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* General Maintenance */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group border border-slate-200 flex flex-col">
-                  <div className="h-48 md:h-56 overflow-hidden relative">
-                    <img 
-                      src="/images/service-maintenance.jpg" 
-                      alt="General Maintenance" 
-                      loading="lazy"
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" 
-                    />
-                     <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-amber-600 shadow-sm">
-                        <Icons.Lightbulb className="h-5 w-5" />
-                    </div>
-                  </div>
-                  <div className="p-5 md:p-8 flex flex-col flex-grow">
-                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3">General Maintenance</h3>
-                    <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-4">Quick troubleshooting for power outages, short circuits, and faulty appliances.</p>
-                    <ul className="text-sm md:text-base text-slate-600 space-y-2 font-medium mt-auto">
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> 24/7 Emergency</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Fault Finding</li>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* CCTV & Security */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group border border-slate-200 flex flex-col">
-                  <div className="h-48 md:h-56 overflow-hidden relative">
-                    <img 
-                      src="/images/service-security.jpg" 
-                      alt="CCTV & Security" 
-                      loading="lazy"
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" 
-                    />
-                     <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-amber-600 shadow-sm">
-                        <Icons.Video className="h-5 w-5" />
-                    </div>
-                  </div>
-                  <div className="p-5 md:p-8 flex flex-col flex-grow">
-                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3">CCTV & Security</h3>
-                    <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-4">Protect your property with expert installation of surveillance cameras and security alarm systems.</p>
-                    <ul className="text-sm md:text-base text-slate-600 space-y-2 font-medium mt-auto">
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> HD Camera Setup</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Motion Alarms</li>
-                      <li className="flex items-center"><Icons.CheckCircle className="h-4 w-4 mr-2 text-green-500"/> Remote Monitoring</li>
-                    </ul>
-                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Smart Home Solutions</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    Modern automation systems for lighting, security, and energy control.
+                  </p>
                 </div>
               </div>
 
@@ -798,7 +706,19 @@ function App() {
         </>
       ) : page === Page.SERVICES ? (
         <ServicesDetail setPage={setPage} />
+      ) : page === Page.ABOUT ? (
+        <About />
+      ) : page === Page.SOLAR ? (
+        <Solar />
+      ) : page === Page.LOCATION ? (
+        <Location />
+      ) : page === Page.CONTACT ? (
+        <Contact addLead={addLead} />
+      ) : page === Page.BLOG ? (
+        <Blog />
       ) : null}
+
+      <Footer setPage={setPage} />
 
       {/* Image Modal */}
       {selectedImage && (
@@ -899,15 +819,18 @@ function App() {
         </div>
       </footer>
 
+      {/* Bot Assistant */}
+      <ChatBot />
+
       {/* Sticky WhatsApp Button */}
       <a 
         href={`https://wa.me/${config.whatsapp.replace(/[^0-9]/g, '')}?text=${whatsappMessage}`}
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl hover:bg-green-600 transition transform hover:scale-110 z-50 flex items-center justify-center group"
+        className="fixed bottom-6 left-6 bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl hover:bg-green-600 transition transform hover:scale-110 z-50 flex items-center justify-center group"
       >
         <Icons.MessageCircle className="h-6 w-6 md:h-8 md:w-8" />
-        <span className="absolute right-full mr-4 bg-white text-slate-800 px-3 py-1 rounded shadow-lg font-bold text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none hidden md:block">
+        <span className="absolute left-full ml-4 bg-white text-slate-800 px-3 py-1 rounded shadow-lg font-bold text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none hidden md:block">
           Chat with us!
         </span>
       </a>
