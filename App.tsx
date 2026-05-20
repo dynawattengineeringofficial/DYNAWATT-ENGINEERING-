@@ -15,6 +15,8 @@ import Location from './components/Location';
 import Contact from './components/Contact';
 import Blog from './components/Blog';
 import Footer from './components/Footer';
+import SeoPage from './components/SeoPage';
+import { seoPagesData } from './data/seoServicePages';
 import { Icons } from './components/Icons';
 import { Lead, Page, SiteConfig } from './types';
 
@@ -385,47 +387,51 @@ function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {/* Electrical Installation */}
-                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
+                <div onClick={() => setPage(Page.SEO_ELEC_INSTALL)} className="cursor-pointer bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
                   <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Icons.Zap className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-4">Electrical Installation Services</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
                     Professional wiring, rewiring, and electrical system installations for homes, offices, and industrial buildings.
                   </p>
+                  <span className="text-amber-600 font-bold text-sm flex items-center justify-center group-hover:text-amber-700">Learn More <Icons.ArrowRight className="h-4 w-4 ml-1" /></span>
                 </div>
 
                 {/* Solar Installation */}
-                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
+                <div onClick={() => setPage(Page.SEO_SOLAR)} className="cursor-pointer bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
                   <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Icons.Sun className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-4">Solar Installation Services</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
                     Efficient solar power solutions designed to reduce electricity costs and provide reliable backup power.
                   </p>
+                  <span className="text-amber-600 font-bold text-sm flex items-center justify-center group-hover:text-amber-700">Learn More <Icons.ArrowRight className="h-4 w-4 ml-1" /></span>
                 </div>
 
                 {/* Repairs & Maintenance */}
-                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
+                <div onClick={() => setPage(Page.SEO_MAINTENANCE)} className="cursor-pointer bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
                   <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Icons.Wrench className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-4">Electrical Repairs & Maintenance</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
                     Fast fault detection, repair, and maintenance to ensure safety and performance.
                   </p>
+                  <span className="text-amber-600 font-bold text-sm flex items-center justify-center group-hover:text-amber-700">Learn More <Icons.ArrowRight className="h-4 w-4 ml-1" /></span>
                 </div>
 
                 {/* Smart Home Solutions */}
-                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
+                <div onClick={() => setPage(Page.SEO_SMART_HOME)} className="cursor-pointer bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 text-center">
                   <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Icons.Home className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-4">Smart Home Solutions</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
                     Modern automation systems for lighting, security, and energy control.
                   </p>
+                  <span className="text-amber-600 font-bold text-sm flex items-center justify-center group-hover:text-amber-700">Learn More <Icons.ArrowRight className="h-4 w-4 ml-1" /></span>
                 </div>
               </div>
 
@@ -716,6 +722,22 @@ function App() {
         <Contact addLead={addLead} />
       ) : page === Page.BLOG ? (
         <Blog />
+      ) : page === Page.SEO_ELEC_INSTALL ? (
+        <SeoPage data={seoPagesData.SEO_ELEC_INSTALL} setPage={setPage} contactPhone={config.contactPhone} />
+      ) : page === Page.SEO_ARCH_LIGHTING ? (
+        <SeoPage data={seoPagesData.SEO_ARCH_LIGHTING} setPage={setPage} contactPhone={config.contactPhone} />
+      ) : page === Page.SEO_SOLAR ? (
+        <SeoPage data={seoPagesData.SEO_SOLAR} setPage={setPage} contactPhone={config.contactPhone} />
+      ) : page === Page.SEO_CCTV ? (
+        <SeoPage data={seoPagesData.SEO_CCTV} setPage={setPage} contactPhone={config.contactPhone} />
+      ) : page === Page.SEO_SMART_HOME ? (
+        <SeoPage data={seoPagesData.SEO_SMART_HOME} setPage={setPage} contactPhone={config.contactPhone} />
+      ) : page === Page.SEO_COMMERCIAL ? (
+        <SeoPage data={seoPagesData.SEO_COMMERCIAL} setPage={setPage} contactPhone={config.contactPhone} />
+      ) : page === Page.SEO_MAINTENANCE ? (
+        <SeoPage data={seoPagesData.SEO_MAINTENANCE} setPage={setPage} contactPhone={config.contactPhone} />
+      ) : page === Page.SEO_PROFILE_LIGHTING ? (
+        <SeoPage data={seoPagesData.SEO_PROFILE_LIGHTING} setPage={setPage} contactPhone={config.contactPhone} />
       ) : null}
 
       <Footer setPage={setPage} />
