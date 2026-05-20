@@ -16,6 +16,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
       title: "Electrical Installation",
       description: "We offer professional electrical installation services in Kampala and across Uganda, ensuring safe and efficient systems for homes and businesses.",
       icon: <Icons.Zap className="h-10 w-10 md:h-12 md:w-12 text-amber-500" />,
+      page: Page.SEO_ELEC_INSTALL,
       features: [
         "House wiring and rewiring",
         "Office electrical systems",
@@ -29,6 +30,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
       title: "Solar Installation",
       description: "DYNAWATT ENGINEERING provides reliable solar installation services in Uganda to reduce electricity costs and improve energy reliability.",
       icon: <Icons.Sun className="h-10 w-10 md:h-12 md:w-12 text-amber-500" />,
+      page: Page.SEO_SOLAR,
       features: [
         "Solar panel installation",
         "Battery storage systems",
@@ -42,6 +44,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
       title: "Repairs & Maintenance",
       description: "Our team provides quick and effective repair services to resolve electrical faults and maintain system performance.",
       icon: <Icons.Wrench className="h-10 w-10 md:h-12 md:w-12 text-amber-500" />,
+      page: Page.SEO_MAINTENANCE,
       features: [
         "Fast fault detection",
         "Yaka meter troubleshooting",
@@ -55,6 +58,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
       title: "Smart Home Installation",
       description: "Upgrade your property with smart systems that improve convenience, security, and energy efficiency.",
       icon: <Icons.Home className="h-10 w-10 md:h-12 md:w-12 text-amber-500" />,
+      page: Page.SEO_SMART_HOME,
       features: [
         "Smart lighting control",
         "Automated security systems",
@@ -107,7 +111,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
                 <Icons.CheckCircle className="h-5 w-5 mr-2 text-amber-500" />
                 What We Offer:
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-6">
                 {service.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start">
                     <div className="h-2 w-2 rounded-full bg-amber-500 mt-2 mr-3 flex-shrink-0"></div>
@@ -115,6 +119,13 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
                   </div>
                 ))}
               </div>
+              <button 
+                  onClick={() => setPage(service.page)}
+                  className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 transition group text-sm md:text-base"
+                >
+                  Learn More
+                  <Icons.ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 transition-transform group-hover:translate-x-1" />
+              </button>
             </div>
           </div>
         ))}

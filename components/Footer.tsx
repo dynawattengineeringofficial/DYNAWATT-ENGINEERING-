@@ -46,11 +46,14 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
           <div>
             <h4 className="text-lg font-bold mb-6 border-b border-amber-500/30 pb-2 inline-block">Our Services</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li>Electrical Installation</li>
-              <li>Solar Power Systems</li>
-              <li>Maintenance & Repairs</li>
-              <li>Smart Home Solutions</li>
-              <li>CCTV & Security</li>
+              <li><button onClick={() => setPage(Page.SEO_ELEC_INSTALL)} className="hover:text-amber-500 transition-colors text-left">Electrical Installation</button></li>
+              <li><button onClick={() => setPage(Page.SEO_ARCH_LIGHTING)} className="hover:text-amber-500 transition-colors text-left">Architectural Lighting</button></li>
+              <li><button onClick={() => setPage(Page.SEO_SOLAR)} className="hover:text-amber-500 transition-colors text-left">Solar Systems</button></li>
+              <li><button onClick={() => setPage(Page.SEO_CCTV)} className="hover:text-amber-500 transition-colors text-left">CCTV & Security</button></li>
+              <li><button onClick={() => setPage(Page.SEO_SMART_HOME)} className="hover:text-amber-500 transition-colors text-left">Smart Home Automation</button></li>
+              <li><button onClick={() => setPage(Page.SEO_COMMERCIAL)} className="hover:text-amber-500 transition-colors text-left">Commercial Electrical</button></li>
+              <li><button onClick={() => setPage(Page.SEO_MAINTENANCE)} className="hover:text-amber-500 transition-colors text-left">Electrical Maintenance</button></li>
+              <li><button onClick={() => setPage(Page.SEO_PROFILE_LIGHTING)} className="hover:text-amber-500 transition-colors text-left">Aluminum Profile Lighting</button></li>
             </ul>
           </div>
 
