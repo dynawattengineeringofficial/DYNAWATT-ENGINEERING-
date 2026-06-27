@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Icons } from './Icons';
+import { Icons } from './AppIcons';
 import { Testimonial } from '../types';
 
 interface TestimonialRecorderProps {

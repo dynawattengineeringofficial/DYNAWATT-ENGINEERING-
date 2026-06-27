@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Icons } from './Icons';
-import { Lead } from '../types';
+import { Icons } from './AppIcons';
+import { Lead, Page, SiteConfig } from '../types';
 
 interface LeadFormProps {
   addLead: (lead: Lead) => void;
+  setPage?: (page: Page) => void;
+  config?: SiteConfig;
 }
 
-const LeadForm: React.FC<LeadFormProps> = ({ addLead }) => {
+const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -24,30 +26,75 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead }) => {
     setErrorMessage('');
 
     try {
-      // Send to Formspree
-      const response = await fetch("https://formspree.io/f/mkgdnkzb", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      });
+      const SUPABASE_URL = "https://qpmrcphzexlsyiaxiyem.supabase.co";
+      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwbXJjcGh6ZXhsc3lpYXhpeWVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0MzE0MDEsImV4cCI6MjA5NzAwNzQwMX0.UMozbECVUFd0d1lnKIvIi1gUcpBpLXJsu-RkRKrZDvI";
 
-      if (response.ok) {
-        // Add to local admin dashboard for simulation/backup
-        const newLead: Lead = {
-          id: Date.now().toString(),
-          ...formData,
-          date: new Date().toLocaleDateString(),
-          status: 'new'
-        };
-        addLead(newLead);
-        setIsSubmitted(true);
-      } else {
-        setErrorMessage("Something went wrong. Please try again or call us.");
+      // Submit to Supabase - wrap in try-catch to avoid blocking user flow on network/CORS issues
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_submissions`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_KEY,
+            "Authorization": `Bearer ${SUPABASE_KEY}`,
+            "Prefer": "return=minimal"
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            phone: formData.phone,
+            location: formData.location,
+            service_type: formData.serviceType,
+            message: formData.message
+          })
+        });
+
+        if (!response.ok) {
+          const errText = await response.text();
+          console.error("Lead Form Supabase submission failed! Status:", response.status, "Response:", errText);
+        }
+      } catch (supabaseErr) {
+        console.warn("Supabase network error, proceeding with email notification & local lead registration:", supabaseErr);
       }
-    } catch (error) {
-      setErrorMessage("Network error. Please check your connection.");
+
+      // Send email notification via EmailJS
+      try {
+        await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            service_id: "service_nuq2cr4",
+            template_id: "template_vcr3tps",
+            user_id: "PFYeNP7qzbgG8YB94",
+            template_params: {
+              name: formData.name,
+              phone: formData.phone,
+              location: formData.location,
+              service_type: formData.serviceType,
+              message: formData.message
+            }
+          })
+        });
+      } catch (emailErr) {
+        console.error("EmailJS sending failed:", emailErr);
+      }
+
+      // Add to local admin dashboard and persist in backend
+      const newLead: Lead = {
+        id: Date.now().toString(),
+        ...formData,
+        date: new Date().toLocaleDateString(),
+        status: 'new'
+      };
+      addLead(newLead);
+      if (setPage) {
+        window.location.hash = "#thank-you";
+        setPage(Page.THANK_YOU);
+      } else {
+        setIsSubmitted(true);
+      }
+    } catch (error: any) {
+      console.error("Unexpected error submitting form:", error);
+      setErrorMessage(`Error: ${error.message || "Please check your connection."}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -78,8 +125,8 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead }) => {
 
   return (
     <div id="quote" className="bg-white p-5 md:p-8 rounded-xl shadow-2xl border-t-4 border-amber-500 scroll-mt-32">
-      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">Get a Free Quote</h3>
-      <p className="text-sm md:text-base text-slate-500 mb-6">Fast response in Kampala & surrounding areas.</p>
+      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">Request a Free Site Assessment in Kampala</h3>
+      <p className="text-sm md:text-base text-slate-500 mb-6">Fast response in Kampala & surrounding areas for quotes and emergencies.</p>
       
       <form onSubmit={handleSubmit} className="space-y-4">
         {errorMessage && (
@@ -119,21 +166,25 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead }) => {
           <div>
             <label className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Location</label>
             <select 
+              required
               name="location"
               className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none bg-white text-slate-900 text-sm md:text-base"
               value={formData.location}
               onChange={handleChange}
             >
-              <option value="" disabled>Select Area</option>
+              <option value="">Select Area</option>
               <option value="Kampala Central">Kampala Central</option>
               <option value="Nakawa">Nakawa</option>
               <option value="Makindye">Makindye</option>
               <option value="Rubaga">Rubaga</option>
               <option value="Kawempe">Kawempe</option>
+              <option value="Kira">Kira</option>
               <option value="Entebbe">Entebbe</option>
               <option value="Wakiso">Wakiso</option>
               <option value="Mukono">Mukono</option>
-              <option value="Other">Other</option>
+              <option value="Jinja">Jinja</option>
+              <option value="Mbarara">Mbarara</option>
+              <option value="Other">Other / Upcountry</option>
             </select>
           </div>
           <div>
@@ -151,17 +202,25 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead }) => {
               <option value="Security">CCTV & Security</option>
               <option value="Yaka">Yaka (UEDCL) Meter Issues</option>
               <option value="Inverter">Inverter/Battery</option>
+              <option value="SiteVisit">Book 100% Free Site Visit</option>
             </select>
           </div>
         </div>
 
+        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200 text-amber-950 text-xs md:text-sm flex items-start gap-2.5">
+          <Icons.ShieldCheck className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
+          <span>
+            <strong>100% No-Obligation Assessment:</strong> All engineering site visits in Kampala, Wakiso, Mukono and surrounding areas include a structured written Bill of Quantities (BOQ) with clear options.
+          </span>
+        </div>
+
         <div>
-          <label className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Describe the Issue</label>
+          <label className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Describe the Issue / Scope</label>
           <textarea 
             rows={3}
             name="message"
             className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none transition bg-white text-slate-900 text-sm md:text-base"
-            placeholder="e.g. No power in the kitchen, sparks from socket..."
+            placeholder="e.g. No power in the kitchen, full house wiring estimate, solar site sizing..."
             value={formData.message}
             onChange={handleChange}
           ></textarea>
@@ -182,7 +241,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead }) => {
             </>
           ) : (
             <>
-              Request Quote Now
+              Send Request / Book Site Visit
               <Icons.ArrowRight className="ml-2 h-5 w-5" />
             </>
           )}

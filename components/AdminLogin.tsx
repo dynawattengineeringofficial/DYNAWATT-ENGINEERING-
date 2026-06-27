@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Icons } from './Icons';
+import { Icons } from './AppIcons';
 
 interface AdminLoginProps {
   onLogin: () => void;

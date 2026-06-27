@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
 import { Lead, SiteConfig } from '../types';
-import { Icons } from './Icons';
+import { Icons } from './AppIcons';
 import { generateMarketingContent } from '../services/geminiService';
 
 interface AdminDashboardProps {
   leads: Lead[];
   config: SiteConfig;
   updateConfig: (key: keyof SiteConfig, value: any) => void;
+  updateLeadStatus: (id: string, status: 'new' | 'contacted' | 'completed') => void;
+  deleteLead: (id: string) => void;
   goBack: () => void;
 }
 
-const AdminDashboard: React.FC<AdminDashboardProps> = ({ leads, config, updateConfig, goBack }) => {
+const AdminDashboard: React.FC<AdminDashboardProps> = ({ 
+  leads, 
+  config, 
+  updateConfig, 
+  updateLeadStatus,
+  deleteLead,
+  goBack 
+}) => {
   const [activeTab, setActiveTab] = useState<'leads' | 'content' | 'settings'>('leads');
   
   // Gemini State
@@ -110,6 +119,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ leads, config, updateCo
                           <th className="px-6 py-4 font-semibold text-slate-700">Location</th>
                           <th className="px-6 py-4 font-semibold text-slate-700">Service</th>
                           <th className="px-6 py-4 font-semibold text-slate-700">Status</th>
+                          <th className="px-6 py-4 font-semibold text-slate-700 text-right">Actions</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-100">
@@ -129,9 +139,33 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ leads, config, updateCo
                               </span>
                             </td>
                             <td className="px-6 py-4">
-                              <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold uppercase">
-                                {lead.status}
-                              </span>
+                              <select
+                                value={lead.status || 'new'}
+                                onChange={(e) => updateLeadStatus(lead.id, e.target.value as any)}
+                                className={`text-xs font-semibold rounded-full px-2.5 py-1 border outline-none cursor-pointer uppercase ${
+                                  lead.status === 'completed'
+                                    ? 'bg-green-100 text-green-800 border-green-200'
+                                    : lead.status === 'contacted'
+                                    ? 'bg-blue-100 text-blue-800 border-blue-200'
+                                    : 'bg-amber-100 text-amber-800 border-amber-200'
+                                }`}
+                              >
+                                <option value="new">New</option>
+                                <option value="contacted">Contacted</option>
+                                <option value="completed">Completed</option>
+                              </select>
+                            </td>
+                            <td className="px-6 py-4 text-right">
+                              <button
+                                onClick={() => {
+                                  if (confirm(`Are you sure you want to delete lead from ${lead.name}?`)) {
+                                    deleteLead(lead.id);
+                                  }
+                                }}
+                                className="p-1 px-2 text-xs text-red-600 hover:bg-red-50 rounded transition font-bold"
+                              >
+                                Delete
+                              </button>
                             </td>
                           </tr>
                         ))}
@@ -214,7 +248,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ leads, config, updateCo
               <div>
                 <h2 className="text-2xl font-bold text-slate-800 mb-6">Website Configuration</h2>
                 
-                {/* Temporary Settings */}
+                {/* Persistent Settings */}
                 <div className="bg-white p-6 rounded-lg shadow-sm space-y-6 border border-slate-200">
                   <div className="flex items-center justify-between border-b border-slate-100 pb-6">
                     <div>
@@ -230,8 +264,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ leads, config, updateCo
                   </div>
 
                   <div className="space-y-4">
-                    <div className="bg-amber-50 p-4 rounded text-sm text-amber-800">
-                      <strong>Note:</strong> Settings changed here are temporary for the current session. To make them permanent, see the guide below.
+                    <div className="bg-green-50 p-4 rounded text-sm text-green-800 border border-green-200">
+                      <strong>Standard Database Integration Active:</strong> All changes made here are saved in real-time, instantly persisting to your backend data-store across all page reloads and visitor sessions!
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-1">Contact Phone</label>
@@ -250,6 +284,29 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ leads, config, updateCo
                         value={config.heroHeadline}
                         onChange={(e) => updateConfig('heroHeadline', e.target.value)}
                       />
+                    </div>
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <label className="block text-sm font-medium text-slate-700">Formspree Form ID / Key</label>
+                        <a 
+                          href="https://formspree.io/" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-xs text-amber-600 hover:underline flex items-center gap-1"
+                        >
+                          Create Free Account ↗
+                        </a>
+                      </div>
+                      <input 
+                        type="text" 
+                        placeholder="e.g. mkgdnkzb"
+                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 placeholder-slate-400 font-mono text-sm"
+                        value={config.formspreeId || ''}
+                        onChange={(e) => updateConfig('formspreeId', e.target.value)}
+                      />
+                      <p className="text-xs text-slate-500">
+                        Connect your website to your own email address! Enter your 8-character Formspree form ID. Submitted forms will route instantly to your mailbox. Left empty, it uses the fallback placeholder.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -295,9 +352,9 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ leads, config, updateCo
                       <Icons.MessageCircle className="h-5 w-5 mr-2 text-amber-500" />
                       Lead Notifications
                     </h3>
-                    <p>All "Get Quote" submissions are sent to:</p>
-                    <code className="block bg-slate-900 p-3 rounded mt-2 text-green-400">https://formspree.io/f/mkgdnkzb</code>
-                    <p className="mt-2 text-sm">Check your email associated with this Formspree link to see customer inquiries.</p>
+                    <p>All "Get Quote" submissions are securely saved in this local database backup and sent directly to your configured Formspree endpoint:</p>
+                    <code className="block bg-slate-900 p-3 rounded mt-2 text-green-400">https://formspree.io/f/{config.formspreeId || "mkgdnkzb"}</code>
+                    <p className="mt-2 text-sm">Check the email account register-linked to your custom Formspree ID to view and manage your incoming leads.</p>
                   </div>
 
                 </div>

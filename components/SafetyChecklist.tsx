@@ -1,22 +1,33 @@
 import React from 'react';
-import { Icons } from './Icons';
+import { Icons } from './AppIcons';
+import { Page } from '../types';
 
-const SafetyChecklist: React.FC = () => {
+interface SafetyChecklistProps {
+  setPage: (page: Page) => void;
+}
+
+const SafetyChecklist: React.FC<SafetyChecklistProps> = ({ setPage }) => {
   const safetyPoints = [
     {
       title: "The Heat Test",
       description: "Place your hand carefully over wall switches and sockets. If they feel warm to the touch, you likely have a loose connection or overloaded circuit. This is a major fire hazard.",
-      icon: <Icons.Thermometer className="h-6 w-6 md:h-8 md:w-8 text-red-500" />
+      icon: <Icons.Thermometer className="h-6 w-6 md:h-8 md:w-8 text-red-500" />,
+      link: Page.SEO_WARM_SWITCHES,
+      linkText: "Read Heat Dangers"
     },
     {
       title: "Yaka & Breakers",
       description: "Does your main breaker trip frequently? Or does your Yaka meter display 'Tamper' or reject tokens? These are signs of electrical faults or dangerous bypasses.",
-      icon: <Icons.Zap className="h-6 w-6 md:h-8 md:w-8 text-amber-500" />
+      icon: <Icons.Zap className="h-6 w-6 md:h-8 md:w-8 text-amber-500" />,
+      link: Page.SEO_YAKA_METER,
+      linkText: "Fix Yaka Issues"
     },
     {
-      title: "Cord Inspection",
-      description: "Check all appliance cords and extension cables. Look for cuts, exposed copper, or fraying. Never run cords under carpets where heat can build up.",
-      icon: <Icons.Plug className="h-6 w-6 md:h-8 md:w-8 text-slate-700" />
+      title: "Wiring Standards",
+      description: "Check if your complete house wiring is up to modern BS 7671 standards. Poor quality cables significantly increase power loss and fire risk over time.",
+      icon: <Icons.Plug className="h-6 w-6 md:h-8 md:w-8 text-slate-700" />,
+      link: Page.SEO_HOUSE_WIRING_COST,
+      linkText: "View House Wiring"
     },
     {
       title: "Water Safety",
@@ -26,7 +37,9 @@ const SafetyChecklist: React.FC = () => {
     {
       title: "Backup Health",
       description: "For solar/inverter users: Check your battery terminals for corrosion (white powder). If using wet cells, ensure acid levels are topped up to prevent battery failure.",
-      icon: <Icons.BatteryCharging className="h-6 w-6 md:h-8 md:w-8 text-green-600" />
+      icon: <Icons.BatteryCharging className="h-6 w-6 md:h-8 md:w-8 text-green-600" />,
+      link: Page.SEO_SOLAR_MAINTENANCE,
+      linkText: "Fix Battery Issues"
     }
   ];
 
@@ -62,17 +75,27 @@ const SafetyChecklist: React.FC = () => {
           {safetyPoints.map((point, index) => (
             <div 
               key={index} 
-              className="bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border-t-4 border-amber-400 flex flex-col"
+              className="bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border-t-4 border-amber-400 flex flex-col justify-between"
             >
-              <div className="flex items-center mb-3 md:mb-4">
-                <div className="p-2 bg-slate-50 rounded-lg mr-4">
-                  {point.icon}
+              <div>
+                <div className="flex items-center mb-3 md:mb-4">
+                  <div className="p-2 bg-slate-50 rounded-lg mr-4">
+                    {point.icon}
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold text-slate-800">{point.title}</h3>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-slate-800">{point.title}</h3>
+                <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-4">
+                  {point.description}
+                </p>
               </div>
-              <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                {point.description}
-              </p>
+              {point.link && point.linkText && (
+                <button 
+                  onClick={() => setPage(point.link)}
+                  className="text-amber-600 hover:text-amber-700 text-sm font-bold flex items-center group mt-auto"
+                >
+                  {point.linkText} <Icons.ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                </button>
+              )}
             </div>
           ))}
 
