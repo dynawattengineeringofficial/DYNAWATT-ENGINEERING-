@@ -6,7 +6,35 @@ interface FooterProps {
   setPage: (page: Page) => void;
 }
 
+const getPathFromPage = (targetPage: Page): string => {
+  switch(targetPage) {
+    case Page.HOME: return '/';
+    case Page.SERVICES: return '/services';
+    case Page.SOLAR: return '/solar';
+    case Page.ABOUT: return '/about';
+    case Page.LOCATION: return '/areas-we-serve';
+    case Page.CONTACT: return '/contact';
+    case Page.GUARANTEE: return '/guarantee';
+    case Page.BLOG: return '/blog';
+    default: return `/?page=${targetPage}`;
+  }
+};
+
 const Footer: React.FC<FooterProps> = ({ setPage }) => {
+  
+  const FooterLink = ({ targetPage, children, className = "hover:text-amber-500 transition-colors" }: { targetPage: Page, children: React.ReactNode, className?: string }) => (
+    <a 
+      href={getPathFromPage(targetPage)}
+      onClick={(e) => {
+        e.preventDefault();
+        setPage(targetPage);
+      }}
+      className={className}
+    >
+      {children}
+    </a>
+  );
+
   return (
     <footer className="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,20 +62,20 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
           <div>
             <h4 className="text-lg font-bold mb-6 border-b border-amber-500/30 pb-2 inline-block">Quick Links</h4>
             <ul className="space-y-4 text-slate-400 text-sm mb-8">
-              <li><button onClick={() => setPage(Page.HOME)} className="hover:text-amber-500 transition-colors">Home</button></li>
-              <li><button onClick={() => setPage(Page.ABOUT)} className="hover:text-amber-500 transition-colors">About Us</button></li>
-              <li><button onClick={() => setPage(Page.SERVICES)} className="hover:text-amber-500 transition-colors">Our Services</button></li>
-              <li><button onClick={() => setPage(Page.GUARANTEE)} className="hover:text-amber-500 font-bold text-amber-400/90 transition-colors">🛡️ Service Guarantee</button></li>
-              <li><button onClick={() => setPage(Page.BLOG)} className="hover:text-amber-500 transition-colors">Blog & News</button></li>
-              <li><button onClick={() => setPage(Page.CONTACT)} className="hover:text-amber-500 transition-colors">Contact Us</button></li>
+              <li><FooterLink targetPage={Page.HOME}>Home</FooterLink></li>
+              <li><FooterLink targetPage={Page.ABOUT}>About Us</FooterLink></li>
+              <li><FooterLink targetPage={Page.SERVICES}>Our Services</FooterLink></li>
+              <li><FooterLink targetPage={Page.GUARANTEE} className="hover:text-amber-500 font-bold text-amber-400/90 transition-colors">🛡️ Service Guarantee</FooterLink></li>
+              <li><FooterLink targetPage={Page.BLOG}>Blog & News</FooterLink></li>
+              <li><FooterLink targetPage={Page.CONTACT}>Contact Us</FooterLink></li>
             </ul>
             
             <h4 className="text-lg font-bold mb-6 border-b border-amber-500/30 pb-2 inline-block">Cost & Yaka Guides</h4>
             <ul className="space-y-4 text-slate-400 text-sm text-left">
-              <li><button onClick={() => setPage(Page.SEO_YAKA_METER)} className="hover:text-amber-500 transition-colors text-left">Yaka Meter Troubleshooting</button></li>
-              <li><button onClick={() => setPage(Page.SEO_WIRING_2_BEDROOM)} className="hover:text-amber-500 transition-colors text-left">2-Bedroom Wiring Costs</button></li>
-              <li><button onClick={() => setPage(Page.SEO_WIRING_3_BEDROOM)} className="hover:text-amber-500 transition-colors text-left">3-Bedroom Wiring Costs</button></li>
-              <li><button onClick={() => setPage(Page.SEO_WIRING_COMMERCIAL)} className="hover:text-amber-500 transition-colors text-left">Commercial Wiring Costs</button></li>
+              <li><FooterLink targetPage={Page.SEO_YAKA_METER} className="hover:text-amber-500 transition-colors text-left">Yaka Meter Troubleshooting</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_WIRING_2_BEDROOM} className="hover:text-amber-500 transition-colors text-left">2-Bedroom Wiring Costs</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_WIRING_3_BEDROOM} className="hover:text-amber-500 transition-colors text-left">3-Bedroom Wiring Costs</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_WIRING_COMMERCIAL} className="hover:text-amber-500 transition-colors text-left">Commercial Wiring Costs</FooterLink></li>
             </ul>
           </div>
 
@@ -55,13 +83,13 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
           <div>
             <h4 className="text-lg font-bold mb-6 border-b border-amber-500/30 pb-2 inline-block">Our Services</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><button onClick={() => setPage(Page.SEO_ELEC_INSTALL)} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Zap className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Electrical Installation</button></li>
-              <li><button onClick={() => setPage(Page.SEO_ARCH_LIGHTING)} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Lightbulb className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Architectural Lighting</button></li>
-              <li><button onClick={() => setPage(Page.SEO_SOLAR)} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Sun className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Solar Systems</button></li>
-              <li><button onClick={() => setPage(Page.SEO_CCTV)} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Camera className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> CCTV & Security</button></li>
-              <li><button onClick={() => setPage(Page.SEO_SMART_HOME)} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Home className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Smart Home Automation</button></li>
-              <li><button onClick={() => setPage(Page.SEO_COMMERCIAL)} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Briefcase className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Commercial Electrical</button></li>
-              <li><button onClick={() => setPage(Page.SEO_MAINTENANCE)} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Wrench className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Electrical Maintenance</button></li>
+              <li><FooterLink targetPage={Page.SEO_ELEC_INSTALL} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Zap className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Electrical Installation</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_ARCH_LIGHTING} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Lightbulb className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Architectural Lighting</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_SOLAR} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Sun className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Solar Systems</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_CCTV} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Camera className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> CCTV & Security</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_SMART_HOME} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Home className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Smart Home Automation</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_COMMERCIAL} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Briefcase className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Commercial Electrical</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_MAINTENANCE} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Wrench className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Electrical Maintenance</FooterLink></li>
             </ul>
           </div>
 
@@ -103,9 +131,9 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
             © {new Date().getFullYear()} DYNAWATT ENGINEERING. All Rights Reserved.
           </p>
           <div className="flex space-x-4">
-            <button onClick={() => setPage(Page.GUARANTEE)} className="hover:text-slate-300 transition-colors">Service Guarantee</button>
-            <button onClick={() => setPage(Page.PRIVACY_POLICY)} className="hover:text-slate-300 transition-colors">Privacy Policy</button>
-            <button onClick={() => setPage(Page.TERMS_OF_SERVICE)} className="hover:text-slate-300 transition-colors">Terms of Service</button>
+            <FooterLink targetPage={Page.GUARANTEE} className="hover:text-slate-300 transition-colors">Service Guarantee</FooterLink>
+            <FooterLink targetPage={Page.PRIVACY_POLICY} className="hover:text-slate-300 transition-colors">Privacy Policy</FooterLink>
+            <FooterLink targetPage={Page.TERMS_OF_SERVICE} className="hover:text-slate-300 transition-colors">Terms of Service</FooterLink>
           </div>
         </div>
       </div>

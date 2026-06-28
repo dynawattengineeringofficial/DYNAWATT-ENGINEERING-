@@ -67,16 +67,37 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
     }, 100);
   };
 
-  const NavLink = ({ id, label, isMobile = false }: { id: string, label: string, isMobile?: boolean }) => {
-    const isActive = activeSection === id;
+  const getPathFromPage = (targetPage: Page): string => {
+    switch(targetPage) {
+      case Page.HOME: return '/';
+      case Page.SERVICES: return '/services';
+      case Page.SOLAR: return '/solar';
+      case Page.ABOUT: return '/about';
+      case Page.LOCATION: return '/areas-we-serve';
+      case Page.CONTACT: return '/contact';
+      case Page.GUARANTEE: return '/guarantee';
+      case Page.BLOG: return '/blog';
+      default: return `/?page=${targetPage}`;
+    }
+  };
+
+  const PageLink = ({ targetPage, label, isMobile = false, isAnchor = false, anchorId = '' }: { targetPage: Page, label: string, isMobile?: boolean, isAnchor?: boolean, anchorId?: string }) => {
+    const isActive = page === targetPage;
     
     if (isMobile) {
       return (
         <a 
-          href={`#${id}`}
-          onClick={(e) => scrollToSection(e, id)}
+          href={isAnchor ? `/#${anchorId}` : getPathFromPage(targetPage)}
+          onClick={(e) => {
+            if (isAnchor) {
+              scrollToSection(e, anchorId);
+              return;
+            }
+            e.preventDefault();
+            setPage(targetPage);
+          }}
           className={`block py-3 px-4 rounded-lg transition-all duration-300 border-l-4 ${
-            isActive 
+            isActive && !isAnchor
               ? 'bg-amber-100 text-amber-800 border-amber-500 font-semibold' 
               : 'border-transparent text-gray-300 hover:text-white hover:bg-slate-800'
           }`}
@@ -88,14 +109,21 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
 
     return (
       <a 
-        href={`#${id}`}
-        onClick={(e) => scrollToSection(e, id)}
-        className={`relative px-3 py-2 transition-colors duration-300 ${
-          isActive ? 'text-amber-500 font-medium' : 'text-gray-100 hover:text-amber-500'
+        href={isAnchor ? `/#${anchorId}` : getPathFromPage(targetPage)}
+        onClick={(e) => {
+          if (isAnchor) {
+            scrollToSection(e, anchorId);
+            return;
+          }
+          e.preventDefault();
+          setPage(targetPage);
+        }}
+        className={`relative px-3 py-2 text-sm transition-colors duration-300 ${
+          isActive && !isAnchor ? 'text-amber-500 font-medium' : 'text-gray-100 hover:text-amber-500'
         }`}
       >
         {label}
-        {isActive && (
+        {isActive && !isAnchor && (
           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-500 rounded-full transition-all duration-300"></span>
         )}
       </a>
@@ -150,14 +178,14 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex space-x-1 lg:space-x-1.5 items-center">
-            <NavLink id="home" label="Home" />
-            <button onClick={() => setPage(Page.SERVICES)} className={`px-3 py-2 text-sm transition-colors duration-300 ${page === Page.SERVICES ? 'text-amber-500 font-medium' : 'text-gray-100 hover:text-amber-500'}`}>Services</button>
-            <button onClick={() => setPage(Page.SOLAR)} className={`px-3 py-2 text-sm transition-colors duration-300 ${page === Page.SOLAR ? 'text-amber-500 font-medium' : 'text-gray-100 hover:text-amber-500'}`}>Solar</button>
-            <button onClick={() => setPage(Page.ABOUT)} className={`px-3 py-2 text-sm transition-colors duration-300 ${page === Page.ABOUT ? 'text-amber-500 font-medium' : 'text-gray-100 hover:text-amber-500'}`}>About</button>
-            <button onClick={() => setPage(Page.GUARANTEE)} className={`px-3 py-2 text-sm transition-colors duration-300 ${page === Page.GUARANTEE ? 'text-amber-500 font-medium' : 'text-gray-100 hover:text-amber-500'}`}>Guarantee</button>
-            <button onClick={() => setPage(Page.LOCATION)} className={`px-3 py-2 text-sm transition-colors duration-300 ${page === Page.LOCATION ? 'text-amber-500 font-medium' : 'text-gray-100 hover:text-amber-500'}`}>Areas We Serve</button>
-            <button onClick={() => setPage(Page.BLOG)} className={`px-3 py-2 text-sm transition-colors duration-300 ${page === Page.BLOG ? 'text-amber-500 font-medium' : 'text-gray-100 hover:text-amber-500'}`}>Blog</button>
-            <button onClick={() => setPage(Page.CONTACT)} className={`px-3 py-2 text-sm transition-colors duration-300 ${page === Page.CONTACT ? 'text-amber-500 font-medium' : 'text-gray-100 hover:text-amber-500'}`}>Contact</button>
+            <PageLink targetPage={Page.HOME} label="Home" />
+            <PageLink targetPage={Page.SERVICES} label="Services" />
+            <PageLink targetPage={Page.SOLAR} label="Solar" />
+            <PageLink targetPage={Page.ABOUT} label="About" />
+            <PageLink targetPage={Page.GUARANTEE} label="Guarantee" />
+            <PageLink targetPage={Page.LOCATION} label="Areas We Serve" />
+            <PageLink targetPage={Page.BLOG} label="Blog" />
+            <PageLink targetPage={Page.CONTACT} label="Contact" />
             
             <div className="flex items-center space-x-2 lg:space-x-3 ml-2 lg:ml-4 pl-2 lg:pl-4 border-l border-slate-700">
               <a 
@@ -211,18 +239,26 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
             WebkitOverflowScrolling: 'touch'
           }}
         >
-          <button
-            onClick={(e) => scrollToSection(e, 'home')}
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(Page.HOME);
+            }}
             className={`px-3 py-1.5 text-xs font-bold rounded-full transition-all duration-200 border whitespace-nowrap flex-shrink-0 ${
-              activeSection === 'home' && page === Page.HOME
+              page === Page.HOME
                 ? 'bg-amber-500 border-amber-500 text-slate-900'
                 : 'bg-slate-900 border-slate-800 text-slate-300 hover:text-white'
             }`}
           >
             Home
-          </button>
-          <button
-            onClick={() => setPage(Page.SERVICES)}
+          </a>
+          <a
+            href="/services"
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(Page.SERVICES);
+            }}
             className={`px-3 py-1.5 text-xs font-bold rounded-full border transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
               page === Page.SERVICES
                 ? 'bg-amber-500 border-amber-500 text-slate-900'
@@ -230,9 +266,13 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
             }`}
           >
             Services
-          </button>
-          <button
-            onClick={() => setPage(Page.LOCATION)}
+          </a>
+          <a
+            href="/areas-we-serve"
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(Page.LOCATION);
+            }}
             className={`px-3 py-1.5 text-xs font-bold rounded-full border transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
               page === Page.LOCATION
                 ? 'bg-amber-500 border-amber-500 text-slate-900'
@@ -240,9 +280,13 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
             }`}
           >
             Areas We Serve
-          </button>
-          <button
-            onClick={() => setPage(Page.SOLAR)}
+          </a>
+          <a
+            href="/solar"
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(Page.SOLAR);
+            }}
             className={`px-3 py-1.5 text-xs font-bold rounded-full border transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
               page === Page.SOLAR
                 ? 'bg-amber-500 border-amber-500 text-slate-900'
@@ -250,9 +294,13 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
             }`}
           >
             Solar
-          </button>
-          <button
-            onClick={() => setPage(Page.GUARANTEE)}
+          </a>
+          <a
+            href="/guarantee"
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(Page.GUARANTEE);
+            }}
             className={`px-3 py-1.5 text-xs font-bold rounded-full border transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
               page === Page.GUARANTEE
                 ? 'bg-amber-500 border-amber-500 text-slate-900'
@@ -260,9 +308,13 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
             }`}
           >
             Guarantee
-          </button>
-          <button
-            onClick={() => setPage(Page.ABOUT)}
+          </a>
+          <a
+            href="/about"
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(Page.ABOUT);
+            }}
             className={`px-3 py-1.5 text-xs font-bold rounded-full border transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
               page === Page.ABOUT
                 ? 'bg-amber-500 border-amber-500 text-slate-900'
@@ -270,9 +322,13 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
             }`}
           >
             About Us
-          </button>
-          <button
-            onClick={() => setPage(Page.BLOG)}
+          </a>
+          <a
+            href="/blog"
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(Page.BLOG);
+            }}
             className={`px-3 py-1.5 text-xs font-bold rounded-full border transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
               page === Page.BLOG
                 ? 'bg-amber-500 border-amber-500 text-slate-900'
@@ -280,9 +336,13 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
             }`}
           >
             Blog
-          </button>
-          <button
-            onClick={() => setPage(Page.CONTACT)}
+          </a>
+          <a
+            href="/contact"
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(Page.CONTACT);
+            }}
             className={`px-3 py-1.5 text-xs font-bold rounded-full border transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
               page === Page.CONTACT
                 ? 'bg-amber-500 border-amber-500 text-slate-900'
@@ -290,7 +350,7 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
             }`}
           >
             Contact
-          </button>
+          </a>
         </div>
       </div>
     </nav>

@@ -1362,9 +1362,9 @@ Additional Details: ${formData.message || 'None'}
               <Icons.BadgeCheck className="h-4 w-4 text-amber-400" />
               <span>Price Audit Validated — True 2026 Competitive UGX Costs</span>
             </div>
-            <h3 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-4">
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-4">
               Pre-Engineered Solar Backup Packages
-            </h3>
+            </h2>
             <p className="text-sm md:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
               Premium tier lithium-powered configurations with fully transparent pricing, zero hidden fees, and certified engineering installation in Uganda.
             </p>
@@ -1937,30 +1937,30 @@ Additional Details: ${formData.message || 'None'}
       <section className="py-16 md:py-20 bg-slate-50 border-t border-slate-200 text-left">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">Solar & Battery FAQ for Uganda</h3>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">Solar & Battery FAQ for Uganda</h2>
             <p className="text-xs md:text-sm text-slate-500 mt-2">Essential answers to protect your power investment and ensure long-term reliability.</p>
           </div>
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-xl border border-slate-200">
-              <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
+              <h3 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
                 <span className="text-red-500 font-bold">⚠️</span> Why are cheap solar batteries dangerous?
-              </h4>
+              </h3>
               <p className="text-xs md:text-sm text-slate-650 leading-relaxed pl-6">
                 Substandard, unbranded, or second-hand lead-acid/lithium batteries lack thermal safety management and robust cell balancers (BMS). In Uganda’s warm climates, they degrade rapidly inside 6–12 months, fail to supply rated power, and in rare cases can experience dangerous thermal runaways (fires). At Dynawatt, we only install certified Tier-1 lithium iron phosphate (LiFePO4) solar cabinets with high-efficiency smart BMS, designed for safe, steady performance for over 10 years.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-slate-200">
-              <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
+              <h3 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
                 <span className="text-[#00b67a] font-bold">✓</span> How does a smart hybrid backup solar system work?
-              </h4>
+              </h3>
               <p className="text-xs md:text-sm text-slate-650 leading-relaxed pl-6">
                 A hybrid system ties your solar array, lithium storage battery, and UEDCL grid feed together. When grid power is on, it powers the house from solar first, keeping your batteries full. The millisecond a load-shedding blackout hits, the smart hybrid inverter isolates the line and transfers priority to battery backup, preventing any blinking, resetting, or damage to your TVs, computers, or active appliances.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-slate-200">
-              <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
+              <h3 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
                 <span className="text-amber-500 font-bold">☀️</span> Do you offer warranties on panels and equipment?
-              </h4>
+              </h3>
               <p className="text-xs md:text-sm text-slate-650 leading-relaxed pl-6">
                 All physical equipment and hardware are protected by extensive <strong>manufacturer warranties</strong> directly (including a 15 to 25-year performance warranty on monocrystalline panels, and a 5-year manufacturer warranty on smart lithium battery cells and premium hybrid inverters like Growatt, Deye, Victron, Amp Nova, Felicity, Sumry, or Solar Riio Sun). Dynawatt Engineering is an installation contractor and is not the warrantor of these physical products, but we actively assist you with any manufacturer warranty processing, while we directly support you with a dedicated <strong>1-Year Installation Workmanship Warranty</strong> on our physical wiring and structural mounting execution.
               </p>

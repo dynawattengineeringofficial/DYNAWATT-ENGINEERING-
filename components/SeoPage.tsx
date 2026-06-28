@@ -531,13 +531,14 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
                 {data.author.bio}
               </p>
               <div>
-                <button 
-                  onClick={() => setPage(Page.ABOUT)}
+                <a 
+                  href="/about"
+                  onClick={(e) => { e.preventDefault(); setPage(Page.ABOUT); }}
                   className="inline-flex items-center text-xs font-black uppercase text-amber-600 hover:text-amber-700 hover:underline transition-colors gap-1 group"
                 >
                   View engineering credentials & about story
                   <Icons.ArrowRight className="h-3.5 w-3.5 transform group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -551,9 +552,9 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
               <Icons.Phone className="mr-2 h-5 w-5" />
               Call Now
             </a>
-            <button onClick={() => setPage(Page.CONTACT)} className="bg-white text-slate-900 font-bold py-4 px-8 rounded-xl hover:bg-slate-50 transition shadow-lg inline-flex justify-center items-center">
+            <a href="/contact" onClick={(e) => { e.preventDefault(); setPage(Page.CONTACT); }} className="bg-white text-slate-900 font-bold py-4 px-8 rounded-xl hover:bg-slate-50 transition shadow-lg inline-flex justify-center items-center">
               Get a Free Quote
-            </button>
+            </a>
           </div>
         </div>
 
