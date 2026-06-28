@@ -30,20 +30,110 @@ const Blog = lazy(() => import('./components/Blog'));
 const PremiumLighting = lazy(() => import('./components/PremiumLighting'));
 const SeoPage = lazy(() => import('./components/SeoPage'));
 
+import { Helmet } from 'react-helmet-async';
+
+const getPageFromPath = (path: string): Page | null => {
+  switch(path) {
+    case '/': return Page.HOME;
+    case '/services': return Page.SERVICES;
+    case '/solar': return Page.SOLAR;
+    case '/about': return Page.ABOUT;
+    case '/areas-we-serve': return Page.LOCATION;
+    case '/contact': return Page.CONTACT;
+    case '/guarantee': return Page.GUARANTEE;
+    case '/blog': return Page.BLOG;
+    case '/thank-you': return Page.THANK_YOU;
+    default: return null;
+  }
+};
+
+const getPathFromPage = (page: Page): string | null => {
+  switch(page) {
+    case Page.HOME: return '/';
+    case Page.SERVICES: return '/services';
+    case Page.SOLAR: return '/solar';
+    case Page.ABOUT: return '/about';
+    case Page.LOCATION: return '/areas-we-serve';
+    case Page.CONTACT: return '/contact';
+    case Page.GUARANTEE: return '/guarantee';
+    case Page.BLOG: return '/blog';
+    case Page.THANK_YOU: return '/thank-you';
+    default: return null;
+  }
+};
+
+const SeoMeta = ({ page }: { page: Page }) => {
+  let title = "Dynawatt Engineering";
+  let description = "Professional electrical installation and solar energy company in Kampala, Uganda.";
+  let url = "https://dynawattengineering.com";
+
+  switch (page) {
+    case Page.HOME:
+      title = "Electrical Installation Services in Kampala | Dynawatt Engineering";
+      description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free site assessment today.";
+      url = "https://dynawattengineering.com/";
+      break;
+    case Page.SERVICES:
+      title = "Electrical Installation Services in Kampala | Dynawatt Engineering";
+      description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free site assessment today.";
+      url = "https://dynawattengineering.com/services";
+      break;
+    case Page.SOLAR:
+      title = "Hybrid Solar Packages Uganda DW1-DW5 | Dynawatt Engineering";
+      description = "5 hybrid solar packages from UGX 4.4M to 19.2M. DEYE inverters, LiFePO4 batteries. ERA licensed solar installation across Kampala, Wakiso & Mukono.";
+      url = "https://dynawattengineering.com/solar";
+      break;
+    case Page.ABOUT:
+      title = "About Dynawatt Engineering | BS 7671 Certified Electricians Kampala";
+      description = "Kampala's trusted electrical engineers. ERA licensed, BS 7671 certified, UEDCL approved. Professional electrical installation and solar energy company in Uganda.";
+      url = "https://dynawattengineering.com/about";
+      break;
+    case Page.LOCATION:
+      title = "Electrical Services Kampala Wakiso Mukono | Dynawatt Engineering";
+      description = "Professional electrical installation and solar energy across Kampala, Wakiso, Mukono, Kira, Entebbe, Nansana and surrounding areas of Central Uganda.";
+      url = "https://dynawattengineering.com/areas-we-serve";
+      break;
+    case Page.GUARANTEE:
+      title = "3-Month Service Guarantee | Dynawatt Engineering Kampala";
+      description = "Dynawatt Engineering backs every installation with a 3-month repair guarantee. ERA licensed and BS 7671 certified electrical work you can trust.";
+      url = "https://dynawattengineering.com/guarantee";
+      break;
+    case Page.CONTACT:
+      title = "Contact Dynawatt Engineering | Free Site Assessment Kampala";
+      description = "Request a free site assessment in Kampala, Wakiso & Mukono. Call +256 751 473 830 or WhatsApp us. Fast response across Central Uganda.";
+      url = "https://dynawattengineering.com/contact";
+      break;
+    case Page.BLOG:
+      title = "Electrical & Solar Tips Blog | Dynawatt Engineering Uganda";
+      description = "Expert electrical and solar energy tips for Ugandan homeowners and businesses. Guides on wiring, solar systems, and energy savings from Dynawatt Engineering.";
+      url = "https://dynawattengineering.com/blog";
+      break;
+  }
+
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={url} />
+      <meta property="og:site_name" content="Dynawatt Engineering" />
+      <meta property="og:locale" content="en_UG" />
+      <meta property="og:type" content="website" />
+    </Helmet>
+  );
+};
+
 function App() {
   const [page, setPage] = useState<Page>(() => {
     try {
-      if (window.location.pathname === '/thank-you') {
-        return Page.THANK_YOU;
-      }
+      const matchedPage = getPageFromPath(window.location.pathname);
+      if (matchedPage) return matchedPage;
+
       const params = new URLSearchParams(window.location.search);
       const queryPage = params.get('page');
       if (queryPage && Object.values(Page).includes(queryPage as Page)) {
         return queryPage as Page;
-      }
-      const hash = window.location.hash.replace('#/', '').replace('#', '');
-      if (hash && Object.values(Page).includes(hash as Page)) {
-        return hash as Page;
       }
     } catch (e) {
       // Ignored
@@ -58,19 +148,16 @@ function App() {
   useEffect(() => {
     const handlePopState = () => {
       try {
-        if (window.location.pathname === '/thank-you') {
-          setPage(Page.THANK_YOU);
+        const matchedPage = getPageFromPath(window.location.pathname);
+        if (matchedPage) {
+          setPage(matchedPage);
           return;
         }
+        
         const params = new URLSearchParams(window.location.search);
         const queryPage = params.get('page');
         if (queryPage && Object.values(Page).includes(queryPage as Page)) {
           setPage(queryPage as Page);
-          return;
-        }
-        const hash = window.location.hash.replace('#/', '').replace('#', '');
-        if (hash && Object.values(Page).includes(hash as Page)) {
-          setPage(hash as Page);
           return;
         }
       } catch (e) {
@@ -94,38 +181,51 @@ function App() {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Dynawatt Engineering",
-        "image": "https://dynawattengineering.com/dynawatt-engineering-logo.png",
-        "@id": "https://dynawattengineering.com/#localbusiness",
+        "description": "Professional electrical installation and solar energy company in Kampala, Uganda. BS 7671 certified, ERA licensed, UEDCL approved.",
         "url": "https://dynawattengineering.com",
         "telephone": "+256751473830",
-        "priceRange": "UGX",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Salaama Road, Makindye",
           "addressLocality": "Kampala",
           "addressCountry": "UG"
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "0.3136",
-          "longitude": "32.5811"
+        "areaServed": [
+          "Kampala", "Wakiso", "Mukono", "Kira",
+          "Entebbe", "Nansana", "Central Uganda"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Electrical & Solar Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Residential Electrical Wiring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Hybrid Solar Installation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Architectural Lighting"
+              }
+            }
+          ]
         },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-          ],
-          "opens": "08:00",
-          "closes": "18:00"
-        },
+        "priceRange": "UGX 1,500,000 - 19,200,000",
+        "openingHours": "Mo-Su 07:00-19:00",
         "sameAs": [
           "https://www.facebook.com/dynawattengineering",
-          "https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ=="
+          "https://www.instagram.com/dynawattengineering",
+          "https://www.trustpilot.com/review/dynawattengineering.com"
         ]
       });
       document.head.appendChild(script);
@@ -142,38 +242,34 @@ function App() {
   useEffect(() => {
     try {
       const url = new URL(window.location.href);
-      const currentParam = url.searchParams.get('page');
+      const targetPath = getPathFromPage(page);
       
-      if (page === Page.THANK_YOU) {
-        if (window.location.pathname !== '/thank-you') {
-          window.history.pushState({ page: Page.THANK_YOU }, '', '/thank-you');
-        }
-      } else if (page === Page.HOME) {
-        let changed = false;
-        if (currentParam) {
+      let changed = false;
+      
+      // Remove query param if we're moving to a valid path
+      if (targetPath) {
+        if (url.searchParams.has('page')) {
           url.searchParams.delete('page');
           changed = true;
         }
-        if (window.location.pathname !== '/') {
-          url.pathname = '/';
+        if (url.pathname !== targetPath) {
+          url.pathname = targetPath;
           changed = true;
-        }
-        if (changed) {
-          window.history.pushState({}, '', url.toString());
         }
       } else {
-        let changed = false;
-        if (window.location.pathname !== '/') {
+        // Fallback for SEO dynamic pages that don't have explicit paths
+        if (url.pathname !== '/') {
           url.pathname = '/';
           changed = true;
         }
-        if (currentParam !== page) {
+        if (url.searchParams.get('page') !== page) {
           url.searchParams.set('page', page);
           changed = true;
         }
-        if (changed) {
-          window.history.pushState({}, '', url.toString());
-        }
+      }
+      
+      if (changed) {
+        window.history.pushState({ page }, '', url.toString());
       }
     } catch (e) {
       // Ignored
@@ -563,9 +659,9 @@ function App() {
 
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button onClick={() => setPage(Page.CONTACT)} className="inline-flex justify-center items-center px-6 py-4 md:px-8 md:py-4 border border-transparent text-base md:text-lg font-bold rounded-lg text-slate-900 bg-amber-500 hover:bg-amber-600 transition shadow-lg hover:shadow-xl">
+                    <a href="/contact" onClick={(e) => { e.preventDefault(); setPage(Page.CONTACT); }} className="inline-flex justify-center items-center px-6 py-4 md:px-8 md:py-4 border border-transparent text-base md:text-lg font-bold rounded-lg text-slate-900 bg-amber-500 hover:bg-amber-600 transition shadow-lg hover:shadow-xl">
                       Get a Free Quote
-                    </button>
+                    </a>
                     <a 
                       href={`tel:${config.contactPhone.replace(/[^0-9+]/g, '')}`}
                       className="inline-flex justify-center items-center px-6 py-4 md:px-8 md:py-4 border border-white text-base md:text-lg font-bold rounded-lg text-white bg-transparent hover:bg-white/10 transition"
@@ -674,7 +770,7 @@ function App() {
                   </div>
                   <div className="text-left font-sans">
                     <div className="text-slate-500 font-extrabold text-sm sm:text-base group-hover:text-slate-900 transition-colors leading-none">Centenary Bank</div>
-                    <span className="text-[10px] text-slate-400 font-bold font-mono tracking-tight group-hover:text-slate-500 transition-colors">Masaka Branch</span>
+                    <span className="text-xs text-slate-500 font-bold font-mono tracking-tight group-hover:text-slate-600 transition-colors">Masaka Branch</span>
                   </div>
                 </div>
 
@@ -688,7 +784,7 @@ function App() {
                   </div>
                   <div className="text-left font-serif">
                     <div className="text-slate-500 font-black text-sm sm:text-base group-hover:text-slate-900 transition-colors leading-none tracking-tight">Silverline Ssingo</div>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider font-sans group-hover:text-slate-500 transition-colors">Country Hotel, Kiboga</span>
+                    <span className="text-xs text-slate-500 font-bold uppercase tracking-wider font-sans group-hover:text-slate-600 transition-colors">Country Hotel, Kiboga</span>
                   </div>
                 </div>
 
@@ -713,7 +809,7 @@ function App() {
                   </div>
                   <div className="text-left font-sans">
                     <div className="text-slate-500 font-extrabold text-sm sm:text-base group-hover:text-slate-900 transition-colors leading-none">Daphine Medical</div>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider font-mono group-hover:text-slate-500 transition-colors">Medical Centre</span>
+                    <span className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono group-hover:text-slate-600 transition-colors">Medical Centre</span>
                   </div>
                 </div>
 
@@ -976,13 +1072,14 @@ function App() {
 
               {/* View All Details Button */}
               <div className="mt-12 text-center">
-                <button 
-                  onClick={() => setPage(Page.SERVICES)}
+                <a 
+                  href="/services"
+                  onClick={(e) => { e.preventDefault(); setPage(Page.SERVICES); }}
                   className="inline-flex items-center px-6 py-3 border-2 border-amber-500 text-amber-600 font-bold rounded-lg hover:bg-amber-500 hover:text-white transition group text-sm md:text-base"
                 >
                   View All Services Details
                   <Icons.ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 transition-transform group-hover:translate-x-1" />
-                </button>
+                </a>
               </div>
             </motion.div>
           </section>
