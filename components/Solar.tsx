@@ -59,7 +59,7 @@ const SOLAR_PACKAGES = [
     icon: "☀️",
     tier: "DW2 · 1–2 Bedroom",
     name: "3kVA Home Hybrid System",
-    tagline: "Standard 1–2 bedroom homes in Kampala & Wakiso. Solar all day, battery backup through the night.",
+    tagline: "Standard 1–2 bedroom homes across Uganda. Solar all day, battery backup through the night.",
     priceLabel: "UGX 7,200,000",
     badge: "MOST POPULAR",
     inverter: "3kVA Deye Hybrid Inverter",
@@ -101,7 +101,7 @@ const SOLAR_PACKAGES = [
     icon: "⚡",
     tier: "DW3 · 3-Bedroom",
     name: "5kVA Family Hybrid System",
-    tagline: "Standard 3-bedroom homes across Kampala & Wakiso. Powers the whole house — fridge, washing machine, pump.",
+    tagline: "Standard 3-bedroom homes across Uganda. Powers the whole house — fridge, washing machine, pump.",
     priceLabel: "UGX 10,800,000",
     badge: "FAMILY CHOSEN",
     inverter: "5kVA Deye Hybrid Inverter",
@@ -568,10 +568,10 @@ Additional Details: ${formData.message || 'None'}
       {/* Hero Section */}
       <section className="relative bg-[#0D1B2A] text-white py-16 md:py-28 overflow-hidden">
         {/* Background photo & overlay */}
-        <div className="absolute inset-0 opacity-35 bg-[url('/solar-hero-bg.jpg')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-80 bg-[url('/solar-hero-bg.jpg')] bg-cover bg-center"></div>
         
         {/* Ambient radial gradients */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A] via-[#0A1E3D]/95 to-[#0D1B2A]/95 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A]/80 via-[#0A1E3D]/35 to-[#0D1B2A]/80 pointer-events-none"></div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_40%,rgba(240,165,0,0.08)_0%,transparent_70%)] pointer-events-none"></div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_90%_80%,rgba(232,98,10,0.06)_0%,transparent_60%)] pointer-events-none"></div>
 
@@ -608,7 +608,7 @@ Additional Details: ${formData.message || 'None'}
                 transition={{ delay: 0.1 }}
                 className="text-lg md:text-xl font-normal text-[#C8D4E0] leading-relaxed text-left mb-8 max-w-2xl"
               >
-                Dynawatt Engineering designs and installs certified hybrid solar systems for homes and businesses across Kampala, Wakiso, and Mukono — sized to your actual Yaka consumption, priced all-inclusive with zero hidden costs. Experience the leading standard of <span className="font-bold text-white">solar installation Uganda</span> trusts for uninterrupted energy.
+                Dynawatt Engineering designs and installs certified hybrid solar systems for homes and businesses across Kampala, Wakiso, Mukono, and upcountry districts nationwide — sized to your actual Yaka consumption, priced all-inclusive with zero hidden costs. Experience the leading standard of <span className="font-bold text-white">solar installation Uganda</span> trusts for uninterrupted energy.
               </motion.p>
               
               <motion.div 
@@ -775,7 +775,7 @@ Additional Details: ${formData.message || 'None'}
               <span className="text-[10px] font-black tracking-widest text-[#00b67a] bg-[#d9fdd3]/80 px-2.5 py-1 rounded-full uppercase">
                 Proven Installations
               </span>
-              <h2 className="text-2xl md:text-3xl font-extrabold mt-3 text-slate-950 tracking-tight">Our Recent Solar Projects in Kampala</h2>
+              <h2 className="text-2xl md:text-3xl font-extrabold mt-3 text-slate-950 tracking-tight">Our Recent Solar Projects in Uganda</h2>
             </div>
             <p className="text-xs md:text-sm text-slate-500 max-w-sm mt-3 md:mt-0">
               Take a look at real, hand-crafted, high-output residential and commercial solar setups designed and installed by Dynawatt Engineering teams.
@@ -888,23 +888,28 @@ Additional Details: ${formData.message || 'None'}
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Your District</label>
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Your District / Area</label>
                       <select 
                         value={calculatorDistrict}
                         onChange={(e) => setCalculatorDistrict(e.target.value)}
                         className="w-full bg-[#132237] border border-slate-700 rounded-lg p-3 text-white text-sm focus:ring-2 focus:ring-amber-500 outline-none font-bold animate-pulse-subtle"
                       >
                         <option value="" disabled>Select district</option>
-                        <option value="Kampala Central">Kampala Central</option>
-                        <option value="Makindye">Makindye</option>
-                        <option value="Kawempe">Kawempe</option>
-                        <option value="Nakawa">Nakawa</option>
-                        <option value="Rubaga">Rubaga</option>
-                        <option value="Wakiso">Wakiso</option>
-                        <option value="Kira">Kira</option>
-                        <option value="Mukono">Mukono</option>
-                        <option value="Entebbe">Entebbe</option>
-                        <option value="Other">Other</option>
+                        <optgroup label="Central Region (Fast On-Site)">
+                          <option value="Kampala Central">Kampala Central</option>
+                          <option value="Wakiso">Wakiso</option>
+                          <option value="Kira">Kira</option>
+                          <option value="Mukono">Mukono</option>
+                          <option value="Entebbe">Entebbe</option>
+                        </optgroup>
+                        <optgroup label="Other Regions (Upcountry Logistics)">
+                          <option value="Mbarara">Mbarara</option>
+                          <option value="Jinja">Jinja</option>
+                          <option value="Masaka">Masaka</option>
+                          <option value="Gulu">Gulu</option>
+                          <option value="Mbale">Mbale</option>
+                          <option value="Other Upcountry">Other Upcountry District</option>
+                        </optgroup>
                       </select>
                     </div>
                   </div>
@@ -1083,7 +1088,7 @@ Additional Details: ${formData.message || 'None'}
                     Free Professional Solar Site Audit
                   </h4>
                   <p className="text-[11px] text-slate-300 leading-relaxed">
-                    Yaka bills and usage metrics represent a macro estimate. Our certified engineers supply full manual load audits and custom solar calculations at your physical premises across Kampala absolutely free.
+                    Yaka bills and usage metrics represent a macro estimate. Our certified engineers supply full manual load audits and custom solar calculations at your physical premises across Kampala and all upcountry districts absolutely free.
                   </p>
                 </div>
               </div>
@@ -1561,9 +1566,9 @@ Additional Details: ${formData.message || 'None'}
             <div className="bg-slate-900/80 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg relative">
               <div className="absolute -top-3 right-6 bg-[#00b67a]/20 border border-[#00b67a]/40 text-[#00b67a] text-[10px] font-black px-2.5 py-1 rounded-md uppercase">4.5 - 5 Hours</div>
               <div className="bg-amber-400/10 text-amber-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 text-2xl font-sans">☀️</div>
-              <h4 className="font-extrabold text-slate-100 text-base mb-3">Kampala Peak Sun Hours</h4>
+              <h4 className="font-extrabold text-slate-100 text-base mb-3">Uganda Peak Sun Hours</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Calculations are modeled around an average of 4.5 to 5 hours of full peak solar light daily in Kampala. This accounts for cloud shielding during rain cycles, ensuring your backup doesn't go flat when monsoon conditions affect Wakiso.
+                Calculations are modeled around an average of 4.5 to 5.5 hours of full peak solar light daily across Uganda. This accounts for cloud shielding during rain cycles, ensuring your backup doesn't go flat when monsoon conditions affect various regions.
               </p>
             </div>
 
@@ -1810,16 +1815,28 @@ Additional Details: ${formData.message || 'None'}
                       className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white text-sm focus:ring-2 focus:ring-amber-500 outline-none disabled:opacity-55"
                     >
                       <option value="" disabled>Select your district</option>
-                      <option value="Kampala Central">Kampala Central</option>
-                      <option value="Makindye">Makindye</option>
-                      <option value="Kawempe">Kawempe</option>
-                      <option value="Nakawa">Nakawa</option>
-                      <option value="Rubaga">Rubaga</option>
-                      <option value="Wakiso">Wakiso</option>
-                      <option value="Kira">Kira</option>
-                      <option value="Mukono">Mukono</option>
-                      <option value="Entebbe">Entebbe</option>
-                      <option value="Other">Other (Specify in details)</option>
+                      <optgroup label="Central Region (Fast On-Site)">
+                        <option value="Kampala Central">Kampala Central</option>
+                        <option value="Makindye">Makindye</option>
+                        <option value="Kawempe">Kawempe</option>
+                        <option value="Nakawa">Nakawa</option>
+                        <option value="Rubaga">Rubaga</option>
+                        <option value="Wakiso">Wakiso</option>
+                        <option value="Kira">Kira</option>
+                        <option value="Mukono">Mukono</option>
+                        <option value="Entebbe">Entebbe</option>
+                      </optgroup>
+                      <optgroup label="Other Regions (Upcountry Logistics)">
+                        <option value="Mbarara">Mbarara</option>
+                        <option value="Jinja">Jinja</option>
+                        <option value="Masaka">Masaka</option>
+                        <option value="Fort Portal">Fort Portal</option>
+                        <option value="Gulu">Gulu</option>
+                        <option value="Lira">Lira</option>
+                        <option value="Mbale">Mbale</option>
+                        <option value="Soroti">Soroti</option>
+                        <option value="Other Upcountry">Other District (Specify in details)</option>
+                      </optgroup>
                     </select>
                   </div>
                 </div>
@@ -1953,7 +1970,7 @@ Additional Details: ${formData.message || 'None'}
       <section className="py-20 bg-amber-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-950 mb-6 tracking-tight">Ready to Switch to Solar?</h2>
-          <p className="text-lg md:text-xl text-slate-800 mb-10 max-w-2xl mx-auto font-medium">Contact DYNAWATT ENGINEERING today for expert, certified solar solutions in Kampala and across Uganda.</p>
+          <p className="text-lg md:text-xl text-slate-800 mb-10 max-w-2xl mx-auto font-medium">Contact DYNAWATT ENGINEERING today for expert, certified solar solutions in Kampala and across all districts of Uganda.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="tel:+256751473830" className="inline-flex justify-center items-center bg-slate-950 text-white font-black py-4 px-10 rounded-xl hover:bg-slate-900 transition shadow-xl active:scale-95">
               <Icons.Phone className="h-5 w-5 mr-2" />

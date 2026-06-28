@@ -21,10 +21,10 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
               Dynawatt Engineering provides electrical installation, architectural lighting, solar systems, CCTV installation, smart home automation, and aluminum profile lighting services in Kampala, Entebbe, Wakiso, Mukono, and across Uganda.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/dynawattengineering" target="_blank" rel="noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
+              <a href="https://www.facebook.com/dynawattengineering" target="_blank" rel="noreferrer" aria-label="Visit Dynawatt Engineering on Facebook" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
                 <Icons.Facebook className="h-5 w-5" />
               </a>
-              <a href="https://www.instagram.com/dynawattengineering" target="_blank" rel="noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
+              <a href="https://www.instagram.com/dynawattengineering" target="_blank" rel="noreferrer" aria-label="Visit Dynawatt Engineering on Instagram" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
                 <Icons.Instagram className="h-5 w-5" />
               </a>
             </div>

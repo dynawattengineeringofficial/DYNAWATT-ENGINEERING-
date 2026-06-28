@@ -14,30 +14,30 @@ const Location: React.FC<LocationProps> = ({ setPage }) => {
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <span className="bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3">
-            Kampala & Connected Districts
+            Kampala & Nationwide Upcountry Districts
           </span>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight text-white">Electrician in Kampala, Uganda</h1>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight text-white">Electrical Contractors in Uganda</h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            DYNAWATT ENGINEERING is Kampala's premier provider of safe, BS 7671 certified residential and commercial electrical and solar backup installations.
+            DYNAWATT ENGINEERING is Uganda's premier provider of safe, BS 7671 certified residential, commercial, and industrial electrical and solar installations — serving Kampala, Wakiso, Mukono, and all upcountry regions nationwide.
           </p>
         </div>
       </section>
 
-      {/* Why Choose Us in Kampala */}
+      {/* Why Choose Us in Uganda */}
       <section className="py-16 md:py-24 bg-white animate-in fade-in duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-[10px] font-black tracking-widest text-[#00b67a] bg-[#d9fdd3]/80 px-2.5 py-1 rounded-full uppercase">
-                Localized Expertise
+                Nationwide Engineering
               </span>
-              <h2 className="text-3xl font-black text-slate-950 mt-3 mb-8 tracking-tight">Why Choose Dynawatt in Kampala?</h2>
+              <h2 className="text-3xl font-black text-slate-950 mt-3 mb-8 tracking-tight">Why Choose Dynawatt in Uganda?</h2>
               
               <div className="space-y-8">
                 {[
                   { 
-                    title: "Kampala Grid Challenges Expertise", 
-                    desc: "We know Kampala's unique electrical hurdles—old colonial-era conduits, unstable Umeme grids, sudden voltage surges, and persistent load shedding. We configure systems with high-end surge protectors and seamless changeovers to protect your appliances.", 
+                    title: "Uganda-Wide Grid Expertise", 
+                    desc: "We understand Uganda's unique electrical hurdles—old municipal conduits, unstable Umeme grids, sudden voltage surges, and persistent load shedding. We configure systems with high-end surge protectors, automatic changeovers, and robust backup solar to keep you powered.", 
                     icon: <Icons.AlertTriangle /> 
                   },
                   { 
@@ -46,8 +46,8 @@ const Location: React.FC<LocationProps> = ({ setPage }) => {
                     icon: <Icons.BadgeCheck /> 
                   },
                   { 
-                    title: "Fast Response Suburb Coverage", 
-                    desc: "With mobile deployment units situated throughout Nakasero, Ntinda, Kira, and Kololo, we promise prompt emergency fault detections and pre-visit assessments.", 
+                    title: "Upcountry Project Mobilization", 
+                    desc: "With mobile deployment units situated throughout Kampala and fully equipped logistical trucks, we reliably dispatch to Western, Eastern, and Northern Uganda districts for prompt and structured project delivery.", 
                     icon: <Icons.Clock /> 
                   }
                 ].map((item, i) => (
@@ -83,9 +83,9 @@ const Location: React.FC<LocationProps> = ({ setPage }) => {
       <section className="py-16 md:py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-[10px] font-black tracking-widest text-amber-600 bg-amber-100 px-3 py-1 rounded-full uppercase">Regional Coverage</span>
+            <span className="text-[10px] font-black tracking-widest text-amber-600 bg-amber-100 px-3 py-1 rounded-full uppercase">Regional & Nationwide Coverage</span>
             <h2 className="text-2xl md:text-3xl font-black text-slate-950 mt-3">Locations We Serve</h2>
-            <p className="text-slate-500 text-xs md:text-sm max-w-xl mx-auto mt-2">Active service trucks operating across all municipal zones in central, eastern, and western suburbs.</p>
+            <p className="text-slate-500 text-xs md:text-sm max-w-xl mx-auto mt-2">Active service trucks operating across all municipal zones in central, eastern, and western suburbs, alongside dedicated upcountry execution crews nationwide.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             {[

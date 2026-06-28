@@ -131,6 +131,10 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
                   alt="Dynawatt Engineering electrical installation and architectural lighting company logo" 
                   className="h-12 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300" 
                   onError={() => setLogoError(true)}
+                  width="128"
+                  height="64"
+                  loading="eager"
+                  {...{ fetchpriority: "high" }}
                 />
               ) : (
                 <div className="w-10 h-10 bg-amber-500 text-slate-900 rounded-lg flex items-center justify-center font-black text-xl">

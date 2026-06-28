@@ -8,6 +8,10 @@ interface LazyImageProps {
   onClick?: () => void;
   referrerPolicy?: React.HTMLAttributeReferrerPolicy;
   id?: string;
+  width?: string | number;
+  height?: string | number;
+  fetchPriority?: 'high' | 'low' | 'auto';
+  loading?: 'lazy' | 'eager';
 }
 
 export const LazyImage: React.FC<LazyImageProps> = ({
@@ -16,7 +20,11 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   className = '',
   onClick,
   referrerPolicy = 'no-referrer',
-  id
+  id,
+  width,
+  height,
+  fetchPriority,
+  loading = 'lazy'
 }) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -74,7 +82,10 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           src={src}
           alt={alt}
           referrerPolicy={referrerPolicy}
-          loading="lazy"
+          loading={loading}
+          {...{ fetchpriority: fetchPriority }}
+          width={width}
+          height={height}
           onLoad={() => setIsLoaded(true)}
           className={`${className} transition-opacity duration-700 ease-in-out ${
             isLoaded ? 'opacity-100' : 'opacity-0'

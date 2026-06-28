@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Icons } from './AppIcons';
 import { Lead, Page, SiteConfig } from '../types';
 
@@ -9,16 +9,41 @@ interface LeadFormProps {
 }
 
 const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    location: '',
-    serviceType: 'Residential',
-    message: ''
+  const [formData, setFormData] = useState<{
+    name: string;
+    phone: string;
+    location: string;
+    serviceType: string;
+    message: string;
+  }>(() => {
+    try {
+      const saved = localStorage.getItem('dynawatt_lead_form');
+      if (saved) {
+        return JSON.parse(saved);
+      }
+    } catch (e) {
+      console.warn("Failed to load form data from local storage", e);
+    }
+    return {
+      name: '',
+      phone: '',
+      location: '',
+      serviceType: 'Residential',
+      message: ''
+    };
   });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('dynawatt_lead_form', JSON.stringify(formData));
+    } catch (e) {
+      console.warn("Failed to save form data to local storage", e);
+    }
+  }, [formData]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,6 +111,13 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
         status: 'new'
       };
       addLead(newLead);
+      
+      try {
+        localStorage.removeItem('dynawatt_lead_form');
+      } catch (e) {
+        console.warn("Failed to clear form data from local storage", e);
+      }
+
       if (setPage) {
         window.location.hash = "#thank-you";
         setPage(Page.THANK_YOU);
@@ -125,8 +157,8 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
 
   return (
     <div id="quote" className="bg-white p-5 md:p-8 rounded-xl shadow-2xl border-t-4 border-amber-500 scroll-mt-32">
-      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">Request a Free Site Assessment in Kampala</h3>
-      <p className="text-sm md:text-base text-slate-500 mb-6">Fast response in Kampala & surrounding areas for quotes and emergencies.</p>
+      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">Request a Free Site Assessment in Uganda</h3>
+      <p className="text-sm md:text-base text-slate-700 mb-6">Fast response in Greater Kampala, Wakiso, Mukono, and certified mobile dispatch teams for all upcountry districts.</p>
       
       <form onSubmit={handleSubmit} className="space-y-4">
         {errorMessage && (
@@ -137,11 +169,12 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
         )}
 
         <div>
-          <label className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Your Name</label>
+          <label htmlFor="form-name" className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Your Name</label>
           <input 
             required
             type="text" 
             name="name"
+            id="form-name"
             className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition bg-white text-slate-900 text-sm md:text-base"
             placeholder="John Doe"
             value={formData.name}
@@ -150,11 +183,12 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
         </div>
         
         <div>
-          <label className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Phone Number (WhatsApp)</label>
+          <label htmlFor="form-phone" className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Phone Number (WhatsApp)</label>
           <input 
             required
             type="tel" 
             name="phone"
+            id="form-phone"
             className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition bg-white text-slate-900 text-sm md:text-base"
             placeholder="077..."
             value={formData.phone}
@@ -164,33 +198,58 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Location</label>
+            <label htmlFor="location" className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Location / District</label>
             <select 
               required
               name="location"
+              id="location"
               className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none bg-white text-slate-900 text-sm md:text-base"
               value={formData.location}
               onChange={handleChange}
             >
-              <option value="">Select Area</option>
-              <option value="Kampala Central">Kampala Central</option>
-              <option value="Nakawa">Nakawa</option>
-              <option value="Makindye">Makindye</option>
-              <option value="Rubaga">Rubaga</option>
-              <option value="Kawempe">Kawempe</option>
-              <option value="Kira">Kira</option>
-              <option value="Entebbe">Entebbe</option>
-              <option value="Wakiso">Wakiso</option>
-              <option value="Mukono">Mukono</option>
-              <option value="Jinja">Jinja</option>
-              <option value="Mbarara">Mbarara</option>
-              <option value="Other">Other / Upcountry</option>
+              <option value="">Select Area / District</option>
+              <optgroup label="Central Region (Fast On-Site)">
+                <option value="Kampala Central">Kampala Central</option>
+                <option value="Nakawa">Nakawa</option>
+                <option value="Makindye">Makindye</option>
+                <option value="Rubaga">Rubaga</option>
+                <option value="Kawempe">Kawempe</option>
+                <option value="Kira">Kira</option>
+                <option value="Entebbe">Entebbe</option>
+                <option value="Wakiso">Wakiso</option>
+                <option value="Mukono">Mukono</option>
+                <option value="Other Central">Other Central District</option>
+              </optgroup>
+              <optgroup label="Western Region (Upcountry)">
+                <option value="Mbarara">Mbarara</option>
+                <option value="Masaka">Masaka</option>
+                <option value="Fort Portal">Fort Portal</option>
+                <option value="Hoima">Hoima</option>
+                <option value="Kabale">Kabale</option>
+                <option value="Other Western">Other Western District</option>
+              </optgroup>
+              <optgroup label="Eastern Region (Upcountry)">
+                <option value="Jinja">Jinja</option>
+                <option value="Mbale">Mbale</option>
+                <option value="Iganga">Iganga</option>
+                <option value="Soroti">Soroti</option>
+                <option value="Tororo">Tororo</option>
+                <option value="Other Eastern">Other Eastern District</option>
+              </optgroup>
+              <optgroup label="Northern Region (Upcountry)">
+                <option value="Gulu">Gulu</option>
+                <option value="Lira">Lira</option>
+                <option value="Arua">Arua</option>
+                <option value="Moroto">Moroto</option>
+                <option value="Other Northern">Other Northern District</option>
+              </optgroup>
             </select>
           </div>
           <div>
-            <label className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Service Needed</label>
+            <label htmlFor="form-service" className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Service Needed</label>
             <select 
               name="serviceType"
+              id="form-service"
               className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none bg-white text-slate-900 text-sm md:text-base"
               value={formData.serviceType}
               onChange={handleChange}
@@ -210,15 +269,16 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
         <div className="bg-amber-50 p-4 rounded-lg border border-amber-200 text-amber-950 text-xs md:text-sm flex items-start gap-2.5">
           <Icons.ShieldCheck className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
           <span>
-            <strong>100% No-Obligation Assessment:</strong> All engineering site visits in Kampala, Wakiso, Mukono and surrounding areas include a structured written Bill of Quantities (BOQ) with clear options.
+            <strong>Uganda-Wide Project Support:</strong> All electrical site assessments include custom engineering plans and itemized BOQs. For <strong>upcountry clients</strong>, we coordinate comprehensive logistics and certified engineer dispatch.
           </span>
         </div>
 
         <div>
-          <label className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Describe the Issue / Scope</label>
+          <label htmlFor="form-message" className="block text-xs md:text-sm font-medium text-slate-700 mb-1">Describe the Issue / Scope</label>
           <textarea 
             rows={3}
             name="message"
+            id="form-message"
             className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none transition bg-white text-slate-900 text-sm md:text-base"
             placeholder="e.g. No power in the kitchen, full house wiring estimate, solar site sizing..."
             value={formData.message}

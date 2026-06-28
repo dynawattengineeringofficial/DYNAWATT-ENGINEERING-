@@ -103,11 +103,11 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
             <img 
               src={data.heroImage} 
               alt={data.heroImageAlt || data.headline} 
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-slate-950/75 mix-blend-multiply"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-slate-950/40"></div>
+            <div className="absolute inset-0 bg-slate-950/25"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
           </>
         ) : (
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
@@ -137,9 +137,9 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
               <span className="inline-block text-[11px] font-black uppercase text-amber-500 bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 rounded-full mb-3 tracking-widest leading-none">
                 Immediate Diagnostic Offer
               </span>
-              <h3 className="text-xl md:text-2xl font-extrabold text-white mb-2 leading-tight tracking-tight">
+              <h2 className="text-xl md:text-2xl font-extrabold text-white mb-2 leading-tight tracking-tight">
                 {data.midPageCallout.title}
-              </h3>
+              </h2>
               <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl">
                 {data.midPageCallout.description}
               </p>
@@ -250,7 +250,7 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-xs text-slate-500 italic">
+            <p className="mt-4 text-xs text-slate-700 italic">
               * Disclaimer: Prices are estimates based on material costs and site conditions in 2026. A detailed, 100% free itemized Bill of Quantities (BOQ) is available on request.
             </p>
           </div>
@@ -294,7 +294,7 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-xs text-slate-500 italic">
+            <p className="mt-4 text-xs text-slate-700 italic">
               * Disclaimer: Prices are estimates based on material costs and site conditions in 2026. A detailed, 100% free itemized Bill of Quantities (BOQ) is available on request.
             </p>
           </div>

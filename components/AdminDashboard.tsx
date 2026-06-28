@@ -37,6 +37,52 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
     setIsGenerating(false);
   };
 
+  // Change Password State
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordStatus, setPasswordStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
+  const [isChangingPassword, setIsChangingPassword] = useState(false);
+
+  const handleChangePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPasswordStatus(null);
+
+    if (newPassword !== confirmPassword) {
+      setPasswordStatus({ type: 'error', message: 'New passwords do not match' });
+      return;
+    }
+
+    if (newPassword.length < 4) {
+      setPasswordStatus({ type: 'error', message: 'Password must be at least 4 characters long' });
+      return;
+    }
+
+    setIsChangingPassword(true);
+    try {
+      const response = await fetch('/api/admin/change-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ currentPassword, newPassword })
+      });
+
+      if (response.ok) {
+        setPasswordStatus({ type: 'success', message: 'Password successfully updated!' });
+        setCurrentPassword('');
+        setNewPassword('');
+        setConfirmPassword('');
+      } else {
+        const data = await response.json().catch(() => ({}));
+        setPasswordStatus({ type: 'error', message: data.error || 'Failed to update password.' });
+      }
+    } catch (err) {
+      console.error('Password change error:', err);
+      setPasswordStatus({ type: 'error', message: 'Server error. Please try again later.' });
+    } finally {
+      setIsChangingPassword(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-100 flex flex-col">
       {/* Admin Header */}
@@ -312,6 +358,75 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 </div>
               </div>
 
+              {/* Admin Security */}
+              <div>
+                <h2 className="text-2xl font-bold text-slate-800 mb-6">Admin Security</h2>
+                <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 space-y-6">
+                  <h3 className="font-bold text-slate-900 flex items-center">
+                    <Icons.Lock className="h-5 w-5 mr-2 text-amber-500" />
+                    Change Admin Password
+                  </h3>
+                  <p className="text-sm text-slate-500">Update the secure password used to access this Admin Panel.</p>
+
+                  <form onSubmit={handleChangePassword} className="space-y-4 max-w-md">
+                    {passwordStatus && (
+                      <div className={`p-4 rounded-lg text-sm flex items-center ${passwordStatus.type === 'success' ? 'bg-green-50 text-green-700 border border-green-100' : 'bg-red-50 text-red-600 border border-red-100'}`}>
+                        {passwordStatus.type === 'success' ? (
+                          <Icons.CheckCircle className="h-4 w-4 mr-2" />
+                        ) : (
+                          <Icons.AlertTriangle className="h-4 w-4 mr-2" />
+                        )}
+                        {passwordStatus.message}
+                      </div>
+                    )}
+
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1">Current Password</label>
+                      <input 
+                        type="password" 
+                        required
+                        placeholder="••••••••"
+                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"
+                        value={currentPassword}
+                        onChange={(e) => setCurrentPassword(e.target.value)}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1">New Password</label>
+                      <input 
+                        type="password" 
+                        required
+                        placeholder="••••••••"
+                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1">Confirm New Password</label>
+                      <input 
+                        type="password" 
+                        required
+                        placeholder="••••••••"
+                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                      />
+                    </div>
+
+                    <button 
+                      type="submit" 
+                      disabled={isChangingPassword}
+                      className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-2 px-6 rounded-lg flex items-center disabled:opacity-50 transition"
+                    >
+                      {isChangingPassword ? 'Updating...' : 'Update Password'}
+                    </button>
+                  </form>
+                </div>
+              </div>
+
               {/* Website Guide */}
               <div>
                 <h2 className="text-2xl font-bold text-slate-800 mb-6">Website Owner's Guide</h2>
@@ -327,7 +442,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     <ol className="list-decimal list-inside space-y-1 ml-2">
                       <li>Scroll to the <strong>Footer</strong> (bottom of page).</li>
                       <li><strong>Double-click</strong> the copyright text "© 2024 DYNAWATT...".</li>
-                      <li>Login with Username: <code className="text-amber-500">admin</code>, Password: <code className="text-amber-500">dynawatt</code></li>
+                      <li>Login with Username: <code className="text-amber-500">admin</code>, Password: <code className="text-amber-500">dynawatt</code> (or your custom password if changed)</li>
                     </ol>
                   </div>
 

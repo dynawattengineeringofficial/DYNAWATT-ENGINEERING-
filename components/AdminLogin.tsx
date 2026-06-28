@@ -11,13 +11,24 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, onCancel }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Hardcoded credentials for demonstration
-    if (username === 'admin' && password === 'dynawatt') {
-      onLogin();
-    } else {
-      setError('Invalid credentials. Please try again.');
+    setError('');
+    try {
+      const response = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+      if (response.ok) {
+        onLogin();
+      } else {
+        const data = await response.json().catch(() => ({}));
+        setError(data.error || 'Invalid credentials. Please try again.');
+      }
+    } catch (err) {
+      console.error('Login request failed:', err);
+      setError('Server error. Please check your connection.');
     }
   };
 
@@ -42,7 +53,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, onCancel }) => {
             )}
 
             <div className="text-center text-xs text-slate-400 bg-slate-50 p-2 rounded border border-slate-100 mb-4">
-              <span className="font-semibold">Default Login:</span> user: <b>admin</b> | pass: <b>dynawatt</b>
+              <span className="font-semibold">Default Login:</span> user: <b>admin</b> | pass: <b>dynawatt</b> (unless changed in Settings)
             </div>
 
             <div>
