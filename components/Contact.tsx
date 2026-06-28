@@ -90,9 +90,9 @@ const Contact: React.FC<ContactProps> = ({ addLead, setPage, config }) => {
                     <Icons.Mail className="h-6 w-6" />
                   </div>
                   <div className="ml-5">
-                    <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider">Branded Corporate Email</h3>
+                    <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider">Contact Email</h3>
                     <p className="text-slate-700 mt-1 font-extrabold text-amber-600">
-                      <a href="mailto:info@dynawattengineering.com" className="hover:underline">info@dynawattengineering.com</a>
+                      <a href="mailto:dynawattengineering@gmail.com" className="hover:underline">dynawattengineering@gmail.com</a>
                     </p>
                     <p className="text-slate-400 text-xs mt-0.5">Standard project inquiries & tender documents</p>
                   </div>

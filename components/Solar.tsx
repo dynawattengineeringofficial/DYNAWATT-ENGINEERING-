@@ -1653,12 +1653,12 @@ Additional Details: ${formData.message || 'None'}
 
           <div className="text-center mt-12">
             <a 
-              href="https://g.page/r/dynawattengineering/review" 
+              href="https://www.facebook.com/dynawattengineering/reviews" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="inline-flex items-center gap-1.5 text-sm font-bold text-slate-950 hover:text-[#E8620A] underline underline-offset-4 transition duration-200"
             >
-              <span>Leave Us a Review on Google</span>
+              <span>Leave Us a Review on Facebook</span>
               <Icons.ArrowRight className="h-4 w-4" />
             </a>
           </div>

@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
               Dynawatt Engineering provides electrical installation, architectural lighting, solar systems, CCTV installation, smart home automation, and aluminum profile lighting services in Kampala, Entebbe, Wakiso, Mukono, and across Uganda.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/profile.php?id=61576719381534" target="_blank" rel="noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
+              <a href="https://www.facebook.com/dynawattengineering" target="_blank" rel="noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
                 <Icons.Facebook className="h-5 w-5" />
               </a>
               <a href="https://www.instagram.com/dynawattengineering" target="_blank" rel="noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
@@ -88,7 +88,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
               </li>
               <li className="flex items-center">
                 <Icons.Mail className="h-5 w-5 text-amber-500 mr-3" />
-                <a href="mailto:info@dynawattengineering.com" className="hover:text-amber-500 transition-colors">info@dynawattengineering.com</a>
+                <a href="mailto:dynawattengineering@gmail.com" className="hover:text-amber-500 transition-colors">dynawattengineering@gmail.com</a>
               </li>
               <li className="flex items-center pt-2">
                 <Icons.CheckCircle className="h-5 w-5 text-slate-500 mr-3" />

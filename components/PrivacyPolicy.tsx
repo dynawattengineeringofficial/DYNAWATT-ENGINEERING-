@@ -92,7 +92,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setPage }) => {
             <ul className="text-xs md:text-sm text-slate-600 space-y-2">
               <li className="flex items-center"><Icons.Phone className="h-4 w-4 mr-2 text-amber-500" /> Phone: <a href="tel:+256751473830" className="hover:underline text-amber-600 font-bold ml-1">+256 751 473 830</a></li>
               <li className="flex items-center"><Icons.MessageCircle className="h-4 w-4 mr-2 text-green-500" /> WhatsApp: <a href="https://wa.me/256751473830" target="_blank" rel="noreferrer" className="hover:underline text-green-600 font-bold ml-1">Message Office Desk</a></li>
-              <li className="flex items-center"><Icons.Mail className="h-4 w-4 mr-2 text-amber-500" /> Email: info@dynawattengineering.com</li>
+              <li className="flex items-center"><Icons.Mail className="h-4 w-4 mr-2 text-amber-500" /> Email: <a href="mailto:dynawattengineering@gmail.com" className="hover:underline text-amber-600 font-bold">dynawattengineering@gmail.com</a></li>
               <li className="flex items-center"><Icons.MapPin className="h-4 w-4 mr-2 text-amber-500" /> Head Office Location: Kampala, Uganda</li>
             </ul>
           </div>
