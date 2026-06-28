@@ -21,8 +21,8 @@ const SOLAR_PACKAGES = [
     tagline: "Lights, router, TV and phone chargers — all night. Ideal for apartments, 1-bedroom homes, or small offices.",
     priceLabel: "UGX 4,400,000",
     badge: null,
-    inverter: "2kVA Deye Hybrid Inverter",
-    battery: "3.5kWh LiFePO₄ Battery",
+    inverter: "2kVA Sumry / Amp Nova / Solar Riio Sun",
+    battery: "3.5kWh Felicity / Amp Nova / Sumry",
     panels: "4 × 455W",
     arrayKw: "1.82kWp",
     dailyGen: "7.3kWh/day",
@@ -43,8 +43,8 @@ const SOLAR_PACKAGES = [
     ],
     tvCaution: '✅ Supports LED TVs up to 43". ⚠️ Avoid 55"+ or plasma TVs (200W+). Do not run TV and fridge simultaneously on this package.',
     includes: [
-      "2kVA Deye Hybrid Inverter",
-      "3.5kWh LiFePO₄ Battery (5,000+ cycles)",
+      "2kVA Sumry / Amp Nova / Solar Riio Sun Hybrid Inverter",
+      "3.5kWh Felicity / Amp Nova / Sumry Lithium LiFePO₄ Battery (5,000+ cycles)",
       "4 × 455W Jinko/Canadian Solar Panels (1.82kWp array)",
       "Aluminium Roof Rail Bracket Kit",
       "Over/Under Voltage & Surge Protection Box",
@@ -62,8 +62,8 @@ const SOLAR_PACKAGES = [
     tagline: "Standard 1–2 bedroom homes across Uganda. Solar all day, battery backup through the night.",
     priceLabel: "UGX 7,200,000",
     badge: "MOST POPULAR",
-    inverter: "3kVA Deye Hybrid Inverter",
-    battery: "5kWh LiFePO₄ Battery",
+    inverter: "3kVA Sumry / Amp Nova / Felicity / Solar Riio Sun",
+    battery: "5kWh Felicity / Amp Nova / Sumry",
     panels: "6 × 455W",
     arrayKw: "2.73kWp",
     dailyGen: "10.9kWh/day",
@@ -85,8 +85,8 @@ const SOLAR_PACKAGES = [
     ],
     tvCaution: null,
     includes: [
-      "3kVA Deye Hybrid Inverter",
-      "5kWh LiFePO₄ Battery (5,000+ cycles)",
+      "3kVA Sumry / Amp Nova / Felicity / Solar Riio Sun Hybrid Inverter",
+      "5kWh Felicity / Amp Nova / Sumry Lithium LiFePO₄ Battery (5,000+ cycles)",
       "6 × 455W Jinko/Canadian Solar Panels (2.73kWp array)",
       "Aluminium Roof Rail Bracket Kit",
       "Over/Under Voltage & Surge Protection Box",
@@ -104,8 +104,8 @@ const SOLAR_PACKAGES = [
     tagline: "Standard 3-bedroom homes across Uganda. Powers the whole house — fridge, washing machine, pump.",
     priceLabel: "UGX 10,800,000",
     badge: "FAMILY CHOSEN",
-    inverter: "5kVA Deye Hybrid Inverter",
-    battery: "7.5kWh LiFePO₄ Battery",
+    inverter: "5kVA Sumry / Amp Nova / Felicity / Solar Riio Sun",
+    battery: "7.5kWh Felicity / Amp Nova / Sumry",
     panels: "8 × 455W",
     arrayKw: "3.64kWp",
     dailyGen: "14.6kWh/day",
@@ -128,8 +128,8 @@ const SOLAR_PACKAGES = [
     ],
     tvCaution: null,
     includes: [
-      "5kVA Deye Hybrid Inverter",
-      "7.5kWh LiFePO₄ Battery (5,000+ cycles)",
+      "5kVA Sumry / Amp Nova / Felicity / Solar Riio Sun Hybrid Inverter",
+      "7.5kWh Felicity / Amp Nova / Sumry Lithium LiFePO₄ Battery (5,000+ cycles)",
       "8 × 455W Jinko/Canadian Solar Panels (3.64kWp array)",
       "Aluminium Roof Rail Bracket Kit",
       "Copper Grounding Rods & Earthing Kit",
@@ -747,14 +747,17 @@ Additional Details: ${formData.message || 'None'}
           <p className="text-center text-slate-500 text-xs md:text-sm uppercase font-extrabold tracking-widest mb-8">
             🛠️ Certified Tier-1 Brand Sourcing Partner & Preferred Installation Brands
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 items-center text-center">
             {[
               { name: "Victron Energy", desc: "Dutch off-grid inverters", icon: "🌐" },
-              { name: "Growatt Systems", desc: "Smart hybrid inverters", icon: "⚡" },
               { name: "Deye Inverters", desc: "Advanced hybrid storage", icon: "🔌" },
+              { name: "Solar Riio Sun", desc: "TBB high-performance series", icon: "☀️" },
+              { name: "Amp Nova", desc: "Intelligent micro-grid systems", icon: "⚡" },
+              { name: "Felicity Solar", desc: "Deep cycle storage & inverters", icon: "🔋" },
+              { name: "Sumry Inverters", desc: "Cost-effective backup power", icon: "🔌" },
+              { name: "Growatt Systems", desc: "Smart hybrid inverters", icon: "⚡" },
               { name: "Jinko Solar", desc: "Tier-1 Mono Solar panels", icon: "☀️" },
               { name: "Trina Solar", desc: "High-grade solar modules", icon: "🔋" },
-              { name: "Fronius", desc: "Premium grid-tied setups", icon: "🏢" },
               { name: "Huawei Solar", desc: "Smart electronics storage", icon: "📱" }
             ].map((brand, bIdx) => (
               <div key={bIdx} className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-amber-400 transition-colors duration-300">
@@ -1380,8 +1383,8 @@ Additional Details: ${formData.message || 'None'}
                   className={`bg-[#0b1329]/90 rounded-2xl border ${theme.border} p-6 transition duration-300 flex flex-col justify-between relative shadow-2xl overflow-hidden`}
                 >
                   {pkg.badge && (
-                    <div className="absolute top-0 right-6 transform -translate-y-1/2 z-20">
-                      <span className={`text-[9px] font-black tracking-wider uppercase px-3 py-1 rounded-full shadow-md ${theme.badge}`}>
+                    <div className="absolute top-4 right-4 z-20">
+                      <span className={`text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded-md shadow-md ${theme.badge}`}>
                         {pkg.badge}
                       </span>
                     </div>
@@ -1959,7 +1962,7 @@ Additional Details: ${formData.message || 'None'}
                 <span className="text-amber-500 font-bold">☀️</span> Do you offer warranties on panels and equipment?
               </h4>
               <p className="text-xs md:text-sm text-slate-650 leading-relaxed pl-6">
-                All physical equipment and hardware are protected by extensive <strong>manufacturer warranties</strong> directly (including a 15 to 25-year performance warranty on monocrystalline panels, and a 5-year manufacturer warranty on smart lithium battery cells and premium hybrid inverters like Growatt, Deye, or Victron). Dynawatt Engineering is an installation contractor and is not the warrantor of these physical products, but we actively assist you with any manufacturer warranty processing, while we directly support you with a dedicated <strong>1-Year Installation Workmanship Warranty</strong> on our physical wiring and structural mounting execution.
+                All physical equipment and hardware are protected by extensive <strong>manufacturer warranties</strong> directly (including a 15 to 25-year performance warranty on monocrystalline panels, and a 5-year manufacturer warranty on smart lithium battery cells and premium hybrid inverters like Growatt, Deye, Victron, Amp Nova, Felicity, Sumry, or Solar Riio Sun). Dynawatt Engineering is an installation contractor and is not the warrantor of these physical products, but we actively assist you with any manufacturer warranty processing, while we directly support you with a dedicated <strong>1-Year Installation Workmanship Warranty</strong> on our physical wiring and structural mounting execution.
               </p>
             </div>
           </div>
