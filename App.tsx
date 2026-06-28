@@ -509,7 +509,7 @@ function App() {
       {page === Page.HOME ? (
         <>
           {/* Hero Section */}
-          <header id="home" className="relative bg-slate-950 text-white pt-24 pb-16 md:pt-20 md:pb-32 overflow-hidden">
+          <header id="home" className="relative bg-slate-950 text-white pt-24 pb-16 md:pt-20 md:pb-32 overflow-hidden min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
             <div className="absolute inset-0 opacity-100 bg-[url('/premium-profile-lighting-7th-street-kampala.jpg')] bg-cover bg-center"></div>
             <div className="absolute inset-0 bg-slate-950/30"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/30 to-transparent"></div>
@@ -592,7 +592,7 @@ function App() {
               
               <div className="md:w-1/2 md:pl-10 relative z-10 w-full flex flex-col gap-6">
                 <LeadForm addLead={addLead} setPage={setPage} />
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-700/50 hidden md:block h-48 min-h-[192px]">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-700/50 hidden md:block min-h-0 md:min-h-[192px] md:h-48">
                   <img 
                     src="/architectural-lighting-kampala.jpg" 
                     alt="Architectural exterior lighting installation illuminating modern residential homes in Kampala, Uganda by Dynawatt Engineering" 
@@ -643,7 +643,7 @@ function App() {
           </section>
 
           {/* Client Logos Strip & Corporate Trust Bar */}
-          <section className="py-10 bg-slate-50 border-b border-slate-200">
+          <section className="py-10 bg-slate-50 border-b border-slate-200 min-h-[200px]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <p className="text-xs uppercase font-black tracking-widest mb-8 text-slate-900 bg-slate-200/60 inline-block px-4 py-1.5 rounded-full border border-slate-200">
                 🛡️ Trusted by businesses across Uganda
