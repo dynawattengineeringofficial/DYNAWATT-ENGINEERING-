@@ -13,11 +13,36 @@ const TrustpilotReviews: React.FC = () => {
   const widgetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Re-initialize Trustpilot widget when component mounts
-    // This is important for React apps where content might load after the bootstrap script
-    if (window.Trustpilot) {
-      window.Trustpilot.loadFromElement(widgetRef.current);
-    }
+    const loadScript = () => {
+      if (document.getElementById('trustpilot-script')) {
+        if (window.Trustpilot) {
+          window.Trustpilot.loadFromElement(widgetRef.current);
+        }
+        return;
+      }
+      const script = document.createElement('script');
+      script.id = 'trustpilot-script';
+      script.type = 'text/javascript';
+      script.src = '//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
+      script.async = true;
+      script.onload = () => {
+        if (window.Trustpilot) {
+          window.Trustpilot.loadFromElement(widgetRef.current);
+        }
+      };
+      document.body.appendChild(script);
+    };
+
+    // Load after 1.2 seconds of inactivity or via requestIdleCallback to guarantee zero blocking
+    const timer = setTimeout(() => {
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(() => loadScript());
+      } else {
+        loadScript();
+      }
+    }, 1200);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
