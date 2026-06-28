@@ -6,6 +6,7 @@ export const seoLocationPagesData = {
     seoTitle: "Electrical Installation Services in Kampala | Dynawatt Engineering",
     metaDesc: "Professional electrical installation and architectural lighting in Kampala. Fast response, licensed electricians for residential and commercial projects.",
     headline: "Electrical Installation Services in Kampala",
+    heroImage: "/electrical-engineering-kampala.jpg",
     description: "Dynawatt Engineering provides top-tier electrical installation and architectural lighting services throughout Kampala. From the city center to residential suburbs like Ntinda, Kololo, Muyenga, and Kira, our licensed electricians are ready to handle your project with professionalism and safety.",
     sections: [
       {
@@ -40,6 +41,7 @@ export const seoLocationPagesData = {
     seoTitle: "Electrical Installation Services in Entebbe | Dynawatt Engineering",
     metaDesc: "Trusted electrical installation and solar services in Entebbe. Reliable electricians for homes, hotels, and businesses in Entebbe and surrounding areas.",
     headline: "Electrical Installation Services in Entebbe",
+    heroImage: "/modern-residential-lighting-salaama-kampala.jpg",
     description: "Dynawatt Engineering offers expert electrical installation, smart home automation, and solar systems tailored for homes, hotels, and commercial spaces in Entebbe. We ensure safe, reliable, and visually stunning electrical setups for properties near the lake and across the peninsula.",
     sections: [
       {
@@ -74,6 +76,7 @@ export const seoLocationPagesData = {
     seoTitle: "Electrical Installation Services in Wakiso | Dynawatt Engineering",
     metaDesc: "Professional electrical installation and rewiring services in Wakiso district. Trusted, licensed electricians for residential and commercial projects.",
     headline: "Electrical Installation Services in Wakiso",
+    heroImage: "/complete-house-wiring-biira-wakiso.jpg",
     description: "Dynawatt Engineering provides professional electrical installations, maintenance, and solar solutions throughout Wakiso District. Whether you're building a new home, upgrading an office, or need reliable backup power, our experienced electricians deliver quality workmanship you can trust.",
     sections: [
       {
@@ -108,6 +111,7 @@ export const seoLocationPagesData = {
     seoTitle: "Luxury Electrical & Lighting in Kololo | Dynawatt Engineering",
     metaDesc: "Premium electrical installation, smart home automation, and architectural lighting services for luxury homes and businesses in Kololo, Kampala.",
     headline: "Premium Electrical Services in Kololo",
+    heroImage: "/luxury-staircase-lighting.jpg",
     description: "Dynawatt Engineering provides bespoke electrical services, architectural lighting, and smart home automation for high-end residential and commercial properties in Kololo. We understand the specific demands of luxury real estate and deliver flawless engineering.",
     sections: [
       {
@@ -142,6 +146,7 @@ export const seoLocationPagesData = {
     seoTitle: "Electrical Installation Services in Kira | Dynawatt Engineering",
     metaDesc: "Reliable electrical installation, solar power, and home wiring services for new builds and residences in Kira and Najjera areas.",
     headline: "Electrical Installation Services in Kira",
+    heroImage: "/hybrid-solar-installation-kira-wakiso.jpg",
     description: "Dynawatt Engineering is the trusted partner for new homeowners and developers in Kira. We provide complete electrical installations, solar integrations, and smart security systems tailored for the rapidly growing neighborhoods of Kira and its surroundings.",
     sections: [
       {
@@ -176,6 +181,7 @@ export const seoLocationPagesData = {
     seoTitle: "Electrical Installation & Solar in Najjera | Dynawatt Engineering",
     metaDesc: "Expert electricians providing residential wiring, solar backups, and smart security installations in Najjera. Fast response and guaranteed quality.",
     headline: "Electrical Installation Services in Najjera",
+    heroImage: "/exterior-architectural-lighting-kitukutwe.jpg",
     description: "Dynawatt Engineering delivers modern electrical installations, reliable solar power, and smart security solutions for homes and apartments in Najjera. We ensure your property is safe, energy-efficient, and beautifully illuminated.",
     sections: [
       {

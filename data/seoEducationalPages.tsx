@@ -51,6 +51,7 @@ export const seoEducationalPagesData = {
     seoTitle: "Cost of Wiring a House in Uganda (2026 Guide) | Dynawatt Engineering",
     metaDesc: "Discover the estimated costs for wiring a house in Uganda. Understand factors like material quality, house size, and labor, and get professional wiring from Dynawatt.",
     headline: "How Much Does It Cost to Wire a House in Uganda?",
+    heroImage: "/house-wiring-slab-piping-mukono.jpg",
     description: "Wiring a house in Uganda requires absolute transparency, skilled engineering, and uncompromised material quality. At Dynawatt Engineering, we believe in providing our clients with a detailed breakdown of 2026 Uganda wiring costs. On average, standard <span data-page=\"WIRING_2_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">2-bedroom house wiring</span> in Kampala and Wakiso ranges from UGX 2,800,000 to UGX 4,200,000 (basic vs luxury finish), while <span data-page=\"WIRING_3_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">3-bedroom house wiring</span> ranges from UGX 4,500,000 to UGX 6,800,000.\n\nThese cost estimates encompass premium genuine cables (BBS or East African Cables), structural conduit routing, distribution board assembly, proper earthing, and professional <span data-page=\"SEO_ELEC_INSTALL\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">electrical installation services</span>. If you also plan to incorporate high-end <span data-page=\"SEO_PROFILE_LIGHTING\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">aluminum profile lighting</span>, expect pricing to scale accordingly based on linear meter layouts from our dedicated design team.",
     showWiringPricingTable: true,
     showQuoteSection: true,
@@ -97,6 +98,7 @@ export const seoEducationalPagesData = {
     seoTitle: "Warm Electrical Switches: Danger Signs in Your Home | Dynawatt",
     metaDesc: "A warm electrical switch is a serious fire hazard. Learn why your switches are overheating and why you need immediate electrical repair services in Uganda.",
     headline: "Warning Signs: Why Is My Electrical Switch Warm?",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg",
     description: "A plug or switch that feels warm to the touch is a critical warning sign of electrical danger. If ignored, this can lead to melted sockets, property damage, or electrical fires. Dynawatt Engineering provides emergency diagnostics and repairs for overheating electrical systems in Kampala and Wakiso.",
     sections: [
       {
@@ -131,6 +133,7 @@ export const seoEducationalPagesData = {
     seoTitle: "Solar Battery Maintenance & Inverter Health in Uganda",
     metaDesc: "Keep your solar setup running perfectly. Learn how to maintain batteries, check inverter health, and fix load shedding backup issues in Uganda.",
     headline: "Solar Battery Maintenance & Inverter Health",
+    heroImage: "/solar-installation-services-kampala.jpg",
     description: "Your solar and inverter backup system is your defense against power outages, but it needs care to last. Whether you have tubular wet cells or modern lithium-ion batteries, poor maintenance can lead to early battery failure and expensive replacements. Dynawatt Engineering provides trusted maintenance for solar systems across Kampala and Wakiso.",
     sections: [
       {
@@ -165,6 +168,7 @@ export const seoEducationalPagesData = {
     seoTitle: "Why Do My Light Bulbs Keep Blowing Out? | Dynawatt",
     metaDesc: "Tired of changing light bulbs? Find out why your LED or halogen bulbs keep blowing out, from voltage spikes to poor wiring, and how to fix it permanently.",
     headline: "Why Do My Light Bulbs Keep Blowing Out?",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg",
     description: "If you find yourself replacing light bulbs far more often than usual, it's more than just bad luck. Frequent bulb blowouts can be a sign of underlying electrical faults, from UEDCL voltage fluctuations to loose wiring in your distribution box. Dynawatt Engineering can diagnose and fix these issues permanently.",
     sections: [
       {
@@ -343,6 +347,7 @@ export const seoEducationalPagesData = {
     seoTitle: "Commercial Building Electrical Wiring & Sizing in Kampala",
     metaDesc: "Professional commercial building wiring in Kampala, Uganda. Explore details on 3-phase balancing, commercial panels, trunking, safety standards, and pricing.",
     headline: "Commercial Building Electrical Sizing & Wiring in Kampala",
+    heroImage: "/electrical-engineering-kampala.jpg",
     description: "Commercial properties in Kampala—including shopping arcades, business centers, hotels, office blocks, and residential apartments—demand complex electrical designs far beyond typical residential systems. These properties run on heavy, continuous loads necessitating 3-phase balancing, professional cable trunking, industrial distribution gear, and comprehensive surge mitigation. Dynawatt Engineering provides certified, code-compliant commercial installations mapped to commercial codes, designed to maximize operating lifespan and guarantee business continuity.",
     sections: [
       {
