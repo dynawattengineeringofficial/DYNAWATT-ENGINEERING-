@@ -633,7 +633,7 @@ function App() {
                   <div key={i} className="flex items-center space-x-4 bg-white p-5 rounded-xl shadow-sm border border-slate-100 hover:border-amber-200 transition-colors duration-300">
                     {item.icon}
                     <div>
-                      <h4 className="font-bold text-slate-900 text-sm">{item.title}</h4>
+                      <h3 className="font-bold text-slate-900 text-sm">{item.title}</h3>
                       <p className="text-slate-700 text-xs mt-1">{item.desc}</p>
                     </div>
                   </div>
@@ -645,7 +645,7 @@ function App() {
           {/* Client Logos Strip & Corporate Trust Bar */}
           <section className="py-10 bg-slate-50 border-b border-slate-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <p className="text-xs uppercase font-black tracking-widest mb-8 text-slate-700 bg-slate-200/50 inline-block px-4 py-1.5 rounded-full border border-slate-200">
+              <p className="text-xs uppercase font-black tracking-widest mb-8 text-slate-900 bg-slate-200/60 inline-block px-4 py-1.5 rounded-full border border-slate-200">
                 🛡️ Trusted by businesses across Uganda
               </p>
               <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-16">
@@ -808,8 +808,8 @@ function App() {
                     <div className="text-amber-500 mb-4 group-hover:scale-110 transition-transform">
                       {React.cloneElement(item.icon as React.ReactElement, { className: "h-8 w-8" })}
                     </div>
-                    <h4 className="font-bold text-slate-900 mb-2">{item.title}</h4>
-                    <p className="text-sm text-slate-500">{item.desc}</p>
+                    <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+                    <p className="text-sm text-slate-700">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -1026,6 +1026,8 @@ function App() {
                       <LazyImage 
                         src={project.image} 
                         alt={project.alt || project.title} 
+                        width="400"
+                        height="256"
                         className={`w-full h-full object-cover transform group-hover:scale-105 transition duration-500 ${
                           project.title === "Exterior Architectural Lighting" ? "brightness-125 saturate-110" : ""
                         }`} 
@@ -1216,8 +1218,8 @@ function App() {
                         </div>
                       </div>
                       <div className="ml-4">
-                        <h4 className="text-lg md:text-xl font-bold mb-1">Certified Electrical Installation Standards</h4>
-                        <p className="text-slate-400 text-sm">We strictly adhere to international safety standards (BS 7671). We don't take shortcuts with your safety.</p>
+                        <h3 className="text-lg md:text-xl font-bold mb-1 text-slate-100">Certified Electrical Installation Standards</h3>
+                        <p className="text-slate-300 text-sm">We strictly adhere to international safety standards (BS 7671). We don't take shortcuts with your safety.</p>
                       </div>
                     </div>
 
@@ -1228,8 +1230,8 @@ function App() {
                         </div>
                       </div>
                       <div className="ml-4">
-                        <h4 className="text-lg md:text-xl font-bold mb-1">Premium Electrical Material Supply</h4>
-                        <p className="text-slate-400 text-sm">We source authentic, high-quality materials directly from trusted suppliers. We handle the logistics so you don't worry about counterfeits.</p>
+                        <h3 className="text-lg md:text-xl font-bold mb-1 text-slate-100">Premium Electrical Material Supply</h3>
+                        <p className="text-slate-300 text-sm">We source authentic, high-quality materials directly from trusted suppliers. We handle the logistics so you don't worry about counterfeits.</p>
                       </div>
                     </div>
 
@@ -1240,8 +1242,8 @@ function App() {
                         </div>
                       </div>
                       <div className="ml-4">
-                        <h4 className="text-lg md:text-xl font-bold mb-1">Professional Electrical Engineering Team</h4>
-                        <p className="text-slate-400 text-sm">Our engineers are professional, uniformed, and punctual. We treat your property with respect and clean up after every job.</p>
+                        <h3 className="text-lg md:text-xl font-bold mb-1 text-slate-100">Professional Electrical Engineering Team</h3>
+                        <p className="text-slate-300 text-sm">Our engineers are professional, uniformed, and punctual. We treat your property with respect and clean up after every job.</p>
                       </div>
                     </div>
 
@@ -1252,8 +1254,8 @@ function App() {
                         </div>
                       </div>
                       <div className="ml-4">
-                        <h4 className="text-lg md:text-xl font-bold mb-1">Cost-Efficient Electrical Systems</h4>
-                        <p className="text-slate-400 text-sm">Transparent pricing in UGX with no hidden costs. We design efficient systems that perform better and last longer, saving you money.</p>
+                        <h3 className="text-lg md:text-xl font-bold mb-1 text-slate-100">Cost-Efficient Electrical Systems</h3>
+                        <p className="text-slate-300 text-sm">Transparent pricing in UGX with no hidden costs. We design efficient systems that perform better and last longer, saving you money.</p>
                       </div>
                     </div>
 
@@ -1264,8 +1266,8 @@ function App() {
                         </div>
                       </div>
                       <div className="ml-4">
-                        <h4 className="text-lg md:text-xl font-bold mb-1">Emergency Response Available</h4>
-                        <p className="text-slate-400 text-sm">We respond to electrical emergencies 24/7. Sparks, power failures, tripped breakers — call us anytime. Most Kampala-area emergencies are attended within 2–4 hours.</p>
+                        <h3 className="text-lg md:text-xl font-bold mb-1 text-slate-100">Emergency Response Available</h3>
+                        <p className="text-slate-300 text-sm">We respond to electrical emergencies 24/7. Sparks, power failures, tripped breakers — call us anytime. Most Kampala-area emergencies are attended within 2–4 hours.</p>
                       </div>
                     </div>
                   </div>
