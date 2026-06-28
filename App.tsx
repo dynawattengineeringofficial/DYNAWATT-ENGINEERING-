@@ -481,7 +481,7 @@ function App() {
                   "closes": "18:00"
                 },
                 "sameAs": [
-                  "https://www.facebook.com/profile.php?id=61576719381534",
+                  "https://www.facebook.com/dynawattengineering",
                   "https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ=="
                 ]
               })
@@ -521,7 +521,7 @@ function App() {
                   </a>
                   {/* Facebook */}
                   <a 
-                    href="https://www.facebook.com/profile.php?id=61576719381534"
+                    href="https://www.facebook.com/dynawattengineering"
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-1.5 bg-slate-900/80 hover:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-800 text-xs text-slate-100 font-extrabold shadow-md transition-colors group"
@@ -692,20 +692,18 @@ function App() {
                   </div>
                 </div>
 
-                {/* Kampala Luxury Suites */}
+                {/* Napsy Interiors */}
                 <div className="flex items-center gap-2.5 select-none group transition-all duration-300">
                   <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center border border-slate-200 group-hover:border-indigo-500/40 group-hover:bg-indigo-50/50 transition-all duration-305 shadow-sm group-hover:shadow-md">
                     <svg className="h-5 w-5 text-slate-400 group-hover:text-indigo-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
-                      <line x1="9" y1="22" x2="9" y2="16" strokeWidth="1.5" />
-                      <line x1="15" y1="22" x2="15" y2="16" strokeWidth="1.5" />
-                      <path d="M9 6h6" strokeWidth="1.5" />
-                      <path d="M9 10h6" strokeWidth="1.5" />
+                      <path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3" strokeWidth="1.5" />
+                      <path d="M3 11a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6Z" strokeWidth="1.5" />
+                      <path d="M6 19v2M18 19v2" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </div>
                   <div className="text-left font-sans">
-                    <div className="text-slate-500 font-black text-sm sm:text-base group-hover:text-slate-900 transition-colors leading-none tracking-tight">Kampala Luxury</div>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest font-mono group-hover:text-slate-500 transition-colors">Residential Suites</span>
+                    <div className="text-slate-500 font-black text-sm sm:text-base group-hover:text-slate-900 transition-colors leading-none tracking-tight">Napsy Interiors</div>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest font-mono group-hover:text-slate-500 transition-colors">Premium Interior Decor</span>
                   </div>
                 </div>
 
@@ -1363,12 +1361,16 @@ function App() {
                   <div className="bg-[#efeae2] rounded-2xl overflow-hidden shadow-sm border border-slate-200/65 flex flex-col h-[320px] font-sans text-left">
                     {/* Header */}
                     <div className="bg-[#075e54] text-white px-4 py-3 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-slate-200 text-slate-900 font-bold flex items-center justify-center text-xs">
-                        RT
+                      <div className="w-8 h-8 rounded-full bg-slate-300 relative overflow-hidden flex-shrink-0 border border-white/20">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-sky-400 via-indigo-200 to-amber-100" />
+                        <div className="absolute inset-0 flex flex-col items-center justify-end blur-[3px]">
+                          <div className="w-3.5 h-3.5 rounded-full bg-amber-900/80" />
+                          <div className="w-6 h-4 rounded-t-full bg-slate-700" />
+                        </div>
                       </div>
                       <div className="flex-grow">
-                        <div className="text-xs font-bold leading-none">Ronald Tenywa</div>
-                        <span className="text-[10px] text-emerald-250 leading-none opacity-80">Online (Wakiso)</span>
+                        <div className="text-xs font-bold leading-none">Ronald Tenywa (Wakiso)</div>
+                        <span className="text-[10px] text-emerald-250 leading-none opacity-80">Online</span>
                       </div>
                     </div>
                     {/* Chat Bubble Area */}
@@ -1390,12 +1392,16 @@ function App() {
                   <div className="bg-[#efeae2] rounded-2xl overflow-hidden shadow-sm border border-slate-200/65 flex flex-col h-[320px] font-sans text-left">
                     {/* Header */}
                     <div className="bg-[#075e54] text-white px-4 py-3 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-slate-200 text-slate-900 font-bold flex items-center justify-center text-xs">
-                        HH
+                      <div className="w-8 h-8 rounded-full bg-slate-300 relative overflow-hidden flex-shrink-0 border border-white/20">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-emerald-400 via-teal-200 to-yellow-100" />
+                        <div className="absolute inset-0 flex flex-col items-center justify-end blur-[3px]">
+                          <div className="w-3.5 h-3.5 rounded-full bg-stone-800" />
+                          <div className="w-6 h-4 rounded-t-full bg-emerald-800" />
+                        </div>
                       </div>
                       <div className="flex-grow">
-                        <div className="text-xs font-bold leading-none">Hajji Hassan</div>
-                        <span className="text-[10px] text-emerald-250 leading-none opacity-80">Online (Kitukutwe)</span>
+                        <div className="text-xs font-bold leading-none">Hajji Hassan (Kitukutwe)</div>
+                        <span className="text-[10px] text-emerald-250 leading-none opacity-80">Online</span>
                       </div>
                     </div>
                     {/* Chat Bubble Area */}
@@ -1417,12 +1423,16 @@ function App() {
                   <div className="bg-[#efeae2] rounded-2xl overflow-hidden shadow-sm border border-slate-200/65 flex flex-col h-[320px] font-sans text-left">
                     {/* Header */}
                     <div className="bg-[#075e54] text-white px-4 py-3 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-slate-200 text-slate-900 font-bold flex items-center justify-center text-xs">
-                        AN
+                      <div className="w-8 h-8 rounded-full bg-slate-300 relative overflow-hidden flex-shrink-0 border border-white/20">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-rose-300 via-purple-200 to-cyan-100" />
+                        <div className="absolute inset-0 flex flex-col items-center justify-end blur-[3px]">
+                          <div className="w-3.5 h-3.5 rounded-full bg-amber-950/70" />
+                          <div className="w-6 h-4 rounded-t-full bg-purple-700" />
+                        </div>
                       </div>
                       <div className="flex-grow">
-                        <div className="text-xs font-bold leading-none">Aisha N.</div>
-                        <span className="text-[10px] text-emerald-250 leading-none opacity-80">Active (Kawuku)</span>
+                        <div className="text-xs font-bold leading-none">Aisha N. (Kawuku)</div>
+                        <span className="text-[10px] text-emerald-250 leading-none opacity-80">Online</span>
                       </div>
                     </div>
                     {/* Chat Bubble Area */}
