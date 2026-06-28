@@ -1,5 +1,42 @@
 {
+  "headers": [
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.js|.*\\.css|.*\\.woff2|.*\\.webp|.*\\.avif|.*\\.png|.*\\.jpg|.*\\.svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/api/config",
+      "destination": "/config.json"
+    },
+    {
+      "source": "/api/prospects",
+      "destination": "/leads.json"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"

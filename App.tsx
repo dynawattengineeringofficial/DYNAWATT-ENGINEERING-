@@ -1,32 +1,34 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { motion } from 'motion/react';
 import Navbar from './components/Navbar';
-import LeadForm from './components/LeadForm';
-import AdminDashboard from './components/AdminDashboard';
-import AdminLogin from './components/AdminLogin';
-import FAQ from './components/FAQ';
-import ServicesDetail from './components/ServicesDetail';
-import SafetyChecklist from './components/SafetyChecklist';
-import TrustpilotReviews from './components/TrustpilotReviews';
-import About from './components/About';
-import Guarantee from './components/Guarantee';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import TermsOfService from './components/TermsOfService';
-import Solar from './components/Solar';
-import Location from './components/Location';
-import Contact from './components/Contact';
-import Blog from './components/Blog';
 import Footer from './components/Footer';
-import PremiumLighting from './components/PremiumLighting';
 import { TransformationCard } from './components/TransformationCard';
-import SeoPage from './components/SeoPage';
 import LazyImage from './components/LazyImage';
 import { seoPagesData } from './data/seoServicePages';
 import { seoLocationPagesData } from './data/seoLocationPages';
 import { seoEducationalPagesData } from './data/seoEducationalPages';
 import { Icons } from './components/AppIcons';
 import { Lead, Page, SiteConfig } from './types';
+
+// Dynamic/Lazy imports for routed and below-the-fold components
+const LeadForm = lazy(() => import('./components/LeadForm'));
+const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
+const AdminLogin = lazy(() => import('./components/AdminLogin'));
+const FAQ = lazy(() => import('./components/FAQ'));
+const ServicesDetail = lazy(() => import('./components/ServicesDetail'));
+const SafetyChecklist = lazy(() => import('./components/SafetyChecklist'));
+const TrustpilotReviews = lazy(() => import('./components/TrustpilotReviews'));
+const About = lazy(() => import('./components/About'));
+const Guarantee = lazy(() => import('./components/Guarantee'));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./components/TermsOfService'));
+const Solar = lazy(() => import('./components/Solar'));
+const Location = lazy(() => import('./components/Location'));
+const Contact = lazy(() => import('./components/Contact'));
+const Blog = lazy(() => import('./components/Blog'));
+const PremiumLighting = lazy(() => import('./components/PremiumLighting'));
+const SeoPage = lazy(() => import('./components/SeoPage'));
 
 function App() {
   const [page, setPage] = useState<Page>(() => {
@@ -195,22 +197,24 @@ function App() {
     const fetchData = async () => {
       try {
         const configRes = await fetch("/api/config");
-        if (configRes.ok) {
+        const contentType = configRes.headers.get("content-type");
+        if (configRes.ok && contentType && contentType.includes("application/json")) {
           const configData = await configRes.json();
           setConfig(configData);
         }
       } catch (err) {
-        console.error("Failed to load config:", err);
+        // Safe fallback in case of static environments
       }
 
       try {
         const leadsRes = await fetch("/api/prospects");
-        if (leadsRes.ok) {
+        const contentType = leadsRes.headers.get("content-type");
+        if (leadsRes.ok && contentType && contentType.includes("application/json")) {
           const leadsData = await leadsRes.json();
           setLeads(leadsData);
         }
       } catch (err) {
-        console.error("Failed to load leads:", err);
+        // Safe fallback in case of static environments
       }
     };
     fetchData();
@@ -501,6 +505,7 @@ function App() {
       )}
 
       <main id="main-content" className="flex-grow flex flex-col">
+      <Suspense fallback={null}>
       {page === Page.HOME ? (
         <>
           {/* Hero Section */}
@@ -1683,6 +1688,7 @@ function App() {
           </div>
         </div>
       ) : null}
+      </Suspense>
       </main>
 
       {page !== Page.THANK_YOU ? (
@@ -1720,6 +1726,7 @@ function App() {
         href={`https://wa.me/${config.whatsapp.replace(/[^0-9]/g, '')}?text=${whatsappMessage}`}
         target="_blank"
         rel="noreferrer"
+        aria-label="Chat with Dynawatt Engineering on WhatsApp"
         className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] transition-all duration-300 transform hover:scale-110 z-50 flex items-center justify-center group"
       >
         <Icons.MessageCircle className="h-6 w-6 md:h-8 md:w-8" />
