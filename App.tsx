@@ -592,7 +592,7 @@ function App() {
               
               <div className="md:w-1/2 md:pl-10 relative z-10 w-full flex flex-col gap-6">
                 <LeadForm addLead={addLead} setPage={setPage} />
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-700/50 hidden md:block">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-700/50 hidden md:block h-48 min-h-[192px]">
                   <img 
                     src="/architectural-lighting-kampala.jpg" 
                     alt="Architectural exterior lighting installation illuminating modern residential homes in Kampala, Uganda by Dynawatt Engineering" 
