@@ -81,6 +81,61 @@ function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // Dynamically inject LocalBusiness Schema to avoid performance-blocking inline scripts
+  useEffect(() => {
+    let script = document.getElementById('ld-json-schema');
+    if (!script) {
+      script = document.createElement('script');
+      script.setAttribute('type', 'application/ld+json');
+      script.setAttribute('id', 'ld-json-schema');
+      script.innerHTML = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Dynawatt Engineering",
+        "image": "https://dynawattengineering.com/dynawatt-engineering-logo.png",
+        "@id": "https://dynawattengineering.com/#localbusiness",
+        "url": "https://dynawattengineering.com",
+        "telephone": "+256751473830",
+        "priceRange": "UGX",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Salaama Road, Makindye",
+          "addressLocality": "Kampala",
+          "addressCountry": "UG"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "0.3136",
+          "longitude": "32.5811"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        "sameAs": [
+          "https://www.facebook.com/dynawattengineering",
+          "https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ=="
+        ]
+      });
+      document.head.appendChild(script);
+    }
+    return () => {
+      const existingScript = document.getElementById('ld-json-schema');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
+
   // Update browser URL query parameter / pathname when state changes, and scroll smoothly to top
   useEffect(() => {
     try {
@@ -424,6 +479,10 @@ function App() {
                 src="/dynawatt-engineering-logo.png" 
                 alt="Dynawatt Logo" 
                 className="h-10 md:h-12 w-auto object-contain transition group-hover:scale-105" 
+                width="128"
+                height="48"
+                loading="eager"
+                {...{ fetchpriority: "high" }}
               />
               <div className="flex flex-col">
                 <span className="text-base md:text-lg font-black text-white leading-none tracking-tight">DYNAWATT</span>
@@ -441,52 +500,9 @@ function App() {
         </header>
       )}
 
+      <main id="main-content" className="flex-grow flex flex-col">
       {page === Page.HOME ? (
         <>
-          {/* Inject Local Business Schema for Search Engines */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "LocalBusiness",
-                "name": "Dynawatt Engineering",
-                "image": "https://dynawattengineering.com/dynawatt-engineering-logo.png",
-                "@id": "https://dynawattengineering.com/#localbusiness",
-                "url": "https://dynawattengineering.com",
-                "telephone": "+256751473830",
-                "priceRange": "UGX",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "Salaama Road, Makindye",
-                  "addressLocality": "Kampala",
-                  "addressCountry": "UG"
-                },
-                "geo": {
-                  "@type": "GeoCoordinates",
-                  "latitude": "0.3136",
-                  "longitude": "32.5811"
-                },
-                "openingHoursSpecification": {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday"
-                  ],
-                  "opens": "08:00",
-                  "closes": "18:00"
-                },
-                "sameAs": [
-                  "https://www.facebook.com/dynawattengineering",
-                  "https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ=="
-                ]
-              })
-            }}
-          />
           {/* Hero Section */}
           <header id="home" className="relative bg-slate-950 text-white pt-24 pb-16 md:pt-20 md:pb-32 overflow-hidden">
             <div className="absolute inset-0 opacity-100 bg-[url('/premium-profile-lighting-7th-street-kampala.jpg')] bg-cover bg-center"></div>
@@ -576,6 +592,10 @@ function App() {
                     src="/architectural-lighting-kampala.jpg" 
                     alt="Architectural exterior lighting installation illuminating modern residential homes in Kampala, Uganda by Dynawatt Engineering" 
                     className="w-full h-48 object-cover hover:scale-105 transition-transform duration-700" 
+                    width="600"
+                    height="200"
+                    loading="eager"
+                    {...{ fetchpriority: "high" }}
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
@@ -609,7 +629,7 @@ function App() {
                     {item.icon}
                     <div>
                       <h4 className="font-bold text-slate-900 text-sm">{item.title}</h4>
-                      <p className="text-slate-500 text-xs mt-1">{item.desc}</p>
+                      <p className="text-slate-700 text-xs mt-1">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -620,7 +640,7 @@ function App() {
           {/* Client Logos Strip & Corporate Trust Bar */}
           <section className="py-10 bg-slate-50 border-b border-slate-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <p className="text-xs uppercase font-black tracking-widest mb-8 text-slate-500 bg-slate-200/50 inline-block px-4 py-1.5 rounded-full border border-slate-200">
+              <p className="text-xs uppercase font-black tracking-widest mb-8 text-slate-700 bg-slate-200/50 inline-block px-4 py-1.5 rounded-full border border-slate-200">
                 🛡️ Trusted by businesses across Uganda
               </p>
               <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-16">
@@ -831,7 +851,7 @@ function App() {
                 {/* Electrical Installation */}
                 <div onClick={() => setPage(Page.SEO_ELEC_INSTALL)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative h-48 sm:h-56 overflow-hidden">
-                    <img src="/electrical-engineering-kampala.jpg" alt="Professional commercial and residential electrical installations by Dynawatt Engineering in Kampala, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/electrical-engineering-kampala.jpg" alt="Professional commercial and residential electrical installations by Dynawatt Engineering in Kampala, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Zap className="h-3 w-3 mr-1 text-amber-500" />
                       Residential & Commercial
@@ -851,7 +871,7 @@ function App() {
                 {/* Architectural Lighting */}
                 <div onClick={() => setPage(Page.SEO_PROFILE_LIGHTING)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative h-48 sm:h-56 overflow-hidden">
-                    <img src="/luxury-staircase-lighting.jpg" alt="Luxury staircase lighting featuring recessed LED step lights and custom architectural profile lighting in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/luxury-staircase-lighting.jpg" alt="Luxury staircase lighting featuring recessed LED step lights and custom architectural profile lighting in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-amber-500/95 backdrop-blur-sm shadow-sm text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Award className="h-3 w-3 mr-1" />
                       Premium Service
@@ -871,7 +891,7 @@ function App() {
                 {/* Solar Installation */}
                 <div onClick={() => setPage(Page.SEO_SOLAR)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative h-48 sm:h-56 overflow-hidden">
-                    <img src="/solar-hero-bg.jpg" alt="Hybrid solar installation with battery backup by Dynawatt Engineering in Kira, Wakiso, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/solar-hero-bg.jpg" alt="Hybrid solar installation with battery backup by Dynawatt Engineering in Kira, Wakiso, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Sun className="h-3 w-3 mr-1 text-amber-500" />
                       Energy Systems
@@ -891,7 +911,7 @@ function App() {
                 {/* Smart Home Solutions */}
                 <div onClick={() => setPage(Page.SEO_SMART_HOME)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative h-48 sm:h-56 overflow-hidden">
-                    <img src="/smart_home_switches.png" alt="Finished smart home installation featuring elegant glass-face touch control panel on the wall by Dynawatt Engineering in Kampala, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/smart_home_switches.png" alt="Finished smart home installation featuring elegant glass-face touch control panel on the wall by Dynawatt Engineering in Kampala, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Home className="h-3 w-3 mr-1 text-amber-500" />
                       Smart Automation
@@ -911,7 +931,7 @@ function App() {
                 {/* CCTV & Security Systems */}
                 <div onClick={() => setPage(Page.SEO_CCTV)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative h-48 sm:h-56 overflow-hidden">
-                    <img src="/blog-smart-home.jpg" alt="Premium CCTV camera and advanced residential security system installation in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/blog-smart-home.jpg" alt="Premium CCTV camera and advanced residential security system installation in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Shield className="h-3 w-3 mr-1 text-amber-500" />
                       Security Systems
@@ -931,7 +951,7 @@ function App() {
                 {/* Repairs & Maintenance */}
                 <div onClick={() => setPage(Page.SEO_MAINTENANCE)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative h-48 sm:h-56 overflow-hidden">
-                    <img src="/electrical-repairs-maintenance-kampala.jpg" alt="Professional electrical repairs, fault-finding, and power board maintenance service in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/electrical-repairs-maintenance-kampala.jpg" alt="Professional electrical repairs, fault-finding, and power board maintenance service in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Wrench className="h-3 w-3 mr-1 text-amber-500" />
                       Maintenance
@@ -1119,21 +1139,21 @@ function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
                 <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative h-64 md:h-80 rounded-2xl overflow-hidden group">
-                  <img src="/instagram-feed-1.jpg" alt="Premium recessed aluminum profile lighting installed in a modern residential ceiling in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" referrerPolicy="no-referrer" />
+                  <img src="/instagram-feed-1.jpg" alt="Premium recessed aluminum profile lighting installed in a modern residential ceiling in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Icons.Instagram className="h-8 w-8 text-white mb-3" />
                     <p className="text-white text-sm font-medium leading-snug">#AluminumProfileLighting #ModernHomeLighting #ArchitecturalLighting #Kampala</p>
                   </div>
                 </a>
                 <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative h-64 md:h-80 rounded-2xl overflow-hidden group">
-                  <img src="/instagram-feed-2.jpg" alt="Industrial electrical panel and premium distribution board wiring installation in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" referrerPolicy="no-referrer" />
+                  <img src="/instagram-feed-2.jpg" alt="Industrial electrical panel and premium distribution board wiring installation in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Icons.Instagram className="h-8 w-8 text-white mb-3" />
                     <p className="text-white text-sm font-medium leading-snug">#ElectricalEngineering #PanelInstallation #IndustrialWiring #SecurePowerUganda</p>
                   </div>
                 </a>
                 <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative h-64 md:h-80 rounded-2xl overflow-hidden group hidden md:block">
-                  <img src="/luxury-staircase-lighting.jpg" alt="Luxury staircase profile lighting integrated into marble steps and modern ambient ceiling lights in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" referrerPolicy="no-referrer" />
+                  <img src="/luxury-staircase-lighting.jpg" alt="Luxury staircase profile lighting integrated into marble steps and modern ambient ceiling lights in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Icons.Instagram className="h-8 w-8 text-white mb-3" />
                     <p className="text-white text-sm font-medium leading-snug">#LuxuryCeilingLighting #AmbientLighting #SmartHome #InteriorDesignUganda</p>
@@ -1170,6 +1190,8 @@ function App() {
                     src="/premium-profile-lighting-7th-street-kampala.jpg" 
                     alt="Dynawatt technician installing premium aluminum profile lighting in Kampala on 7th Street" 
                     loading="lazy"
+                    width="800"
+                    height="600"
                     className="rounded-xl shadow-2xl border-4 border-slate-700 object-cover w-full h-full min-h-[300px] md:min-h-[400px]"
                     referrerPolicy="no-referrer"
                   />
@@ -1475,14 +1497,14 @@ function App() {
               className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 flex items-center justify-center gap-3">
-                <span className="text-amber-500">📍</span> Proudly Serving the Greater Kampala Region
+                <span className="text-amber-500">📍</span> Proudly Serving Kampala & Nationwide Uganda
               </h2>
               <div className="max-w-4xl mx-auto mb-10 md:mb-12 space-y-4">
                 <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-                  At <strong>Dynawatt Engineering</strong>, we bring professional electrical solutions directly to your doorstep. We are fully equipped and mobile, providing world-class engineering, architectural lighting, and solar installations across <strong>Kampala, Wakiso, and Mukono.</strong>
+                  At <strong>Dynawatt Engineering</strong>, we bring professional, certified electrical solutions directly to your doorstep. We are fully equipped, mobile, and ready to serve — providing world-class engineering, architectural lighting, and solar installations across <strong>Kampala, Wakiso, Mukono, and all upcountry districts nationwide.</strong>
                 </p>
                 <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-                  Whether you are renovating a residence in <strong>Kololo</strong>, setting up a new office in <strong>Bugolobi</strong>, or requiring solar backup in <strong>Kira</strong>, our team is just a phone call away.
+                  Whether you are renovating a residence in <strong>Kololo</strong>, setting up a new office in <strong>Bugolobi</strong>, wiring a commercial building in <strong>Jinja</strong>, or requiring hybrid solar backup in <strong>Mbarara</strong> or <strong>Gulu</strong>, our team has the specialized logistics to deliver premium service upcountry.
                 </p>
               </div>
               
@@ -1506,9 +1528,9 @@ function App() {
               
               <div className="mt-12 bg-slate-900 text-white p-6 md:p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between shadow-xl">
                 <div className="text-left mb-6 md:mb-0">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2">Don't see your specific location?</h3>
+                  <h3 className="text-xl md:text-2xl font-bold mb-2">Planning an upcountry project?</h3>
                   <p className="text-slate-300 text-sm md:text-base max-w-2xl">
-                    Give us a call at <strong><a href={`tel:${config.contactPhone.replace(/[^0-9+]/g, '')}`} className="hover:text-amber-400 transition-colors">+256 751 473 830</a></strong>. We frequently take on specialized projects further afield, including <strong>Kiboga</strong> and <strong>Mpigi</strong>, to ensure every Ugandan home and business has access to safe, reliable power.
+                    Give us a call at <strong><a href={`tel:${config.contactPhone.replace(/[^0-9+]/g, '')}`} className="hover:text-amber-400 transition-colors">+256 751 473 830</a></strong>. We regularly mobilize our engineering teams, service trucks, and material logistics to all corners of Uganda — including key districts in Western, Eastern, and Northern regions.
                   </p>
                 </div>
                 <a 
@@ -1615,6 +1637,8 @@ function App() {
                 src="/premium-profile-lighting-7th-street-kampala.jpg" 
                 alt="Premium profile lighting installation on 7th Street Kampala by Dynawatt Engineering" 
                 className="w-full h-56 md:h-80 lg:h-96 object-cover transition-transform duration-550 hover:scale-[1.02]" 
+                width="800"
+                height="450"
                 loading="lazy" 
                 referrerPolicy="no-referrer"
               />
@@ -1659,6 +1683,7 @@ function App() {
           </div>
         </div>
       ) : null}
+      </main>
 
       {page !== Page.THANK_YOU ? (
         <Footer setPage={setPage} />

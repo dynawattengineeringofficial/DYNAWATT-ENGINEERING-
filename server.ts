@@ -80,18 +80,64 @@ async function startServer() {
   // API endpoints for Site Configuration
   app.get("/api/config", async (_req, res) => {
     const config = await readConfig();
-    res.json(config);
+    const { adminPassword, ...publicConfig } = config;
+    res.json(publicConfig);
   });
 
   app.post("/api/config", async (req, res) => {
     try {
       const newConfig = req.body;
-      const mergedConfig = { ...(await readConfig()), ...newConfig };
+      const currentConfig = await readConfig();
+      // Ensure we don't let anyone overwrite the password via public config endpoint
+      if (newConfig.adminPassword) {
+        delete newConfig.adminPassword;
+      }
+      const mergedConfig = { ...currentConfig, ...newConfig };
       await writeConfig(mergedConfig);
-      res.json(mergedConfig);
+      
+      const { adminPassword, ...publicConfig } = mergedConfig;
+      res.json(publicConfig);
     } catch (error) {
       console.error("Error saving config:", error);
       res.status(500).json({ error: "Failed to save configuration" });
+    }
+  });
+
+  // Admin login and authentication
+  app.post("/api/admin/login", async (req, res) => {
+    try {
+      const { username, password } = req.body;
+      const config = await readConfig();
+      const actualPassword = config.adminPassword || "dynawatt";
+      
+      if (username === "admin" && password === actualPassword) {
+        res.json({ success: true });
+      } else {
+        res.status(401).json({ error: "Invalid credentials" });
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
+  // Admin change password
+  app.post("/api/admin/change-password", async (req, res) => {
+    try {
+      const { currentPassword, newPassword } = req.body;
+      const config = await readConfig();
+      const actualPassword = config.adminPassword || "dynawatt";
+      
+      if (currentPassword !== actualPassword) {
+        return res.status(400).json({ error: "Current password is incorrect" });
+      }
+      
+      config.adminPassword = newPassword;
+      await writeConfig(config);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Change password error:", error);
+      res.status(500).json({ error: "Internal server error" });
     }
   });
 
