@@ -34,10 +34,10 @@ const Guarantee: React.FC<GuaranteeProps> = ({ setPage }) => {
         >
           {/* Section 1 */}
           <div>
-            <h3 className="font-extrabold text-slate-950 text-lg md:text-xl flex items-center gap-2 mb-3">
+            <h2 className="font-extrabold text-slate-950 text-lg md:text-xl flex items-center gap-2 mb-3">
               <span className="p-1 px-2 rounded bg-amber-150 bg-amber-100 text-amber-900 font-mono text-xs">01</span>
               The 3-Month Complete Repair Guarantee
-            </h3>
+            </h2>
             <p className="text-slate-600 pl-8">
               All complete residential and commercial electrical wiring projects completed by Dynawatt Engineering come standard with our 3-month repair protection. If any electrical line, junction box, socket point, or distribution panel we installed develops a functional defect or fault within 3 months, our team returns to diagnose and fix it completely free of charge.
             </p>
@@ -45,10 +45,10 @@ const Guarantee: React.FC<GuaranteeProps> = ({ setPage }) => {
 
           {/* Section 2 */}
           <div>
-            <h3 className="font-extrabold text-slate-950 text-lg md:text-xl flex items-center gap-2 mb-3">
+            <h2 className="font-extrabold text-slate-950 text-lg md:text-xl flex items-center gap-2 mb-3">
               <span className="p-1 px-2 rounded bg-amber-100 text-amber-900 font-mono text-xs">02</span>
               What Our Guarantee Covers
-            </h3>
+            </h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 pl-8 text-xs md:text-sm text-slate-600">
               <li className="flex items-start gap-1.5">
                 <span className="text-[#00b67a] font-bold">✓</span>
@@ -74,6 +74,9 @@ const Guarantee: React.FC<GuaranteeProps> = ({ setPage }) => {
             <img 
               src="/instagram-feed-2.jpg" 
               alt="Professional electrical distribution board and safety testing layout" 
+              width="800"
+              height="256"
+              loading="lazy"
               className="w-full h-48 md:h-64 object-cover"
               referrerPolicy="no-referrer"
             />
@@ -87,10 +90,10 @@ const Guarantee: React.FC<GuaranteeProps> = ({ setPage }) => {
 
           {/* Section 3 */}
           <div>
-            <h3 className="font-extrabold text-slate-950 text-lg md:text-xl flex items-center gap-2 mb-3">
+            <h2 className="font-extrabold text-slate-950 text-lg md:text-xl flex items-center gap-2 mb-3">
               <span className="p-1 px-2 rounded bg-red-100 text-red-900 font-mono text-xs">03</span>
               What Voids Your Guarantee
-            </h3>
+            </h2>
             <p className="text-slate-650 mb-3 pl-8">
               We engineer with maximum care according to international <strong>BS 7671 electrical standards</strong> and <strong>high-quality code regulations</strong>. This warranty is instantly voided if:
             </p>
@@ -112,23 +115,23 @@ const Guarantee: React.FC<GuaranteeProps> = ({ setPage }) => {
 
           {/* Section 4 */}
           <div>
-            <h3 className="font-extrabold text-slate-950 text-lg md:text-xl flex items-center gap-2 mb-3">
+            <h2 className="font-extrabold text-slate-950 text-lg md:text-xl flex items-center gap-2 mb-3">
               <span className="p-1 px-2 rounded bg-amber-100 text-amber-900 font-mono text-xs">04</span>
               Payment Terms & Project Lifecycle
-            </h3>
+            </h2>
             <p className="text-slate-650 mb-3 pl-8">
               We operate structured payment protocols to maintain speed and ensure genuine certified materials are supplied without project delays:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-8 pt-2">
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                <h5 className="font-bold text-slate-900 mb-1.5 text-sm uppercase tracking-wide">60/40 Sourced Slabs Rule</h5>
-                <p className="text-xs text-slate-500">
+                <h3 className="font-bold text-slate-900 mb-1.5 text-sm uppercase tracking-wide">60/40 Sourced Slabs Rule</h3>
+                <p className="text-xs text-slate-700">
                   60% initial deposit required upon approval of project bill of quantities (BOQ) to procure all genuine piping, conduits, and accessories. 40% balance is invoiced on complete circuit finishing and final test-commissioning.
                 </p>
               </div>
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                <h5 className="font-bold text-slate-900 mb-1.5 text-sm uppercase tracking-wide">Authorized Materials Only</h5>
-                <p className="text-xs text-slate-500">
+                <h3 className="font-bold text-slate-900 mb-1.5 text-sm uppercase tracking-wide">Authorized Materials Only</h3>
+                <p className="text-xs text-slate-700">
                   To secure compliance with the National Building Code, all supply cables must carry authentic manufacturer stamps. Dynawatt refuses to install unbranded cables to protect you from future short circuits and fire hazards.
                 </p>
               </div>

@@ -72,12 +72,16 @@ const PremiumLighting: React.FC = () => {
                   src="/ceiling-linear-lighting.jpg" 
                   alt="Modern false ceiling with recessed linear LED lighting, warm cove lighting, and decorative chandelier installation in Kampala, Uganda by Dynawatt Engineering" 
                   loading="lazy"
+                  width="300"
+                  height="256"
                   className="rounded-2xl h-48 md:h-64 mt-8 object-cover w-full shadow-lg"
                 />
                 <img 
                   src="/profile-lighting-uganda.jpg" 
                   alt="Pristine completed architectural ceiling with glowing embedded LED aluminum profiles and warm ambient light design by Dynawatt Engineering in Kampala, Uganda" 
                   loading="lazy"
+                  width="300"
+                  height="256"
                   className="rounded-2xl h-48 md:h-64 object-cover w-full shadow-lg"
                 />
               </div>
@@ -86,6 +90,8 @@ const PremiumLighting: React.FC = () => {
                   src="/staircase-profile-lighting.jpg" 
                   alt="Modern staircase profile lighting integrated into wooden steps with custom ambient linear lighting by Dynawatt Engineering in Kampala, Uganda" 
                   loading="lazy"
+                  width="300"
+                  height="320"
                   className="rounded-2xl h-64 md:h-80 object-cover w-full shadow-lg"
                 />
                 <div className="bg-amber-600 rounded-2xl p-6 shadow-lg flex flex-col justify-center text-white h-32 md:h-48">

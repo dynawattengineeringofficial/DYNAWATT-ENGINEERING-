@@ -103,6 +103,9 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
             <img 
               src={data.heroImage} 
               alt={data.heroImageAlt || data.headline} 
+              width="1200"
+              height="400"
+              loading="eager"
               className="absolute inset-0 w-full h-full object-cover opacity-80"
               referrerPolicy="no-referrer"
             />
@@ -376,6 +379,8 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
               <img 
                 src={data.projectPhoto} 
                 alt={data.projectPhotoAlt || data.headline} 
+                width="800"
+                height="384"
                 className="w-full h-64 md:h-96 object-cover transition-transform duration-500 group-hover:scale-[1.01]" 
                 loading="lazy" 
                 referrerPolicy="no-referrer"
@@ -497,6 +502,9 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
                 <img 
                   src={data.author.avatar} 
                   alt={data.author.name}
+                  width="80"
+                  height="80"
+                  loading="lazy"
                   className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border border-slate-200 shadow-sm"
                   referrerPolicy="no-referrer"
                 />

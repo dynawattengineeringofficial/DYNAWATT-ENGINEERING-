@@ -96,6 +96,8 @@ const About: React.FC<AboutProps> = ({ setPage }) => {
                 <img 
                   src="/dynawatt-team-blueprints.png" 
                   alt="Dynawatt Engineering co-founders working on electrical blueprints" 
+                  width="600"
+                  height="400"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                   className="rounded-2xl w-full h-[400px] object-cover filter brightness-95"
@@ -226,6 +228,9 @@ const About: React.FC<AboutProps> = ({ setPage }) => {
                 <img 
                   src="/co-founder-daniel-alemukori-headshot.jpg" 
                   alt="Daniel Alemukori co-founder lead engineer Dynawatt Engineering" 
+                  width="192"
+                  height="192"
+                  loading="lazy"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -245,6 +250,9 @@ const About: React.FC<AboutProps> = ({ setPage }) => {
                 <img 
                   src="/co-founder-joshua-wyclif-kitunguuzi-headshot.jpg" 
                   alt="Joshua Wyclif Kitunguuzi co-founder operations director Dynawatt Engineering" 
+                  width="192"
+                  height="192"
+                  loading="lazy"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

@@ -808,7 +808,7 @@ Additional Details: ${formData.message || 'None'}
             ].map((proj, pIdx) => (
               <div key={pIdx} className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition group">
                 <div className="h-56 relative overflow-hidden bg-slate-900">
-                  <img src={proj.image} alt={proj.title} referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={proj.image} alt={proj.title} referrerPolicy="no-referrer" loading="lazy" width="400" height="224" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent animate-in fade-in"></div>
                   <span className="absolute bottom-4 left-4 bg-amber-500 text-slate-950 text-[10px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider">
                     {proj.location}

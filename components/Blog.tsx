@@ -194,6 +194,8 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
                     alt={post.title} 
                     referrerPolicy="no-referrer"
                     loading="lazy" 
+                    width="400"
+                    height="208"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                   />
                   <div className="absolute top-4 left-4 bg-amber-500 text-slate-950 text-[10px] font-black px-3 py-1.5 rounded-md uppercase tracking-wider shadow">

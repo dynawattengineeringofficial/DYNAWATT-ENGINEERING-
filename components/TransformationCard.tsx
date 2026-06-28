@@ -27,6 +27,8 @@ export const TransformationCard: React.FC<TransformationCardProps> = ({ item }) 
             <img 
               src={item.image} 
               alt={item.alt} 
+              width="400"
+              height="256"
               className="w-full h-full object-cover animate-in fade-in duration-300" 
               referrerPolicy="no-referrer" 
             />
@@ -41,6 +43,8 @@ export const TransformationCard: React.FC<TransformationCardProps> = ({ item }) 
                 <img 
                   src={item.beforeImage} 
                   alt={`Before: ${item.title}`} 
+                  width="400"
+                  height="256"
                   className="w-full h-full object-cover animate-in fade-in duration-300" 
                   referrerPolicy="no-referrer" 
                 />

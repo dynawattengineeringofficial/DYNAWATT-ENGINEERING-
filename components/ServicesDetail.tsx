@@ -172,6 +172,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
                 alt={service.title} 
                 referrerPolicy="no-referrer"
                 loading="lazy"
+                width="500"
+                height="350"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
               />
               <div className="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition-colors duration-500"></div>
