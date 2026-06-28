@@ -62,13 +62,13 @@ const TrustpilotReviews: React.FC = () => {
         </div>
 
         {/* Trustpilot Review Collector Widget */}
-        <div className="relative max-w-2xl mx-auto">
+        <div className="relative max-w-2xl mx-auto min-h-[120px]">
           <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-amber-400 rounded-xl blur opacity-10 transition duration-1000"></div>
-          <div className="relative bg-white rounded-xl p-2 md:p-4 border border-slate-100 shadow-lg shadow-slate-200/50 min-h-[68px] md:min-h-[84px] h-[68px] md:h-[84px] overflow-hidden">
+          <div className="relative bg-white rounded-xl p-2 md:p-4 border border-slate-100 shadow-lg shadow-slate-200/50">
             {/* User provided widget code */}
             <div 
               ref={widgetRef}
-              className="trustpilot-widget min-h-[52px] h-[52px]" 
+              className="trustpilot-widget" 
               data-locale="en-US" 
               data-template-id="56278e9abfbbba0bdcd568bc" 
               data-businessunit-id="69615f9a63d6da8514f68247" 
