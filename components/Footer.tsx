@@ -127,7 +127,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
         </div>
 
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs">
-          <p onDoubleClick={() => setPage(Page.ADMIN)} className="cursor-default select-none hover:text-slate-300 transition mb-2 md:mb-0">
+          <p className="cursor-default select-none hover:text-slate-300 transition mb-2 md:mb-0">
             © {new Date().getFullYear()} DYNAWATT ENGINEERING. All Rights Reserved.
           </p>
           <div className="flex space-x-4">
