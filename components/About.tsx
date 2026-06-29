@@ -248,7 +248,7 @@ const About: React.FC<AboutProps> = ({ setPage }) => {
             <div className="bg-slate-50 rounded-3xl p-6 lg:p-8 border border-slate-200/80 shadow-sm flex flex-col items-center text-center md:text-left md:items-start group hover:shadow-md transition duration-300">
               <div className="w-48 h-48 rounded-2xl overflow-hidden border-2 border-amber-500/30 group-hover:border-amber-500 mb-6 flex-shrink-0 shadow relative bg-slate-900">
                 <img 
-                  src="/co-founder-joshua-wyclif-kitunguuzi-headshot.jpg" 
+                  src="/co-founder-joshua-wyclif-kitunguuzi-headshot.webp" 
                   alt="Joshua Wyclif Kitunguuzi co-founder operations director Dynawatt Engineering" 
                   width="192"
                   height="192"

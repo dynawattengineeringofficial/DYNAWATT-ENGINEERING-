@@ -48,7 +48,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
       title: "Repairs & Emergency Fault Isolation",
       description: "Surgical fault detection of leakage lines, Yaka meter token rejection resolution, phase drop rectification, and comprehensive electrical safety compliance audits.",
       icon: <Icons.Wrench className="h-6 w-6 text-amber-500" />,
-      image: "/electrical-repairs-maintenance-kampala.jpg",
+      image: "/electrical-repairs-maintenance-kampala.webp",
       page: Page.SEO_MAINTENANCE,
       badge: "24/7 Response",
       features: [
@@ -64,7 +64,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
       title: "Architectural Lighting & LED Profiles",
       description: "Breathe luxury ambiance into ceilings, kitchens, and stairs. We design custom plasterboard linear extrusion slots, recessed drop ceiling coves, and customized dimming zones.",
       icon: <Icons.Lightbulb className="h-6 w-6 text-amber-500" />,
-      image: "/architectural-lighting-kampala.jpg",
+      image: "/architectural-lighting-kampala.webp",
       page: Page.SEO_PROFILE_LIGHTING,
       badge: "Luxury Design",
       features: [
@@ -80,7 +80,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
       title: "Smart Home & Automation Integration",
       description: "Manage your home with modern convenience. Control security, mood lighting zones, heavy-duty pumps, and automated gates from your touch pads and mobile screen.",
       icon: <Icons.Home className="h-6 w-6 text-amber-500" />,
-      image: "/smart_home_switches.png",
+      image: "/smart_home_switches.webp",
       page: Page.SEO_SMART_HOME,
       badge: "Future Ready",
       features: [
