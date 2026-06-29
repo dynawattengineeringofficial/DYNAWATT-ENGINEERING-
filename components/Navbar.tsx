@@ -157,10 +157,11 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
                 <img 
                   src="/dynawatt-engineering-logo.png" 
                   alt="Dynawatt Engineering electrical installation and architectural lighting company logo" 
-                  className="h-12 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300" 
+                  className="h-12 md:h-16 object-contain group-hover:scale-105 transition-transform duration-300" 
                   onError={() => setLogoError(true)}
-                  width="128"
+                  width="64"
                   height="64"
+                  style={{ aspectRatio: '1/1', minWidth: '48px' }}
                   loading="eager"
                   {...{ fetchpriority: "high" }}
                 />
