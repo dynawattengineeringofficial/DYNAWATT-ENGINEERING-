@@ -288,9 +288,9 @@ function App() {
 
   const [leads, setLeads] = useState<Lead[]>([]);
 
-  // Load configuration and leads from persistent database
+  // Load configuration from persistent database
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchConfig = async () => {
       try {
         const configRes = await fetch("/api/config");
         const contentType = configRes.headers.get("content-type");
@@ -301,20 +301,28 @@ function App() {
       } catch (err) {
         // Safe fallback in case of static environments
       }
-
-      try {
-        const leadsRes = await fetch("/api/prospects");
-        const contentType = leadsRes.headers.get("content-type");
-        if (leadsRes.ok && contentType && contentType.includes("application/json")) {
-          const leadsData = await leadsRes.json();
-          setLeads(leadsData);
-        }
-      } catch (err) {
-        // Safe fallback in case of static environments
-      }
     };
-    fetchData();
+    fetchConfig();
   }, []);
+
+  // Fetch leads only when admin is authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      const fetchLeads = async () => {
+        try {
+          const leadsRes = await fetch("/api/prospects");
+          const contentType = leadsRes.headers.get("content-type");
+          if (leadsRes.ok && contentType && contentType.includes("application/json")) {
+            const leadsData = await leadsRes.json();
+            setLeads(leadsData);
+          }
+        } catch (err) {
+          // Safe fallback in case of static environments
+        }
+      };
+      fetchLeads();
+    }
+  }, [isAuthenticated]);
 
   const addLead = async (lead: Lead) => {
     setLeads(prev => [lead, ...prev]);
