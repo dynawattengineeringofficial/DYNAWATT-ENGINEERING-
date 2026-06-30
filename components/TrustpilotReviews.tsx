@@ -62,13 +62,13 @@ const TrustpilotReviews: React.FC = () => {
         </div>
 
         {/* Trustpilot Review Collector Widget */}
-        <div className="relative max-w-2xl mx-auto min-h-[120px]">
+        <div className="relative max-w-2xl mx-auto h-[70px] md:h-[86px]">
           <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-amber-400 rounded-xl blur opacity-10 transition duration-1000"></div>
-          <div className="relative bg-white rounded-xl p-2 md:p-4 border border-slate-100 shadow-lg shadow-slate-200/50">
+          <div className="relative bg-white rounded-xl h-full flex items-center justify-center p-2 md:px-4 border border-slate-100 shadow-lg shadow-slate-200/50">
             {/* User provided widget code */}
             <div 
               ref={widgetRef}
-              className="trustpilot-widget" 
+              className="trustpilot-widget w-full" 
               data-locale="en-US" 
               data-template-id="56278e9abfbbba0bdcd568bc" 
               data-businessunit-id="69615f9a63d6da8514f68247" 
@@ -76,7 +76,7 @@ const TrustpilotReviews: React.FC = () => {
               data-style-width="100%" 
               data-token="7434a241-154f-4ec2-a242-f88e660a4c18"
             >
-              <a href="https://www.trustpilot.com/review/dynawattengineering.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-[52px] text-slate-400 hover:text-green-600 font-medium text-sm">
+              <a href="https://www.trustpilot.com/review/dynawattengineering.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-[52px] text-slate-400 hover:text-green-600 font-medium text-sm w-full">
                 Review us on Trustpilot
               </a>
             </div>
