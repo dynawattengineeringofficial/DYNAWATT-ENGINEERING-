@@ -28,7 +28,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Solar",
       author: "Eng. John Mukasa",
       authorRole: "Senior Solar & Security Systems Specialist",
-      image: "/hybrid-solar-installation-kira-wakiso.jpg",
+      image: "/blog-solar-prices.jpg",
       linkTo: Page.SEO_SOLAR
     },
     {
@@ -48,7 +48,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Smart Home",
       author: "Joshua Wyclif Kitunguuzi",
       authorRole: "Co-Founder & Operations Director",
-      image: "/smart_home_switches.png",
+      image: "/smart_home_switches.webp",
       linkTo: Page.SEO_SMART_HOME
     },
     {
