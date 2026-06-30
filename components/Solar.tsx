@@ -568,7 +568,17 @@ Additional Details: ${formData.message || 'None'}
       {/* Hero Section */}
       <section className="relative bg-[#0D1B2A] text-white py-16 md:py-28 overflow-hidden">
         {/* Background photo & overlay */}
-        <div className="absolute inset-0 opacity-80 bg-[url('/solar-hero-bg.webp')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/solar-hero-bg.webp"
+            alt="Solar hero background"
+            width={1920}
+            height={1080}
+            fetchpriority="high"
+            loading="eager"
+            className="w-full h-full object-cover opacity-80"
+          />
+        </div>
         
         {/* Ambient radial gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A]/80 via-[#0A1E3D]/35 to-[#0D1B2A]/80 pointer-events-none"></div>

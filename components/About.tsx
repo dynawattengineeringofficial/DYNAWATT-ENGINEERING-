@@ -13,7 +13,17 @@ const About: React.FC<AboutProps> = ({ setPage }) => {
       
       {/* HERO SECTION */}
       <section className="bg-slate-900 text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-[url('/dynawatt-team-blueprints.png')] bg-cover bg-center mix-blend-overlay"></div>
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/dynawatt-team-blueprints.png"
+            alt="Dynawatt team blueprints"
+            width={1920}
+            height={1080}
+            fetchpriority="high"
+            loading="eager"
+            className="w-full h-full object-cover mix-blend-overlay opacity-15"
+          />
+        </div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <motion.span 
