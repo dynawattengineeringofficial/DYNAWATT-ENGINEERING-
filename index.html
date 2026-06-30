@@ -5,7 +5,7 @@
     <!-- Google tag (gtag.js) -->
     <script defer src="https://www.googletagmanager.com/gtag/js?id=G-XD8VSWVPKH"></script>
     <script>
-      window.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('load', () => {
         window.dataLayer = window.dataLayer || [];
         function gtag(){window.dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -15,7 +15,7 @@
 
     <!-- Meta Pixel Code -->
     <script>
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('load', () => {
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -35,7 +35,8 @@
     <meta name="trustpilot-one-time-domain-verification-id" content="e603af9f-c43e-4df9-879d-5803512e9002"/>
     
     <!-- LCP Hero Image Preload -->
-    <link rel="preload" as="image" href="/premium-profile-lighting-7th-street-kampala.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/premium-profile-lighting-7th-street-kampala-mobile.webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/premium-profile-lighting-7th-street-kampala.webp" media="(min-width: 769px)" fetchpriority="high" />
     
     <!-- Primary SEO -->
     <title>Professional Electrical Installation & Architectural Lighting | Dynawatt Engineering</title>
@@ -63,7 +64,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"></noscript>
     <style>
       html { scroll-behavior: smooth; }
     </style>

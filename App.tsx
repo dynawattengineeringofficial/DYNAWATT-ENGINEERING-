@@ -609,15 +609,19 @@ function App() {
           {/* Hero Section */}
           <header id="home" className="relative bg-slate-950 text-white pt-24 pb-16 md:pt-20 md:pb-32 overflow-hidden min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
             <div className="absolute inset-0 overflow-hidden">
-              <img
-                src="/premium-profile-lighting-7th-street-kampala.webp"
-                alt="Premium profile lighting installation by Dynawatt Engineering in Kampala, Uganda"
-                width={1920}
-                height={1080}
-                fetchpriority="high"
-                loading="eager"
-                className="w-full h-full object-cover"
-              />
+              <picture>
+                <source media="(max-width: 768px)" srcSet="/premium-profile-lighting-7th-street-kampala-mobile.webp" />
+                <source media="(min-width: 769px)" srcSet="/premium-profile-lighting-7th-street-kampala.webp" />
+                <img
+                  src="/premium-profile-lighting-7th-street-kampala.webp"
+                  alt="Premium profile lighting installation by Dynawatt Engineering in Kampala, Uganda"
+                  width={1920}
+                  height={1080}
+                  fetchpriority="high"
+                  loading="eager"
+                  className="w-full h-full object-cover"
+                />
+              </picture>
             </div>
             <div className="absolute inset-0 bg-slate-950/30"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/30 to-transparent"></div>
