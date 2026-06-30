@@ -597,7 +597,7 @@ function App() {
 
   // Public Website View
   return (
-    <div className={`min-h-screen font-sans ${page === Page.THANK_YOU ? 'bg-slate-950 text-slate-100 flex flex-col' : 'bg-white text-slate-900'}`}>
+    <div id="app-root-container" className={`min-h-screen font-sans flex flex-col ${page === Page.THANK_YOU ? 'bg-slate-950 text-slate-100' : 'bg-white text-slate-900'}`}>
       {/* Emergency Banner */}
       {config.emergencyMode && page !== Page.THANK_YOU && (
         <div className="bg-red-600 text-white px-4 py-2 text-center font-bold flex justify-center items-center animate-pulse">
@@ -651,7 +651,12 @@ function App() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-      <Suspense fallback={null}>
+      <Suspense fallback={
+        <div className="flex-grow min-h-[60vh] bg-slate-950 flex flex-col items-center justify-center py-20" id="loading-suspense-fallback">
+          <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin mb-4" id="loading-spinner"></div>
+          <span className="text-slate-400 font-sans text-sm tracking-wider font-semibold">Loading Dynawatt...</span>
+        </div>
+      }>
       {page === Page.HOME ? (
         <>
           {/* Hero Section */}
