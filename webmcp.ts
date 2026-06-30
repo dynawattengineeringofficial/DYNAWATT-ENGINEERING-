@@ -1,5 +1,3 @@
-import { z } from 'zod';
-
 // We will store callbacks here to interact with the React state
 type NavigationCallback = (page: string) => void;
 type LeadSubmitCallback = (lead: any) => void;
@@ -18,13 +16,22 @@ export function setWebMcpCallbacks(callbacks: {
 // Function to register all tools with WebMCP dynamically
 export async function registerAllWebMcpTools() {
   try {
+    // Dynamically import webmcp-kit to prevent production build issues
     const kit = await import(/* @vite-ignore */ 'webmcp-kit');
     if (!kit || !kit.defineTool) {
       console.warn("⚠️ [WebMCP] webmcp-kit could not be loaded dynamically in this environment.");
       return;
     }
 
+    // Dynamically import zod to prevent production build issues
+    const zodMod = await import(/* @vite-ignore */ 'zod');
+    if (!zodMod || !zodMod.z) {
+      console.warn("⚠️ [WebMCP] zod could not be loaded dynamically in this environment.");
+      return;
+    }
+
     const { defineTool, jsonContent, textContent } = kit;
+    const { z } = zodMod;
 
     // 1. Tool to get services and details (Read-only)
     const getServices = defineTool({
