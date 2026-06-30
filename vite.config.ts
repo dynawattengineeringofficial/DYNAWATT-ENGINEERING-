@@ -9,7 +9,7 @@ export default defineConfig({
     outDir: 'dist',
     target: 'es2017',
     rollupOptions: {
-      external: ['webmcp-kit', 'webmcp-kit/devtools']
+      external: ['webmcp-kit', 'webmcp-kit/devtools', 'zod']
     }
   }
 });
