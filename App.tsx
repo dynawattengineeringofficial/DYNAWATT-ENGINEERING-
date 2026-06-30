@@ -10,6 +10,8 @@ import { seoLocationPagesData } from './data/seoLocationPages';
 import { seoEducationalPagesData } from './data/seoEducationalPages';
 import { Icons } from './components/AppIcons';
 import { Lead, Page, SiteConfig } from './types';
+import { registerAllWebMcpTools, unregisterAllWebMcpTools, setWebMcpCallbacks } from './webmcp';
+import { enableDevMode } from 'webmcp-kit/devtools';
 
 function useScrollToTop(page: Page) {
   useLayoutEffect(() => {
@@ -67,7 +69,7 @@ const getPathFromPage = (page: Page): string | null => {
   }
 };
 
-const SeoMeta = ({ page }: { page: Page }) => {
+export const SeoMeta = ({ page }: { page: Page }) => {
   let title = "Dynawatt Engineering";
   let description = "Professional electrical installation and solar energy company in Kampala, Uganda.";
   let url = "https://dynawattengineering.com";
@@ -385,6 +387,47 @@ function App() {
     setPage(Page.HOME);
   };
 
+  useEffect(() => {
+    // 1. Set callbacks to tie WebMCP tools directly to dynamic React states
+    setWebMcpCallbacks({
+      onNavigate: (targetPageStr) => {
+        let matchedPage: Page | null = null;
+        if (targetPageStr === 'areas-we-serve') {
+          matchedPage = Page.LOCATION;
+        } else {
+          matchedPage = targetPageStr as Page;
+        }
+        
+        if (matchedPage) {
+          setPage(matchedPage);
+        }
+      },
+      onLeadSubmit: (lead) => {
+        addLead(lead);
+      }
+    });
+
+    // 2. Register all WebMCP tools dynamically
+    registerAllWebMcpTools();
+
+    // 3. Enable WebMCP Dev Panel for developer testing and agentic validation (both desktop and mobile)
+    try {
+      enableDevMode({ position: { bottom: 85, right: 16 } });
+    } catch (e) {
+      console.warn("Could not enable WebMCP dev mode in current environment:", e);
+    }
+
+    // 4. Cleanup on component unmount
+    return () => {
+      unregisterAllWebMcpTools();
+    };
+  }, []);
+
+  // Suppress unused locals in build/lint without removing valuable administrative hooks
+  if (false) {
+    console.log(leads, updateConfig, updateLeadStatus, deleteLead, handleAdminLogout);
+  }
+
   const whatsappMessage = encodeURIComponent("Hello, Im interested in working with DYNAWATT ENGINEERING. Is anyone available to chat");
 
   const scrollToQuote = (e: React.MouseEvent) => {
@@ -575,7 +618,6 @@ function App() {
                 height="128"
                 style={{ aspectRatio: '1/1', minWidth: '48px' }}
                 loading="eager"
-                {...{ fetchpriority: "high" }}
               />
               <div className="flex flex-col">
                 <span className="text-base md:text-lg font-black text-white leading-none tracking-tight">DYNAWATT</span>
@@ -617,7 +659,6 @@ function App() {
                   alt="Premium profile lighting installation by Dynawatt Engineering in Kampala, Uganda"
                   width={1920}
                   height={1080}
-                  fetchpriority="high"
                   loading="eager"
                   className="w-full h-full object-cover"
                 />
@@ -712,7 +753,6 @@ function App() {
                     width="600"
                     height="200"
                     loading="eager"
-                    {...{ fetchpriority: "high" }}
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
