@@ -11,7 +11,6 @@ import { seoEducationalPagesData } from './data/seoEducationalPages';
 import { Icons } from './components/AppIcons';
 import { Lead, Page, SiteConfig } from './types';
 import { registerAllWebMcpTools, unregisterAllWebMcpTools, setWebMcpCallbacks } from './webmcp';
-import { enableDevMode } from 'webmcp-kit/devtools';
 
 function useScrollToTop(page: Page) {
   useLayoutEffect(() => {
@@ -411,10 +410,17 @@ function App() {
     registerAllWebMcpTools();
 
     // 3. Enable WebMCP Dev Panel for developer testing and agentic validation (both desktop and mobile)
-    try {
-      enableDevMode({ position: { bottom: 85, right: 16 } });
-    } catch (e) {
-      console.warn("Could not enable WebMCP dev mode in current environment:", e);
+    if (import.meta.env.DEV) {
+      const devtoolsPath = "webmcp-kit/devtools";
+      import(/* @vite-ignore */ devtoolsPath)
+        .then((mod) => {
+          if (mod && mod.enableDevMode) {
+            mod.enableDevMode({ position: { bottom: 85, right: 16 } });
+          }
+        })
+        .catch((e) => {
+          console.warn("Could not load WebMCP devtools:", e);
+        });
     }
 
     // 4. Cleanup on component unmount
