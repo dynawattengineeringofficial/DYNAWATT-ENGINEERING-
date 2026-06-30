@@ -19,7 +19,6 @@ const About: React.FC<AboutProps> = ({ setPage }) => {
             alt="Dynawatt team blueprints"
             width={1920}
             height={1080}
-            fetchpriority="high"
             loading="eager"
             className="w-full h-full object-cover mix-blend-overlay opacity-15"
           />

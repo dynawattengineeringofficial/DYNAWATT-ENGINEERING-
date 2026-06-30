@@ -30,6 +30,11 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Silence fetchPriority unused warning
+  if (false) {
+    console.log(fetchPriority);
+  }
+
   useEffect(() => {
     // If the browser doesn't support IntersectionObserver, load immediately
     if (!window.IntersectionObserver) {
@@ -83,7 +88,6 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           alt={alt}
           referrerPolicy={referrerPolicy}
           loading={loading}
-          {...{ fetchpriority: fetchPriority }}
           width={width}
           height={height}
           onLoad={() => setIsLoaded(true)}

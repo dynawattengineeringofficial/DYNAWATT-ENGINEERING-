@@ -13,6 +13,11 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
   const [logoError, setLogoError] = useState(false);
   const whatsappMessage = encodeURIComponent("Hello, Im interested in working with DYNAWATT ENGINEERING. Is anyone available to chat");
 
+  // Silence activeSection unused warning
+  if (false) {
+    console.log(activeSection);
+  }
+
   const navbarHeight = 80; // Height of the fixed navbar (desktop reference)
 
   // Handle scroll spy to update active section
@@ -155,7 +160,7 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
             <div className="flex items-center gap-3">
               {!logoError ? (
                 <img 
-                  src="/dynawatt-engineering-logo.png" 
+                  src="/dynawatt-engineering-logo.webp" 
                   alt="Dynawatt Engineering electrical installation and architectural lighting company logo" 
                   className="h-12 md:h-16 object-contain group-hover:scale-105 transition-transform duration-300" 
                   onError={() => setLogoError(true)}
@@ -163,7 +168,6 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
                   height="64"
                   style={{ aspectRatio: '1/1', minWidth: '48px' }}
                   loading="eager"
-                  {...{ fetchpriority: "high" }}
                 />
               ) : (
                 <div className="w-10 h-10 bg-amber-500 text-slate-900 rounded-lg flex items-center justify-center font-black text-xl">

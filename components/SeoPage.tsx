@@ -105,7 +105,6 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
               alt={data.heroImageAlt || data.headline} 
               width="1200"
               height="400"
-              fetchpriority="high"
               loading="eager"
               className="absolute inset-0 w-full h-full object-cover opacity-80"
               referrerPolicy="no-referrer"

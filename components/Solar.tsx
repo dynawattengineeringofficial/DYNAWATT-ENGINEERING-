@@ -577,7 +577,6 @@ Additional Details: ${formData.message || 'None'}
               alt="Solar hero background"
               width={1920}
               height={1080}
-              fetchpriority="high"
               loading="eager"
               className="w-full h-full object-cover opacity-80"
             />

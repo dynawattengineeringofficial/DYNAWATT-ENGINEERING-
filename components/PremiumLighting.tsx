@@ -69,12 +69,13 @@ const PremiumLighting: React.FC = () => {
             <div className="grid grid-cols-2 gap-4 relative z-10">
               <div className="space-y-4">
                 <img 
-                  src="/ceiling-linear-lighting.jpg" 
+                  src="/ceiling-linear-lighting.webp" 
                   alt="Modern false ceiling with recessed linear LED lighting, warm cove lighting, and decorative chandelier installation in Kampala, Uganda by Dynawatt Engineering" 
                   loading="lazy"
                   width="300"
                   height="256"
-                  className="rounded-2xl h-48 md:h-64 mt-8 object-cover w-full shadow-lg"
+                  className="rounded-2xl mt-8 object-cover w-full shadow-lg"
+                  style={{ aspectRatio: '300/256' }}
                 />
                 <img 
                   src="/profile-lighting-uganda.jpg" 
@@ -82,17 +83,19 @@ const PremiumLighting: React.FC = () => {
                   loading="lazy"
                   width="300"
                   height="256"
-                  className="rounded-2xl h-48 md:h-64 object-cover w-full shadow-lg"
+                  className="rounded-2xl object-cover w-full shadow-lg"
+                  style={{ aspectRatio: '300/256' }}
                 />
               </div>
               <div className="space-y-4">
                 <img 
-                  src="/staircase-profile-lighting.jpg" 
+                  src="/staircase-profile-lighting.webp" 
                   alt="Modern staircase profile lighting integrated into wooden steps with custom ambient linear lighting by Dynawatt Engineering in Kampala, Uganda" 
                   loading="lazy"
                   width="300"
                   height="320"
-                  className="rounded-2xl h-64 md:h-80 object-cover w-full shadow-lg"
+                  className="rounded-2xl object-cover w-full shadow-lg"
+                  style={{ aspectRatio: '300/320' }}
                 />
                 <div className="bg-amber-600 rounded-2xl p-6 shadow-lg flex flex-col justify-center text-white h-32 md:h-48">
                   <span className="text-3xl md:text-4xl font-black mb-1">100+</span>
