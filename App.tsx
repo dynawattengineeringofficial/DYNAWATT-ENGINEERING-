@@ -1,6 +1,6 @@
 
-import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect, useLayoutEffect, Suspense, lazy } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { TransformationCard } from './components/TransformationCard';
@@ -10,6 +10,13 @@ import { seoLocationPagesData } from './data/seoLocationPages';
 import { seoEducationalPagesData } from './data/seoEducationalPages';
 import { Icons } from './components/AppIcons';
 import { Lead, Page, SiteConfig } from './types';
+
+function useScrollToTop(page: Page) {
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [page]);
+}
+
 
 // Dynamic/Lazy imports for routed and below-the-fold components
 const LeadForm = lazy(() => import('./components/LeadForm'));
@@ -272,9 +279,10 @@ function App() {
     } catch (e) {
       // Ignored
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [page]);
   
+  useScrollToTop(page);
+
   // Site Configuration State (from database)
   const [config, setConfig] = useState<SiteConfig>({
     emergencyMode: false,
@@ -585,13 +593,32 @@ function App() {
         </header>
       )}
 
-      <main id="main-content" className="flex-grow flex flex-col">
+      <AnimatePresence mode="wait">
+        <motion.main 
+          key={page}
+          id="main-content" 
+          className="flex-grow flex flex-col"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
       <Suspense fallback={null}>
       {page === Page.HOME ? (
         <>
           {/* Hero Section */}
           <header id="home" className="relative bg-slate-950 text-white pt-24 pb-16 md:pt-20 md:pb-32 overflow-hidden min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
-            <div className="absolute inset-0 opacity-100 bg-[url('/premium-profile-lighting-7th-street-kampala.webp')] bg-cover bg-center"></div>
+            <div className="absolute inset-0 overflow-hidden">
+              <img
+                src="/premium-profile-lighting-7th-street-kampala.webp"
+                alt="Premium profile lighting installation by Dynawatt Engineering in Kampala, Uganda"
+                width={1920}
+                height={1080}
+                fetchpriority="high"
+                loading="eager"
+                className="w-full h-full object-cover"
+              />
+            </div>
             <div className="absolute inset-0 bg-slate-950/30"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/30 to-transparent"></div>
             
@@ -673,11 +700,11 @@ function App() {
               
               <div className="md:w-1/2 md:pl-10 relative z-10 w-full flex flex-col gap-6">
                 <LeadForm addLead={addLead} setPage={setPage} />
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-700/50 hidden md:block min-h-0 md:min-h-[192px] md:h-48">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-700/50 hidden md:block min-h-0 md:min-h-[192px] w-full" style={{ aspectRatio: '3/1' }}>
                   <img 
                     src="/architectural-lighting-kampala.webp" 
                     alt="Architectural exterior lighting installation illuminating modern residential homes in Kampala, Uganda by Dynawatt Engineering" 
-                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-700" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
                     width="600"
                     height="200"
                     loading="eager"
@@ -936,7 +963,7 @@ function App() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* Electrical Installation */}
                 <div onClick={() => setPage(Page.SEO_ELEC_INSTALL)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
-                   <div className="relative h-48 sm:h-56 overflow-hidden">
+                   <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
                     <img src="/electrical-engineering-kampala.webp" alt="Professional commercial and residential electrical installations by Dynawatt Engineering in Kampala, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Zap className="h-3 w-3 mr-1 text-amber-500" />
@@ -956,7 +983,7 @@ function App() {
 
                 {/* Architectural Lighting */}
                 <div onClick={() => setPage(Page.SEO_PROFILE_LIGHTING)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
-                   <div className="relative h-48 sm:h-56 overflow-hidden">
+                   <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
                     <img src="/luxury-staircase-lighting.webp" alt="Luxury staircase lighting featuring recessed LED step lights and custom architectural profile lighting in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-amber-500/95 backdrop-blur-sm shadow-sm text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Award className="h-3 w-3 mr-1" />
@@ -976,7 +1003,7 @@ function App() {
 
                 {/* Solar Installation */}
                 <div onClick={() => setPage(Page.SEO_SOLAR)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
-                   <div className="relative h-48 sm:h-56 overflow-hidden">
+                   <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
                     <img src="/solar-hero-bg.webp" alt="Hybrid solar installation with battery backup by Dynawatt Engineering in Kira, Wakiso, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Sun className="h-3 w-3 mr-1 text-amber-500" />
@@ -996,7 +1023,7 @@ function App() {
 
                 {/* Smart Home Solutions */}
                 <div onClick={() => setPage(Page.SEO_SMART_HOME)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
-                   <div className="relative h-48 sm:h-56 overflow-hidden">
+                   <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
                     <img src="/smart_home_switches.webp" alt="Finished smart home installation featuring elegant glass-face touch control panel on the wall by Dynawatt Engineering in Kampala, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Home className="h-3 w-3 mr-1 text-amber-500" />
@@ -1016,7 +1043,7 @@ function App() {
 
                 {/* CCTV & Security Systems */}
                 <div onClick={() => setPage(Page.SEO_CCTV)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
-                   <div className="relative h-48 sm:h-56 overflow-hidden">
+                   <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
                     <img src="/blog-smart-home.jpg" alt="Premium CCTV camera and advanced residential security system installation in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Shield className="h-3 w-3 mr-1 text-amber-500" />
@@ -1036,7 +1063,7 @@ function App() {
                 
                 {/* Repairs & Maintenance */}
                 <div onClick={() => setPage(Page.SEO_MAINTENANCE)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
-                   <div className="relative h-48 sm:h-56 overflow-hidden">
+                   <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
                     <img src="/electrical-repairs-maintenance-kampala.webp" alt="Professional electrical repairs, fault-finding, and power board maintenance service in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Wrench className="h-3 w-3 mr-1 text-amber-500" />
@@ -1227,21 +1254,21 @@ function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-                <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative h-64 md:h-80 rounded-2xl overflow-hidden group">
+                <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative w-full rounded-2xl overflow-hidden group" style={{ aspectRatio: '1/1' }}>
                   <img src="/instagram-feed-1.jpg" alt="Premium recessed aluminum profile lighting installed in a modern residential ceiling in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Icons.Instagram className="h-8 w-8 text-white mb-3" />
                     <p className="text-white text-sm font-medium leading-snug">#AluminumProfileLighting #ModernHomeLighting #ArchitecturalLighting #Kampala</p>
                   </div>
                 </a>
-                <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative h-64 md:h-80 rounded-2xl overflow-hidden group">
+                <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative w-full rounded-2xl overflow-hidden group" style={{ aspectRatio: '1/1' }}>
                   <img src="/instagram-feed-2.jpg" alt="Industrial electrical panel and premium distribution board wiring installation in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Icons.Instagram className="h-8 w-8 text-white mb-3" />
                     <p className="text-white text-sm font-medium leading-snug">#ElectricalEngineering #PanelInstallation #IndustrialWiring #SecurePowerUganda</p>
                   </div>
                 </a>
-                <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative h-64 md:h-80 rounded-2xl overflow-hidden group hidden md:block">
+                <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative w-full rounded-2xl overflow-hidden group hidden md:block" style={{ aspectRatio: '1/1' }}>
                   <img src="/luxury-staircase-lighting.webp" alt="Luxury staircase profile lighting integrated into marble steps and modern ambient ceiling lights in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Icons.Instagram className="h-8 w-8 text-white mb-3" />
@@ -1773,7 +1800,8 @@ function App() {
         </div>
       ) : null}
       </Suspense>
-      </main>
+      </motion.main>
+      </AnimatePresence>
 
       {page !== Page.THANK_YOU ? (
         <Footer setPage={setPage} />
