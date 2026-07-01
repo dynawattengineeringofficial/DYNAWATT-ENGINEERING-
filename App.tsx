@@ -19,12 +19,14 @@ function useScrollToTop(page: Page) {
 }
 
 
+import LeadForm from './components/LeadForm';
+import FAQ from './components/FAQ';
+import SafetyChecklist from './components/SafetyChecklist';
+import TrustpilotReviews from './components/TrustpilotReviews';
+import PremiumLighting from './components/PremiumLighting';
+
 // Dynamic/Lazy imports for routed and below-the-fold components
-const LeadForm = lazy(() => import('./components/LeadForm'));
-const FAQ = lazy(() => import('./components/FAQ'));
 const ServicesDetail = lazy(() => import('./components/ServicesDetail'));
-const SafetyChecklist = lazy(() => import('./components/SafetyChecklist'));
-const TrustpilotReviews = lazy(() => import('./components/TrustpilotReviews'));
 const About = lazy(() => import('./components/About'));
 const Guarantee = lazy(() => import('./components/Guarantee'));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
@@ -33,7 +35,6 @@ const Solar = lazy(() => import('./components/Solar'));
 const Location = lazy(() => import('./components/Location'));
 const Contact = lazy(() => import('./components/Contact'));
 const Blog = lazy(() => import('./components/Blog'));
-const PremiumLighting = lazy(() => import('./components/PremiumLighting'));
 const SeoPage = lazy(() => import('./components/SeoPage'));
 
 import { Helmet } from 'react-helmet-async';
@@ -678,10 +679,7 @@ function App() {
             <div className="absolute inset-0 bg-slate-950/30"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/30 to-transparent"></div>
             
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+            <div 
               className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center"
             >
               <div className="md:w-1/2 mb-10 md:mb-0">
@@ -771,7 +769,7 @@ function App() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </header>
 
           {/* Trust Section */}

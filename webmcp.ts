@@ -17,6 +17,7 @@ export function setWebMcpCallbacks(callbacks: {
 export async function registerAllWebMcpTools() {
   try {
     // Dynamically import webmcp-kit to prevent production build issues
+    // @ts-ignore
     const kit = await import(/* @vite-ignore */ 'webmcp-kit');
     if (!kit || !kit.defineTool) {
       console.warn("⚠️ [WebMCP] webmcp-kit could not be loaded dynamically in this environment.");
@@ -24,6 +25,7 @@ export async function registerAllWebMcpTools() {
     }
 
     // Dynamically import zod to prevent production build issues
+    // @ts-ignore
     const zodMod = await import(/* @vite-ignore */ 'zod');
     if (!zodMod || !zodMod.z) {
       console.warn("⚠️ [WebMCP] zod could not be loaded dynamically in this environment.");
@@ -129,7 +131,7 @@ export async function registerAllWebMcpTools() {
       annotations: {
         readOnlyHint: true
       },
-      execute: async ({ monthlyKwh, monthlyBillUGX, isBackupOnly }) => {
+      execute: async ({ monthlyKwh, monthlyBillUGX, isBackupOnly }: { monthlyKwh?: number; monthlyBillUGX?: number; isBackupOnly?: boolean }) => {
         // Standard estimation: if kWh not supplied but UGX is, estimate it assuming ~900 UGX per kWh as standard domestic tariff
         let kwhVal = monthlyKwh;
         if (!kwhVal && monthlyBillUGX) {
@@ -213,7 +215,7 @@ export async function registerAllWebMcpTools() {
         page: z.enum(['home', 'services', 'solar', 'about', 'areas-we-serve', 'contact', 'blog', 'guarantee'])
           .describe('The name of the page/route to open in the UI.')
       }),
-      execute: async ({ page }) => {
+      execute: async ({ page }: { page: any }) => {
         if (onNavigate) {
           onNavigate(page);
           return textContent(`Successfully navigated to the "${page}" page visually.`);
@@ -235,7 +237,7 @@ export async function registerAllWebMcpTools() {
           .describe("The category of electrical service requested"),
         message: z.string().describe("Details regarding the electrical problem, house construction, or solar inquiry")
       }),
-      execute: async (input) => {
+      execute: async (input: any) => {
         // Submit to Supabase - match LeadForm.tsx
         const SUPABASE_URL = "https://qpmrcphzexlsyiaxiyem.supabase.co";
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwbXJjcGh6ZXhsc3lpYXhpeWVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0MzE0MDEsImV4cCI6MjA5NzAwNzQwMX0.UMozbECVUFd0d1lnKIvIi1gUcpBpLXJsu-RkRKrZDvI";
@@ -328,7 +330,7 @@ export async function registerAllWebMcpTools() {
         timeline: z.string().describe("Installation timeline (e.g. 'As soon as possible', 'Within 1 month')"),
         message: z.string().optional().describe("Additional requirements (e.g. monthly bill spend)")
       }),
-      execute: async (input) => {
+      execute: async (input: any) => {
         const SUPABASE_URL = "https://qpmrcphzexlsyiaxiyem.supabase.co";
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwbXJjcGh6ZXhsc3lpYXhpeWVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0MzE0MDEsImV4cCI6MjA5NzAwNzQwMX0.UMozbECVUFd0d1lnKIvIi1gUcpBpLXJsu-RkRKrZDvI";
         
@@ -426,6 +428,7 @@ Additional Details: ${input.message || 'None'}
 // Function to safely unregister all tools
 export async function unregisterAllWebMcpTools() {
   try {
+    // @ts-ignore
     const kit = await import(/* @vite-ignore */ 'webmcp-kit');
     if (kit && kit.unregisterAll) {
       kit.unregisterAll();

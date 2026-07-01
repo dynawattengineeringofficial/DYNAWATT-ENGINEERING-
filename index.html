@@ -2,33 +2,50 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-XD8VSWVPKH"></script>
+    <!-- Lazy Loading Third-Party Analytics (GTM & FB Pixel) to eliminate render-blocking JS -->
     <script>
-      window.addEventListener('load', () => {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){window.dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XD8VSWVPKH');
-      });
-    </script>
+      (function() {
+        let loaded = false;
+        function loadThirdParty() {
+          if (loaded) return;
+          loaded = true;
+          
+          // Clean up event listeners
+          window.removeEventListener('scroll', loadThirdParty);
+          window.removeEventListener('mousemove', loadThirdParty);
+          window.removeEventListener('touchstart', loadThirdParty);
+          
+          // 1. Google Tag Manager
+          const gtmScript = document.createElement('script');
+          gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XD8VSWVPKH';
+          gtmScript.async = true;
+          document.head.appendChild(gtmScript);
+          
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XD8VSWVPKH');
 
-    <!-- Meta Pixel Code -->
-    <script>
-    window.addEventListener('load', () => {
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1400607588570357');
-      fbq('track', 'PageView');
-    });
+          // 2. Facebook Pixel Code
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1400607588570357');
+          fbq('track', 'PageView');
+        }
+
+        // Trigger on interaction or fallback timer of 3.5 seconds
+        window.addEventListener('scroll', loadThirdParty, { passive: true });
+        window.addEventListener('mousemove', loadThirdParty, { passive: true });
+        window.addEventListener('touchstart', loadThirdParty, { passive: true });
+        setTimeout(loadThirdParty, 3500);
+      })();
     </script>
-    <!-- End Meta Pixel Code -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="4PpSWOQOoseU-RsySLZ8ahxyKlQJxCJeQOgsIQ-TGB8" />
@@ -61,12 +78,6 @@
     <meta name="geo.position" content="0.3476;32.5825" />
     <meta name="ICBM" content="0.3476, 32.5825" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"></noscript>
     <style>
       html { scroll-behavior: smooth; }
     </style>
