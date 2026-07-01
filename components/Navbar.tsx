@@ -82,6 +82,35 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
       case Page.CONTACT: return '/contact';
       case Page.GUARANTEE: return '/guarantee';
       case Page.BLOG: return '/blog';
+      
+      // Clean Blog & SEO routes
+      case Page.SEO_SOLAR: return '/blog/solar-installation-kampala';
+      case Page.SEO_ELEC_INSTALL: return '/blog/electrical-installation-kampala';
+      case Page.SEO_PROFILE_LIGHTING: return '/blog/aluminum-profile-lighting-uganda';
+      case Page.SEO_CCTV: return '/blog/cctv-installation-uganda';
+      case Page.SEO_HOUSE_WIRING_COST: return '/blog/cost-wiring-house-uganda';
+      case Page.SEO_SMART_HOME: return '/blog/smart-home-installation-uganda';
+      case Page.SEO_BLOG_CONDUIT_SLAB: return '/blog/slab-conduit-works-uganda';
+      case Page.SEO_ARCH_LIGHTING: return '/blog/modern-lighting-designs-uganda';
+      case Page.SEO_COMMERCIAL: return '/blog/commercial-electrical-contractors';
+      case Page.SEO_MAINTENANCE: return '/blog/electrical-maintenance-guide-uganda';
+      case Page.SEO_YAKA_METER: return '/blog/yaka-meter-troubleshooting';
+      case Page.SEO_WARM_SWITCHES: return '/blog/why-electrical-switches-get-warm';
+      case Page.SEO_SOLAR_MAINTENANCE: return '/blog/solar-panel-maintenance-uganda';
+      case Page.SEO_BULB_BLOWOUTS: return '/blog/why-do-my-light-bulbs-keep-blowing';
+      case Page.SEO_WIRING_2_BEDROOM: return '/blog/2-bedroom-house-wiring-cost';
+      case Page.SEO_WIRING_3_BEDROOM: return '/blog/3-bedroom-house-wiring-cost';
+      case Page.SEO_WIRING_COMMERCIAL: return '/blog/commercial-building-wiring-cost';
+      case Page.SEO_BLOG_CCTV: return '/blog/cctv-camera-selection-guide';
+      
+      // Clean Location routes
+      case Page.LOC_KAMPALA: return '/areas-we-serve/kampala';
+      case Page.LOC_ENTEBBE: return '/areas-we-serve/entebbe';
+      case Page.LOC_WAKISO: return '/areas-we-serve/wakiso';
+      case Page.LOC_KOLOLO: return '/areas-we-serve/kololo';
+      case Page.LOC_KIRA: return '/areas-we-serve/kira';
+      case Page.LOC_NAJJERA: return '/areas-we-serve/najjera';
+      
       default: return `/?page=${targetPage}`;
     }
   };
