@@ -50,6 +50,35 @@ const getPageFromPath = (path: string): Page | null => {
     case '/guarantee': return Page.GUARANTEE;
     case '/blog': return Page.BLOG;
     case '/thank-you': return Page.THANK_YOU;
+    
+    // Clean Blog & SEO routes
+    case '/blog/solar-installation-kampala': return Page.SEO_SOLAR;
+    case '/blog/electrical-installation-kampala': return Page.SEO_ELEC_INSTALL;
+    case '/blog/aluminum-profile-lighting-uganda': return Page.SEO_PROFILE_LIGHTING;
+    case '/blog/cctv-installation-uganda': return Page.SEO_CCTV;
+    case '/blog/cost-wiring-house-uganda': return Page.SEO_HOUSE_WIRING_COST;
+    case '/blog/smart-home-installation-uganda': return Page.SEO_SMART_HOME;
+    case '/blog/slab-conduit-works-uganda': return Page.SEO_BLOG_CONDUIT_SLAB;
+    case '/blog/modern-lighting-designs-uganda': return Page.SEO_ARCH_LIGHTING;
+    case '/blog/commercial-electrical-contractors': return Page.SEO_COMMERCIAL;
+    case '/blog/electrical-maintenance-guide-uganda': return Page.SEO_MAINTENANCE;
+    case '/blog/yaka-meter-troubleshooting': return Page.SEO_YAKA_METER;
+    case '/blog/why-electrical-switches-get-warm': return Page.SEO_WARM_SWITCHES;
+    case '/blog/solar-panel-maintenance-uganda': return Page.SEO_SOLAR_MAINTENANCE;
+    case '/blog/why-do-my-light-bulbs-keep-blowing': return Page.SEO_BULB_BLOWOUTS;
+    case '/blog/2-bedroom-house-wiring-cost': return Page.SEO_WIRING_2_BEDROOM;
+    case '/blog/3-bedroom-house-wiring-cost': return Page.SEO_WIRING_3_BEDROOM;
+    case '/blog/commercial-building-wiring-cost': return Page.SEO_WIRING_COMMERCIAL;
+    case '/blog/cctv-camera-selection-guide': return Page.SEO_BLOG_CCTV;
+    
+    // Clean Location routes
+    case '/areas-we-serve/kampala': return Page.LOC_KAMPALA;
+    case '/areas-we-serve/entebbe': return Page.LOC_ENTEBBE;
+    case '/areas-we-serve/wakiso': return Page.LOC_WAKISO;
+    case '/areas-we-serve/kololo': return Page.LOC_KOLOLO;
+    case '/areas-we-serve/kira': return Page.LOC_KIRA;
+    case '/areas-we-serve/najjera': return Page.LOC_NAJJERA;
+    
     default: return null;
   }
 };
@@ -65,6 +94,35 @@ const getPathFromPage = (page: Page): string | null => {
     case Page.GUARANTEE: return '/guarantee';
     case Page.BLOG: return '/blog';
     case Page.THANK_YOU: return '/thank-you';
+    
+    // Clean Blog & SEO routes
+    case Page.SEO_SOLAR: return '/blog/solar-installation-kampala';
+    case Page.SEO_ELEC_INSTALL: return '/blog/electrical-installation-kampala';
+    case Page.SEO_PROFILE_LIGHTING: return '/blog/aluminum-profile-lighting-uganda';
+    case Page.SEO_CCTV: return '/blog/cctv-installation-uganda';
+    case Page.SEO_HOUSE_WIRING_COST: return '/blog/cost-wiring-house-uganda';
+    case Page.SEO_SMART_HOME: return '/blog/smart-home-installation-uganda';
+    case Page.SEO_BLOG_CONDUIT_SLAB: return '/blog/slab-conduit-works-uganda';
+    case Page.SEO_ARCH_LIGHTING: return '/blog/modern-lighting-designs-uganda';
+    case Page.SEO_COMMERCIAL: return '/blog/commercial-electrical-contractors';
+    case Page.SEO_MAINTENANCE: return '/blog/electrical-maintenance-guide-uganda';
+    case Page.SEO_YAKA_METER: return '/blog/yaka-meter-troubleshooting';
+    case Page.SEO_WARM_SWITCHES: return '/blog/why-electrical-switches-get-warm';
+    case Page.SEO_SOLAR_MAINTENANCE: return '/blog/solar-panel-maintenance-uganda';
+    case Page.SEO_BULB_BLOWOUTS: return '/blog/why-do-my-light-bulbs-keep-blowing';
+    case Page.SEO_WIRING_2_BEDROOM: return '/blog/2-bedroom-house-wiring-cost';
+    case Page.SEO_WIRING_3_BEDROOM: return '/blog/3-bedroom-house-wiring-cost';
+    case Page.SEO_WIRING_COMMERCIAL: return '/blog/commercial-building-wiring-cost';
+    case Page.SEO_BLOG_CCTV: return '/blog/cctv-camera-selection-guide';
+    
+    // Clean Location routes
+    case Page.LOC_KAMPALA: return '/areas-we-serve/kampala';
+    case Page.LOC_ENTEBBE: return '/areas-we-serve/entebbe';
+    case Page.LOC_WAKISO: return '/areas-we-serve/wakiso';
+    case Page.LOC_KOLOLO: return '/areas-we-serve/kololo';
+    case Page.LOC_KIRA: return '/areas-we-serve/kira';
+    case Page.LOC_NAJJERA: return '/areas-we-serve/najjera';
+    
     default: return null;
   }
 };
@@ -139,8 +197,16 @@ function App() {
 
       const params = new URLSearchParams(window.location.search);
       const queryPage = params.get('page');
-      if (queryPage && Object.values(Page).includes(queryPage as Page)) {
-        return queryPage as Page;
+      if (queryPage) {
+        // Redirect legacy/ugly query parameter aliases to clean pages
+        if (queryPage === 'seo_lighting') return Page.SEO_PROFILE_LIGHTING;
+        if (queryPage === 'seo_wiring_cost') return Page.SEO_HOUSE_WIRING_COST;
+        if (queryPage === 'seo_conduit') return Page.SEO_BLOG_CONDUIT_SLAB;
+        if (queryPage === 'seo_lighting_design') return Page.SEO_ARCH_LIGHTING;
+
+        if (Object.values(Page).includes(queryPage as Page)) {
+          return queryPage as Page;
+        }
       }
     } catch (e) {
       // Ignored
@@ -163,9 +229,27 @@ function App() {
         
         const params = new URLSearchParams(window.location.search);
         const queryPage = params.get('page');
-        if (queryPage && Object.values(Page).includes(queryPage as Page)) {
-          setPage(queryPage as Page);
-          return;
+        if (queryPage) {
+          if (queryPage === 'seo_lighting') {
+            setPage(Page.SEO_PROFILE_LIGHTING);
+            return;
+          }
+          if (queryPage === 'seo_wiring_cost') {
+            setPage(Page.SEO_HOUSE_WIRING_COST);
+            return;
+          }
+          if (queryPage === 'seo_conduit') {
+            setPage(Page.SEO_BLOG_CONDUIT_SLAB);
+            return;
+          }
+          if (queryPage === 'seo_lighting_design') {
+            setPage(Page.SEO_ARCH_LIGHTING);
+            return;
+          }
+          if (Object.values(Page).includes(queryPage as Page)) {
+            setPage(queryPage as Page);
+            return;
+          }
         }
       } catch (e) {
         // Ignored
