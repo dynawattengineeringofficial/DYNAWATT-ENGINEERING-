@@ -89,7 +89,7 @@ const FAQ: React.FC<FAQProps> = ({ setPage }) => {
     },
     {
       question: "How long does it take to wire a house in Uganda?",
-      answer: "For a standard 3-bedroom house, wiring typically takes 3 to 5 working days depending on the size, complexity, and whether the building is new or a renovation. We begin with a free site visit to assess the scope, then provide a clear timeline before work starts. Industrial and commercial projects are scoped individually. Call us on +256 751 473 830 to book your free assessment."
+      answer: "For a standard 3-bedroom house, wiring typically takes 3 to 5 working days depending on the size, complexity, and whether the building is new or a renovation. We begin with a site visit (subject to a small refundable facilitation fee credited fully to your invoice) to assess the scope, then provide a clear timeline before work starts. Industrial and commercial projects are scoped individually. Call us on +256 751 473 830 to book your quotation."
     },
     {
       question: "Do you offer electrical services outside Kampala city?",
@@ -107,7 +107,7 @@ const FAQ: React.FC<FAQProps> = ({ setPage }) => {
     },
     {
       question: "How much does it cost to wire a house in Uganda?",
-      answer: "The final cost depends on the layout and size of the house, material specs, and installation complexity. As a general guide for 2026: Wiring a 2-Bedroom House in Uganda typically ranges from UGX 1,800,000 to UGX 3,500,000; wiring a 3-Bedroom House in Uganda ranges from UGX 2,500,000 to UGX 5,000,000; and wiring a Commercial Building in Kampala depends on single-phase vs 3-phase load requirements. We provide free site visits to construct an accurate, transparent bill of quantities for both labor and premium materials.",
+      answer: "The final cost depends on the layout and size of the house, material specs, and installation complexity. As a general guide for 2026: Wiring a 2-Bedroom House in Uganda typically ranges from UGX 1,800,000 to UGX 3,500,000; wiring a 3-Bedroom House in Uganda ranges from UGX 2,500,000 to UGX 5,000,000; and wiring a Commercial Building in Kampala depends on single-phase vs 3-phase load requirements. We provide physical site visits (for a small refundable fee deducted from your invoice if you proceed) to construct an accurate, transparent bill of quantities for both labor and premium materials, while initial desk quotations are 100% free.",
       linkAction: () => setPage(Page.SEO_HOUSE_WIRING_COST),
       linkText: "Read House Wiring Cost Guide",
       extraLinks: [

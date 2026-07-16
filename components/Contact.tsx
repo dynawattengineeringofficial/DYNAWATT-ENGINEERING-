@@ -21,7 +21,7 @@ const Contact: React.FC<ContactProps> = ({ addLead, setPage, config }) => {
           </span>
           <h1 className="text-4xl md:text-6xl font-black mb-6">Contact DYNAWATT ENGINEERING</h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-semibold">
-            Certified electricians serving Kampala, Wakiso, Mukono, and upcountry Uganda. Emergency response available 24/7. Get a free site assessment and written quote.
+            Certified electricians serving Kampala, Wakiso, Mukono, and upcountry Uganda. Emergency response available 24/7. Send us your details for a free quotation. Want an engineer to visit in person? A small refundable facilitation fee applies — deducted from your invoice if you proceed.
           </p>
         </div>
       </section>
@@ -53,7 +53,7 @@ const Contact: React.FC<ContactProps> = ({ addLead, setPage, config }) => {
                 <Icons.BadgeCheck className="h-5 w-5" />
               </div>
               <div className="text-left">
-                <p className="font-extrabold text-slate-900 text-sm md:text-base">✅ Free Site Assessment</p>
+                <p className="font-extrabold text-slate-900 text-sm md:text-base">✅ Free Quotation</p>
                 <p className="text-slate-500 text-xs">No-obligation itemized proposal</p>
               </div>
             </div>
@@ -153,7 +153,7 @@ const Contact: React.FC<ContactProps> = ({ addLead, setPage, config }) => {
             <div>
               <div className="bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-slate-200">
                 <h3 className="text-xl font-bold text-slate-950 mb-6 flex items-center gap-2">
-                  <span>✉️</span> Send a Message or Book Site Visit
+                  <span>✉️</span> Send Us Your Details for a Free Quotation
                 </h3>
                 <LeadForm addLead={addLead} setPage={setPage} config={config} />
               </div>

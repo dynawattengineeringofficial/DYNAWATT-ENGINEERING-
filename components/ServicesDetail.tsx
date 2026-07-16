@@ -237,14 +237,14 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
           <div className="relative z-10 text-white">
             <h2 className="text-2xl md:text-3xl font-black tracking-tight leading-tight mb-4 text-white">Need a Certified Technical Sizing or Quote?</h2>
             <p className="text-sm md:text-base text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Our engineering crews are active in Kampala, Entebbe, Wakiso, Mukono, and Kira daily. Book your 100% free site assessment and customized material billing quote.
+              Get a free, no-obligation quotation for any service. Prefer a physical assessment first? A small refundable fee applies, credited to your invoice when you move forward.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button 
                 onClick={() => setPage(Page.CONTACT)}
                 className="bg-amber-500 text-slate-950 font-black py-3.5 px-8 rounded-xl hover:bg-amber-600 transition shadow-lg w-full sm:w-auto text-sm"
               >
-                Inquire & Book Free Survey
+                Inquire & Request Quote
               </button>
               <a 
                 href="https://wa.me/256751473830"

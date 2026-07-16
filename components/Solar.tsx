@@ -556,11 +556,11 @@ Additional Details: ${formData.message || 'None'}
 
   // Pre-configured WhatsApp messages
   const whatsappSummaryMsg = encodeURIComponent(
-    `Hello Dynawatt! I used your Solar Sizing Calculator. Sizing Mode: Appliance Load Audit. Daily energy draw: ${totalWhFormatted} Wh/day. Peak load: ${maxWatts} Watts. Suggestion: ${tier.label} with ${isBackupOnly ? 'No panels' : `${panelCount} x ${panelWatt}W panels`}, a ${tier.inverterKw.toFixed(1)}kW Inverter, and a ${batteryFinalKwh.toFixed(1)}kWh Lithium battery pack. Can I request a free site load audit?`
+    `Hello Dynawatt! I used your Solar Sizing Calculator. Sizing Mode: Appliance Load Audit. Daily energy draw: ${totalWhFormatted} Wh/day. Peak load: ${maxWatts} Watts. Suggestion: ${tier.label} with ${isBackupOnly ? 'No panels' : `${panelCount} x ${panelWatt}W panels`}, a ${tier.inverterKw.toFixed(1)}kW Inverter, and a ${batteryFinalKwh.toFixed(1)}kWh Lithium battery pack. Can I request a free solar quotation?`
   );
 
   const yakaWhatsappSummaryMsg = encodeURIComponent(
-    `Hello Dynawatt! I used your Yaka Sizing Calculator. Sizing Mode: Yaka Quick Sizer. Monthly use: ${monthlyKwh} kWh (~${dailyKwh.toFixed(1)} kWh/day). Goal: ${isBackupOnly ? 'Grid-Charged Backup' : 'Full Hybrid Solar'}. Suggestion: ${tier.label} with ${isBackupOnly ? 'No panels' : `${panelCount} x ${panelWatt}W panels`}, a ${tier.inverterKw.toFixed(1)}kW Inverter, and a ${batteryFinalKwh.toFixed(1)}kWh Lithium battery pack. Can I request a free site load audit?`
+    `Hello Dynawatt! I used your Yaka Sizing Calculator. Sizing Mode: Yaka Quick Sizer. Monthly use: ${monthlyKwh} kWh (~${dailyKwh.toFixed(1)} kWh/day). Goal: ${isBackupOnly ? 'Grid-Charged Backup' : 'Full Hybrid Solar'}. Suggestion: ${tier.label} with ${isBackupOnly ? 'No panels' : `${panelCount} x ${panelWatt}W panels`}, a ${tier.inverterKw.toFixed(1)}kW Inverter, and a ${batteryFinalKwh.toFixed(1)}kWh Lithium battery pack. Can I request a free solar quotation?`
   );
 
   return (
@@ -691,8 +691,8 @@ Additional Details: ${formData.message || 'None'}
                   bgClass: "bg-amber-500/15 text-amber-400"
                 },
                 {
-                  title: "Free Site Assessment",
-                  desc: "Engineer visits before we quote a single shilling",
+                  title: "Free Quotations, Refundable Site Visit Fee",
+                  desc: "Quotations are 100% free. On-site assessments carry a small facilitation fee, fully refunded against your invoice once you proceed.",
                   icon: "📋",
                   bgClass: "bg-emerald-500/20 text-emerald-400"
                 }
@@ -1754,7 +1754,7 @@ Additional Details: ${formData.message || 'None'}
                 <span className="text-4xl mb-3 block">🎉</span>
                 <h4 className="font-bold text-lg mb-1 text-white">Inquiry Received successfully!</h4>
                 <p className="text-xs md:text-sm max-w-md mx-auto">
-                  Thank you! Our leading solar engineers will finalize your design calculations and contact you shortly on <b>{formData.phone}</b> to schedule your 100% free site planning assessment.
+                  Thank you! Our leading solar engineers will finalize your design calculations and contact you shortly on <b>{formData.phone}</b> to schedule your free quotation. Site visits carry a small refundable fee — fully credited toward your project if you proceed.
                 </p>
                 <button 
                   onClick={() => {
@@ -2018,7 +2018,7 @@ Additional Details: ${formData.message || 'None'}
               Call Now: +256 751 473 830
             </a>
             <a href="#solar-quote-form" className="inline-flex justify-center items-center bg-white text-slate-950 font-black py-4 px-10 rounded-xl hover:bg-slate-100 transition shadow-xl active:scale-95">
-              Book Free Site Visit
+              Get a Free Quote
             </a>
           </div>
         </div>

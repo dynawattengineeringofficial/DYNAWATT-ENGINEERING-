@@ -157,7 +157,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
 
   return (
     <div id="quote" className="bg-white p-5 md:p-8 rounded-xl shadow-2xl border-t-4 border-amber-500 scroll-mt-32">
-      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">Request a Free Site Assessment in Uganda</h3>
+      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">Request a Free Quotation in Uganda</h3>
       <p className="text-sm md:text-base text-slate-700 mb-6">Fast response in Greater Kampala, Wakiso, Mukono, and certified mobile dispatch teams for all upcountry districts.</p>
       
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -261,7 +261,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
               <option value="Security">CCTV & Security</option>
               <option value="Yaka">Yaka (UEDCL) Meter Issues</option>
               <option value="Inverter">Inverter/Battery</option>
-              <option value="SiteVisit">Book 100% Free Site Visit</option>
+              <option value="SiteVisit">Book Refundable Site Visit</option>
             </select>
           </div>
         </div>
