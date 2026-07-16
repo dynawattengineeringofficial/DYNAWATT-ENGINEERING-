@@ -2,7 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -57,16 +58,12 @@ async function run() {
     
     let browser;
     try {
-      // 3. Launch Puppeteer
+      // 3. Launch Puppeteer-core with @sparticuz/chromium
       browser = await puppeteer.launch({
-        headless: 'new',
-        args: [
-          '--no-sandbox', 
-          '--disable-setuid-sandbox', 
-          '--disable-dev-shm-usage',
-          '--disable-gpu',
-          '--disable-software-rasterizer'
-        ]
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
       });
       
       const page = await browser.newPage();
