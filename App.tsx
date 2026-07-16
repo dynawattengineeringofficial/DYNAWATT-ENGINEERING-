@@ -368,13 +368,6 @@ function App() {
         "description": "Professional electrical installation and solar energy company in Kampala, Uganda. BS 7671 certified, ERA licensed, UEDCL approved.",
         "url": "https://dynawattengineering.com",
         "telephone": "+256751473830",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.2",
-          "reviewCount": "7",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Kampala",
