@@ -50,6 +50,8 @@ const getPageFromPath = (path: string): Page | null => {
     case '/guarantee': return Page.GUARANTEE;
     case '/blog': return Page.BLOG;
     case '/thank-you': return Page.THANK_YOU;
+    case '/privacy-policy': return Page.PRIVACY_POLICY;
+    case '/terms-of-service': return Page.TERMS_OF_SERVICE;
     
     // Clean Blog & SEO routes
     case '/blog/solar-installation-kampala': return Page.SEO_SOLAR;
@@ -70,6 +72,7 @@ const getPageFromPath = (path: string): Page | null => {
     case '/blog/3-bedroom-house-wiring-cost': return Page.SEO_WIRING_3_BEDROOM;
     case '/blog/commercial-building-wiring-cost': return Page.SEO_WIRING_COMMERCIAL;
     case '/blog/cctv-camera-selection-guide': return Page.SEO_BLOG_CCTV;
+    case '/blog/lightning-protection-arrestor-uganda': return Page.SEO_LIGHTNING_PROTECTION;
     
     // Clean Location routes
     case '/areas-we-serve/kampala': return Page.LOC_KAMPALA;
@@ -78,6 +81,13 @@ const getPageFromPath = (path: string): Page | null => {
     case '/areas-we-serve/kololo': return Page.LOC_KOLOLO;
     case '/areas-we-serve/kira': return Page.LOC_KIRA;
     case '/areas-we-serve/najjera': return Page.LOC_NAJJERA;
+    case '/solar-installation-mukono': return Page.LOC_MUKONO;
+    case '/solar-installation-hoima': return Page.LOC_HOIMA;
+    case '/electrical-installation-lira': return Page.LOC_LIRA;
+    case '/electrical-installation-gulu': return Page.LOC_GULU;
+    case '/lighting-installation-kiboga': return Page.LOC_KIBOGA;
+    case '/solar-installation-nakweero': return Page.LOC_NAKWEERO;
+    case '/lightning-arrestor-installation-seeta': return Page.LOC_SEETA;
     
     default: return null;
   }
@@ -94,6 +104,8 @@ const getPathFromPage = (page: Page): string | null => {
     case Page.GUARANTEE: return '/guarantee';
     case Page.BLOG: return '/blog';
     case Page.THANK_YOU: return '/thank-you';
+    case Page.PRIVACY_POLICY: return '/privacy-policy';
+    case Page.TERMS_OF_SERVICE: return '/terms-of-service';
     
     // Clean Blog & SEO routes
     case Page.SEO_SOLAR: return '/blog/solar-installation-kampala';
@@ -114,6 +126,7 @@ const getPathFromPage = (page: Page): string | null => {
     case Page.SEO_WIRING_3_BEDROOM: return '/blog/3-bedroom-house-wiring-cost';
     case Page.SEO_WIRING_COMMERCIAL: return '/blog/commercial-building-wiring-cost';
     case Page.SEO_BLOG_CCTV: return '/blog/cctv-camera-selection-guide';
+    case Page.SEO_LIGHTNING_PROTECTION: return '/blog/lightning-protection-arrestor-uganda';
     
     // Clean Location routes
     case Page.LOC_KAMPALA: return '/areas-we-serve/kampala';
@@ -122,69 +135,149 @@ const getPathFromPage = (page: Page): string | null => {
     case Page.LOC_KOLOLO: return '/areas-we-serve/kololo';
     case Page.LOC_KIRA: return '/areas-we-serve/kira';
     case Page.LOC_NAJJERA: return '/areas-we-serve/najjera';
+    case Page.LOC_MUKONO: return '/solar-installation-mukono';
+    case Page.LOC_HOIMA: return '/solar-installation-hoima';
+    case Page.LOC_LIRA: return '/electrical-installation-lira';
+    case Page.LOC_GULU: return '/electrical-installation-gulu';
+    case Page.LOC_KIBOGA: return '/lighting-installation-kiboga';
+    case Page.LOC_NAKWEERO: return '/solar-installation-nakweero';
+    case Page.LOC_SEETA: return '/lightning-arrestor-installation-seeta';
     
     default: return null;
   }
 };
 
 export const SeoMeta = ({ page }: { page: Page }) => {
-  let title = "Dynawatt Engineering";
-  let description = "Professional electrical installation and solar energy company in Kampala, Uganda.";
+  let title = "Electrical Installation & Solar Energy Uganda | Dynawatt Engineering";
+  let description = "Professional electrical installation, hybrid solar packages (DW1-DW5), and architectural profile lighting in Kampala and nationwide Uganda. ERA-licensed.";
   let url = "https://dynawattengineering.com";
+  let image = "https://dynawattengineering.com/dynawatt-engineering-logo.png";
+
+  // 1. Resolve path and canonical URL
+  const path = getPathFromPage(page);
+  if (path) {
+    url = `https://dynawattengineering.com${path === '/' ? '' : path}`;
+  }
+
+  // 2. Resolve content-specific dynamic metadata
+  let matchedData: { seoTitle?: string; metaDesc?: string; heroImage?: string; projectPhoto?: string } | null = null;
 
   switch (page) {
-    case Page.HOME:
-      title = "Electrical Installation Services in Kampala | Dynawatt Engineering";
-      description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free site assessment today.";
-      url = "https://dynawattengineering.com/";
-      break;
-    case Page.SERVICES:
-      title = "Electrical Installation Services in Kampala | Dynawatt Engineering";
-      description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free site assessment today.";
-      url = "https://dynawattengineering.com/services";
-      break;
-    case Page.SOLAR:
-      title = "Hybrid Solar Packages Uganda DW1-DW5 | Dynawatt Engineering";
-      description = "5 hybrid solar packages from UGX 4.4M to 19.2M. DEYE inverters, LiFePO4 batteries. ERA licensed solar installation across Kampala, Wakiso & Mukono.";
-      url = "https://dynawattengineering.com/solar";
-      break;
-    case Page.ABOUT:
-      title = "About Dynawatt Engineering | BS 7671 Certified Electricians Kampala";
-      description = "Kampala's trusted electrical engineers. ERA licensed, BS 7671 certified, UEDCL approved. Professional electrical installation and solar energy company in Uganda.";
-      url = "https://dynawattengineering.com/about";
-      break;
-    case Page.LOCATION:
-      title = "Electrical Services Kampala Wakiso Mukono | Dynawatt Engineering";
-      description = "Professional electrical installation and solar energy across Kampala, Wakiso, Mukono, Kira, Entebbe, Nansana and surrounding areas of Central Uganda.";
-      url = "https://dynawattengineering.com/areas-we-serve";
-      break;
-    case Page.GUARANTEE:
-      title = "3-Month Service Guarantee | Dynawatt Engineering Kampala";
-      description = "Dynawatt Engineering backs every installation with a 3-month repair guarantee. ERA licensed and BS 7671 certified electrical work you can trust.";
-      url = "https://dynawattengineering.com/guarantee";
-      break;
-    case Page.CONTACT:
-      title = "Contact Dynawatt Engineering | Free Site Assessment Kampala";
-      description = "Request a free site assessment in Kampala, Wakiso & Mukono. Call +256 751 473 830 or WhatsApp us. Fast response across Central Uganda.";
-      url = "https://dynawattengineering.com/contact";
-      break;
-    case Page.BLOG:
-      title = "Electrical & Solar Tips Blog | Dynawatt Engineering Uganda";
-      description = "Expert electrical and solar energy tips for Ugandan homeowners and businesses. Guides on wiring, solar systems, and energy savings from Dynawatt Engineering.";
-      url = "https://dynawattengineering.com/blog";
-      break;
+    // Service SEO pages
+    case Page.SEO_ELEC_INSTALL: matchedData = seoPagesData.SEO_ELEC_INSTALL; break;
+    case Page.SEO_ARCH_LIGHTING: matchedData = seoPagesData.SEO_ARCH_LIGHTING as any; break;
+    case Page.SEO_SOLAR: matchedData = seoPagesData.SEO_SOLAR as any; break;
+    case Page.SEO_CCTV: matchedData = seoPagesData.SEO_CCTV as any; break;
+    case Page.SEO_SMART_HOME: matchedData = seoPagesData.SEO_SMART_HOME as any; break;
+    case Page.SEO_COMMERCIAL: matchedData = seoPagesData.SEO_COMMERCIAL; break;
+    case Page.SEO_MAINTENANCE: matchedData = seoPagesData.SEO_MAINTENANCE; break;
+    case Page.SEO_PROFILE_LIGHTING: matchedData = seoPagesData.SEO_PROFILE_LIGHTING as any; break;
+
+    // Location SEO pages
+    case Page.LOC_KAMPALA: matchedData = seoLocationPagesData.KAMPALA; break;
+    case Page.LOC_ENTEBBE: matchedData = seoLocationPagesData.ENTEBBE; break;
+    case Page.LOC_WAKISO: matchedData = seoLocationPagesData.WAKISO; break;
+    case Page.LOC_KOLOLO: matchedData = seoLocationPagesData.KOLOLO; break;
+    case Page.LOC_KIRA: matchedData = seoLocationPagesData.KIRA; break;
+    case Page.LOC_NAJJERA: matchedData = seoLocationPagesData.NAJJERA; break;
+    case Page.LOC_MUKONO: matchedData = seoLocationPagesData.MUKONO; break;
+    case Page.LOC_HOIMA: matchedData = seoLocationPagesData.HOIMA; break;
+    case Page.LOC_LIRA: matchedData = seoLocationPagesData.LIRA; break;
+    case Page.LOC_GULU: matchedData = seoLocationPagesData.GULU; break;
+    case Page.LOC_KIBOGA: matchedData = seoLocationPagesData.KIBOGA; break;
+    case Page.LOC_NAKWEERO: matchedData = seoLocationPagesData.NAKWEERO; break;
+    case Page.LOC_SEETA: matchedData = seoLocationPagesData.SEETA; break;
+
+    // Educational SEO pages
+    case Page.SEO_YAKA_METER: matchedData = seoEducationalPagesData.YAKA_METER; break;
+    case Page.SEO_HOUSE_WIRING_COST: matchedData = seoEducationalPagesData.HOUSE_WIRING_COST; break;
+    case Page.SEO_WARM_SWITCHES: matchedData = seoEducationalPagesData.WARM_SWITCHES; break;
+    case Page.SEO_SOLAR_MAINTENANCE: matchedData = seoEducationalPagesData.SOLAR_MAINTENANCE; break;
+    case Page.SEO_BULB_BLOWOUTS: matchedData = seoEducationalPagesData.BULB_BLOWOUTS; break;
+    case Page.SEO_WIRING_2_BEDROOM: matchedData = seoEducationalPagesData.WIRING_2_BEDROOM; break;
+    case Page.SEO_WIRING_3_BEDROOM: matchedData = seoEducationalPagesData.WIRING_3_BEDROOM; break;
+    case Page.SEO_WIRING_COMMERCIAL: matchedData = seoEducationalPagesData.WIRING_COMMERCIAL; break;
+    case Page.SEO_BLOG_CCTV: matchedData = seoEducationalPagesData.SEO_BLOG_CCTV; break;
+    case Page.SEO_BLOG_CONDUIT_SLAB: matchedData = seoEducationalPagesData.SEO_BLOG_CONDUIT_SLAB; break;
+    case Page.SEO_LIGHTNING_PROTECTION: matchedData = seoEducationalPagesData.LIGHTNING_PROTECTION; break;
   }
+
+  if (matchedData) {
+    title = matchedData.seoTitle || title;
+    description = matchedData.metaDesc || description;
+    const imgPath = matchedData.heroImage || matchedData.projectPhoto;
+    if (imgPath) {
+      image = `https://dynawattengineering.com${imgPath}`;
+    }
+  } else {
+    // Core pages static switch fallbacks
+    switch (page) {
+      case Page.HOME:
+        title = "Electrical Installation Services in Kampala | Dynawatt Engineering";
+        description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free site assessment today.";
+        break;
+      case Page.SERVICES:
+        title = "Electrical Installation Services in Kampala | Dynawatt Engineering";
+        description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free site assessment today.";
+        break;
+      case Page.SOLAR:
+        title = "Hybrid Solar Packages Uganda DW1-DW5 | Dynawatt Engineering";
+        description = "5 hybrid solar packages from UGX 4.4M to 19.2M. DEYE inverters, LiFePO4 batteries. ERA licensed solar installation across Kampala, Wakiso & Mukono.";
+        break;
+      case Page.ABOUT:
+        title = "About Dynawatt Engineering | BS 7671 Certified Electricians Kampala";
+        description = "Kampala's trusted electrical engineers. ERA licensed, BS 7671 certified, UEDCL approved. Professional electrical installation and solar energy company in Uganda.";
+        break;
+      case Page.LOCATION:
+        title = "Electrical Services Kampala Wakiso Mukono | Dynawatt Engineering";
+        description = "Professional electrical installation and solar energy across Kampala, Wakiso, Mukono, Kira, Entebbe, Nansana and surrounding areas of Central Uganda.";
+        break;
+      case Page.GUARANTEE:
+        title = "3-Month Service Guarantee | Dynawatt Engineering Kampala";
+        description = "Dynawatt Engineering backs every installation with a 3-month repair guarantee. ERA licensed and BS 7671 certified electrical work you can trust.";
+        break;
+      case Page.CONTACT:
+        title = "Contact Dynawatt Engineering | Free Site Assessment Kampala";
+        description = "Request a free site assessment in Kampala, Wakiso & Mukono. Call +256 751 473 830 or WhatsApp us. Fast response across Central Uganda.";
+        break;
+      case Page.BLOG:
+        title = "Electrical & Solar Tips Blog | Dynawatt Engineering Uganda";
+        description = "Expert electrical and solar energy tips for Ugandan homeowners and businesses. Guides on wiring, solar systems, and energy savings from Dynawatt Engineering.";
+        break;
+      case Page.PRIVACY_POLICY:
+        title = "Privacy Policy | Dynawatt Engineering Uganda";
+        description = "Read our Privacy Policy. Learn how Dynawatt Engineering collects, processes, and protects your dynamic site details in compliance with standard policies.";
+        break;
+      case Page.TERMS_OF_SERVICE:
+        title = "Terms of Service | Dynawatt Engineering Uganda";
+        description = "Read our Terms of Service. Learn about our physical service guarantees, workmanship warranties, and site-plan assessment terms in Uganda.";
+        break;
+    }
+  }
+
+  // Clean canonical non-www URL
+  const canonicalUrl = url.replace("https://www.", "https://");
 
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <link rel="canonical" href={canonicalUrl} />
+      
+      {/* Open Graph / Facebook */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:image" content={image} />
       <meta property="og:site_name" content="Dynawatt Engineering" />
       <meta property="og:locale" content="en_UG" />
       <meta property="og:type" content="website" />
+
+      {/* Twitter Cards */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
     </Helmet>
   );
 };
@@ -275,6 +368,13 @@ function App() {
         "description": "Professional electrical installation and solar energy company in Kampala, Uganda. BS 7671 certified, ERA licensed, UEDCL approved.",
         "url": "https://dynawattengineering.com",
         "telephone": "+256751473830",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.2",
+          "reviewCount": "7",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Kampala",
@@ -282,7 +382,8 @@ function App() {
         },
         "areaServed": [
           "Kampala", "Wakiso", "Mukono", "Kira",
-          "Entebbe", "Nansana", "Central Uganda"
+          "Entebbe", "Nansana", "Hoima", "Lira",
+          "Gulu", "Kiboga", "Nakweero", "Seeta", "Central Uganda"
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -683,6 +784,7 @@ function App() {
   // Public Website View
   return (
     <div id="app-root-container" className={`min-h-screen font-sans flex flex-col ${page === Page.THANK_YOU ? 'bg-slate-950 text-slate-100' : 'bg-white text-slate-900'}`}>
+      <SeoMeta page={page} />
       {/* Emergency Banner */}
       {config.emergencyMode && page !== Page.THANK_YOU && (
         <div className="bg-red-600 text-white px-4 py-2 text-center font-bold flex justify-center items-center animate-pulse">
@@ -747,14 +849,18 @@ function App() {
           {/* Hero Section */}
           <header id="home" className="relative bg-slate-950 text-white pt-24 pb-16 md:pt-20 md:pb-32 overflow-hidden min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
             <div className="absolute inset-0 overflow-hidden">
-              <img
-                src="/premium-profile-lighting-7th-street-kampala.webp"
-                alt="Premium profile lighting installation by Dynawatt Engineering in Kampala, Uganda"
-                width={1920}
-                height={1080}
-                loading="eager"
-                className="w-full h-full object-cover"
-              />
+              <picture>
+                <source media="(max-width: 768px)" srcSet="/premium-profile-lighting-7th-street-kampala-mobile.webp" />
+                <img
+                  src="/premium-profile-lighting-7th-street-kampala.webp"
+                  alt="Premium profile lighting installation by Dynawatt Engineering in Kampala, Uganda"
+                  width={1920}
+                  height={1080}
+                  loading="eager"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </picture>
             </div>
             <div className="absolute inset-0 bg-slate-950/30"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/30 to-transparent"></div>
@@ -778,9 +884,9 @@ function App() {
                     className="flex items-center gap-1.5 bg-slate-900/80 hover:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-800 text-xs text-slate-100 font-extrabold shadow-md transition-colors group"
                   >
                     <span className="inline-flex items-center justify-center bg-[#00b67a] text-white text-[9px] w-4 h-4 rounded-sm font-black">★</span>
-                    <span>Trustpilot <span className="text-[#00b67a] font-black ml-0.5">4.1 / 5</span></span>
-                    <span className="text-slate-400 text-[10px] font-medium group-hover:text-amber-400 transition-colors">(6 Reviews)</span>
-                    <span className="text-amber-400 font-serif leading-none tracking-tight">⭐⭐⭐⭐</span>
+                    <span>Trustpilot <span className="text-[#00b67a] font-black ml-0.5">4.2 / 5</span></span>
+                    <span className="text-slate-400 text-[10px] font-medium group-hover:text-amber-400 transition-colors">(7 Reviews)</span>
+                    <span className="text-amber-400 font-serif leading-none tracking-tight">⭐⭐⭐⭐⭐</span>
                   </a>
                   {/* Facebook */}
                   <a 
@@ -1833,6 +1939,20 @@ function App() {
         <SeoPage data={seoLocationPagesData.KIRA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
       ) : page === Page.LOC_NAJJERA ? (
         <SeoPage data={seoLocationPagesData.NAJJERA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
+      ) : page === Page.LOC_MUKONO ? (
+        <SeoPage data={seoLocationPagesData.MUKONO} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
+      ) : page === Page.LOC_HOIMA ? (
+        <SeoPage data={seoLocationPagesData.HOIMA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
+      ) : page === Page.LOC_LIRA ? (
+        <SeoPage data={seoLocationPagesData.LIRA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
+      ) : page === Page.LOC_GULU ? (
+        <SeoPage data={seoLocationPagesData.GULU} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
+      ) : page === Page.LOC_KIBOGA ? (
+        <SeoPage data={seoLocationPagesData.KIBOGA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
+      ) : page === Page.LOC_NAKWEERO ? (
+        <SeoPage data={seoLocationPagesData.NAKWEERO} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
+      ) : page === Page.LOC_SEETA ? (
+        <SeoPage data={seoLocationPagesData.SEETA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
       ) : page === Page.SEO_YAKA_METER ? (
         <SeoPage data={seoEducationalPagesData.YAKA_METER} setPage={setPage} contactPhone={config.contactPhone} />
       ) : page === Page.SEO_HOUSE_WIRING_COST ? (
@@ -1853,6 +1973,8 @@ function App() {
         <SeoPage data={seoEducationalPagesData.SEO_BLOG_CCTV} setPage={setPage} contactPhone={config.contactPhone} />
       ) : page === Page.SEO_BLOG_CONDUIT_SLAB ? (
         <SeoPage data={seoEducationalPagesData.SEO_BLOG_CONDUIT_SLAB} setPage={setPage} contactPhone={config.contactPhone} />
+      ) : page === Page.SEO_LIGHTNING_PROTECTION ? (
+        <SeoPage data={seoEducationalPagesData.LIGHTNING_PROTECTION} setPage={setPage} contactPhone={config.contactPhone} />
       ) : page === Page.GUARANTEE ? (
         <Guarantee setPage={setPage} />
       ) : page === Page.PRIVACY_POLICY ? (
@@ -1939,8 +2061,31 @@ function App() {
       {page !== Page.THANK_YOU ? (
         <Footer setPage={setPage} />
       ) : (
-        <footer className="bg-slate-950 text-slate-500 py-6 border-t border-slate-900 text-center text-xs">
+        <footer className="bg-slate-950 text-slate-500 py-6 border-t border-slate-900 text-center text-xs space-y-2">
           <p className="max-w-md mx-auto px-4 font-sans">&copy; {new Date().getFullYear()} DYNAWATT ENGINEERING Uganda. All rights reserved.</p>
+          <div className="flex justify-center space-x-4 text-slate-600">
+            <a
+              href="/privacy-policy"
+              onClick={(e) => {
+                e.preventDefault();
+                setPage(Page.PRIVACY_POLICY);
+              }}
+              className="hover:text-slate-400 transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <span>|</span>
+            <a
+              href="/terms-of-service"
+              onClick={(e) => {
+                e.preventDefault();
+                setPage(Page.TERMS_OF_SERVICE);
+              }}
+              className="hover:text-slate-400 transition-colors"
+            >
+              Terms of Service
+            </a>
+          </div>
         </footer>
       )}
 
