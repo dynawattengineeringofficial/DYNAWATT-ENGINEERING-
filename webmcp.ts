@@ -405,7 +405,7 @@ Additional Details: ${input.message || 'None'}
 
         return jsonContent({
           status: "success",
-          message: `Solar assessment submitted successfully for ${input.name}! Our solar engineering dispatch team will call to schedule your free site load check.`,
+          message: `Solar assessment submitted successfully for ${input.name}! Our solar engineering dispatch team will call to schedule your site load check (subject to a small refundable facilitation fee credited toward your invoice).`,
           integrations: {
             databasePersisted: supabaseSuccess,
             notificationsDispatched: emailSuccess

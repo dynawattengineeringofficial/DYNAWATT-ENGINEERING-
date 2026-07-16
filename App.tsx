@@ -214,11 +214,11 @@ export const SeoMeta = ({ page }: { page: Page }) => {
     switch (page) {
       case Page.HOME:
         title = "Electrical Installation Services in Kampala | Dynawatt Engineering";
-        description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free site assessment today.";
+        description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free quotation today.";
         break;
       case Page.SERVICES:
         title = "Electrical Installation Services in Kampala | Dynawatt Engineering";
-        description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free site assessment today.";
+        description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free quotation today.";
         break;
       case Page.SOLAR:
         title = "Hybrid Solar Packages Uganda DW1-DW5 | Dynawatt Engineering";
@@ -237,8 +237,8 @@ export const SeoMeta = ({ page }: { page: Page }) => {
         description = "Dynawatt Engineering backs every installation with a 3-month repair guarantee. ERA licensed and BS 7671 certified electrical work you can trust.";
         break;
       case Page.CONTACT:
-        title = "Contact Dynawatt Engineering | Free Site Assessment Kampala";
-        description = "Request a free site assessment in Kampala, Wakiso & Mukono. Call +256 751 473 830 or WhatsApp us. Fast response across Central Uganda.";
+        title = "Contact Dynawatt Engineering | Free Quotation Kampala";
+        description = "Request a free quotation in Kampala, Wakiso & Mukono. Call +256 751 473 830 or WhatsApp us. Fast response across Central Uganda.";
         break;
       case Page.BLOG:
         title = "Electrical & Solar Tips Blog | Dynawatt Engineering Uganda";
@@ -932,7 +932,7 @@ function App() {
                       onClick={scrollToQuote}
                       className="underline decoration-amber-500/40 hover:decoration-amber-500 tracking-wide text-amber-400 transition"
                     >
-                      Or book a 100% free site visit — we come to you →
+                      Free Quotations, Refundable Site Visit Fee. Every quotation is free — no obligation. Site visits carry a small facilitation fee, fully refunded against your invoice once you proceed →
                     </a>
                   </div>
                 </div>
@@ -2030,7 +2030,7 @@ function App() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-500 font-black select-none">•</span>
-                  <span><strong>Bespoke Proposal:</strong> We schedule a 100% free site plan design visit, earthing grid check, or custom BOQ preparation.</span>
+                  <span><strong>Bespoke Proposal:</strong> We prepare your free custom BOQ proposal. Physical site plan design visits or earthing checks carry a small refundable fee credited fully against your invoice.</span>
                 </li>
               </ul>
             </div>
