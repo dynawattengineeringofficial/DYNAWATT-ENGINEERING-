@@ -110,6 +110,13 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
       case Page.LOC_KOLOLO: return '/areas-we-serve/kololo';
       case Page.LOC_KIRA: return '/areas-we-serve/kira';
       case Page.LOC_NAJJERA: return '/areas-we-serve/najjera';
+      case Page.LOC_MUKONO: return '/solar-installation-mukono';
+      case Page.LOC_HOIMA: return '/solar-installation-hoima';
+      case Page.LOC_LIRA: return '/electrical-installation-lira';
+      case Page.LOC_GULU: return '/electrical-installation-gulu';
+      case Page.LOC_KIBOGA: return '/lighting-installation-kiboga';
+      case Page.LOC_NAKWEERO: return '/solar-installation-nakweero';
+      case Page.LOC_SEETA: return '/lightning-arrestor-installation-seeta';
       
       default: return `/?page=${targetPage}`;
     }

@@ -369,7 +369,37 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
         )}
 
         {/* Real Project Photo Showcase */}
-        {data.projectPhoto && (
+        {data.projectPhotos && data.projectPhotos.length > 0 ? (
+          <div className="mb-16 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center">
+              <Icons.ShieldCheck className="h-5 w-5 text-emerald-500 mr-2" />
+              Dynawatt On-Site Project Gallery
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {data.projectPhotos.map((photo: any, index: number) => (
+                <div key={index} className="flex flex-col bg-slate-50 rounded-xl overflow-hidden border border-slate-150 shadow-xs hover:shadow-sm transition-all group">
+                  <div className="overflow-hidden aspect-3/4 relative bg-slate-100">
+                    <img 
+                      src={photo.url} 
+                      alt={photo.alt || data.headline} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute bottom-3 right-3 bg-slate-900/80 backdrop-blur-xs text-white text-[10px] font-mono px-2.5 py-1 rounded border border-slate-700">
+                      VERIFIED INSTALLATION
+                    </div>
+                  </div>
+                  <div className="p-4 flex-grow bg-white border-t border-slate-100 text-left">
+                    <p className="text-xs md:text-sm text-slate-600 font-medium leading-relaxed">
+                      📷 {photo.caption}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : data.projectPhoto && (
           <div className="mb-16 bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
             <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center">
               <Icons.ShieldCheck className="h-5 w-5 text-emerald-500 mr-2" />

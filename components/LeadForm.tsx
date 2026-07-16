@@ -286,6 +286,31 @@ const LeadForm: React.FC<LeadFormProps> = ({ addLead, setPage }) => {
           ></textarea>
         </div>
 
+        <p className="text-center text-xs text-slate-500 my-4 leading-relaxed">
+          By submitting, you agree to our{' '}
+          <a
+            href="/privacy-policy"
+            onClick={(e) => {
+              e.preventDefault();
+              if (setPage) setPage(Page.PRIVACY_POLICY);
+            }}
+            className="text-amber-600 font-semibold hover:underline"
+          >
+            Privacy Policy
+          </a>{' '}
+          and{' '}
+          <a
+            href="/terms-of-service"
+            onClick={(e) => {
+              e.preventDefault();
+              if (setPage) setPage(Page.TERMS_OF_SERVICE);
+            }}
+            className="text-amber-600 font-semibold hover:underline"
+          >
+            Terms of Service
+          </a>.
+        </p>
+
         <button 
           type="submit" 
           disabled={isSubmitting}

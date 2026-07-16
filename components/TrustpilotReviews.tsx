@@ -54,7 +54,7 @@ const TrustpilotReviews: React.FC = () => {
              <span className="text-[#00b67a] font-extrabold uppercase tracking-widest text-xs">Verified Trustpilot Rating</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
-            6 Verified Reviews with Over 4-Star Rating (4.1 ★)
+            7 Verified Reviews with Over 4-Star Rating (4.2 ★)
           </h2>
           <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto font-medium">
             Read authentic, unfiltered feedback from home and business owners across Uganda who have experienced Dynawatt's signature premium electrical and solar services.

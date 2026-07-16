@@ -276,6 +276,55 @@ const About: React.FC<AboutProps> = ({ setPage }) => {
             </div>
 
           </div>
+
+          {/* Technical Specialists Section */}
+          <div className="mt-16 pt-12 border-t border-slate-150 max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="text-[10px] font-black tracking-widest text-[#00b67a] bg-[#d9fdd3]/80 px-2.5 py-1 rounded-full uppercase">Technical Specialists</span>
+              <h3 className="text-2xl font-black text-slate-950 mt-3">Meet Our Solar & CCTV Expert</h3>
+              <p className="text-slate-500 text-xs md:text-sm max-w-md mx-auto mt-2">Certified engineering experts driving clean energy and security solutions.</p>
+            </div>
+
+            <div className="bg-slate-50 rounded-3xl p-6 lg:p-8 border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 lg:gap-8 hover:shadow-md transition duration-300">
+              <div className="w-48 h-48 rounded-2xl overflow-hidden border-2 border-amber-500/30 hover:border-amber-500 flex-shrink-0 shadow relative bg-slate-900 group">
+                <img 
+                  src="/expert-john-mukasa-headshot.jpg" 
+                  alt="Eng. John Mukasa Solar & CCTV Security Specialist Dynawatt Engineering" 
+                  width="192"
+                  height="192"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Visual indicator explaining where to place photo */}
+                <div className="absolute inset-0 bg-slate-950/80 flex flex-col items-center justify-center p-3 text-center opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <p className="text-[10px] text-amber-400 font-mono font-bold">PROFILE IMAGE</p>
+                  <p className="text-[9px] text-slate-300 mt-1">Upload headshot to /public/expert-john-mukasa-headshot.jpg</p>
+                </div>
+              </div>
+              <div className="flex-1">
+                <span className="text-[10px] font-black text-amber-600 bg-amber-150 px-2.5 py-1 rounded-full uppercase tracking-wider font-mono">Solar & CCTV Security Expert</span>
+                <h4 className="text-2xl font-black text-slate-950 mt-3 mb-2">Eng. John Mukasa</h4>
+                <div className="space-y-3 text-slate-600 text-xs md:text-sm leading-relaxed">
+                  <p className="italic font-semibold text-slate-800">
+                    "Hello, I'm John Mukasa, a Solar Engineer at DYNAWATT ENGINEERING."
+                  </p>
+                  <p>
+                    I specialize in the design, installation, testing, and maintenance of solar power systems, delivering safe, efficient, and reliable energy solutions for homes, businesses, and industries.
+                  </p>
+                  <p>
+                    At DYNAWATT ENGINEERING, we are committed to providing high-quality workmanship, innovative engineering solutions, and excellent customer service.
+                  </p>
+                  <p>
+                    Whether you're planning a new solar installation or need expert support for an existing system, I'm here to help you make the most of clean, renewable energy.
+                  </p>
+                  <p className="text-xs font-black text-amber-600 font-mono tracking-wider uppercase pt-2">
+                    DYNAWATT ENGINEERING – Engineer, innovate, elevate
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

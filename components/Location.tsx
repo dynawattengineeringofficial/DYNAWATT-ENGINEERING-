@@ -2,6 +2,22 @@ import React from 'react';
 import { Icons } from './AppIcons';
 import { Page } from '../types';
 
+const areaToPageMap: Record<string, Page> = {
+  "Kampala Central": Page.LOC_KAMPALA,
+  "Kololo": Page.LOC_KOLOLO,
+  "Kira": Page.LOC_KIRA,
+  "Najjera": Page.LOC_NAJJERA,
+  "Entebbe": Page.LOC_ENTEBBE,
+  "Wakiso": Page.LOC_WAKISO,
+  "Mukono": Page.LOC_MUKONO,
+  "Hoima": Page.LOC_HOIMA,
+  "Lira": Page.LOC_LIRA,
+  "Gulu": Page.LOC_GULU,
+  "Kiboga": Page.LOC_KIBOGA,
+  "Nakweero": Page.LOC_NAKWEERO,
+  "Seeta": Page.LOC_SEETA,
+};
+
 interface LocationProps {
   setPage: (page: Page) => void;
 }
@@ -96,13 +112,31 @@ const Location: React.FC<LocationProps> = ({ setPage }) => {
               "Gulu", "Soroti", "Lira", "Mbale",
               "Jinja", "Iganga", "Kamuli", "Hoima",
               "Masindi", "Kiboga", "Mityana", "Mbarara",
-              "Fort Portal", "Masaka"
-            ].map((area, i) => (
-              <div key={i} className="bg-white p-3 md:p-4 rounded-xl border border-slate-200 flex items-center shadow-xs">
-                <Icons.CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-500 mr-2.5 flex-shrink-0" />
-                <span className="text-slate-700 font-bold text-xs md:text-sm">{area}</span>
-              </div>
-            ))}
+              "Fort Portal", "Masaka", "Nakweero", "Seeta"
+            ].map((area, i) => {
+              const targetPage = areaToPageMap[area];
+              if (targetPage) {
+                return (
+                  <button
+                    key={i}
+                    onClick={() => setPage(targetPage)}
+                    className="bg-amber-50 hover:bg-amber-100 border border-amber-300 p-3 md:p-4 rounded-xl flex items-center justify-between shadow-xs transition-all text-left w-full group cursor-pointer"
+                  >
+                    <div className="flex items-center min-w-0">
+                      <Icons.CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-[#00b67a] mr-2.5 flex-shrink-0" />
+                      <span className="text-slate-900 font-extrabold text-xs md:text-sm group-hover:text-amber-900 transition-colors truncate">{area}</span>
+                    </div>
+                    <Icons.ArrowRight className="h-3.5 w-3.5 text-amber-600 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
+                  </button>
+                );
+              }
+              return (
+                <div key={i} className="bg-white p-3 md:p-4 rounded-xl border border-slate-200 flex items-center shadow-xs select-none">
+                  <Icons.CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-slate-300 mr-2.5 flex-shrink-0" />
+                  <span className="text-slate-500 font-medium text-xs md:text-sm">{area}</span>
+                </div>
+              );
+            })}
           </div>
 
           {/* Regional Dedicated Pages */}
@@ -150,6 +184,55 @@ const Location: React.FC<LocationProps> = ({ setPage }) => {
                  className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold py-3 px-5 rounded-xl transition text-xs md:text-sm text-left flex justify-between items-center group"
                >
                  <span>House Wiring Najjera</span>
+                 <Icons.ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition text-slate-500" />
+               </button>
+               <button 
+                 onClick={() => setPage(Page.LOC_MUKONO)}
+                 className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold py-3 px-5 rounded-xl transition text-xs md:text-sm text-left flex justify-between items-center group"
+               >
+                 <span>Solar Installation Mukono</span>
+                 <Icons.ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition text-slate-500" />
+               </button>
+               <button 
+                 onClick={() => setPage(Page.LOC_HOIMA)}
+                 className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold py-3 px-5 rounded-xl transition text-xs md:text-sm text-left flex justify-between items-center group"
+               >
+                 <span>Solar Installation Hoima</span>
+                 <Icons.ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition text-slate-500" />
+               </button>
+               <button 
+                 onClick={() => setPage(Page.LOC_LIRA)}
+                 className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold py-3 px-5 rounded-xl transition text-xs md:text-sm text-left flex justify-between items-center group"
+               >
+                 <span>Electrical Installation Lira</span>
+                 <Icons.ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition text-slate-500" />
+               </button>
+               <button 
+                 onClick={() => setPage(Page.LOC_GULU)}
+                 className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold py-3 px-5 rounded-xl transition text-xs md:text-sm text-left flex justify-between items-center group"
+               >
+                 <span>Electrical Installation Gulu</span>
+                 <Icons.ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition text-slate-500" />
+               </button>
+               <button 
+                 onClick={() => setPage(Page.LOC_KIBOGA)}
+                 className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold py-3 px-5 rounded-xl transition text-xs md:text-sm text-left flex justify-between items-center group"
+               >
+                 <span>Lighting Installation Kiboga</span>
+                 <Icons.ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition text-slate-500" />
+               </button>
+               <button 
+                 onClick={() => setPage(Page.LOC_NAKWEERO)}
+                 className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold py-3 px-5 rounded-xl transition text-xs md:text-sm text-left flex justify-between items-center group"
+               >
+                 <span>Solar Installation Nakweero</span>
+                 <Icons.ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition text-slate-500" />
+               </button>
+               <button 
+                 onClick={() => setPage(Page.LOC_SEETA)}
+                 className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold py-3 px-5 rounded-xl transition text-xs md:text-sm text-left flex justify-between items-center group"
+               >
+                 <span>Lightning Arrestor Seeta</span>
                  <Icons.ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition text-slate-500" />
                </button>
              </div>

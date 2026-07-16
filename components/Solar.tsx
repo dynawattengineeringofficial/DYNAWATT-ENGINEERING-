@@ -569,14 +569,18 @@ Additional Details: ${formData.message || 'None'}
       <section className="relative bg-[#0D1B2A] text-white py-16 md:py-28 overflow-hidden">
         {/* Background photo & overlay */}
         <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="/solar-hero-bg.webp"
-            alt="Solar hero background"
-            width={1920}
-            height={1080}
-            loading="eager"
-            className="w-full h-full object-cover opacity-80"
-          />
+          <picture>
+            <source media="(max-width: 768px)" srcSet="/solar-hero-bg-mobile.webp" />
+            <img
+              src="/solar-hero-bg.webp"
+              alt="Solar hero background"
+              width={1920}
+              height={1080}
+              loading="eager"
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
+              referrerPolicy="no-referrer"
+            />
+          </picture>
         </div>
         
         {/* Ambient radial gradients */}
@@ -1912,6 +1916,31 @@ Additional Details: ${formData.message || 'None'}
                 </div>
 
                 <div className="pt-2">
+                  <p className="text-center text-xs text-slate-400 mb-3 leading-relaxed">
+                    By submitting, you agree to our{' '}
+                    <a
+                      href="/privacy-policy"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (setPage) setPage(Page.PRIVACY_POLICY);
+                      }}
+                      className="text-[#E8620A] font-semibold hover:underline"
+                    >
+                      Privacy Policy
+                    </a>{' '}
+                    and{' '}
+                    <a
+                      href="/terms-of-service"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (setPage) setPage(Page.TERMS_OF_SERVICE);
+                      }}
+                      className="text-[#E8620A] font-semibold hover:underline"
+                    >
+                      Terms of Service
+                    </a>.
+                  </p>
+
                   <button 
                     type="submit" 
                     disabled={isSubmitting}

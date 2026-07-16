@@ -44,6 +44,13 @@ const getPathFromPage = (targetPage: Page): string => {
     case Page.LOC_KOLOLO: return '/areas-we-serve/kololo';
     case Page.LOC_KIRA: return '/areas-we-serve/kira';
     case Page.LOC_NAJJERA: return '/areas-we-serve/najjera';
+    case Page.LOC_MUKONO: return '/solar-installation-mukono';
+    case Page.LOC_HOIMA: return '/solar-installation-hoima';
+    case Page.LOC_LIRA: return '/electrical-installation-lira';
+    case Page.LOC_GULU: return '/electrical-installation-gulu';
+    case Page.LOC_KIBOGA: return '/lighting-installation-kiboga';
+    case Page.LOC_NAKWEERO: return '/solar-installation-nakweero';
+    case Page.LOC_SEETA: return '/lightning-arrestor-installation-seeta';
     
     default: return `/?page=${targetPage}`;
   }
@@ -67,14 +74,16 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
   return (
     <footer className="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Company Info */}
-          <div className="space-y-6">
+        
+        {/* ROW 1: Brand + Contact side by side on desktop, stacked on mobile */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 pb-12 border-b border-slate-850">
+          {/* Brand block */}
+          <div className="lg:col-span-2 space-y-6">
             <div className="flex flex-col">
               <span className="text-2xl font-bold text-white leading-none tracking-tight">DYNAWATT</span>
               <span className="text-[10px] text-amber-500 tracking-[0.2em] font-semibold">ENGINEERING</span>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed max-w-2xl">
               Dynawatt Engineering provides electrical installation, architectural lighting, solar systems, CCTV installation, smart home automation, and aluminum profile lighting services in Kampala, Entebbe, Wakiso, Mukono, and across Uganda.
             </p>
             <div className="flex space-x-4">
@@ -84,13 +93,49 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
               <a href="https://www.instagram.com/dynawattengineering" target="_blank" rel="noreferrer" aria-label="Visit Dynawatt Engineering on Instagram" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
                 <Icons.Instagram className="h-5 w-5" />
               </a>
+              <a href="https://www.tiktok.com/@dynawattengineering1" target="_blank" rel="noreferrer" aria-label="Visit Dynawatt Engineering on TikTok" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
+                <Icons.Tiktok className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
+          {/* Contact Us */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-bold border-b border-amber-500/30 pb-2 inline-block">Contact Us</h4>
+            <ul className="space-y-4 text-slate-400 text-sm">
+              <li className="flex items-start">
+                <Icons.MapPin className="h-5 w-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" />
+                <div className="flex flex-col">
+                  <span>Kampala, Uganda</span>
+                  <a href="https://share.google/E96jop0cWTPymqOjE" target="_blank" rel="noreferrer" className="text-xs text-amber-500 hover:underline mt-1">View on Google Maps</a>
+                </div>
+              </li>
+              <li className="flex items-center">
+                <Icons.Phone className="h-5 w-5 text-amber-500 mr-3 flex-shrink-0" />
+                <a href="tel:+256751473830" className="hover:text-amber-500 transition-colors font-bold text-base text-slate-200">+256 751 473 830</a>
+              </li>
+              <li className="flex items-center">
+                <Icons.MessageCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <a href="https://wa.me/256751473830" target="_blank" rel="noreferrer" className="hover:text-green-400 transition-colors text-green-500 font-semibold">Message on WhatsApp</a>
+              </li>
+              <li className="flex items-center">
+                <Icons.Mail className="h-5 w-5 text-amber-500 mr-3 flex-shrink-0" />
+                <a href="mailto:dynawattengineering@gmail.com" className="hover:text-amber-500 transition-colors">dynawattengineering@gmail.com</a>
+              </li>
+              <li className="flex items-center pt-2">
+                <Icons.CheckCircle className="h-5 w-5 text-slate-500 mr-3 flex-shrink-0" />
+                <span className="text-slate-300">Mon - Sat: 8am - 6pm</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* ROW 2: Link columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-12">
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-bold mb-6 border-b border-amber-500/30 pb-2 inline-block">Quick Links</h4>
-            <ul className="space-y-4 text-slate-400 text-sm mb-8">
+            <ul className="space-y-4 text-slate-400 text-sm">
               <li><FooterLink targetPage={Page.HOME}>Home</FooterLink></li>
               <li><FooterLink targetPage={Page.ABOUT}>About Us</FooterLink></li>
               <li><FooterLink targetPage={Page.SERVICES}>Our Services</FooterLink></li>
@@ -98,59 +143,37 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
               <li><FooterLink targetPage={Page.BLOG}>Blog & News</FooterLink></li>
               <li><FooterLink targetPage={Page.CONTACT}>Contact Us</FooterLink></li>
             </ul>
-            
+          </div>
+
+          {/* Service Areas */}
+          <div>
+            <h4 className="text-lg font-bold mb-6 border-b border-amber-500/30 pb-2 inline-block">Service Areas</h4>
+            <ul className="grid grid-cols-2 gap-x-2 gap-y-4 text-slate-400 text-xs">
+              <li><FooterLink targetPage={Page.LOC_KAMPALA}>Kampala</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_ENTEBBE}>Entebbe</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_WAKISO}>Wakiso</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_KOLOLO}>Kololo</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_KIRA}>Kira</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_NAJJERA}>Najjera</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_MUKONO}>Mukono</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_HOIMA}>Hoima</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_LIRA}>Lira</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_GULU}>Gulu</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_KIBOGA}>Kiboga</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_NAKWEERO}>Nakweero</FooterLink></li>
+              <li><FooterLink targetPage={Page.LOC_SEETA}>Seeta</FooterLink></li>
+              <li className="col-span-2 pt-2"><FooterLink targetPage={Page.LOCATION} className="text-amber-500 font-extrabold hover:underline">View All Areas →</FooterLink></li>
+            </ul>
+          </div>
+
+          {/* Cost & Yaka Guides */}
+          <div>
             <h4 className="text-lg font-bold mb-6 border-b border-amber-500/30 pb-2 inline-block">Cost & Yaka Guides</h4>
             <ul className="space-y-4 text-slate-400 text-sm text-left">
-              <li><FooterLink targetPage={Page.SEO_YAKA_METER} className="hover:text-amber-500 transition-colors text-left">Yaka Meter Troubleshooting</FooterLink></li>
-              <li><FooterLink targetPage={Page.SEO_WIRING_2_BEDROOM} className="hover:text-amber-500 transition-colors text-left">2-Bedroom Wiring Costs</FooterLink></li>
-              <li><FooterLink targetPage={Page.SEO_WIRING_3_BEDROOM} className="hover:text-amber-500 transition-colors text-left">3-Bedroom Wiring Costs</FooterLink></li>
-              <li><FooterLink targetPage={Page.SEO_WIRING_COMMERCIAL} className="hover:text-amber-500 transition-colors text-left">Commercial Wiring Costs</FooterLink></li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-amber-500/30 pb-2 inline-block">Our Services</h4>
-            <ul className="space-y-4 text-slate-400 text-sm">
-              <li><FooterLink targetPage={Page.SEO_ELEC_INSTALL} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Zap className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Electrical Installation</FooterLink></li>
-              <li><FooterLink targetPage={Page.SEO_ARCH_LIGHTING} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Lightbulb className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Architectural Lighting</FooterLink></li>
-              <li><FooterLink targetPage={Page.SEO_SOLAR} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Sun className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Solar Systems</FooterLink></li>
-              <li><FooterLink targetPage={Page.SEO_CCTV} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Camera className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> CCTV & Security</FooterLink></li>
-              <li><FooterLink targetPage={Page.SEO_SMART_HOME} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Home className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Smart Home Automation</FooterLink></li>
-              <li><FooterLink targetPage={Page.SEO_COMMERCIAL} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Briefcase className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Commercial Electrical</FooterLink></li>
-              <li><FooterLink targetPage={Page.SEO_MAINTENANCE} className="hover:text-amber-500 transition-colors text-left flex items-center group"><Icons.Wrench className="h-4 w-4 mr-2 text-slate-600 group-hover:text-amber-500 transition-colors" /> Electrical Maintenance</FooterLink></li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-amber-500/30 pb-2 inline-block">Contact Us</h4>
-            <ul className="space-y-4 text-slate-400 text-sm">
-              <li className="flex items-start">
-                <Icons.MapPin className="h-5 w-5 text-amber-500 mr-3 mt-0.5" />
-                <div className="flex flex-col">
-                  <span>Kampala, Uganda</span>
-                  <a href="https://share.google/E96jop0cWTPymqOjE" target="_blank" rel="noreferrer" className="text-xs text-amber-500 hover:underline mt-1">View on Google Maps</a>
-                </div>
-              </li>
-              <li className="flex items-center">
-                <Icons.Phone className="h-5 w-5 text-amber-500 mr-3" />
-                <div className="flex flex-col">
-                  <a href="tel:+256751473830" className="hover:text-amber-500 transition-colors font-bold text-base text-slate-200">+256 751 473 830</a>
-                </div>
-              </li>
-              <li className="flex items-center">
-                <Icons.MessageCircle className="h-5 w-5 text-green-500 mr-3" />
-                <a href="https://wa.me/256751473830" target="_blank" rel="noreferrer" className="hover:text-green-400 transition-colors text-green-500 font-semibold">Message on WhatsApp</a>
-              </li>
-              <li className="flex items-center">
-                <Icons.Mail className="h-5 w-5 text-amber-500 mr-3" />
-                <a href="mailto:dynawattengineering@gmail.com" className="hover:text-amber-500 transition-colors">dynawattengineering@gmail.com</a>
-              </li>
-              <li className="flex items-center pt-2">
-                <Icons.CheckCircle className="h-5 w-5 text-slate-500 mr-3" />
-                <span className="text-slate-300">Mon - Sat: 8:00 AM - 6:00 PM</span>
-              </li>
+              <li><FooterLink targetPage={Page.SEO_YAKA_METER} className="hover:text-amber-500 transition-colors text-left">Yaka Troubleshooting</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_WIRING_2_BEDROOM} className="hover:text-amber-500 transition-colors text-left">2-Bedroom Costs</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_WIRING_3_BEDROOM} className="hover:text-amber-500 transition-colors text-left">3-Bedroom Costs</FooterLink></li>
+              <li><FooterLink targetPage={Page.SEO_WIRING_COMMERCIAL} className="hover:text-amber-500 transition-colors text-left">Commercial Costs</FooterLink></li>
             </ul>
           </div>
         </div>
