@@ -262,7 +262,7 @@ export const seoLocationPagesData = {
   },
   MUKONO: {
     seoTitle: "Solar, Electrical Installation & Lightning Protection in Mukono & Seeta | Dynawatt Engineering",
-    metaDesc: "ERA-licensed solar installations, certified ESE lightning arrestors, and house wiring in Mukono, Seeta, and Nakweero. Free site surveys and on-site school portfolio.",
+    metaDesc: "ERA-licensed solar installations, certified ESE lightning arrestors, and house wiring in Mukono, Seeta, and Nakweero. On-site school portfolio and free quotations.",
     headline: "Solar, Electrical & Lightning Protection in Mukono & Seeta",
     heroImage: "/solar-installation-services-kampala.jpg",
     description: "Dynawatt Engineering is the leading provider of certified solar energy systems, modern electrical wiring, and early streamer emission (ESE) lightning protection in Mukono and Seeta. We serve residential estates, commercial establishments, and major institutions like school campuses, designing high-performing energy grids that eliminate load-shedding and safeguard against severe storms.",
@@ -330,14 +330,14 @@ export const seoLocationPagesData = {
       }
     ],
     faqs: [
-      { q: "How fast can you run a solar site assessment in Mukono?", a: "Our engineering crew can schedule a free site survey and consumption assessment within 48 hours for Mukono, Seeta, and Nakweero." },
+      { q: "How fast can you run a solar site assessment in Mukono?", a: "Our engineering crew can schedule a site survey within 48 hours for Mukono, Seeta, and Nakweero (subject to a small refundable facilitation fee)." },
       { q: "Do you install lightning arrestors on existing buildings?", a: "Yes, we install early streamer emission lightning protection rods and structural earthing systems for both new builds and completed properties in Seeta and Mukono." }
     ],
     internalLinks: [
       { text: "Tired of load shedding in Mukono?", linkText: "Explore Our Solar Packages", page: Page.SOLAR },
       { text: "Need modern lighting or ceiling work?", linkText: "View Architectural Lighting", page: Page.SEO_ARCH_LIGHTING }
     ],
-    cta: "Request a certified solar audit and lightning safety check in Mukono today."
+    cta: "Get a free quotation for your Mukono project today. On-site assessments carry a small refundable fee, fully credited to your invoice once you proceed."
   },
   HOIMA: {
     seoTitle: "Electrical Installation, Custom House Wiring & Architectural Lighting in Hoima | Dynawatt Engineering",
@@ -428,7 +428,7 @@ export const seoLocationPagesData = {
       { text: "Planning electrical wiring for your new home?", linkText: "View Wiring Estimator", page: Page.SEO_HOUSE_WIRING_COST },
       { text: "Interested in sustainable energy?", linkText: "Explore Solar Packages", page: Page.SOLAR }
     ],
-    cta: "Looking for a certified master electrician or architectural lighting specialist in Hoima? Contact Dynawatt Engineering today to book a comprehensive site survey and secure a detailed electrical quote."
+    cta: "Get a free quotation for your Hoima project today. On-site assessments carry a small refundable fee, fully credited to your invoice once you proceed."
   },
   LIRA: {
     seoTitle: "Electrical Installation & Wiring in Lira | Dynawatt Engineering",
@@ -485,7 +485,7 @@ export const seoLocationPagesData = {
       { text: "Planning to wire your house in Lira?", linkText: "Read Our House Wiring Cost Guide", page: Page.SEO_HOUSE_WIRING_COST },
       { text: "Interested in backup solar for upcountry outages?", linkText: "Explore Our Solar Packages", page: Page.SOLAR }
     ],
-    cta: "Get a professional, BS 7671 certified quote for your Lira project today."
+    cta: "Get a free quotation for your Lira project today. On-site assessments carry a small refundable fee, fully credited to your invoice once you proceed."
   },
   GULU: {
     seoTitle: "Electrical Installation & Slab Piping in Gulu | Dynawatt Engineering",
@@ -542,7 +542,7 @@ export const seoLocationPagesData = {
       { text: "Need guidance on house wiring budgets?", linkText: "View Our Domestic Wiring Cost Guide", page: Page.SEO_HOUSE_WIRING_COST },
       { text: "Want to secure your Gulu property with smart security?", linkText: "View CCTV Systems", page: Page.SEO_CCTV }
     ],
-    cta: "Planning a rental or domestic build in Gulu? Contact Dynawatt Engineering for a site plan audit."
+    cta: "Get a free quotation for your Gulu project today. On-site assessments carry a small refundable fee, fully credited to your invoice once you proceed."
   },
   KIBOGA: {
     seoTitle: "Hotel Lighting & Electrical in Kiboga | Dynawatt Engineering",
@@ -626,7 +626,7 @@ export const seoLocationPagesData = {
       { text: "Need custom profile lights for your lobby or home?", linkText: "Explore Profile Lighting", page: Page.SEO_PROFILE_LIGHTING },
       { text: "Require commercial-scale power solutions?", linkText: "View Our Commercial Services", page: Page.SEO_COMMERCIAL }
     ],
-    cta: "Planning a hotel, lodge, or commercial project in Kiboga? Contact our design team today."
+    cta: "Get a free quotation for your Kiboga project today. On-site assessments carry a small refundable fee, fully credited to your invoice once you proceed."
   },
   NAKWEERO: {
     seoTitle: "5kVA Hybrid Solar System Installation in Nakweero & Wakiso | Dynawatt Engineering",
@@ -675,7 +675,7 @@ export const seoLocationPagesData = {
       "Mukono & Wakiso local engineering presence for rapid on-site maintenance",
       "ERA-licensed electrical engineers overseeing every installation",
       "Official 5-year hardware warranties on hybrid inverters and 10-year lithium battery life-cycle guarantees",
-      "Zero-fluff upfront pricing with no hidden charges or site-visit fees"
+      "Zero-fluff upfront pricing with no hidden charges and refundable site-visit fees"
     ],
     projectPhoto: "/solar-installation-services-kampala.jpg",
     projectPhotoCaption: "Dynawatt hybrid solar installation project completed in Nakweero, Mukono district, providing clean power backup.",
@@ -705,7 +705,7 @@ export const seoLocationPagesData = {
       { text: "Tired of load shedding in Nakweero?", linkText: "Explore Our Solar Packages", page: Page.SOLAR },
       { text: "Need professional wiring for a new house?", linkText: "View Complete House Wiring", page: Page.SEO_HOUSE_WIRING_COST }
     ],
-    cta: "Secure clean, uninterrupted power for your home. Contact Dynawatt Engineering today to book a free load audit and secure your 5kVA 'Family Chosen' Hybrid System!"
+    cta: "Get a free quotation for your Nakweero project today. On-site assessments carry a small refundable fee, fully credited to your invoice once you proceed."
   },
   SEETA: {
     seoTitle: "Lightning Arrestor & Surge Protection in Seeta | Dynawatt Engineering",
@@ -762,6 +762,6 @@ export const seoLocationPagesData = {
       { text: "Want to protect your solar system too?", linkText: "View Our Solar Solutions", page: Page.SOLAR },
       { text: "Building a new home in Seeta?", linkText: "Explore Home Wiring Services", page: Page.SEO_ELEC_INSTALL }
     ],
-    cta: "Secure your Seeta property against lightning and surges. Contact Dynawatt Engineering today."
+    cta: "Get a free quotation for your Seeta project today. On-site assessments carry a small refundable fee, fully credited to your invoice once you proceed."
   }
 };

@@ -85,7 +85,7 @@ export const seoEducationalPagesData = {
     whyChooseTitle: "Transparent Pricing & Guaranteed Quality",
     whyChoose: ["Detailed, honest quotations with no hidden fees", "We source authentic, certified electrical materials", "3-month repair guarantee on all new residential wiring", "Engineered to international BS 7671 safety standards"],
     faqs: [
-      { q: "Do you provide free site visits for a quotation?", a: "Yes, we offer 100% free site visits for residential projects in Kampala, Wakiso, Mukono, and nearby districts. Our engineers will physically survey your building, assess your load needs, and compile a comprehensive itemised Bill of Quantities (BOQ) covering materials and labour, ensuring you avoid any surprise costs on-site." },
+      { q: "Do you provide free site visits for a quotation?", a: "Every quotation we compile is completely free. Physical site visits carry a small facilitation fee, which is fully credited to your invoice when you proceed with the project. Our engineers will physically survey your building, assess your load needs, and compile a comprehensive itemised Bill of Quantities (BOQ) covering materials and labour, ensuring you avoid any surprise costs on-site." },
       { q: "Can I buy my own materials for you to install?", a: "Yes, you are welcome to buy your own cables and sockets. However, we strongly recommend allowing our engineering team to inspect or handle sourcing. Counterfeit or substandard cables are highly prevalent in Ugandan hardware hubs, posing severe fire hazards. Partnering with Dynawatt ensures every cable is certified, high-grade copper with proper insulation." }
     ],
     internalLinks: [
@@ -273,7 +273,7 @@ export const seoEducationalPagesData = {
       { text: "Need a breakdown for larger properties?", linkText: "See 3-Bedroom Wiring Cost Guide", page: Page.SEO_WIRING_3_BEDROOM },
       { text: "Want a complete cost overview?", linkText: "Read General House Wiring Cost Guide", page: Page.SEO_HOUSE_WIRING_COST }
     ],
-    cta: "Looking for a safe, reliable, and compliant electrical installation for your 2-bedroom home? Contact Dynawatt Engineering for a customized, itemized quotation. Free site visits are available this week in Kampala, Wakiso, Mukono, and Entebbe!"
+    cta: "Looking for a safe, reliable, and compliant electrical installation for your 2-bedroom home? Contact Dynawatt Engineering for a customized, itemized quotation. On-site assessments carry a small refundable fee, fully credited to your invoice once you proceed."
   },
   WIRING_3_BEDROOM: {
     seoTitle: "Cost of Wiring a 3-Bedroom House in Uganda | Dynawatt",
@@ -341,7 +341,7 @@ export const seoEducationalPagesData = {
       { text: "Curious about standard household prices?", linkText: "Read our Complete House Wiring Overview", page: Page.SEO_HOUSE_WIRING_COST },
       { text: "Need guidance for smaller houses?", linkText: "Read 2-Bedroom House Wiring cost Guide", page: Page.SEO_WIRING_2_BEDROOM }
     ],
-    cta: "Get a complete, certified electrical wiring setup with full safety backing. Speak to our senior engineers to schedule your free site visit."
+    cta: "Get a complete, certified electrical wiring setup with full safety backing. Speak to our senior engineers to request a free quotation today."
   },
   WIRING_COMMERCIAL: {
     seoTitle: "Commercial Building Electrical Wiring & Sizing in Kampala",
