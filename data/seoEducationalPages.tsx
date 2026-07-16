@@ -52,7 +52,7 @@ export const seoEducationalPagesData = {
     metaDesc: "Discover the estimated costs for wiring a house in Uganda. Understand factors like material quality, house size, and labor, and get professional wiring from Dynawatt.",
     headline: "How Much Does It Cost to Wire a House in Uganda?",
     heroImage: "/house-wiring-slab-piping-mukono.jpg",
-    description: "Wiring a house in Uganda requires absolute transparency, skilled engineering, and uncompromised material quality. At Dynawatt Engineering, we believe in providing our clients with a detailed breakdown of 2026 Uganda wiring costs. On average, standard <span data-page=\"WIRING_2_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">2-bedroom house wiring</span> in Kampala and Wakiso ranges from UGX 2,800,000 to UGX 4,200,000 (basic vs luxury finish), while <span data-page=\"WIRING_3_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">3-bedroom house wiring</span> ranges from UGX 4,500,000 to UGX 6,800,000.\n\nThese cost estimates encompass premium genuine cables (BBS or East African Cables), structural conduit routing, distribution board assembly, proper earthing, and professional <span data-page=\"SEO_ELEC_INSTALL\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">electrical installation services</span>. If you also plan to incorporate high-end <span data-page=\"SEO_PROFILE_LIGHTING\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">aluminum profile lighting</span>, expect pricing to scale accordingly based on linear meter layouts from our dedicated design team.",
+    description: "Wiring a house in Uganda requires absolute transparency, skilled engineering, and uncompromised material quality. At Dynawatt Engineering, we believe in providing our clients with a detailed breakdown of 2026 Uganda wiring costs. On average, standard <span data-page=\"WIRING_2_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">2-bedroom house wiring</span> in Kampala and Wakiso ranges from UGX 2,800,000 to UGX 4,200,000 (basic vs luxury finish), while <span data-page=\"WIRING_3_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">3-bedroom house wiring</span> ranges from UGX 4,500,000 to UGX 6,800,000.\n\nThese cost estimates encompass premium genuine cables (BBS or East African Cables), structural conduit routing, distribution board assembly, proper earthing, and professional <span data-page=\"SEO_ELEC_INSTALL\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">electrical installation services</span>. We execute certified projects from the central metro suburbs to nationwide locations, with dedicated local expertise handling projects like <span data-page=\"LOC_MUKONO\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">solar installation in Mukono</span>, and Domestic and Commercial work like <span data-page=\"LOC_LIRA\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">house wiring in Lira</span> and <span data-page=\"LOC_GULU\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">electrical installs in Gulu</span>. If you also plan to incorporate high-end <span data-page=\"SEO_PROFILE_LIGHTING\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">aluminum profile lighting</span>, expect pricing to scale accordingly based on linear meter layouts from our dedicated design team.",
     showWiringPricingTable: true,
     showQuoteSection: true,
     projectPhoto: "/house-wiring-slab-piping-mukono.jpg",
@@ -348,7 +348,7 @@ export const seoEducationalPagesData = {
     metaDesc: "Professional commercial building wiring in Kampala, Uganda. Explore details on 3-phase balancing, commercial panels, trunking, safety standards, and pricing.",
     headline: "Commercial Building Electrical Sizing & Wiring in Kampala",
     heroImage: "/electrical-engineering-kampala.jpg",
-    description: "Commercial properties in Kampala—including shopping arcades, business centers, hotels, office blocks, and residential apartments—demand complex electrical designs far beyond typical residential systems. These properties run on heavy, continuous loads necessitating 3-phase balancing, professional cable trunking, industrial distribution gear, and comprehensive surge mitigation. Dynawatt Engineering provides certified, code-compliant commercial installations mapped to commercial codes, designed to maximize operating lifespan and guarantee business continuity.",
+    description: "Commercial properties in Kampala—including shopping arcades, business centers, hotels, office blocks, and residential apartments—demand complex electrical designs far beyond typical residential systems. These properties run on heavy, continuous loads necessitating 3-phase balancing, professional cable trunking, industrial distribution gear, and comprehensive surge mitigation. Our mobile execution crews have a proven track record delivering major upcountry hotel wiring, such as our full lighting and electrical project in <span data-page=\"LOC_KIBOGA\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">Kiboga</span>, as well as agricultural pumping setups and luxury <span data-page=\"LOC_HOIMA\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">solar installations in Hoima</span>. Dynawatt Engineering provides certified, code-compliant commercial installations mapped to commercial codes, designed to maximize operating lifespan and guarantee business continuity.",
     sections: [
       {
         title: "3-Phase Power Balancing & Distribution",
@@ -556,5 +556,78 @@ export const seoEducationalPagesData = {
       { text: "Curious about standard costs?", linkText: "Check our 3-Bedroom Wiring Cost Guide", page: Page.SEO_WIRING_3_BEDROOM }
     ],
     cta: "Don't let poor plumbing or collapsed conduits ruin your expensive concrete deck. Contact Dynawatt Engineering today to have certified engineers design and lay a bulletproof slab piping grid."
+  },
+  LIGHTNING_PROTECTION: {
+    seoTitle: "Certified Lightning Arrestor Installation in Uganda | Dynawatt Engineering",
+    metaDesc: "Protect your school, home, or building from lightning strikes with certified ESE lightning arrestors and grounding in Uganda. See our Kawuku Wakiso project.",
+    headline: "Certified Lightning Arrestor & Protection Systems in Uganda",
+    heroImage: "/wakiso_lightning_school.jpg",
+    description: "Lightning strikes present a severe threat to buildings, schools, and electronic systems across Uganda, especially during intense rainy seasons. At Dynawatt Engineering, we design and install certified Early Streamer Emission (ESE) lightning arrestors, heavy-gauge copper down-conductors, and low-impedance earthing systems that safely redirect high-voltage surges directly into the ground.\n\nOur certified engineers install lightning protection networks that conform strictly to international safety codes (NF C 17-102 and IEC 62305). One of our key landmark installations was executed at <strong class=\"font-bold text-slate-900\">Broader Vision Primary School in Kawuku, Wakiso District</strong>, where our team was sub-contracted to safely mount ESE terminals and heavy-duty copper tapes on the new classroom block to secure the entire student body and administrative electronics. Whether you are safeguarding an institutional campus, an apartment block, or a residential home, our copper bonding systems deliver absolute peace of mind.",
+    projectPhoto: "/wakiso_lightning_school.jpg",
+    projectPhotoAlt: "Certified Dynawatt crew installing ESE lightning protection at Broader Vision Primary School in Kawuku, Wakiso",
+    projectPhotoCaption: "Professional installation of solid copper down-conductors and ESE lightning protection terminals on wooden scaffolding for the new classroom block at Broader Vision Primary School in Kawuku, Wakiso District.",
+    author: {
+      name: "Daniel Alemukori",
+      tag: "BS 7671 Certified & Systems Expert",
+      title: "Co-Founder & Lead Technical Engineer",
+      avatar: "/co-founder-daniel-alemukori-headshot.jpg",
+      bio: "Daniel Alemukori is the Co-Founder & Lead Technical Engineer at Dynawatt Engineering. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding three-phase commercial power balancing, deep earth rod impedance testing (conforming to BS 7671 standards), advanced circuit troubleshooting, and smart home lighting control retrofits across Kampala, Wakiso, and Entebbe."
+    },
+    sections: [
+      {
+        title: "ESE Lightning Arrestor Terminals",
+        items: [
+          "High-capacity Early Streamer Emission active terminals designed to intercept lightning strikes early",
+          "Wide protection radii covering up to 120 meters per terminal for maximum structural coverage",
+          "Durable, corrosion-resistant stainless steel and copper builds for a lifetime of maintenance-free operation"
+        ],
+        icon: <Icons.Zap />
+      },
+      {
+        title: "Copper Down-Conductors & Tape",
+        items: [
+          "Pure, high-conductivity solid copper down-conductors and mounting tape",
+          "Professional installation executed safely on structural wooden scaffolding using BS-compliant brass clips",
+          "Aesthetic, neat, and direct cable routing paths on building facades to prevent inductance loops"
+        ],
+        icon: <Icons.Shield />
+      },
+      {
+        title: "Deep Earth Grounding & Low-Impedance Pit",
+        items: [
+          "Deep earthing rod deployments utilizing copper-bonded steel rods and high-conductivity backfill",
+          "Systematic ground impedance auditing to guarantee sub-10 ohm readings under all weather conditions",
+          "Heavy-duty inspection chambers (earth pits) for routine annual testing and compliance certifications"
+        ],
+        icon: <Icons.Wrench />,
+        highlighted: true
+      }
+    ],
+    whyChooseTitle: "Why Institutional Clients Choose Dynawatt",
+    whyChoose: [
+      "Conforms strictly to French Standard NF C 17-102 & European IEC 62305 codes",
+      "Proven institutional portfolio with school installations like Broader Vision Primary School in Kawuku",
+      "Rigorous impedance certification demonstrating certified earthing values below 10 ohms",
+      "Highest-grade, corrosion-resistant pure copper components sourced from global certified manufacturers"
+    ],
+    faqs: [
+      {
+        q: "How does an Early Streamer Emission (ESE) arrestor work?",
+        a: "Unlike traditional passive lightning rods, an ESE arrestor dynamically ionizes the surrounding air to generate an upward streamer earlier than standard structures. This effectively creates an active attraction path that intercepts the lightning strike and channel-routes the charge safely to the ground over a significantly larger protection radius."
+      },
+      {
+        q: "What was your lightning protection project in Kawuku, Wakiso?",
+        a: "We were sub-contracted to design and install a comprehensive ESE lightning protection and earthing grid for the new classroom block at Broader Vision Primary School in Kawuku, Wakiso District. Our team operated safely on high-elevation scaffolding to secure the school's structural integrity, computer labs, and guard its pupils against storms."
+      },
+      {
+        q: "How often should lightning arrestors and earth pits be tested in Uganda?",
+        a: "For maximum safety, earthing pits and lightning protection networks should undergo visual inspection and impedance testing once every 12 months, ideally right before the start of the heavy rainy seasons. Dynawatt provides professional testing services and issues official certification documents."
+      }
+    ],
+    internalLinks: [
+      { text: "Need complete institutional wiring?", linkText: "Explore our Electrical Installation Services", page: Page.SEO_ELEC_INSTALL },
+      { text: "Looking for solar backups in Wakiso?", linkText: "Check out our Wakiso Location Profile", page: Page.LOC_WAKISO }
+    ],
+    cta: "Protect your school building, family, or commercial establishment from devastating lightning strikes today. Contact Dynawatt Engineering for a comprehensive risk assessment and professional ESE installation."
   }
 };
