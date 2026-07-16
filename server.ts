@@ -239,11 +239,32 @@ async function startServer() {
   } else {
     // Serve static files in production
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    // Provide a wildcard fallback to index.html for SPA routing. Wait, AI Studio says Express v4 is app.get('*', ...)
-    // Wait, let's use standard routing
-    app.get('*all', (_req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+    
+    // Serve static assets, excluding index.html automatically to let custom route resolution run
+    app.use(express.static(distPath, {
+      index: false,
+    }));
+    
+    // Custom fallback resolution: serve route-specific prerendered HTML if it exists,
+    // otherwise fallback to the primary SPA index.html shell.
+    app.use((req, res) => {
+      if (req.method !== 'GET') {
+        res.status(404).end();
+        return;
+      }
+      
+      const cleanPath = req.path.replace(/\/$/, ""); // Normalize trailing slashes
+      
+      let filePath = path.join(distPath, cleanPath, 'index.html');
+      if (cleanPath === "") {
+        filePath = path.join(distPath, 'index.html');
+      }
+      
+      if (fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+      } else {
+        res.sendFile(path.join(distPath, 'index.html'));
+      }
     });
   }
 
