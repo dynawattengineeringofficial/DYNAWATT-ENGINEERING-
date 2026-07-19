@@ -1,16 +1,86 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Icons } from './AppIcons';
 import { Page } from '../types';
 
 interface SeoPageProps {
-  data: any;
+  pageId: Page;
   setPage: (page: Page) => void;
   contactPhone: string;
-  hideAuthor?: boolean;
 }
 
-const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuthor }) => {
+const SeoPage: React.FC<SeoPageProps> = ({ pageId, setPage, contactPhone }) => {
+  const [data, setData] = useState<any>(null);
+
+  // Derive hideAuthor from pageId
+  const hideAuthor = pageId.startsWith('loc_') || 
+    [
+      Page.SEO_ELEC_INSTALL,
+      Page.SEO_ARCH_LIGHTING,
+      Page.SEO_SOLAR,
+      Page.SEO_CCTV,
+      Page.SEO_SMART_HOME,
+      Page.SEO_COMMERCIAL,
+      Page.SEO_MAINTENANCE,
+      Page.SEO_PROFILE_LIGHTING
+    ].includes(pageId);
+
   useEffect(() => {
+    let active = true;
+    setData(null); // Reset when page changes to show clean skeleton loader
+
+    const loadData = async () => {
+      let resolvedData = null;
+      try {
+        if (pageId.startsWith('loc_')) {
+          const { seoLocationPagesData } = await import('../data/seoLocationPages');
+          const locKey = pageId.replace('loc_', '').toUpperCase();
+          resolvedData = (seoLocationPagesData as any)[locKey];
+        } else if (
+          [
+            Page.SEO_ELEC_INSTALL,
+            Page.SEO_ARCH_LIGHTING,
+            Page.SEO_SOLAR,
+            Page.SEO_CCTV,
+            Page.SEO_SMART_HOME,
+            Page.SEO_COMMERCIAL,
+            Page.SEO_MAINTENANCE,
+            Page.SEO_PROFILE_LIGHTING
+          ].includes(pageId)
+        ) {
+          const { seoPagesData } = await import('../data/seoServicePages');
+          resolvedData = (seoPagesData as any)[pageId.toUpperCase()];
+        } else {
+          const { seoEducationalPagesData } = await import('../data/seoEducationalPages');
+          // Match keys in seoEducationalPagesData
+          if (pageId === Page.SEO_YAKA_METER) resolvedData = seoEducationalPagesData.YAKA_METER;
+          else if (pageId === Page.SEO_HOUSE_WIRING_COST) resolvedData = seoEducationalPagesData.HOUSE_WIRING_COST;
+          else if (pageId === Page.SEO_WARM_SWITCHES) resolvedData = seoEducationalPagesData.WARM_SWITCHES;
+          else if (pageId === Page.SEO_SOLAR_MAINTENANCE) resolvedData = seoEducationalPagesData.SOLAR_MAINTENANCE;
+          else if (pageId === Page.SEO_BULB_BLOWOUTS) resolvedData = seoEducationalPagesData.BULB_BLOWOUTS;
+          else if (pageId === Page.SEO_WIRING_2_BEDROOM) resolvedData = seoEducationalPagesData.WIRING_2_BEDROOM;
+          else if (pageId === Page.SEO_WIRING_3_BEDROOM) resolvedData = seoEducationalPagesData.WIRING_3_BEDROOM;
+          else if (pageId === Page.SEO_WIRING_COMMERCIAL) resolvedData = seoEducationalPagesData.WIRING_COMMERCIAL;
+          else if (pageId === Page.SEO_BLOG_CCTV) resolvedData = seoEducationalPagesData.SEO_BLOG_CCTV;
+          else if (pageId === Page.SEO_BLOG_CONDUIT_SLAB) resolvedData = seoEducationalPagesData.SEO_BLOG_CONDUIT_SLAB;
+          else if (pageId === Page.SEO_LIGHTNING_PROTECTION) resolvedData = seoEducationalPagesData.LIGHTNING_PROTECTION;
+        }
+
+        if (active) {
+          setData(resolvedData);
+        }
+      } catch (err) {
+        console.error("Failed to dynamically load SEO page data:", err);
+      }
+    };
+
+    loadData();
+    return () => {
+      active = false;
+    };
+  }, [pageId]);
+
+  useEffect(() => {
+    if (!data) return;
     window.scrollTo(0, 0);
 
     // Update document title
@@ -26,6 +96,23 @@ const SeoPage: React.FC<SeoPageProps> = ({ data, setPage, contactPhone, hideAuth
       if (descTag) descTag.setAttribute('content', data.metaDesc);
     }
   }, [data]);
+
+  if (!data) {
+    return (
+      <div className="bg-slate-50 min-h-screen pb-12 md:pb-20 pt-20 flex flex-col justify-center items-center">
+        <div className="animate-pulse space-y-8 w-full max-w-4xl px-4 py-12">
+          <div className="h-12 bg-slate-200 rounded-xl w-3/4 mx-auto"></div>
+          <div className="h-6 bg-slate-200 rounded-lg w-1/2 mx-auto"></div>
+          <div className="h-64 bg-slate-200 rounded-2xl w-full"></div>
+          <div className="space-y-4">
+            <div className="h-4 bg-slate-200 rounded w-full"></div>
+            <div className="h-4 bg-slate-200 rounded w-full"></div>
+            <div className="h-4 bg-slate-200 rounded w-5/6"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const handleContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
