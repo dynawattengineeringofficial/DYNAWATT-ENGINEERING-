@@ -5,9 +5,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { TransformationCard } from './components/TransformationCard';
 import LazyImage from './components/LazyImage';
-import { seoPagesData } from './data/seoServicePages';
-import { seoLocationPagesData } from './data/seoLocationPages';
-import { seoEducationalPagesData } from './data/seoEducationalPages';
 import { Icons } from './components/AppIcons';
 import { Lead, Page, SiteConfig } from './types';
 import { registerAllWebMcpTools, unregisterAllWebMcpTools, setWebMcpCallbacks } from './webmcp';
@@ -19,13 +16,12 @@ function useScrollToTop(page: Page) {
 }
 
 
-import LeadForm from './components/LeadForm';
-import FAQ from './components/FAQ';
-import SafetyChecklist from './components/SafetyChecklist';
-import TrustpilotReviews from './components/TrustpilotReviews';
-import PremiumLighting from './components/PremiumLighting';
-
 // Dynamic/Lazy imports for routed and below-the-fold components
+const LeadForm = lazy(() => import('./components/LeadForm'));
+const FAQ = lazy(() => import('./components/FAQ'));
+const SafetyChecklist = lazy(() => import('./components/SafetyChecklist'));
+const TrustpilotReviews = lazy(() => import('./components/TrustpilotReviews'));
+const PremiumLighting = lazy(() => import('./components/PremiumLighting'));
 const ServicesDetail = lazy(() => import('./components/ServicesDetail'));
 const About = lazy(() => import('./components/About'));
 const Guarantee = lazy(() => import('./components/Guarantee'));
@@ -147,6 +143,169 @@ const getPathFromPage = (page: Page): string | null => {
   }
 };
 
+const seoMetadataMap: Record<string, { seoTitle: string; metaDesc: string; heroImage?: string }> = {
+  [Page.SEO_ELEC_INSTALL]: {
+    seoTitle: "Electrical Installation Services in Kampala | Dynawatt Engineering",
+    metaDesc: "Professional electrical installation and structural wiring in Kampala and across Uganda. Certified, code-compliant installations by Dynawatt Engineering.",
+    heroImage: "/electrical-engineering-kampala.jpg"
+  },
+  [Page.SEO_ARCH_LIGHTING]: {
+    seoTitle: "Architectural Lighting Design & Installation Kampala | Dynawatt",
+    metaDesc: "Stunning indoor and outdoor architectural lighting designs. Custom luxury light fixtures, facade highlights, and ambient system integrations by Dynawatt.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.SEO_SOLAR]: {
+    seoTitle: "Commercial & Industrial Solar Solutions Uganda | Dynawatt",
+    metaDesc: "High-efficiency commercial solar system installation, large-scale battery storage integration, and industrial solar engineering by Dynawatt across Uganda.",
+    heroImage: "/hybrid-solar-installation-kampala.webp"
+  },
+  [Page.SEO_CCTV]: {
+    seoTitle: "Professional CCTV Installation in Uganda | Dynawatt Engineering",
+    metaDesc: "High-definition security cameras, remote mobile surveillance, motion alerts, and professional IP CCTV system installation in Kampala and Wakiso.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.SEO_SMART_HOME]: {
+    seoTitle: "Smart Home Automation Systems Kampala | Dynawatt Engineering",
+    metaDesc: "Automate your lighting, climate, security, and home theater. ERA-compliant, modern smart home system design and execution in Kampala.",
+    heroImage: "/electrical-engineering-kampala.jpg"
+  },
+  [Page.SEO_COMMERCIAL]: {
+    seoTitle: "Commercial Electrical Contractors Uganda | Dynawatt Engineering",
+    metaDesc: "Certified commercial electrical layouts, load balancing, conduit works, and industrial fit-outs for hotels, offices, and retail complexes in Uganda.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.SEO_MAINTENANCE]: {
+    seoTitle: "Emergency Electrician & Repairs Kampala | Dynawatt Engineering",
+    metaDesc: "24/7 electrical breakdown response, emergency fault-tracing, load-testing, and certified electrical maintenance services across Kampala & Wakiso.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.SEO_PROFILE_LIGHTING]: {
+    seoTitle: "Premium Aluminum Profile Lighting Uganda | Dynawatt Engineering",
+    metaDesc: "Custom linear LED aluminum profile installations, recessed ceiling channels, and ambient architectural trimless light designs in Kampala.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.LOC_KAMPALA]: {
+    seoTitle: "Electrical Installation Services in Kampala | Dynawatt Engineering",
+    metaDesc: "Professional electrical installation and architectural lighting in Kampala. Fast response, licensed electricians for residential and commercial projects.",
+    heroImage: "/electrical-engineering-kampala.jpg"
+  },
+  [Page.LOC_ENTEBBE]: {
+    seoTitle: "Professional Electricians & Solar Entebbe | Dynawatt",
+    metaDesc: "Licensed residential and commercial electrical installation, house wiring, and solar system packages in Entebbe. Guaranteed BS 7671 standards.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.LOC_WAKISO]: {
+    seoTitle: "Professional House Wiring & Solar in Wakiso | Dynawatt",
+    metaDesc: "Get premium, durable electrical wiring and hybrid solar solutions in Wakiso. Expert engineers conforming to international building safety regulations.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.LOC_KOLOLO]: {
+    seoTitle: "Luxury Electrical Installation in Kololo | Dynawatt Engineering",
+    metaDesc: "Premium home automation, modern architectural light design, and smart CCTV security systems for residences and embassies in Kololo, Kampala.",
+    heroImage: "/electrical-engineering-kampala.jpg"
+  },
+  [Page.LOC_KIRA]: {
+    seoTitle: "Licensed Electricians & House Wiring in Kira | Dynawatt",
+    metaDesc: "Certified conduit routing, distribution board assembly, and premium residential cabling services in Kira. UEDCL and ERA-approved quality.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.LOC_NAJJERA]: {
+    seoTitle: "Domestic & Commercial Electricians Najjera | Dynawatt",
+    metaDesc: "Reliable electrical troubleshooting, residential house wiring, and custom linear profile lighting solutions in Najjera and Buviira. Quick response.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.LOC_MUKONO]: {
+    seoTitle: "Solar Installation & Home Wiring in Mukono | Dynawatt",
+    metaDesc: "Professional hybrid solar setups (DW1-DW5) and industrial-grade concrete slab conduit laying in Mukono. Fully compliant, certified engineers.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.LOC_HOIMA]: {
+    seoTitle: "Industrial Electrical Contractors Hoima | Dynawatt Engineering",
+    metaDesc: "Certified three-phase power upgrades, steel containment conduits, and lightning protection systems for commercial structures in Hoima.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.LOC_LIRA]: {
+    seoTitle: "Reliable Electrical House Wiring in Lira | Dynawatt Engineering",
+    metaDesc: "Professional upcountry logistics deployment for standard domestic house cabling and certified commercial electrical fit-outs in Lira.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.LOC_GULU]: {
+    seoTitle: "Electrical Installation & Repairs in Gulu | Dynawatt",
+    metaDesc: "ERA-licensed electrical technicians for government, NGO, commercial, and residential projects in Gulu. Safety certificates issued.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.LOC_KIBOGA]: {
+    seoTitle: "Lighting Installation & Power Setup in Kiboga | Dynawatt",
+    metaDesc: "Providing top-grade electrical wiring, modern light installations, and secure power distributions in Kiboga, Central Uganda.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.LOC_NAKWEERO]: {
+    seoTitle: "Certified Solar Installation in Nakweero | Dynawatt Engineering",
+    metaDesc: "Harness clean solar energy with our custom hybrid solar systems (DW1-DW5) in Nakweero. Licensed engineers, professional support.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.LOC_SEETA]: {
+    seoTitle: "Lightning Arrestor & Surge Protection in Seeta | Dynawatt",
+    metaDesc: "Certified lightning arrestors, earthing systems, and voltage surge protectors in Seeta, Mukono. Protect your property from lightning strikes.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.SEO_YAKA_METER]: {
+    seoTitle: "Yaka Meter Rejecting Tokens? Troubleshooting Guide | Dynawatt",
+    metaDesc: "Is your UEDCL Yaka meter rejecting tokens, displaying Error 30, or stuck in tamper mode? Learn how to troubleshoot token issues in Uganda.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.SEO_HOUSE_WIRING_COST]: {
+    seoTitle: "Cost of Wiring a House in Uganda (2026 Guide) | Dynawatt",
+    metaDesc: "Discover the estimated costs for wiring a house in Uganda. Understand factors like material quality, house size, and labor, and get professional wiring.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.SEO_WARM_SWITCHES]: {
+    seoTitle: "Why Are My Wall Switches Warm? Safety Guide | Dynawatt",
+    metaDesc: "Wall switches feeling hot or warm to the touch can indicate overloading, loose terminations, or failing internal contacts. Learn how to prevent home fires.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.SEO_SOLAR_MAINTENANCE]: {
+    seoTitle: "Hybrid Solar System Maintenance Guide | Dynawatt Engineering",
+    metaDesc: "Keep your batteries healthy and panels clean. Simple solar maintenance tips for Kampala homeowners to maximize efficiency of your off-grid or hybrid setup.",
+    heroImage: "/hybrid-solar-installation-kampala.webp"
+  },
+  [Page.SEO_BULB_BLOWOUTS]: {
+    seoTitle: "Why Do My LED Bulbs Keep Blowing Out? | Dynawatt Engineering",
+    metaDesc: "Are you constantly replacing LED or halogen bulbs? Uncover the 5 common causes including voltage surges, low-quality drivers, and neutral faults in Kampala.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.SEO_WIRING_2_BEDROOM]: {
+    seoTitle: "2-Bedroom House Wiring Costs in Uganda | Dynawatt Engineering",
+    metaDesc: "Detailed cost guide for a 2-bedroom electrical house wiring in Uganda. Average prices, material list, distribution board details, and labor rates.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.SEO_WIRING_3_BEDROOM]: {
+    seoTitle: "3-Bedroom House Wiring Cost Breakdown Uganda | Dynawatt",
+    metaDesc: "Discover the professional cost breakdown for a 3-bedroom electrical house wiring in Uganda. Find details on load calculations, breakers, panels, and labor rates.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.SEO_WIRING_COMMERCIAL]: {
+    seoTitle: "Commercial Building Electrical Wiring Cost Guide | Dynawatt",
+    metaDesc: "Planning to wire a commercial retail property or apartment block in Uganda? Here is a breakdown of 3-phase costs, distribution boards, and industrial containment.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.SEO_BLOG_CCTV]: {
+    seoTitle: "Why CCTV Installation Is Critical for Kampala Properties | Dynawatt",
+    metaDesc: "Secure your commercial or residential property in Kampala with high-definition CCTV security surveillance. Protect against intruder threats with remote mobile feeds.",
+    heroImage: "/electrical-repairs-maintenance-kampala.jpg"
+  },
+  [Page.SEO_BLOG_CONDUIT_SLAB]: {
+    seoTitle: "Why Conduit Placement in Slab Matters Before Casting | Dynawatt",
+    metaDesc: "Laying high-quality heavy-duty conduits in concrete floor slabs before deck casting is critical to ensure a lifetime of flexible, block-free electrical wiring.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  },
+  [Page.SEO_LIGHTNING_PROTECTION]: {
+    seoTitle: "Lightning Arrestor & Structural Earthing Guide | Dynawatt",
+    metaDesc: "How lightning arrestors and structural grounding work to protect tall commercial complexes and residential properties from lightning strikes in Uganda.",
+    heroImage: "/house-wiring-slab-piping-mukono.webp"
+  }
+};
+
 export const SeoMeta = ({ page }: { page: Page }) => {
   let title = "Electrical Installation & Solar Energy Uganda | Dynawatt Engineering";
   let description = "Professional electrical installation, hybrid solar packages (DW1-DW5), and architectural profile lighting in Kampala and nationwide Uganda. ERA-licensed.";
@@ -160,52 +319,12 @@ export const SeoMeta = ({ page }: { page: Page }) => {
   }
 
   // 2. Resolve content-specific dynamic metadata
-  let matchedData: { seoTitle?: string; metaDesc?: string; heroImage?: string; projectPhoto?: string } | null = null;
-
-  switch (page) {
-    // Service SEO pages
-    case Page.SEO_ELEC_INSTALL: matchedData = seoPagesData.SEO_ELEC_INSTALL; break;
-    case Page.SEO_ARCH_LIGHTING: matchedData = seoPagesData.SEO_ARCH_LIGHTING as any; break;
-    case Page.SEO_SOLAR: matchedData = seoPagesData.SEO_SOLAR as any; break;
-    case Page.SEO_CCTV: matchedData = seoPagesData.SEO_CCTV as any; break;
-    case Page.SEO_SMART_HOME: matchedData = seoPagesData.SEO_SMART_HOME as any; break;
-    case Page.SEO_COMMERCIAL: matchedData = seoPagesData.SEO_COMMERCIAL; break;
-    case Page.SEO_MAINTENANCE: matchedData = seoPagesData.SEO_MAINTENANCE; break;
-    case Page.SEO_PROFILE_LIGHTING: matchedData = seoPagesData.SEO_PROFILE_LIGHTING as any; break;
-
-    // Location SEO pages
-    case Page.LOC_KAMPALA: matchedData = seoLocationPagesData.KAMPALA; break;
-    case Page.LOC_ENTEBBE: matchedData = seoLocationPagesData.ENTEBBE; break;
-    case Page.LOC_WAKISO: matchedData = seoLocationPagesData.WAKISO; break;
-    case Page.LOC_KOLOLO: matchedData = seoLocationPagesData.KOLOLO; break;
-    case Page.LOC_KIRA: matchedData = seoLocationPagesData.KIRA; break;
-    case Page.LOC_NAJJERA: matchedData = seoLocationPagesData.NAJJERA; break;
-    case Page.LOC_MUKONO: matchedData = seoLocationPagesData.MUKONO; break;
-    case Page.LOC_HOIMA: matchedData = seoLocationPagesData.HOIMA; break;
-    case Page.LOC_LIRA: matchedData = seoLocationPagesData.LIRA; break;
-    case Page.LOC_GULU: matchedData = seoLocationPagesData.GULU; break;
-    case Page.LOC_KIBOGA: matchedData = seoLocationPagesData.KIBOGA; break;
-    case Page.LOC_NAKWEERO: matchedData = seoLocationPagesData.NAKWEERO; break;
-    case Page.LOC_SEETA: matchedData = seoLocationPagesData.SEETA; break;
-
-    // Educational SEO pages
-    case Page.SEO_YAKA_METER: matchedData = seoEducationalPagesData.YAKA_METER; break;
-    case Page.SEO_HOUSE_WIRING_COST: matchedData = seoEducationalPagesData.HOUSE_WIRING_COST; break;
-    case Page.SEO_WARM_SWITCHES: matchedData = seoEducationalPagesData.WARM_SWITCHES; break;
-    case Page.SEO_SOLAR_MAINTENANCE: matchedData = seoEducationalPagesData.SOLAR_MAINTENANCE; break;
-    case Page.SEO_BULB_BLOWOUTS: matchedData = seoEducationalPagesData.BULB_BLOWOUTS; break;
-    case Page.SEO_WIRING_2_BEDROOM: matchedData = seoEducationalPagesData.WIRING_2_BEDROOM; break;
-    case Page.SEO_WIRING_3_BEDROOM: matchedData = seoEducationalPagesData.WIRING_3_BEDROOM; break;
-    case Page.SEO_WIRING_COMMERCIAL: matchedData = seoEducationalPagesData.WIRING_COMMERCIAL; break;
-    case Page.SEO_BLOG_CCTV: matchedData = seoEducationalPagesData.SEO_BLOG_CCTV; break;
-    case Page.SEO_BLOG_CONDUIT_SLAB: matchedData = seoEducationalPagesData.SEO_BLOG_CONDUIT_SLAB; break;
-    case Page.SEO_LIGHTNING_PROTECTION: matchedData = seoEducationalPagesData.LIGHTNING_PROTECTION; break;
-  }
+  const matchedData = seoMetadataMap[page];
 
   if (matchedData) {
     title = matchedData.seoTitle || title;
     description = matchedData.metaDesc || description;
-    const imgPath = matchedData.heroImage || matchedData.projectPhoto;
+    const imgPath = matchedData.heroImage;
     if (imgPath) {
       image = `https://dynawattengineering.com${imgPath}`;
     }
@@ -856,7 +975,7 @@ function App() {
           {/* Hero Section */}
           <header id="home" className="relative bg-slate-950 text-white pt-24 pb-16 md:pt-20 md:pb-32 overflow-hidden min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
             <div className="absolute inset-0 overflow-hidden">
-              <picture>
+              <picture className="absolute inset-0 w-full h-full block">
                 <source media="(max-width: 768px)" srcSet="/premium-profile-lighting-7th-street-kampala-mobile.webp" />
                 <img
                   src="/premium-profile-lighting-7th-street-kampala.webp"
@@ -1918,70 +2037,8 @@ function App() {
         <Contact addLead={addLead} setPage={setPage} />
       ) : page === Page.BLOG ? (
         <Blog setPage={setPage} />
-      ) : page === Page.SEO_ELEC_INSTALL ? (
-        <SeoPage data={seoPagesData.SEO_ELEC_INSTALL} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.SEO_ARCH_LIGHTING ? (
-        <SeoPage data={seoPagesData.SEO_ARCH_LIGHTING} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.SEO_SOLAR ? (
-        <SeoPage data={seoPagesData.SEO_SOLAR} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.SEO_CCTV ? (
-        <SeoPage data={seoPagesData.SEO_CCTV} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.SEO_SMART_HOME ? (
-        <SeoPage data={seoPagesData.SEO_SMART_HOME} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.SEO_COMMERCIAL ? (
-        <SeoPage data={seoPagesData.SEO_COMMERCIAL} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.SEO_MAINTENANCE ? (
-        <SeoPage data={seoPagesData.SEO_MAINTENANCE} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.SEO_PROFILE_LIGHTING ? (
-        <SeoPage data={seoPagesData.SEO_PROFILE_LIGHTING} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_KAMPALA ? (
-        <SeoPage data={seoLocationPagesData.KAMPALA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_ENTEBBE ? (
-        <SeoPage data={seoLocationPagesData.ENTEBBE} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_WAKISO ? (
-        <SeoPage data={seoLocationPagesData.WAKISO} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_KOLOLO ? (
-        <SeoPage data={seoLocationPagesData.KOLOLO} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_KIRA ? (
-        <SeoPage data={seoLocationPagesData.KIRA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_NAJJERA ? (
-        <SeoPage data={seoLocationPagesData.NAJJERA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_MUKONO ? (
-        <SeoPage data={seoLocationPagesData.MUKONO} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_HOIMA ? (
-        <SeoPage data={seoLocationPagesData.HOIMA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_LIRA ? (
-        <SeoPage data={seoLocationPagesData.LIRA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_GULU ? (
-        <SeoPage data={seoLocationPagesData.GULU} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_KIBOGA ? (
-        <SeoPage data={seoLocationPagesData.KIBOGA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_NAKWEERO ? (
-        <SeoPage data={seoLocationPagesData.NAKWEERO} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.LOC_SEETA ? (
-        <SeoPage data={seoLocationPagesData.SEETA} setPage={setPage} contactPhone={config.contactPhone} hideAuthor={true} />
-      ) : page === Page.SEO_YAKA_METER ? (
-        <SeoPage data={seoEducationalPagesData.YAKA_METER} setPage={setPage} contactPhone={config.contactPhone} />
-      ) : page === Page.SEO_HOUSE_WIRING_COST ? (
-        <SeoPage data={seoEducationalPagesData.HOUSE_WIRING_COST} setPage={setPage} contactPhone={config.contactPhone} />
-      ) : page === Page.SEO_WARM_SWITCHES ? (
-        <SeoPage data={seoEducationalPagesData.WARM_SWITCHES} setPage={setPage} contactPhone={config.contactPhone} />
-      ) : page === Page.SEO_SOLAR_MAINTENANCE ? (
-        <SeoPage data={seoEducationalPagesData.SOLAR_MAINTENANCE} setPage={setPage} contactPhone={config.contactPhone} />
-      ) : page === Page.SEO_BULB_BLOWOUTS ? (
-        <SeoPage data={seoEducationalPagesData.BULB_BLOWOUTS} setPage={setPage} contactPhone={config.contactPhone} />
-      ) : page === Page.SEO_WIRING_2_BEDROOM ? (
-        <SeoPage data={seoEducationalPagesData.WIRING_2_BEDROOM} setPage={setPage} contactPhone={config.contactPhone} />
-      ) : page === Page.SEO_WIRING_3_BEDROOM ? (
-        <SeoPage data={seoEducationalPagesData.WIRING_3_BEDROOM} setPage={setPage} contactPhone={config.contactPhone} />
-      ) : page === Page.SEO_WIRING_COMMERCIAL ? (
-        <SeoPage data={seoEducationalPagesData.WIRING_COMMERCIAL} setPage={setPage} contactPhone={config.contactPhone} />
-      ) : page === Page.SEO_BLOG_CCTV ? (
-        <SeoPage data={seoEducationalPagesData.SEO_BLOG_CCTV} setPage={setPage} contactPhone={config.contactPhone} />
-      ) : page === Page.SEO_BLOG_CONDUIT_SLAB ? (
-        <SeoPage data={seoEducationalPagesData.SEO_BLOG_CONDUIT_SLAB} setPage={setPage} contactPhone={config.contactPhone} />
-      ) : page === Page.SEO_LIGHTNING_PROTECTION ? (
-        <SeoPage data={seoEducationalPagesData.LIGHTNING_PROTECTION} setPage={setPage} contactPhone={config.contactPhone} />
+      ) : (page.startsWith('seo_') || page.startsWith('loc_')) ? (
+        <SeoPage pageId={page} setPage={setPage} contactPhone={config.contactPhone} />
       ) : page === Page.GUARANTEE ? (
         <Guarantee setPage={setPage} />
       ) : page === Page.PRIVACY_POLICY ? (
