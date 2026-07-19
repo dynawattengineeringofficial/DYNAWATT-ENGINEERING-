@@ -72,7 +72,10 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
   );
 
   return (
-    <footer className="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
+    <footer 
+      className="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800 font-sans"
+      style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 500px' } as React.CSSProperties}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ROW 1: Brand + Contact side by side on desktop, stacked on mobile */}

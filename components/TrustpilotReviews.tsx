@@ -23,7 +23,7 @@ const TrustpilotReviews: React.FC = () => {
       const script = document.createElement('script');
       script.id = 'trustpilot-script';
       script.type = 'text/javascript';
-      script.src = '//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
+      script.src = '/tp.widget.bootstrap.min.js';
       script.async = true;
       script.onload = () => {
         if (window.Trustpilot) {
