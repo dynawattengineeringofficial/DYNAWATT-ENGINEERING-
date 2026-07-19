@@ -76,7 +76,7 @@ export const seoLocationPagesData = {
     seoTitle: "Solar Installation & Certified Electrical Services in Wakiso | Dynawatt Engineering",
     metaDesc: "ERA-licensed solar installations, residential hybrid backup grids, and certified electrical wiring in Wakiso District. See our school electrical & storm protection projects.",
     headline: "Solar & Electrical Installation Services in Wakiso",
-    heroImage: "/complete-house-wiring-biira-wakiso.jpg",
+    heroImage: "/complete-house-wiring-biira-wakiso.webp",
     description: "Dynawatt Engineering is the premier provider of high-efficiency solar power systems and BS 7671 compliant electrical installations throughout Wakiso District. We design and deploy advanced off-grid and hybrid solar grids for luxury domestic residences in areas like Biira and Nsangi. In addition, we execute robust institutional contracts, such as complete campus-wide electrical wiring and high-performance lightning protection grids for leading schools in Kawuku, keeping both families and critical institutions safe and fully powered.",
     sections: [
       {
@@ -491,7 +491,7 @@ export const seoLocationPagesData = {
     seoTitle: "Electrical Installation & Slab Piping in Gulu | Dynawatt Engineering",
     metaDesc: "BS 7671 certified house wiring and slab piping services in Gulu City. Professional electricians for apartment blocks and residential estates.",
     headline: "Electrical Installation Services in Gulu",
-    heroImage: "/complete-house-wiring-biira-wakiso.jpg",
+    heroImage: "/complete-house-wiring-biira-wakiso.webp",
     description: "Dynawatt Engineering brings high-standard electrical installation and structural conduit piping to Gulu City and Northern Uganda. Sourcing high-quality wires and accessories directly from trusted manufacturers, we deliver durable systems that safeguard your investment from electrical fires.",
     sections: [
       {
@@ -532,7 +532,7 @@ export const seoLocationPagesData = {
       "No shortcut local labor; professional, licensed, and highly disciplined teams",
       "Durable, flame-retardant PVC conduits and pure copper cabling utilized exclusively"
     ],
-    projectPhoto: "/complete-house-wiring-biira-wakiso.jpg",
+    projectPhoto: "/complete-house-wiring-biira-wakiso.webp",
     projectPhotoCaption: "Pristine, labeled distribution board wired for safe residential occupancy by Dynawatt.",
     faqs: [
       { q: "What projects have you completed in Gulu?", a: "We successfully completed the comprehensive electrical wiring, slab conduit piping, and independent Yaka meter boards for a dual-apartment rental block in Gulu City." },

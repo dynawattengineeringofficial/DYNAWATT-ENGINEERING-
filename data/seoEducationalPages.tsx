@@ -204,7 +204,7 @@ export const seoEducationalPagesData = {
     metaDesc: "Get a detailed breakdown of the cost to wire a standard 2-bedroom house in Uganda. Learn about cabling, conduits, consumer units, fixtures, and expert labor.",
     headline: "Real Cost of Wiring a 2-Bedroom House in Uganda",
     description: "Wiring a 2-bedroom residential house in Uganda requires planning and high-quality electrical engineering. While local unqualified 'fundis' often quote cheap prices that lead to loose connections or electrical fires, Dynawatt Engineering works to certified international standards (BS 7671). The actual cost of complete electrical installation for a 2-bedroom home in 2026 generally ranges between UGX 2,800,000 and UGX 4,200,000, depending on your choices of architectural elements, the range of switches, and the cable lengths required.",
-    heroImage: "/complete-house-wiring-biira-wakiso.jpg",
+    heroImage: "/complete-house-wiring-biira-wakiso.webp",
     author: {
       name: "Daniel Alemukori",
       tag: "BS 7671 Certified & Systems Expert",
