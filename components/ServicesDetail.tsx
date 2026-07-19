@@ -16,7 +16,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
       title: "Electrical Installation & Structured Cabling",
       description: "We handle professional primary grid layouts, single & three-phase wiring, cable trunkings, and distribution panel balance installations for residential & commercial structures according to BS 7671.",
       icon: <Icons.Zap className="h-6 w-6 text-amber-500" />,
-      image: "/complete-house-wiring-biira-wakiso.jpg",
+      image: "/complete-house-wiring-biira-wakiso.webp",
       page: Page.SEO_ELEC_INSTALL,
       badge: "In High Demand",
       features: [
@@ -32,7 +32,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
       title: "Solar Energy & Battery Backup Systems",
       description: "Harvest clean tropical sunshine to eliminate monthly expensive Yaka bills and escape UEDCL load shedding. We install Tier-1 monocrystalline panels with smart automatic changeover backups.",
       icon: <Icons.Sun className="h-6 w-6 text-amber-500" />,
-      image: "/solar_install_villa.jpg",
+      image: "/solar_install_villa.webp",
       page: Page.SEO_SOLAR,
       badge: "Premium Backup",
       features: [
@@ -171,7 +171,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
                 src={service.image} 
                 alt={service.title} 
                 referrerPolicy="no-referrer"
-                loading="lazy"
+                loading={index === 0 ? undefined : "lazy"}
+                fetchPriority={index === 0 ? "high" : undefined}
                 width="500"
                 height="350"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 

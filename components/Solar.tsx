@@ -803,7 +803,7 @@ Additional Details: ${formData.message || 'None'}
               {
                 title: "5kW Hybrid Solar Villa",
                 location: "Kira, Wakiso",
-                image: "/solar_install_villa.jpg",
+                image: "/solar_install_villa.webp",
                 desc: "Equipped with 8 x 455W monocrystalline solar panels and a smart Growatt lithium cabinet, providing 100% complete load shedding protection."
               },
               {

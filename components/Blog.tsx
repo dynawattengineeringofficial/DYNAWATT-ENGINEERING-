@@ -78,7 +78,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Tips",
       author: "Daniel Alemukori",
       authorRole: "Co-Founder & Lead Technical Engineer",
-      image: "/complete-house-wiring-biira-wakiso.jpg",
+      image: "/complete-house-wiring-biira-wakiso.webp",
       linkTo: Page.SEO_ELEC_INSTALL
     },
     {
