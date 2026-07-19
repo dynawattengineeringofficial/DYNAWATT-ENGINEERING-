@@ -488,7 +488,17 @@ function App() {
         // Safe fallback in case of static environments
       }
     };
-    fetchConfig();
+    
+    // Delay fetching to optimize critical request path and prevent Lighthouse blocking
+    const timer = setTimeout(() => {
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(() => fetchConfig());
+      } else {
+        fetchConfig();
+      }
+    }, 1500);
+
+    return () => clearTimeout(timer);
   }, []);
 
   // Fetch leads only when admin is authenticated
@@ -679,7 +689,7 @@ function App() {
       title: "New Build Slab Work & Piping",
       category: "Construction",
       location: "Mukono",
-      image: "/house-wiring-slab-piping-mukono.jpg",
+      image: "/house-wiring-slab-piping-mukono.webp",
       alt: "Electrical slab piping and structural wiring for a new house build in Mukono by Dynawatt Engineering",
       tags: ["New Home Wiring", "Slab Piping", "Electrical Design"]
     }
@@ -1447,7 +1457,7 @@ function App() {
                     title: "Architectural Profile Ceiling",
                     location: "7th Street, Kampala",
                     image: "/premium-profile-lighting-7th-street-kampala.webp",
-                    beforeImage: "/before_lighting_plain.png",
+                    beforeImage: "/before_lighting_plain.webp",
                     beforeDesc: "Cold fluorescent fittings and simple hanging bare bulbs casting deep, dark shadows on concrete.",
                     afterDesc: "Polished false ceiling fitted with custom embedded aluminum profile LED warm strip lights for premium luxury lighting design.",
                     alt: "Elegantly finished custom profile ceiling lighting by Dynawatt Engineering in Kampala"
@@ -1457,7 +1467,7 @@ function App() {
                     title: "Kira Solar Back-Up",
                     location: "Kira Municipality",
                     image: "/hybrid-solar-installation-kira-wakiso.webp",
-                    beforeImage: "/before_solar_generator.png",
+                    beforeImage: "/before_solar_generator.webp",
                     beforeDesc: "Subject to severe grid blackouts, disrupted operations, noisy generators, and high Yaka consumption tariffs.",
                     afterDesc: "Optimized solar panel roof arrays harvesting 5.4kW clean energy seamlessly integrated with low-maintenance hybrid smart inverters.",
                     alt: "Hybrid solar installation with premium tier-1 solar panels on a roof in Kira by Dynawatt Engineering"

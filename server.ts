@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
+import compression from "compression";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
 
@@ -64,6 +65,9 @@ async function writeLeads(leads: any[]) {
 async function startServer() {
   const app = express();
   const PORT = 3000;
+
+  // Enable compression to optimize transfer sizes for massive PageSpeed improvement
+  app.use(compression());
 
   // Use JSON middleware
   app.use(express.json());
@@ -240,9 +244,16 @@ async function startServer() {
     // Serve static files in production
     const distPath = path.join(process.cwd(), 'dist');
     
-    // Serve static assets, excluding index.html automatically to let custom route resolution run
+    // 1. Serve hashed assets inside the assets folder with aggressive 1-year cache (immutable)
+    app.use('/assets', express.static(path.join(distPath, 'assets'), {
+      immutable: true,
+      maxAge: '1y',
+    }));
+    
+    // 2. Serve static public files (images, favicons, logos, icons) with a 7-day cache
     app.use(express.static(distPath, {
       index: false,
+      maxAge: '7d',
     }));
     
     // Custom fallback resolution: serve route-specific prerendered HTML if it exists,
