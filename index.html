@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <!-- Lazy Loading Third-Party Analytics (GTM & FB Pixel) to eliminate render-blocking JS -->
+    <link rel="preconnect" href="https://connect.facebook.net">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <!-- Lazy Loading Third-Party Analytics (GTM) to eliminate render-blocking JS -->
     <script>
       (function() {
         let loaded = false;
@@ -25,18 +27,6 @@
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-XD8VSWVPKH');
-
-          // 2. Facebook Pixel Code
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1400607588570357');
-          fbq('track', 'PageView');
         }
 
         // Trigger on interaction or fallback timer of 3.5 seconds

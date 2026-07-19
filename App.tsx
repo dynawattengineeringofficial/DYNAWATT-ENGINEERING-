@@ -586,7 +586,9 @@ function App() {
     });
 
     // 2. Register all WebMCP tools dynamically
-    registerAllWebMcpTools();
+    if (import.meta.env.DEV) {
+      registerAllWebMcpTools();
+    }
 
     // 3. Enable WebMCP Dev Panel for developer testing and agentic validation (both desktop and mobile)
     if (import.meta.env.DEV) {
@@ -604,7 +606,9 @@ function App() {
 
     // 4. Cleanup on component unmount
     return () => {
-      unregisterAllWebMcpTools();
+      if (import.meta.env.DEV) {
+        unregisterAllWebMcpTools();
+      }
     };
   }, []);
 
@@ -659,7 +663,7 @@ function App() {
       title: "Complete House Wiring & Fit-Out",
       category: "Residential",
       location: "Biira",
-      image: "/complete-house-wiring-biira-wakiso.jpg",
+      image: "/complete-house-wiring-biira-wakiso.webp",
       alt: "Complete residential house wiring and electrical fit-out in Biira, Wakiso by Dynawatt Engineering",
       tags: ["Residential Wiring", "Main Panel", "Yaka Meter"]
     },
@@ -1432,7 +1436,7 @@ function App() {
                     id: "wiring",
                     title: "Residential House Wiring",
                     location: "Biira, Wakiso",
-                    image: "/complete-house-wiring-biira-wakiso.jpg",
+                    image: "/complete-house-wiring-biira-wakiso.webp",
                     beforeImage: "/before_wiring_messy.png",
                     beforeDesc: "A severely overloaded and badly burnt main distribution board with melted insulation, chaotic uninsulated wiring, and zero surge protection, posing an extreme fire hazard.",
                     afterDesc: "Fully engineered three-phase distribution board wiring, neatly arranged conduits, labeled circuit breakers, and optimal earthing systems.",

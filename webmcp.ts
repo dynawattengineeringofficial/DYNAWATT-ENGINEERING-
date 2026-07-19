@@ -15,6 +15,7 @@ export function setWebMcpCallbacks(callbacks: {
 
 // Function to register all tools with WebMCP dynamically
 export async function registerAllWebMcpTools() {
+  if (!import.meta.env.DEV) return;
   try {
     // Dynamically import webmcp-kit to prevent production build issues
     // @ts-ignore
@@ -427,6 +428,7 @@ Additional Details: ${input.message || 'None'}
 
 // Function to safely unregister all tools
 export async function unregisterAllWebMcpTools() {
+  if (!import.meta.env.DEV) return;
   try {
     // @ts-ignore
     const kit = await import(/* @vite-ignore */ 'webmcp-kit');
