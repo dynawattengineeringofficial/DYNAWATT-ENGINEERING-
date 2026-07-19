@@ -975,18 +975,17 @@ function App() {
           {/* Hero Section */}
           <header id="home" className="relative bg-slate-950 text-white pt-24 pb-16 md:pt-20 md:pb-32 overflow-hidden min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
             <div className="absolute inset-0 overflow-hidden">
-              <picture className="absolute inset-0 w-full h-full block">
-                <source media="(max-width: 768px)" srcSet="/premium-profile-lighting-7th-street-kampala-mobile.webp" />
-                <img
-                  src="/premium-profile-lighting-7th-street-kampala.webp"
-                  alt="Premium profile lighting installation by Dynawatt Engineering in Kampala, Uganda"
-                  width={1920}
-                  height={1080}
-                  loading="eager"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </picture>
+              <img
+                src="/premium-profile-lighting-7th-street-kampala.webp"
+                srcSet="/premium-profile-lighting-7th-street-kampala-mobile.webp 768w, /premium-profile-lighting-7th-street-kampala.webp 1920w"
+                sizes="(max-width: 768px) 100vw, 100vw"
+                alt="Premium profile lighting installation by Dynawatt Engineering in Kampala, Uganda"
+                width={1920}
+                height={1080}
+                loading="eager"
+                className="absolute inset-0 w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <div className="absolute inset-0 bg-slate-950/30"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/30 to-transparent"></div>
@@ -2125,16 +2124,16 @@ function App() {
       {page !== Page.THANK_YOU ? (
         <Footer setPage={setPage} />
       ) : (
-        <footer className="bg-slate-950 text-slate-500 py-6 border-t border-slate-900 text-center text-xs space-y-2">
+        <footer className="bg-slate-950 text-slate-400 py-6 border-t border-slate-900 text-center text-xs space-y-2">
           <p className="max-w-md mx-auto px-4 font-sans">&copy; {new Date().getFullYear()} DYNAWATT ENGINEERING Uganda. All rights reserved.</p>
-          <div className="flex justify-center space-x-4 text-slate-600">
+          <div className="flex justify-center space-x-4 text-slate-400">
             <a
               href="/privacy-policy"
               onClick={(e) => {
                 e.preventDefault();
                 setPage(Page.PRIVACY_POLICY);
               }}
-              className="hover:text-slate-400 transition-colors"
+              className="text-slate-300 hover:text-white hover:underline transition-colors"
             >
               Privacy Policy
             </a>
@@ -2145,7 +2144,7 @@ function App() {
                 e.preventDefault();
                 setPage(Page.TERMS_OF_SERVICE);
               }}
-              className="hover:text-slate-400 transition-colors"
+              className="text-slate-300 hover:text-white hover:underline transition-colors"
             >
               Terms of Service
             </a>
