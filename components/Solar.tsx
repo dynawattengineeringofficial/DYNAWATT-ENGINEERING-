@@ -569,7 +569,7 @@ Additional Details: ${formData.message || 'None'}
       <section className="relative bg-[#0D1B2A] text-white py-16 md:py-28 overflow-hidden">
         {/* Background photo & overlay */}
         <div className="absolute inset-0 overflow-hidden">
-          <picture>
+          <picture className="absolute inset-0 w-full h-full block">
             <source media="(max-width: 768px)" srcSet="/solar-hero-bg-mobile.webp" />
             <img
               src="/solar-hero-bg.webp"
