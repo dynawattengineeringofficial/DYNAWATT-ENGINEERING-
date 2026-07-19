@@ -20,30 +20,46 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
 
   const navbarHeight = 80; // Height of the fixed navbar (desktop reference)
 
-  // Handle scroll spy to update active section
+  // Handle scroll spy to update active section with requestAnimationFrame to prevent forced reflow layout thrashing
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'services', 'about', 'reviews', 'areas', 'quote'];
-      // Offset to trigger active state slightly before the section hits the top
-      const scrollPosition = window.scrollY + navbarHeight + 50; // Increased offset for better feel
+    let ticking = false;
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(section);
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sections = ['home', 'services', 'about', 'reviews', 'areas', 'quote'];
+          // Offset to trigger active state slightly before the section hits the top
+          const scrollPosition = window.scrollY + navbarHeight + 50; // Increased offset for better feel
+
+          for (const section of sections) {
+            const element = document.getElementById(section);
+            if (element) {
+              const { offsetTop, offsetHeight } = element;
+              if (
+                scrollPosition >= offsetTop &&
+                scrollPosition < offsetTop + offsetHeight
+              ) {
+                setActiveSection(section);
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Defer the initial check to let the initial layout and paint settle, preventing forced reflow during startup
+    const timer = setTimeout(() => {
+      handleScroll();
+    }, 250);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, [navbarHeight]); // Depend on navbarHeight
 
   const scrollToSection = (e: React.MouseEvent<HTMLElement>, id: string) => {

@@ -38,7 +38,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Pricing",
       author: "Daniel Alemukori",
       authorRole: "Co-Founder & Lead Technical Engineer",
-      image: "/house-wiring-slab-piping-mukono.jpg",
+      image: "/house-wiring-slab-piping-mukono.webp",
       linkTo: Page.SEO_HOUSE_WIRING_COST
     },
     {
@@ -68,7 +68,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Engineering",
       author: "Daniel Alemukori",
       authorRole: "Co-Founder & Lead Technical Engineer",
-      image: "/house-wiring-slab-piping-mukono.jpg",
+      image: "/house-wiring-slab-piping-mukono.webp",
       linkTo: Page.SEO_BLOG_CONDUIT_SLAB
     },
     {
