@@ -172,7 +172,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
                 alt={service.title} 
                 referrerPolicy="no-referrer"
                 loading={index === 0 ? undefined : "lazy"}
-                fetchPriority={index === 0 ? "high" : undefined}
+                {...(index === 0 ? { fetchpriority: "high" } : {})}
                 width="500"
                 height="350"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
