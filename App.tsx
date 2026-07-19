@@ -9,6 +9,13 @@ import { Icons } from './components/AppIcons';
 import { Lead, Page, SiteConfig } from './types';
 import { registerAllWebMcpTools, unregisterAllWebMcpTools, setWebMcpCallbacks } from './webmcp';
 
+// Eagerly loaded components for initial home page to eliminate hydration mismatch & CLS
+import LeadForm from './components/LeadForm';
+import FAQ from './components/FAQ';
+import SafetyChecklist from './components/SafetyChecklist';
+import TrustpilotReviews from './components/TrustpilotReviews';
+import PremiumLighting from './components/PremiumLighting';
+
 function useScrollToTop(page: Page) {
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -16,12 +23,7 @@ function useScrollToTop(page: Page) {
 }
 
 
-// Dynamic/Lazy imports for routed and below-the-fold components
-const LeadForm = lazy(() => import('./components/LeadForm'));
-const FAQ = lazy(() => import('./components/FAQ'));
-const SafetyChecklist = lazy(() => import('./components/SafetyChecklist'));
-const TrustpilotReviews = lazy(() => import('./components/TrustpilotReviews'));
-const PremiumLighting = lazy(() => import('./components/PremiumLighting'));
+// Dynamic/Lazy imports for routed sub-page components
 const ServicesDetail = lazy(() => import('./components/ServicesDetail'));
 const About = lazy(() => import('./components/About'));
 const Guarantee = lazy(() => import('./components/Guarantee'));
