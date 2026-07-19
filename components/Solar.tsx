@@ -569,18 +569,17 @@ Additional Details: ${formData.message || 'None'}
       <section className="relative bg-[#0D1B2A] text-white py-16 md:py-28 overflow-hidden">
         {/* Background photo & overlay */}
         <div className="absolute inset-0 overflow-hidden">
-          <picture className="absolute inset-0 w-full h-full block">
-            <source media="(max-width: 768px)" srcSet="/solar-hero-bg-mobile.webp" />
-            <img
-              src="/solar-hero-bg.webp"
-              alt="Solar hero background"
-              width={1920}
-              height={1080}
-              loading="eager"
-              className="absolute inset-0 w-full h-full object-cover opacity-80"
-              referrerPolicy="no-referrer"
-            />
-          </picture>
+          <img
+            src="/solar-hero-bg.webp"
+            srcSet="/solar-hero-bg-mobile.webp 768w, /solar-hero-bg.webp 1920w"
+            sizes="(max-width: 768px) 100vw, 100vw"
+            alt="Solar energy and battery backup systems installation by Dynawatt Engineering in Kampala, Uganda"
+            width={1920}
+            height={1080}
+            loading="eager"
+            className="absolute inset-0 w-full h-full object-cover opacity-80"
+            referrerPolicy="no-referrer"
+          />
         </div>
         
         {/* Ambient radial gradients */}

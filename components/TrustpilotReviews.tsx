@@ -75,6 +75,7 @@ const TrustpilotReviews: React.FC = () => {
               data-style-height="52px" 
               data-style-width="100%" 
               data-token="7434a241-154f-4ec2-a242-f88e660a4c18"
+              style={{ minHeight: '52px' }}
             >
               <a href="https://www.trustpilot.com/review/dynawattengineering.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-[52px] text-slate-400 hover:text-green-600 font-medium text-sm w-full">
                 Review us on Trustpilot

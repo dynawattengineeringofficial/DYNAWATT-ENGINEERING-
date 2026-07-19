@@ -181,14 +181,14 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs">
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-400 text-xs">
           <p className="cursor-default select-none hover:text-slate-300 transition mb-2 md:mb-0">
             © {new Date().getFullYear()} DYNAWATT ENGINEERING. All Rights Reserved.
           </p>
           <div className="flex space-x-4">
-            <FooterLink targetPage={Page.GUARANTEE} className="hover:text-slate-300 transition-colors">Service Guarantee</FooterLink>
-            <FooterLink targetPage={Page.PRIVACY_POLICY} className="hover:text-slate-300 transition-colors">Privacy Policy</FooterLink>
-            <FooterLink targetPage={Page.TERMS_OF_SERVICE} className="hover:text-slate-300 transition-colors">Terms of Service</FooterLink>
+            <FooterLink targetPage={Page.GUARANTEE} className="text-slate-300 hover:text-white hover:underline transition-colors">Service Guarantee</FooterLink>
+            <FooterLink targetPage={Page.PRIVACY_POLICY} className="text-slate-300 hover:text-white hover:underline transition-colors">Privacy Policy</FooterLink>
+            <FooterLink targetPage={Page.TERMS_OF_SERVICE} className="text-slate-300 hover:text-white hover:underline transition-colors">Terms of Service</FooterLink>
           </div>
         </div>
       </div>
