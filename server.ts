@@ -30,19 +30,28 @@ if (!fs.existsSync(LEADS_FILE)) {
   fs.writeFileSync(LEADS_FILE, JSON.stringify([], null, 2), "utf-8");
 }
 
+// In-memory cache for config to eliminate disk access latency on hot paths
+let cachedConfig: any = null;
+
 async function readConfig() {
+  if (cachedConfig) {
+    return cachedConfig;
+  }
   try {
     if (fs.existsSync(CONFIG_FILE)) {
       const data = await fs.promises.readFile(CONFIG_FILE, "utf-8");
-      return JSON.parse(data);
+      cachedConfig = JSON.parse(data);
+      return cachedConfig;
     }
   } catch (error) {
     console.error("Error reading config, using defaults:", error);
   }
+  cachedConfig = DEFAULT_CONFIG;
   return DEFAULT_CONFIG;
 }
 
 async function writeConfig(config: any) {
+  cachedConfig = config;
   await fs.promises.writeFile(CONFIG_FILE, JSON.stringify(config, null, 2), "utf-8");
 }
 
