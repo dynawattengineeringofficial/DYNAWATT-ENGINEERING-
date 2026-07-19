@@ -983,7 +983,7 @@ function App() {
                 width={1920}
                 height={1080}
                 loading="eager"
-                fetchPriority="high"
+                {...({ fetchpriority: "high" })}
                 className="absolute inset-0 w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />

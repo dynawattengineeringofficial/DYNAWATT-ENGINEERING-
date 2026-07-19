@@ -12,6 +12,24 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+
+  /* Responsive contain-intrinsic-size for footer CLS optimization */
+  .responsive-footer-contain {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1788px;
+  }
+  
+  @media (min-width: 768px) {
+    .responsive-footer-contain {
+      contain-intrinsic-size: auto 1140px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-footer-contain {
+      contain-intrinsic-size: auto 857px;
+    }
+  }
 }
 
 :root {
