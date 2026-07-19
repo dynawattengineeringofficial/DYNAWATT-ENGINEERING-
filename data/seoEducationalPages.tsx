@@ -51,11 +51,11 @@ export const seoEducationalPagesData = {
     seoTitle: "Cost of Wiring a House in Uganda (2026 Guide) | Dynawatt Engineering",
     metaDesc: "Discover the estimated costs for wiring a house in Uganda. Understand factors like material quality, house size, and labor, and get professional wiring from Dynawatt.",
     headline: "How Much Does It Cost to Wire a House in Uganda?",
-    heroImage: "/house-wiring-slab-piping-mukono.jpg",
+    heroImage: "/house-wiring-slab-piping-mukono.webp",
     description: "Wiring a house in Uganda requires absolute transparency, skilled engineering, and uncompromised material quality. At Dynawatt Engineering, we believe in providing our clients with a detailed breakdown of 2026 Uganda wiring costs. On average, standard <span data-page=\"WIRING_2_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">2-bedroom house wiring</span> in Kampala and Wakiso ranges from UGX 2,800,000 to UGX 4,200,000 (basic vs luxury finish), while <span data-page=\"WIRING_3_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">3-bedroom house wiring</span> ranges from UGX 4,500,000 to UGX 6,800,000.\n\nThese cost estimates encompass premium genuine cables (BBS or East African Cables), structural conduit routing, distribution board assembly, proper earthing, and professional <span data-page=\"SEO_ELEC_INSTALL\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">electrical installation services</span>. We execute certified projects from the central metro suburbs to nationwide locations, with dedicated local expertise handling projects like <span data-page=\"LOC_MUKONO\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">solar installation in Mukono</span>, and Domestic and Commercial work like <span data-page=\"LOC_LIRA\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">house wiring in Lira</span> and <span data-page=\"LOC_GULU\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">electrical installs in Gulu</span>. If you also plan to incorporate high-end <span data-page=\"SEO_PROFILE_LIGHTING\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">aluminum profile lighting</span>, expect pricing to scale accordingly based on linear meter layouts from our dedicated design team.",
     showWiringPricingTable: true,
     showQuoteSection: true,
-    projectPhoto: "/house-wiring-slab-piping-mukono.jpg",
+    projectPhoto: "/house-wiring-slab-piping-mukono.webp",
     projectPhotoAlt: "Dynawatt professional residential house wiring conduit slab piping in Mukono",
     projectPhotoCaption: "A verified residential slab piping and conduit routing project executed in Mukono, Uganda by the Dynawatt Engineering crew.",
     author: {
@@ -280,7 +280,7 @@ export const seoEducationalPagesData = {
     metaDesc: "Discover the professional cost breakdown for a 3-bedroom electrical house wiring in Uganda. Find details on load calculations, breakers, panels, and labor rates.",
     headline: "Complete Cost of Wiring a 3-Bedroom House in Uganda",
     description: "A 3-bedroom residence represents the classic family home setup in Uganda. Sizing the electrical distribution board, calculating load flows, and planning lighting grids is critical to ensure you don't face constant breaker trips. Sourcing low-quality materials to save money usually ends in burnt appliances or damaged sockets. For a professional, durable house wiring setup to BS 7671 standards, you can expect an investment of UGX 4,500,000 to UGX 6,800,000 inside the Kampala-Wakiso area, encompassing premium cables, modern protective gear, and highly skilled engineering labor.",
-    heroImage: "/house-wiring-slab-piping-mukono.jpg",
+    heroImage: "/house-wiring-slab-piping-mukono.webp",
     author: {
       name: "Daniel Alemukori",
       tag: "BS 7671 Certified & Systems Expert",
@@ -485,8 +485,8 @@ export const seoEducationalPagesData = {
     metaDesc: "Laying high-quality heavy-duty conduits in concrete floor slabs before deck casting is critical to ensure a lifetime of flexible, block-free electrical wiring.",
     headline: "Why Conduit Placement in Slab Matters Before You Pour Concrete",
     description: "If you are constructing a house or commercial building in Uganda, there is one electrical decision that cannot wait until after construction — and that is conduit placement in the slab.\n\nMost property owners focus on bricks, roofing, and finishes. Electrical work feels like something to sort out later. But the wiring routes that run through your concrete floors and slabs must be installed before the concrete is poured. Once that slab is cast, there is no going back without expensive, damaging breakage.\n\nThis is one of the most critical — and most commonly mishandled — stages of any construction project.",
-    heroImage: "/house-wiring-slab-piping-mukono.jpg",
-    projectPhoto: "/house-wiring-slab-piping-mukono.jpg",
+    heroImage: "/house-wiring-slab-piping-mukono.webp",
+    projectPhoto: "/house-wiring-slab-piping-mukono.webp",
     projectPhotoAlt: "Certified Dynawatt crew routing electrical conduits in concrete floor slab before casting in Mukono",
     projectPhotoCaption: "Slab piping and heavy-duty conduit containment meticulously routed and anchored to steel reinforcement before concrete deck casting at a multi-level villa in Mukono.",
     author: {

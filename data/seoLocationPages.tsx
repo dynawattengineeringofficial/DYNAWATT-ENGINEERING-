@@ -305,7 +305,7 @@ export const seoLocationPagesData = {
       "Same-week site visits and quick upcountry logistics deployment",
       "Full compliance with national building electrical safety regulations"
     ],
-    projectPhoto: "/house-wiring-slab-piping-mukono.jpg",
+    projectPhoto: "/house-wiring-slab-piping-mukono.webp",
     projectPhotoCaption: "Dynawatt Engineering team laying robust electrical slab piping and structural grounding conduit routes in Mukono.",
     projectPhotos: [
       {
@@ -711,7 +711,7 @@ export const seoLocationPagesData = {
     seoTitle: "Lightning Arrestor & Surge Protection in Seeta | Dynawatt Engineering",
     metaDesc: "Certified lightning arrestors, earthing systems, and voltage surge protectors in Seeta, Mukono. Protect your property from lightning strikes.",
     headline: "Lightning Arrestor & Surge Protection in Seeta",
-    heroImage: "/house-wiring-slab-piping-mukono.jpg",
+    heroImage: "/house-wiring-slab-piping-mukono.webp",
     description: "Dynawatt Engineering is the leading provider of certified lightning arrestor systems, structural grounding, and voltage surge protection in Seeta, Mukono. We design and install high-grade protection networks to safeguard properties and expensive electronics from severe lightning strikes and power grid spikes.",
     sections: [
       {
@@ -752,7 +752,7 @@ export const seoLocationPagesData = {
       "Safety certificates issued with every lightning protection project",
       "Professional testing using specialized digital Earth loop testers"
     ],
-    projectPhoto: "/house-wiring-slab-piping-mukono.jpg",
+    projectPhoto: "/house-wiring-slab-piping-mukono.webp",
     projectPhotoCaption: "Early streamer emission lightning arrestor rods and earthing systems setup completed in Seeta.",
     faqs: [
       { q: "How does a lightning arrestor protect my home in Seeta?", a: "It provides a low-impedance path to intercept lightning strikes and safely guide the massive current directly into the earth, preventing structure fires and shock hazards." },

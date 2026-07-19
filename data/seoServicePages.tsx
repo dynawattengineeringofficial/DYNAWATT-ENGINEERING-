@@ -194,9 +194,9 @@ export const seoPagesData = {
     seoTitle: "Smart Home Automation Uganda | Dynawatt Engineering",
     metaDesc: "Modern smart home automation solutions in Uganda. Smart lighting, security systems, and remote home control.",
     headline: "Smart Home Automation Solutions in Uganda",
-    heroImage: "/smart_home_switches.png",
+    heroImage: "/smart_home_switches.webp",
     description: "Smart home automation in Uganda is no longer a luxury reserved for high-end expatriate properties. Dynawatt Engineering designs and installs complete wireless home control systems for modern Ugandan homes in Kampala, Wakiso, Kira, and Entebbe — systems that let you control your lighting, security cameras, gate motors, borehole pumps, and entertainment from a single mobile app or voice command.\n\nOur smart home installations are built around centralized wireless networks that integrate directly with your existing electrical infrastructure. Whether you are constructing a new home and want automation built in from the slab stage, or retrofitting an existing property with smart switches that require no rewiring, Dynawatt Engineering has the technical expertise to deliver both. Every system we install is BS 7671 compliant and tested for stable performance under Uganda's power conditions including load shedding and voltage fluctuations.\n\nSmart home systems from Dynawatt Engineering start from UGX 2,500,000 for a basic setup and scale to full property control systems. We work alongside our <span data-page=\"SEO_ARCH_LIGHTING\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">architectural lighting team</span> and our <span data-page=\"SEO_SOLAR\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">solar installation experts</span> to ensure your smart home, power backup, and lighting design are fully integrated from day one.",
-    projectPhoto: "/smart_home_switches.png",
+    projectPhoto: "/smart_home_switches.webp",
     projectPhotoAlt: "Dynawatt professional glass-panel smart switches and wireless home automation system",
     projectPhotoCaption: "Sleek, modern glass-panel smart touch switches installed by Dynawatt, offering wireless control of room ambiance, lighting scenes, and power loads.",
     author: {
