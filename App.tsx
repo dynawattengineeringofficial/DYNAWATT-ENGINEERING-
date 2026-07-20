@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useLayoutEffect, Suspense } from 'react';
+import React, { useState, useEffect, useLayoutEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -23,17 +23,17 @@ function useScrollToTop(page: Page) {
 }
 
 
-// Eager imports for all routed sub-page components to eliminate dynamic chunk load latency and critical request chains
-import ServicesDetail from './components/ServicesDetail';
-import About from './components/About';
-import Guarantee from './components/Guarantee';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import TermsOfService from './components/TermsOfService';
-import Solar from './components/Solar';
-import Location from './components/Location';
-import Contact from './components/Contact';
-import Blog from './components/Blog';
-import SeoPage from './components/SeoPage';
+// Route-level code-split components dynamically loaded to minimize homepage bundle size and eliminate unused JavaScript
+const ServicesDetail = lazy(() => import('./components/ServicesDetail'));
+const About = lazy(() => import('./components/About'));
+const Guarantee = lazy(() => import('./components/Guarantee'));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./components/TermsOfService'));
+const Solar = lazy(() => import('./components/Solar'));
+const Location = lazy(() => import('./components/Location'));
+const Contact = lazy(() => import('./components/Contact'));
+const Blog = lazy(() => import('./components/Blog'));
+const SeoPage = lazy(() => import('./components/SeoPage'));
 
 import { Helmet } from 'react-helmet-async';
 
@@ -1583,7 +1583,7 @@ function App() {
                     title: "Residential House Wiring",
                     location: "Biira, Wakiso",
                     image: "/complete-house-wiring-biira-wakiso.webp",
-                    beforeImage: "/before_wiring_messy.png",
+                    beforeImage: "/before_wiring_messy.webp",
                     beforeDesc: "A severely overloaded and badly burnt main distribution board with melted insulation, chaotic uninsulated wiring, and zero surge protection, posing an extreme fire hazard.",
                     afterDesc: "Fully engineered three-phase distribution board wiring, neatly arranged conduits, labeled circuit breakers, and optimal earthing systems.",
                     alt: "Certified complete residential wiring consumer board in Biira, Wakiso by Dynawatt Engineering"

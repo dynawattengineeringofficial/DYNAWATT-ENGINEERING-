@@ -97,6 +97,23 @@ async function startServer() {
     res.json(publicConfig);
   });
 
+  // API proxy to cache Trustpilot bootstrap script with an efficient 1-year cache TTL (immutable)
+  app.get("/api/trustpilot-bootstrap", async (_req, res) => {
+    try {
+      const response = await fetch("https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js");
+      if (response.ok) {
+        const content = await response.text();
+        res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+        res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+        res.send(content);
+      } else {
+        res.redirect("https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js");
+      }
+    } catch (error) {
+      res.redirect("https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js");
+    }
+  });
+
   app.post("/api/config", async (req, res) => {
     try {
       const newConfig = req.body;
