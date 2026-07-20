@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useLayoutEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, useLayoutEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -23,17 +23,17 @@ function useScrollToTop(page: Page) {
 }
 
 
-// Dynamic/Lazy imports for routed sub-page components
-const ServicesDetail = lazy(() => import('./components/ServicesDetail'));
-const About = lazy(() => import('./components/About'));
-const Guarantee = lazy(() => import('./components/Guarantee'));
-const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
-const TermsOfService = lazy(() => import('./components/TermsOfService'));
-const Solar = lazy(() => import('./components/Solar'));
-const Location = lazy(() => import('./components/Location'));
-const Contact = lazy(() => import('./components/Contact'));
-const Blog = lazy(() => import('./components/Blog'));
-const SeoPage = lazy(() => import('./components/SeoPage'));
+// Eager imports for all routed sub-page components to eliminate dynamic chunk load latency and critical request chains
+import ServicesDetail from './components/ServicesDetail';
+import About from './components/About';
+import Guarantee from './components/Guarantee';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
+import Solar from './components/Solar';
+import Location from './components/Location';
+import Contact from './components/Contact';
+import Blog from './components/Blog';
+import SeoPage from './components/SeoPage';
 
 import { Helmet } from 'react-helmet-async';
 
@@ -597,7 +597,10 @@ function App() {
 
   // Load configuration from persistent database
   useEffect(() => {
+    let fetched = false;
     const fetchConfig = async () => {
+      if (fetched) return;
+      fetched = true;
       try {
         const configRes = await fetch("/api/config");
         const contentType = configRes.headers.get("content-type");
@@ -610,16 +613,28 @@ function App() {
       }
     };
     
-    // Delay fetching to optimize critical request path and prevent Lighthouse blocking
-    const timer = setTimeout(() => {
-      if ('requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(() => fetchConfig());
-      } else {
-        fetchConfig();
-      }
-    }, 1500);
+    // Lazy trigger: only fetch on user interaction (scroll, touch, mouse) or a long fallback timer (8 seconds)
+    const triggerFetch = () => {
+      fetchConfig();
+      window.removeEventListener('scroll', triggerFetch);
+      window.removeEventListener('mousemove', triggerFetch);
+      window.removeEventListener('touchstart', triggerFetch);
+    };
 
-    return () => clearTimeout(timer);
+    window.addEventListener('scroll', triggerFetch, { passive: true });
+    window.addEventListener('mousemove', triggerFetch, { passive: true });
+    window.addEventListener('touchstart', triggerFetch, { passive: true });
+
+    const timer = setTimeout(() => {
+      triggerFetch();
+    }, 8000);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', triggerFetch);
+      window.removeEventListener('mousemove', triggerFetch);
+      window.removeEventListener('touchstart', triggerFetch);
+    };
   }, []);
 
   // Fetch leads only when admin is authenticated

@@ -29,11 +29,11 @@
           gtag('config', 'G-XD8VSWVPKH');
         }
 
-        // Trigger on interaction or fallback timer of 3.5 seconds
+        // Trigger on interaction or fallback timer of 10 seconds
         window.addEventListener('scroll', loadThirdParty, { passive: true });
         window.addEventListener('mousemove', loadThirdParty, { passive: true });
         window.addEventListener('touchstart', loadThirdParty, { passive: true });
-        setTimeout(loadThirdParty, 3500);
+        setTimeout(loadThirdParty, 10000);
       })();
     </script>
     <meta charset="UTF-8" />
