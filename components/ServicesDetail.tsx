@@ -96,7 +96,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ setPage }) => {
       title: "Advanced CCTV IP & Security Networks",
       description: "Protect your physical assets and families. We install crystal-clear 4K IP security grids with remote mobile monitoring and durable smart electric fence integration.",
       icon: <Icons.Eye className="h-6 w-6 text-amber-500" />,
-      image: "/blog-smart-home.jpg",
+      image: "/cctv-security-system-installation-uganda.webp",
       page: Page.SEO_CCTV,
       badge: "Ultimate Shield",
       features: [

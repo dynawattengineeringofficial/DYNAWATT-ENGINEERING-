@@ -18,7 +18,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Design",
       author: "Joshua Wyclif Kitunguuzi",
       authorRole: "Co-Founder & Operations Director",
-      image: "/premium-aluminum-profile-lighting-matuga.jpg",
+      image: "/aluminum-profile-lighting-ideas.webp",
       linkTo: Page.SEO_PROFILE_LIGHTING
     },
     {
@@ -28,7 +28,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Solar",
       author: "Eng. John Mukasa",
       authorRole: "Senior Solar & Security Systems Specialist",
-      image: "/blog-solar-prices.jpg",
+      image: "/solar-installation-prices-kampala.webp",
       linkTo: Page.SEO_SOLAR
     },
     {
@@ -38,7 +38,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Pricing",
       author: "Daniel Alemukori",
       authorRole: "Co-Founder & Lead Technical Engineer",
-      image: "/house-wiring-slab-piping-mukono.webp",
+      image: "/cost-of-wiring-3-bedroom-house-uganda.webp",
       linkTo: Page.SEO_HOUSE_WIRING_COST
     },
     {
@@ -48,7 +48,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Smart Home",
       author: "Joshua Wyclif Kitunguuzi",
       authorRole: "Co-Founder & Operations Director",
-      image: "/smart_home_switches.webp",
+      image: "/smart-home-installation-uganda.webp",
       linkTo: Page.SEO_SMART_HOME
     },
     {
@@ -58,7 +58,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Security",
       author: "Eng. John Mukasa",
       authorRole: "Senior Solar & Security Systems Specialist",
-      image: "/blog-smart-home.jpg",
+      image: "/cctv-security-system-installation-uganda.webp",
       linkTo: Page.SEO_BLOG_CCTV
     },
     {
@@ -68,7 +68,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Engineering",
       author: "Daniel Alemukori",
       authorRole: "Co-Founder & Lead Technical Engineer",
-      image: "/house-wiring-slab-piping-mukono.webp",
+      image: "/slab-piping-conduit-works-electrical-foundation.webp",
       linkTo: Page.SEO_BLOG_CONDUIT_SLAB
     },
     {
@@ -78,7 +78,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Tips",
       author: "Daniel Alemukori",
       authorRole: "Co-Founder & Lead Technical Engineer",
-      image: "/complete-house-wiring-biira-wakiso.webp",
+      image: "/best-electrical-installation-company-kampala.webp",
       linkTo: Page.SEO_ELEC_INSTALL
     },
     {
@@ -88,7 +88,7 @@ const Blog: React.FC<BlogProps> = ({ setPage }) => {
       category: "Lighting",
       author: "Daniel Alemukori",
       authorRole: "Co-Founder & Lead Technical Engineer",
-      image: "/modern-residential-lighting-salaama-kampala.jpg",
+      image: "/best-modern-lighting-designs-uganda.webp",
       linkTo: Page.SEO_ARCH_LIGHTING
     }
   ];
