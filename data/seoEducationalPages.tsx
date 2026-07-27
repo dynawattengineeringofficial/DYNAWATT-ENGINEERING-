@@ -3,10 +3,10 @@ import { Page } from '../types';
 
 export const seoEducationalPagesData = {
   YAKA_METER: {
-    seoTitle: "Yaka Meter Rejecting Tokens? Troubleshooting Guide | Dynawatt Engineering",
+    seoTitle: "Yaka Meter Rejecting Tokens? Troubleshooting Guide | Dynawatt Engineering Services",
     metaDesc: "Is your UEDCL Yaka meter rejecting tokens, displaying Error 30, or stuck in tamper mode? Learn how to troubleshoot token issues in Uganda and when to call an electrician.",
     headline: "Why Your Yaka Meter Is Rejecting Tokens & What to Do",
-    description: "If your Yaka meter in Uganda is rejecting tokens, showing an error code, or stuck in tamper mode, it could be a network issue, unpaid debt, or a wiring fault. Our troubleshooting guide explains the common causes and how Dynawatt Engineering can help resolve persistent electrical faults.",
+    description: "If your Yaka meter in Uganda is rejecting tokens, showing an error code, or stuck in tamper mode, it could be a network issue, unpaid debt, or a wiring fault. Our troubleshooting guide explains the common causes and how Dynawatt Engineering Services can help resolve persistent electrical faults.",
     heroImage: "/electrical-repairs-maintenance-kampala.jpg",
     midPageCallout: {
       title: "Persistent Trips or Tamper Mode?",
@@ -37,7 +37,7 @@ export const seoEducationalPagesData = {
     whyChoose: ["Certified engineers handling UEDCL infrastructure safely", "Fast emergency response in Kampala and Wakiso", "Professional diagnostics to prevent electrical fires", "Transparent reporting for UEDCL claims if the meter is faulty"],
     faqs: [
       { q: "What does Error 30 mean on a Yaka meter?", a: "Error 30 typically indicates a communication or network error, but persistent errors might require a technician to inspect the wiring or CIU." },
-      { q: "Can Dynawatt Engineering repair a damaged Yaka meter?", a: "By law, the meter belongs to UEDCL. We can troubleshoot the wiring leading to the meter and the main distribution board, but if the meter itself is faulty, we guide you on how to officially request a replacement from UEDCL." },
+      { q: "Can Dynawatt Engineering Services repair a damaged Yaka meter?", a: "By law, the meter belongs to UEDCL. We can troubleshoot the wiring leading to the meter and the main distribution board, but if the meter itself is faulty, we guide you on how to officially request a replacement from UEDCL." },
       { q: "How do I get my Yaka meter out of tamper mode?", a: "A Yaka meter enters Tamper mode if its cover is opened, wires are loose, or there is a serious neutral fault. To clear it, your licensed installer or UEDCL officer must generate a technical bypass clearance token. Dynawatt can inspect your house wiring first to fix the fault permanently, and then liaise with UEDCL to safely restore power." },
       { q: "Does Dynawatt handle UEDCL new connection applications?", a: "Yes! We handle new connection applications completely. We produce authorized wiring drawings, install standard copper grounding systems, perform testing, provide the formal Wiring Readiness Certificate (WRC), and process your application directly through the UEDCL portal to expedite your power meter connection." }
     ],
@@ -45,25 +45,25 @@ export const seoEducationalPagesData = {
       { text: "Need urgent electrical repairs?", linkText: "View our Maintenance Services", page: Page.SEO_MAINTENANCE },
       { text: "Building a new house?", linkText: "Explore our Electrical Installation", page: Page.SEO_ELEC_INSTALL }
     ],
-    cta: "Experiencing continuous electrical trips or wiring faults affecting your Yaka meter? Contact Dynawatt Engineering for professional fault detection."
+    cta: "Experiencing continuous electrical trips or wiring faults affecting your Yaka meter? Contact Dynawatt Engineering Services for professional fault detection."
   },
   HOUSE_WIRING_COST: {
-    seoTitle: "Cost of Wiring a House in Uganda (2026 Guide) | Dynawatt Engineering",
+    seoTitle: "Cost of Wiring a House in Uganda (2026 Guide) | Dynawatt Engineering Services",
     metaDesc: "Discover the estimated costs for wiring a house in Uganda. Understand factors like material quality, house size, and labor, and get professional wiring from Dynawatt.",
     headline: "How Much Does It Cost to Wire a House in Uganda?",
-    heroImage: "/house-wiring-slab-piping-mukono.webp",
-    description: "Wiring a house in Uganda requires absolute transparency, skilled engineering, and uncompromised material quality. At Dynawatt Engineering, we believe in providing our clients with a detailed breakdown of 2026 Uganda wiring costs. On average, standard <span data-page=\"WIRING_2_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">2-bedroom house wiring</span> in Kampala and Wakiso ranges from UGX 2,800,000 to UGX 4,200,000 (basic vs luxury finish), while <span data-page=\"WIRING_3_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">3-bedroom house wiring</span> ranges from UGX 4,500,000 to UGX 6,800,000.\n\nThese cost estimates encompass premium genuine cables (BBS or East African Cables), structural conduit routing, distribution board assembly, proper earthing, and professional <span data-page=\"SEO_ELEC_INSTALL\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">electrical installation services</span>. We execute certified projects from the central metro suburbs to nationwide locations, with dedicated local expertise handling projects like <span data-page=\"LOC_MUKONO\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">solar installation in Mukono</span>, and Domestic and Commercial work like <span data-page=\"LOC_LIRA\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">house wiring in Lira</span> and <span data-page=\"LOC_GULU\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">electrical installs in Gulu</span>. If you also plan to incorporate high-end <span data-page=\"SEO_PROFILE_LIGHTING\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">aluminum profile lighting</span>, expect pricing to scale accordingly based on linear meter layouts from our dedicated design team.",
+    heroImage: "/cost-of-wiring-house-uganda.webp",
+    description: "Wiring a house in Uganda requires absolute transparency, skilled engineering, and uncompromised material quality. At Dynawatt Engineering Services, we believe in providing our clients with a detailed breakdown of 2026 Uganda wiring costs. On average, standard <span data-page=\"WIRING_2_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">2-bedroom house wiring</span> in Kampala and Wakiso ranges from UGX 2,800,000 to UGX 4,200,000 (basic vs luxury finish), while <span data-page=\"WIRING_3_BEDROOM\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">3-bedroom house wiring</span> ranges from UGX 4,500,000 to UGX 6,800,000.\n\nThese cost estimates encompass premium genuine cables (BBS or East African Cables), structural conduit routing, distribution board assembly, proper earthing, and professional <span data-page=\"SEO_ELEC_INSTALL\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">electrical installation services</span>. We execute certified projects from the central metro suburbs to nationwide locations, with dedicated local expertise handling projects like <span data-page=\"LOC_MUKONO\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">solar installation in Mukono</span>, and Domestic and Commercial work like <span data-page=\"LOC_LIRA\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">house wiring in Lira</span> and <span data-page=\"LOC_GULU\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">electrical installs in Gulu</span>. If you also plan to incorporate high-end <span data-page=\"SEO_PROFILE_LIGHTING\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">aluminum profile lighting</span>, expect pricing to scale accordingly based on linear meter layouts from our dedicated design team.",
     showWiringPricingTable: true,
     showQuoteSection: true,
-    projectPhoto: "/house-wiring-slab-piping-mukono.webp",
+    projectPhoto: "/cost-of-wiring-house-uganda.webp",
     projectPhotoAlt: "Dynawatt professional residential house wiring conduit slab piping in Mukono",
-    projectPhotoCaption: "A verified residential slab piping and conduit routing project executed in Mukono, Uganda by the Dynawatt Engineering crew.",
+    projectPhotoCaption: "A verified residential slab piping and conduit routing project executed in Mukono, Uganda by the Dynawatt Engineering Services crew.",
     author: {
       name: "Wyclif Joshua Kitunguuzi",
       tag: "Solar PV Sizing Specialist",
       title: "Co-Founder & Lead Systems Designer",
       avatar: "/co-founder-joshua-wyclif-kitunguuzi-headshot.jpg",
-      bio: "Wyclif Joshua Kitunguuzi is the Co-Founder & Lead Systems Designer at Dynawatt Engineering. He is an electrical systems design graduate with over 7 years of specialized expertise in Solar PV sizing, lithium battery load-retention calculations, smart hybrid automatic changeovers, and high-efficiency inverter networks across Kampala and surrounding regions."
+      bio: "Wyclif Joshua Kitunguuzi is the Co-Founder & Lead Systems Designer at Dynawatt Engineering Services. He is an electrical systems design graduate with over 7 years of specialized expertise in Solar PV sizing, lithium battery load-retention calculations, smart hybrid automatic changeovers, and high-efficiency inverter networks across Kampala and surrounding regions."
     },
     sections: [
       {
@@ -92,14 +92,14 @@ export const seoEducationalPagesData = {
       { text: "Ready to wire your new house?", linkText: "Learn about Complete House Wiring", page: Page.SEO_ELEC_INSTALL },
       { text: "Looking for property security?", linkText: "Add CCTV & Security Systems", page: Page.SEO_CCTV }
     ],
-    cta: "Planning a construction project? Get a transparent, professional wiring quote from Dynawatt Engineering today."
+    cta: "Planning a construction project? Get a transparent, professional wiring quote from Dynawatt Engineering Services today."
   },
   WARM_SWITCHES: {
     seoTitle: "Warm Electrical Switches: Danger Signs in Your Home | Dynawatt",
     metaDesc: "A warm electrical switch is a serious fire hazard. Learn why your switches are overheating and why you need immediate electrical repair services in Uganda.",
     headline: "Warning Signs: Why Is My Electrical Switch Warm?",
     heroImage: "/electrical-repairs-maintenance-kampala.jpg",
-    description: "A plug or switch that feels warm to the touch is a critical warning sign of electrical danger. If ignored, this can lead to melted sockets, property damage, or electrical fires. Dynawatt Engineering provides emergency diagnostics and repairs for overheating electrical systems in Kampala and Wakiso.",
+    description: "A plug or switch that feels warm to the touch is a critical warning sign of electrical danger. If ignored, this can lead to melted sockets, property damage, or electrical fires. Dynawatt Engineering Services provides emergency diagnostics and repairs for overheating electrical systems in Kampala and Wakiso.",
     sections: [
       {
         title: "Causes of Warm Switches",
@@ -127,14 +127,14 @@ export const seoEducationalPagesData = {
       { text: "Need urgent repairs?", linkText: "View Electrical Maintenance", page: Page.SEO_MAINTENANCE },
       { text: "Upgrade to smart systems?", linkText: "Explore Smart Home Automation", page: Page.SEO_SMART_HOME }
     ],
-    cta: "Notice a warm switch or burning smell? Don't risk an electrical fire. Call Dynawatt Engineering for immediate fault finding and repair."
+    cta: "Notice a warm switch or burning smell? Don't risk an electrical fire. Call Dynawatt Engineering Services for immediate fault finding and repair."
   },
   SOLAR_MAINTENANCE: {
     seoTitle: "Solar Battery Maintenance & Inverter Health in Uganda",
     metaDesc: "Keep your solar setup running perfectly. Learn how to maintain batteries, check inverter health, and fix load shedding backup issues in Uganda.",
     headline: "Solar Battery Maintenance & Inverter Health",
     heroImage: "/solar-installation-services-kampala.jpg",
-    description: "Your solar and inverter backup system is your defense against power outages, but it needs care to last. Whether you have tubular wet cells or modern lithium-ion batteries, poor maintenance can lead to early battery failure and expensive replacements. Dynawatt Engineering provides trusted maintenance for solar systems across Kampala and Wakiso.",
+    description: "Your solar and inverter backup system is your defense against power outages, but it needs care to last. Whether you have tubular wet cells or modern lithium-ion batteries, poor maintenance can lead to early battery failure and expensive replacements. Dynawatt Engineering Services provides trusted maintenance for solar systems across Kampala and Wakiso.",
     sections: [
       {
         title: "Signs Your Battery Needs Attention",
@@ -162,14 +162,14 @@ export const seoEducationalPagesData = {
       { text: "Want a new solar setup?", linkText: "View Solar Installation Services", page: Page.SEO_SOLAR },
       { text: "Need general maintenance?", linkText: "Explore Repair Services", page: Page.SEO_MAINTENANCE }
     ],
-    cta: "Is your solar battery backup failing during load shedding? Contact Dynawatt Engineering for a full system health check today."
+    cta: "Is your solar battery backup failing during load shedding? Contact Dynawatt Engineering Services for a full system health check today."
   },
   BULB_BLOWOUTS: {
     seoTitle: "Why Do My Light Bulbs Keep Blowing Out? | Dynawatt",
     metaDesc: "Tired of changing light bulbs? Find out why your LED or halogen bulbs keep blowing out, from voltage spikes to poor wiring, and how to fix it permanently.",
     headline: "Why Do My Light Bulbs Keep Blowing Out?",
     heroImage: "/electrical-repairs-maintenance-kampala.jpg",
-    description: "If you find yourself replacing light bulbs far more often than usual, it's more than just bad luck. Frequent bulb blowouts can be a sign of underlying electrical faults, from UEDCL voltage fluctuations to loose wiring in your distribution box. Dynawatt Engineering can diagnose and fix these issues permanently.",
+    description: "If you find yourself replacing light bulbs far more often than usual, it's more than just bad luck. Frequent bulb blowouts can be a sign of underlying electrical faults, from UEDCL voltage fluctuations to loose wiring in your distribution box. Dynawatt Engineering Services can diagnose and fix these issues permanently.",
     sections: [
       {
         title: "Common Causes of Blown Bulbs",
@@ -197,20 +197,20 @@ export const seoEducationalPagesData = {
       { text: "Want to upgrade your lighting completely?", linkText: "View Architectural Lighting", page: Page.SEO_PROFILE_LIGHTING },
       { text: "Need urgent repairs?", linkText: "Explore Electrical Maintenance", page: Page.SEO_MAINTENANCE }
     ],
-    cta: "Stop wasting money on replacement bulbs. Have Dynawatt Engineering inspect your electrical circuits and fix the root problem."
+    cta: "Stop wasting money on replacement bulbs. Have Dynawatt Engineering Services inspect your electrical circuits and fix the root problem."
   },
   WIRING_2_BEDROOM: {
-    seoTitle: "Cost of Wiring a 2-Bedroom House in Uganda (2026 Guide) | Dynawatt Engineering",
+    seoTitle: "Cost of Wiring a 2-Bedroom House in Uganda (2026 Guide) | Dynawatt Engineering Services",
     metaDesc: "Get a detailed breakdown of the cost to wire a standard 2-bedroom house in Uganda. Learn about cabling, conduits, consumer units, fixtures, and expert labor.",
     headline: "Real Cost of Wiring a 2-Bedroom House in Uganda",
-    description: "Wiring a 2-bedroom residential house in Uganda requires planning and high-quality electrical engineering. While local unqualified 'fundis' often quote cheap prices that lead to loose connections or electrical fires, Dynawatt Engineering works to certified international standards (BS 7671). The actual cost of complete electrical installation for a 2-bedroom home in 2026 generally ranges between UGX 2,800,000 and UGX 4,200,000, depending on your choices of architectural elements, the range of switches, and the cable lengths required.",
-    heroImage: "/complete-house-wiring-biira-wakiso.webp",
+    description: "Wiring a 2-bedroom residential house in Uganda requires planning and high-quality electrical engineering. While local unqualified 'fundis' often quote cheap prices that lead to loose connections or electrical fires, Dynawatt Engineering Services works to certified international standards (BS 7671). The actual cost of complete electrical installation for a 2-bedroom home in 2026 generally ranges between UGX 2,800,000 and UGX 4,200,000, depending on your choices of architectural elements, the range of switches, and the cable lengths required.",
+    heroImage: "/cost-of-wiring-2-bedroom-house-uganda.webp",
     author: {
       name: "Daniel Alemukori",
       tag: "BS 7671 Certified & Systems Expert",
       title: "Co-Founder & Lead Technical Engineer",
       avatar: "/co-founder-daniel-alemukori-headshot.jpg",
-      bio: "Daniel Alemukori is the Co-Founder & Lead Technical Engineer at Dynawatt Engineering. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding three-phase commercial power balancing, deep earth rod impedance testing (conforming to BS 7671 standards), advanced circuit troubleshooting, and smart home lighting control retrofits across Kampala, Wakiso, and Entebbe."
+      bio: "Daniel Alemukori is the Co-Founder & Lead Technical Engineer at Dynawatt Engineering Services. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding three-phase commercial power balancing, deep earth rod impedance testing (conforming to BS 7671 standards), advanced circuit troubleshooting, and smart home lighting control retrofits across Kampala, Wakiso, and Entebbe."
     },
     sections: [
       {
@@ -273,20 +273,20 @@ export const seoEducationalPagesData = {
       { text: "Need a breakdown for larger properties?", linkText: "See 3-Bedroom Wiring Cost Guide", page: Page.SEO_WIRING_3_BEDROOM },
       { text: "Want a complete cost overview?", linkText: "Read General House Wiring Cost Guide", page: Page.SEO_HOUSE_WIRING_COST }
     ],
-    cta: "Looking for a safe, reliable, and compliant electrical installation for your 2-bedroom home? Contact Dynawatt Engineering for a customized, itemized quotation. On-site assessments carry a small refundable fee, fully credited to your invoice once you proceed."
+    cta: "Looking for a safe, reliable, and compliant electrical installation for your 2-bedroom home? Contact Dynawatt Engineering Services for a customized, itemized quotation. On-site assessments carry a small refundable fee, fully credited to your invoice once you proceed."
   },
   WIRING_3_BEDROOM: {
     seoTitle: "Cost of Wiring a 3-Bedroom House in Uganda | Dynawatt",
     metaDesc: "Discover the professional cost breakdown for a 3-bedroom electrical house wiring in Uganda. Find details on load calculations, breakers, panels, and labor rates.",
     headline: "Complete Cost of Wiring a 3-Bedroom House in Uganda",
     description: "A 3-bedroom residence represents the classic family home setup in Uganda. Sizing the electrical distribution board, calculating load flows, and planning lighting grids is critical to ensure you don't face constant breaker trips. Sourcing low-quality materials to save money usually ends in burnt appliances or damaged sockets. For a professional, durable house wiring setup to BS 7671 standards, you can expect an investment of UGX 4,500,000 to UGX 6,800,000 inside the Kampala-Wakiso area, encompassing premium cables, modern protective gear, and highly skilled engineering labor.",
-    heroImage: "/house-wiring-slab-piping-mukono.webp",
+    heroImage: "/cost-of-wiring-3-bedroom-house-uganda.webp",
     author: {
       name: "Daniel Alemukori",
       tag: "BS 7671 Certified & Systems Expert",
       title: "Co-Founder & Lead Technical Engineer",
       avatar: "/co-founder-daniel-alemukori-headshot.jpg",
-      bio: "Daniel Alemukori is the Co-Founder & Lead Technical Engineer at Dynawatt Engineering. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding three-phase commercial power balancing, deep earth rod impedance testing (conforming to BS 7671 standards), advanced circuit troubleshooting, and smart home lighting control retrofits across Kampala, Wakiso, and Entebbe."
+      bio: "Daniel Alemukori is the Co-Founder & Lead Technical Engineer at Dynawatt Engineering Services. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding three-phase commercial power balancing, deep earth rod impedance testing (conforming to BS 7671 standards), advanced circuit troubleshooting, and smart home lighting control retrofits across Kampala, Wakiso, and Entebbe."
     },
     sections: [
       {
@@ -348,7 +348,7 @@ export const seoEducationalPagesData = {
     metaDesc: "Professional commercial building wiring in Kampala, Uganda. Explore details on 3-phase balancing, commercial panels, trunking, safety standards, and pricing.",
     headline: "Commercial Building Electrical Sizing & Wiring in Kampala",
     heroImage: "/electrical-engineering-kampala.jpg",
-    description: "Commercial properties in Kampala—including shopping arcades, business centers, hotels, office blocks, and residential apartments—demand complex electrical designs far beyond typical residential systems. These properties run on heavy, continuous loads necessitating 3-phase balancing, professional cable trunking, industrial distribution gear, and comprehensive surge mitigation. Our mobile execution crews have a proven track record delivering major upcountry hotel wiring, such as our full lighting and electrical project in <span data-page=\"LOC_KIBOGA\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">Kiboga</span>, as well as agricultural pumping setups and luxury <span data-page=\"LOC_HOIMA\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">solar installations in Hoima</span>. Dynawatt Engineering provides certified, code-compliant commercial installations mapped to commercial codes, designed to maximize operating lifespan and guarantee business continuity.",
+    description: "Commercial properties in Kampala—including shopping arcades, business centers, hotels, office blocks, and residential apartments—demand complex electrical designs far beyond typical residential systems. These properties run on heavy, continuous loads necessitating 3-phase balancing, professional cable trunking, industrial distribution gear, and comprehensive surge mitigation. Our mobile execution crews have a proven track record delivering major upcountry hotel wiring, such as our full lighting and electrical project in <span data-page=\"LOC_KIBOGA\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">Kiboga</span>, as well as agricultural pumping setups and luxury <span data-page=\"LOC_HOIMA\" class=\"text-amber-600 font-extrabold hover:underline cursor-pointer\">solar installations in Hoima</span>. Dynawatt Engineering Services provides certified, code-compliant commercial installations mapped to commercial codes, designed to maximize operating lifespan and guarantee business continuity.",
     sections: [
       {
         title: "3-Phase Power Balancing & Distribution",
@@ -402,23 +402,23 @@ export const seoEducationalPagesData = {
       { text: "Need customized lighting for an office or hotel?", linkText: "Explore Commercial & Profile Lighting", page: Page.SEO_PROFILE_LIGHTING },
       { text: "Running single-phase systems?", linkText: "Check 3-Bedroom Domestic Wiring", page: Page.SEO_WIRING_3_BEDROOM }
     ],
-    cta: "Empower your business with a faultless industrial power foundation. Contact Dynawatt Engineering's corporate projects desk for comprehensive tenders."
+    cta: "Empower your business with a faultless industrial power foundation. Contact Dynawatt Engineering Services's corporate projects desk for comprehensive tenders."
   },
   SEO_BLOG_CCTV: {
     seoTitle: "How Many CCTV Cameras Does Your Home or Business Need in Uganda? | Dynawatt",
     metaDesc: "Discover how many CCTV cameras your home, apartment, or shop in Uganda actually needs. Learn about critical zones, analog vs IP cameras, and costs.",
     headline: "How Many CCTV Cameras Does Your Home or Business Need in Uganda?",
-    description: "Security is no longer a luxury in Uganda — it is a necessity. Whether you own a residential property in Wakiso, run a retail shop on Kampala Road, or manage a warehouse in Mukono, a properly installed CCTV system is one of the most effective investments you can make to protect your people and property.\n\nBut one of the most common questions we receive at Dynawatt Engineering is simple: how many cameras do I actually need?\n\nThe honest answer depends on your property size, layout, and what you are trying to protect. This guide breaks it down clearly.",
-    heroImage: "/cctv-security-installation-kampala.jpg",
-    projectPhoto: "/cctv-security-installation-kampala.jpg",
-    projectPhotoAlt: "Professional 4K IP CCTV camera installation in Kampala by Dynawatt Engineering",
+    description: "Security is no longer a luxury in Uganda — it is a necessity. Whether you own a residential property in Wakiso, run a retail shop on Kampala Road, or manage a warehouse in Mukono, a properly installed CCTV system is one of the most effective investments you can make to protect your people and property.\n\nBut one of the most common questions we receive at Dynawatt Engineering Services is simple: how many cameras do I actually need?\n\nThe honest answer depends on your property size, layout, and what you are trying to protect. This guide breaks it down clearly.",
+    heroImage: "/cctv-security-system-installation-uganda.webp",
+    projectPhoto: "/cctv-security-system-installation-uganda.webp",
+    projectPhotoAlt: "Professional 4K IP CCTV camera installation in Kampala by Dynawatt Engineering Services",
     projectPhotoCaption: "Professional 4K IP security bullet camera neatly mounted with weatherproof junction boxes and PoE cabling at a corporate complex in central Kampala.",
     author: {
       name: "Eng. John Mukasa",
       tag: "Certified Security & Solar Specialist",
       title: "Senior Solar & Security Systems Specialist",
       avatar: "/co-founder-daniel-alemukori-headshot.jpg",
-      bio: "Eng. John Mukasa is the Lead Solar & Security Systems Specialist at Dynawatt Engineering. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding commercial-scale CCTV surveillance setups, advanced hybrid solar system integrations, Power over Ethernet (PoE) structural cabling, and automatic backup transitions across Kampala, Wakiso, and Entebbe."
+      bio: "Eng. John Mukasa is the Lead Solar & Security Systems Specialist at Dynawatt Engineering Services. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding commercial-scale CCTV surveillance setups, advanced hybrid solar system integrations, Power over Ethernet (PoE) structural cabling, and automatic backup transitions across Kampala, Wakiso, and Entebbe."
     },
     sections: [
       {
@@ -478,15 +478,15 @@ export const seoEducationalPagesData = {
       { text: "Need professional camera installation?", linkText: "Explore our CCTV & Security Services", page: Page.SEO_CCTV },
       { text: "Want to secure your backup power?", linkText: "Check out our Solar backup options", page: Page.SEO_SOLAR }
     ],
-    cta: "Secure your property with the ultimate 4K IP security network. Contact Dynawatt Engineering today to receive an itemized CCTV quotation and layout design."
+    cta: "Secure your property with the ultimate 4K IP security network. Contact Dynawatt Engineering Services today to receive an itemized CCTV quotation and layout design."
   },
   SEO_BLOG_CONDUIT_SLAB: {
     seoTitle: "Why Conduit Placement in Slab Matters Before You Pour Concrete | Dynawatt",
     metaDesc: "Laying high-quality heavy-duty conduits in concrete floor slabs before deck casting is critical to ensure a lifetime of flexible, block-free electrical wiring.",
     headline: "Why Conduit Placement in Slab Matters Before You Pour Concrete",
     description: "If you are constructing a house or commercial building in Uganda, there is one electrical decision that cannot wait until after construction — and that is conduit placement in the slab.\n\nMost property owners focus on bricks, roofing, and finishes. Electrical work feels like something to sort out later. But the wiring routes that run through your concrete floors and slabs must be installed before the concrete is poured. Once that slab is cast, there is no going back without expensive, damaging breakage.\n\nThis is one of the most critical — and most commonly mishandled — stages of any construction project.",
-    heroImage: "/house-wiring-slab-piping-mukono.webp",
-    projectPhoto: "/house-wiring-slab-piping-mukono.webp",
+    heroImage: "/slab-piping-conduit-works-electrical-foundation.webp",
+    projectPhoto: "/slab-piping-conduit-works-electrical-foundation.webp",
     projectPhotoAlt: "Certified Dynawatt crew routing electrical conduits in concrete floor slab before casting in Mukono",
     projectPhotoCaption: "Slab piping and heavy-duty conduit containment meticulously routed and anchored to steel reinforcement before concrete deck casting at a multi-level villa in Mukono.",
     author: {
@@ -494,7 +494,7 @@ export const seoEducationalPagesData = {
       tag: "BS 7671 Certified & Systems Expert",
       title: "Co-Founder & Lead Technical Engineer",
       avatar: "/co-founder-daniel-alemukori-headshot.jpg",
-      bio: "Daniel Alemukori is the Co-Founder & Lead Technical Engineer at Dynawatt Engineering. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding three-phase commercial power balancing, deep earth rod impedance testing (conforming to BS 7671 standards), advanced circuit troubleshooting, and smart home lighting control retrofits across Kampala, Wakiso, and Entebbe."
+      bio: "Daniel Alemukori is the Co-Founder & Lead Technical Engineer at Dynawatt Engineering Services. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding three-phase commercial power balancing, deep earth rod impedance testing (conforming to BS 7671 standards), advanced circuit troubleshooting, and smart home lighting control retrofits across Kampala, Wakiso, and Entebbe."
     },
     sections: [
       {
@@ -555,14 +555,14 @@ export const seoEducationalPagesData = {
       { text: "Building a new home or rental block?", linkText: "Learn about Complete House Wiring", page: Page.SEO_ELEC_INSTALL },
       { text: "Curious about standard costs?", linkText: "Check our 3-Bedroom Wiring Cost Guide", page: Page.SEO_WIRING_3_BEDROOM }
     ],
-    cta: "Don't let poor plumbing or collapsed conduits ruin your expensive concrete deck. Contact Dynawatt Engineering today to have certified engineers design and lay a bulletproof slab piping grid."
+    cta: "Don't let poor plumbing or collapsed conduits ruin your expensive concrete deck. Contact Dynawatt Engineering Services today to have certified engineers design and lay a bulletproof slab piping grid."
   },
   LIGHTNING_PROTECTION: {
-    seoTitle: "Certified Lightning Arrestor Installation in Uganda | Dynawatt Engineering",
+    seoTitle: "Certified Lightning Arrestor Installation in Uganda | Dynawatt Engineering Services",
     metaDesc: "Protect your school, home, or building from lightning strikes with certified ESE lightning arrestors and grounding in Uganda. See our Kawuku Wakiso project.",
     headline: "Certified Lightning Arrestor & Protection Systems in Uganda",
     heroImage: "/wakiso_lightning_school.jpg",
-    description: "Lightning strikes present a severe threat to buildings, schools, and electronic systems across Uganda, especially during intense rainy seasons. At Dynawatt Engineering, we design and install certified Early Streamer Emission (ESE) lightning arrestors, heavy-gauge copper down-conductors, and low-impedance earthing systems that safely redirect high-voltage surges directly into the ground.\n\nOur certified engineers install lightning protection networks that conform strictly to international safety codes (NF C 17-102 and IEC 62305). One of our key landmark installations was executed at <strong class=\"font-bold text-slate-900\">Broader Vision Primary School in Kawuku, Wakiso District</strong>, where our team was sub-contracted to safely mount ESE terminals and heavy-duty copper tapes on the new classroom block to secure the entire student body and administrative electronics. Whether you are safeguarding an institutional campus, an apartment block, or a residential home, our copper bonding systems deliver absolute peace of mind.",
+    description: "Lightning strikes present a severe threat to buildings, schools, and electronic systems across Uganda, especially during intense rainy seasons. At Dynawatt Engineering Services, we design and install certified Early Streamer Emission (ESE) lightning arrestors, heavy-gauge copper down-conductors, and low-impedance earthing systems that safely redirect high-voltage surges directly into the ground.\n\nOur certified engineers install lightning protection networks that conform strictly to international safety codes (NF C 17-102 and IEC 62305). One of our key landmark installations was executed at <strong class=\"font-bold text-slate-900\">Broader Vision Primary School in Kawuku, Wakiso District</strong>, where our team was sub-contracted to safely mount ESE terminals and heavy-duty copper tapes on the new classroom block to secure the entire student body and administrative electronics. Whether you are safeguarding an institutional campus, an apartment block, or a residential home, our copper bonding systems deliver absolute peace of mind.",
     projectPhoto: "/wakiso_lightning_school.jpg",
     projectPhotoAlt: "Certified Dynawatt crew installing ESE lightning protection at Broader Vision Primary School in Kawuku, Wakiso",
     projectPhotoCaption: "Professional installation of solid copper down-conductors and ESE lightning protection terminals on wooden scaffolding for the new classroom block at Broader Vision Primary School in Kawuku, Wakiso District.",
@@ -571,7 +571,7 @@ export const seoEducationalPagesData = {
       tag: "BS 7671 Certified & Systems Expert",
       title: "Co-Founder & Lead Technical Engineer",
       avatar: "/co-founder-daniel-alemukori-headshot.jpg",
-      bio: "Daniel Alemukori is the Co-Founder & Lead Technical Engineer at Dynawatt Engineering. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding three-phase commercial power balancing, deep earth rod impedance testing (conforming to BS 7671 standards), advanced circuit troubleshooting, and smart home lighting control retrofits across Kampala, Wakiso, and Entebbe."
+      bio: "Daniel Alemukori is the Co-Founder & Lead Technical Engineer at Dynawatt Engineering Services. He is a certified electrical systems installation expert with over 8 years of specialized hands-on expertise guiding three-phase commercial power balancing, deep earth rod impedance testing (conforming to BS 7671 standards), advanced circuit troubleshooting, and smart home lighting control retrofits across Kampala, Wakiso, and Entebbe."
     },
     sections: [
       {
@@ -628,6 +628,6 @@ export const seoEducationalPagesData = {
       { text: "Need complete institutional wiring?", linkText: "Explore our Electrical Installation Services", page: Page.SEO_ELEC_INSTALL },
       { text: "Looking for solar backups in Wakiso?", linkText: "Check out our Wakiso Location Profile", page: Page.LOC_WAKISO }
     ],
-    cta: "Protect your school building, family, or commercial establishment from devastating lightning strikes today. Contact Dynawatt Engineering for a comprehensive risk assessment and professional ESE installation."
+    cta: "Protect your school building, family, or commercial establishment from devastating lightning strikes today. Contact Dynawatt Engineering Services for a comprehensive risk assessment and professional ESE installation."
   }
 };
