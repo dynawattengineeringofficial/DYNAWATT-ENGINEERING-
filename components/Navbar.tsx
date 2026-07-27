@@ -11,7 +11,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
   const [activeSection, setActiveSection] = useState('home');
   const [logoError, setLogoError] = useState(false);
-  const whatsappMessage = encodeURIComponent("Hello, Im interested in working with DYNAWATT ENGINEERING. Is anyone available to chat");
+  const whatsappMessage = encodeURIComponent("Hello, Im interested in working with DYNAWATT ENGINEERING SERVICES. Is anyone available to chat");
 
   // Silence activeSection unused warning
   if (false) {
@@ -213,7 +213,7 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
               {!logoError ? (
                 <img 
                   src="/dynawatt-engineering-logo.webp" 
-                  alt="Dynawatt Engineering electrical installation and architectural lighting company logo" 
+                  alt="Dynawatt Engineering Services electrical installation and architectural lighting company logo" 
                   className="h-12 md:h-16 object-contain group-hover:scale-105 transition-transform duration-300" 
                   onError={() => setLogoError(true)}
                   width="64"
@@ -228,7 +228,7 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
               )}
               <div className="flex flex-col">
                 <span className="text-lg md:text-xl font-black text-white leading-none tracking-tight font-sans">DYNAWATT</span>
-                <span className="text-[8px] md:text-[9px] text-amber-500 tracking-[0.25em] font-extrabold uppercase">ENGINEERING</span>
+                <span className="text-[8px] md:text-[9px] text-amber-500 tracking-[0.25em] font-extrabold uppercase">ENGINEERING SERVICES</span>
               </div>
             </div>
           </div>

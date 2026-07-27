@@ -81,22 +81,22 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
           <div className="lg:col-span-2 space-y-6">
             <div className="flex flex-col">
               <span className="text-2xl font-bold text-white leading-none tracking-tight">DYNAWATT</span>
-              <span className="text-[10px] text-amber-500 tracking-[0.2em] font-semibold">ENGINEERING</span>
+              <span className="text-[10px] text-amber-500 tracking-[0.2em] font-semibold">ENGINEERING SERVICES</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-2xl">
-              Dynawatt Engineering provides electrical installation, architectural lighting, solar systems, CCTV installation, smart home automation, and aluminum profile lighting services in Kampala, Entebbe, Wakiso, Mukono, and across Uganda.
+              Dynawatt Engineering Services provides electrical installation, architectural lighting, solar systems, CCTV installation, smart home automation, and aluminum profile lighting services in Kampala, Entebbe, Wakiso, Mukono, and across Uganda.
             </p>
             <p className="text-amber-500/90 text-xs font-semibold">
               Free quotations on every project. Site visits carry a small refundable fee — deducted from your invoice if you proceed.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/dynawattengineering" target="_blank" rel="noreferrer" aria-label="Visit Dynawatt Engineering on Facebook" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
+              <a href="https://www.facebook.com/dynawattengineeringservices" target="_blank" rel="noreferrer" aria-label="Visit Dynawatt Engineering Services on Facebook" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
                 <Icons.Facebook className="h-5 w-5" />
               </a>
-              <a href="https://www.instagram.com/dynawattengineering" target="_blank" rel="noreferrer" aria-label="Visit Dynawatt Engineering on Instagram" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
+              <a href="https://www.instagram.com/dynawattengineeringservices" target="_blank" rel="noreferrer" aria-label="Visit Dynawatt Engineering Services on Instagram" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
                 <Icons.Instagram className="h-5 w-5" />
               </a>
-              <a href="https://www.tiktok.com/@dynawattengineering1" target="_blank" rel="noreferrer" aria-label="Visit Dynawatt Engineering on TikTok" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
+              <a href="https://www.tiktok.com/@dynawattengineering1" target="_blank" rel="noreferrer" aria-label="Visit Dynawatt Engineering Services on TikTok" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors">
                 <Icons.Tiktok className="h-5 w-5" />
               </a>
             </div>
@@ -183,7 +183,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
 
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-400 text-xs">
           <p className="cursor-default select-none hover:text-slate-300 transition mb-2 md:mb-0">
-            © {new Date().getFullYear()} DYNAWATT ENGINEERING. All Rights Reserved.
+            © {new Date().getFullYear()} DYNAWATT ENGINEERING SERVICES. All Rights Reserved.
           </p>
           <div className="flex space-x-4">
             <FooterLink targetPage={Page.GUARANTEE} className="text-slate-300 hover:text-white hover:underline transition-colors">Service Guarantee</FooterLink>

@@ -573,7 +573,7 @@ Additional Details: ${formData.message || 'None'}
             src="/solar-hero-bg.webp"
             srcSet="/solar-hero-bg-mobile.webp 768w, /solar-hero-bg.webp 1920w"
             sizes="(max-width: 768px) 100vw, 100vw"
-            alt="Solar energy and battery backup systems installation by Dynawatt Engineering in Kampala, Uganda"
+            alt="Solar energy and battery backup systems installation by Dynawatt Engineering Services in Kampala, Uganda"
             width={1920}
             height={1080}
             loading="eager"
@@ -621,7 +621,7 @@ Additional Details: ${formData.message || 'None'}
                 transition={{ delay: 0.1 }}
                 className="text-lg md:text-xl font-normal text-[#C8D4E0] leading-relaxed text-left mb-8 max-w-2xl"
               >
-                Dynawatt Engineering designs and installs certified hybrid solar systems for homes and businesses across Kampala, Wakiso, Mukono, and upcountry districts nationwide — sized to your actual Yaka consumption, priced all-inclusive with zero hidden costs. Experience the leading standard of <span className="font-bold text-white">solar installation Uganda</span> trusts for uninterrupted energy.
+                Dynawatt Engineering Services designs and installs certified hybrid solar systems for homes and businesses across Kampala, Wakiso, Mukono, and upcountry districts nationwide — sized to your actual Yaka consumption, priced all-inclusive with zero hidden costs. Experience the leading standard of <span className="font-bold text-white">solar installation Uganda</span> trusts for uninterrupted energy.
               </motion.p>
               
               <motion.div 
@@ -794,7 +794,7 @@ Additional Details: ${formData.message || 'None'}
               <h2 className="text-2xl md:text-3xl font-extrabold mt-3 text-slate-950 tracking-tight">Our Recent Solar Projects in Uganda</h2>
             </div>
             <p className="text-xs md:text-sm text-slate-500 max-w-sm mt-3 md:mt-0">
-              Take a look at real, hand-crafted, high-output residential and commercial solar setups designed and installed by Dynawatt Engineering teams.
+              Take a look at real, hand-crafted, high-output residential and commercial solar setups designed and installed by Dynawatt Engineering Services teams.
             </p>
           </div>
 
@@ -1674,7 +1674,7 @@ Additional Details: ${formData.message || 'None'}
 
           <div className="text-center mt-12">
             <a 
-              href="https://www.facebook.com/dynawattengineering/reviews" 
+              href="https://www.facebook.com/dynawattengineeringservices" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="inline-flex items-center gap-1.5 text-sm font-bold text-slate-950 hover:text-[#E8620A] underline underline-offset-4 transition duration-200"
@@ -2000,7 +2000,7 @@ Additional Details: ${formData.message || 'None'}
                 <span className="text-amber-500 font-bold">☀️</span> Do you offer warranties on panels and equipment?
               </h3>
               <p className="text-xs md:text-sm text-slate-650 leading-relaxed pl-6">
-                All physical equipment and hardware are protected by extensive <strong>manufacturer warranties</strong> directly (including a 15 to 25-year performance warranty on monocrystalline panels, and a 5-year manufacturer warranty on smart lithium battery cells and premium hybrid inverters like Growatt, Deye, Victron, Amp Nova, Felicity, Sumry, or Solar Riio Sun). Dynawatt Engineering is an installation contractor and is not the warrantor of these physical products, but we actively assist you with any manufacturer warranty processing, while we directly support you with a dedicated <strong>1-Year Installation Workmanship Warranty</strong> on our physical wiring and structural mounting execution.
+                All physical equipment and hardware are protected by extensive <strong>manufacturer warranties</strong> directly (including a 15 to 25-year performance warranty on monocrystalline panels, and a 5-year manufacturer warranty on smart lithium battery cells and premium hybrid inverters like Growatt, Deye, Victron, Amp Nova, Felicity, Sumry, or Solar Riio Sun). Dynawatt Engineering Services is an installation contractor and is not the warrantor of these physical products, but we actively assist you with any manufacturer warranty processing, while we directly support you with a dedicated <strong>1-Year Installation Workmanship Warranty</strong> on our physical wiring and structural mounting execution.
               </p>
             </div>
           </div>
@@ -2011,7 +2011,7 @@ Additional Details: ${formData.message || 'None'}
       <section className="py-20 bg-amber-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-950 mb-6 tracking-tight">Ready to Switch to Solar?</h2>
-          <p className="text-lg md:text-xl text-slate-800 mb-10 max-w-2xl mx-auto font-medium">Contact DYNAWATT ENGINEERING today for expert, certified solar solutions in Kampala and across all districts of Uganda.</p>
+          <p className="text-lg md:text-xl text-slate-800 mb-10 max-w-2xl mx-auto font-medium">Contact DYNAWATT ENGINEERING SERVICES today for expert, certified solar solutions in Kampala and across all districts of Uganda.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="tel:+256751473830" className="inline-flex justify-center items-center bg-slate-950 text-white font-black py-4 px-10 rounded-xl hover:bg-slate-900 transition shadow-xl active:scale-95">
               <Icons.Phone className="h-5 w-5 mr-2" />
