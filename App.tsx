@@ -147,8 +147,8 @@ const getPathFromPage = (page: Page): string | null => {
 
 const seoMetadataMap: Record<string, { seoTitle: string; metaDesc: string; heroImage?: string }> = {
   [Page.SEO_ELEC_INSTALL]: {
-    seoTitle: "Electrical Installation Services in Kampala | Dynawatt Engineering",
-    metaDesc: "Professional electrical installation and structural wiring in Kampala and across Uganda. Certified, code-compliant installations by Dynawatt Engineering.",
+    seoTitle: "Electrical Installation Services in Kampala | Dynawatt Engineering Services",
+    metaDesc: "Professional electrical installation and structural wiring in Kampala and across Uganda. Certified, code-compliant installations by Dynawatt Engineering Services.",
     heroImage: "/electrical-engineering-kampala.jpg"
   },
   [Page.SEO_ARCH_LIGHTING]: {
@@ -162,32 +162,32 @@ const seoMetadataMap: Record<string, { seoTitle: string; metaDesc: string; heroI
     heroImage: "/hybrid-solar-installation-kampala.webp"
   },
   [Page.SEO_CCTV]: {
-    seoTitle: "Professional CCTV Installation in Uganda | Dynawatt Engineering",
+    seoTitle: "Professional CCTV Installation in Uganda | Dynawatt Engineering Services",
     metaDesc: "High-definition security cameras, remote mobile surveillance, motion alerts, and professional IP CCTV system installation in Kampala and Wakiso.",
     heroImage: "/electrical-repairs-maintenance-kampala.jpg"
   },
   [Page.SEO_SMART_HOME]: {
-    seoTitle: "Smart Home Automation Systems Kampala | Dynawatt Engineering",
+    seoTitle: "Smart Home Automation Systems Kampala | Dynawatt Engineering Services",
     metaDesc: "Automate your lighting, climate, security, and home theater. ERA-compliant, modern smart home system design and execution in Kampala.",
     heroImage: "/electrical-engineering-kampala.jpg"
   },
   [Page.SEO_COMMERCIAL]: {
-    seoTitle: "Commercial Electrical Contractors Uganda | Dynawatt Engineering",
+    seoTitle: "Commercial Electrical Contractors Uganda | Dynawatt Engineering Services",
     metaDesc: "Certified commercial electrical layouts, load balancing, conduit works, and industrial fit-outs for hotels, offices, and retail complexes in Uganda.",
     heroImage: "/electrical-repairs-maintenance-kampala.jpg"
   },
   [Page.SEO_MAINTENANCE]: {
-    seoTitle: "Emergency Electrician & Repairs Kampala | Dynawatt Engineering",
+    seoTitle: "Emergency Electrician & Repairs Kampala | Dynawatt Engineering Services",
     metaDesc: "24/7 electrical breakdown response, emergency fault-tracing, load-testing, and certified electrical maintenance services across Kampala & Wakiso.",
     heroImage: "/electrical-repairs-maintenance-kampala.jpg"
   },
   [Page.SEO_PROFILE_LIGHTING]: {
-    seoTitle: "Premium Aluminum Profile Lighting Uganda | Dynawatt Engineering",
+    seoTitle: "Premium Aluminum Profile Lighting Uganda | Dynawatt Engineering Services",
     metaDesc: "Custom linear LED aluminum profile installations, recessed ceiling channels, and ambient architectural trimless light designs in Kampala.",
     heroImage: "/house-wiring-slab-piping-mukono.webp"
   },
   [Page.LOC_KAMPALA]: {
-    seoTitle: "Electrical Installation Services in Kampala | Dynawatt Engineering",
+    seoTitle: "Electrical Installation Services in Kampala | Dynawatt Engineering Services",
     metaDesc: "Professional electrical installation and architectural lighting in Kampala. Fast response, licensed electricians for residential and commercial projects.",
     heroImage: "/electrical-engineering-kampala.jpg"
   },
@@ -202,7 +202,7 @@ const seoMetadataMap: Record<string, { seoTitle: string; metaDesc: string; heroI
     heroImage: "/house-wiring-slab-piping-mukono.webp"
   },
   [Page.LOC_KOLOLO]: {
-    seoTitle: "Luxury Electrical Installation in Kololo | Dynawatt Engineering",
+    seoTitle: "Luxury Electrical Installation in Kololo | Dynawatt Engineering Services",
     metaDesc: "Premium home automation, modern architectural light design, and smart CCTV security systems for residences and embassies in Kololo, Kampala.",
     heroImage: "/electrical-engineering-kampala.jpg"
   },
@@ -222,12 +222,12 @@ const seoMetadataMap: Record<string, { seoTitle: string; metaDesc: string; heroI
     heroImage: "/house-wiring-slab-piping-mukono.webp"
   },
   [Page.LOC_HOIMA]: {
-    seoTitle: "Industrial Electrical Contractors Hoima | Dynawatt Engineering",
+    seoTitle: "Industrial Electrical Contractors Hoima | Dynawatt Engineering Services",
     metaDesc: "Certified three-phase power upgrades, steel containment conduits, and lightning protection systems for commercial structures in Hoima.",
     heroImage: "/electrical-repairs-maintenance-kampala.jpg"
   },
   [Page.LOC_LIRA]: {
-    seoTitle: "Reliable Electrical House Wiring in Lira | Dynawatt Engineering",
+    seoTitle: "Reliable Electrical House Wiring in Lira | Dynawatt Engineering Services",
     metaDesc: "Professional upcountry logistics deployment for standard domestic house cabling and certified commercial electrical fit-outs in Lira.",
     heroImage: "/electrical-repairs-maintenance-kampala.jpg"
   },
@@ -242,7 +242,7 @@ const seoMetadataMap: Record<string, { seoTitle: string; metaDesc: string; heroI
     heroImage: "/electrical-repairs-maintenance-kampala.jpg"
   },
   [Page.LOC_NAKWEERO]: {
-    seoTitle: "Certified Solar Installation in Nakweero | Dynawatt Engineering",
+    seoTitle: "Certified Solar Installation in Nakweero | Dynawatt Engineering Services",
     metaDesc: "Harness clean solar energy with our custom hybrid solar systems (DW1-DW5) in Nakweero. Licensed engineers, professional support.",
     heroImage: "/house-wiring-slab-piping-mukono.webp"
   },
@@ -267,17 +267,17 @@ const seoMetadataMap: Record<string, { seoTitle: string; metaDesc: string; heroI
     heroImage: "/electrical-repairs-maintenance-kampala.jpg"
   },
   [Page.SEO_SOLAR_MAINTENANCE]: {
-    seoTitle: "Hybrid Solar System Maintenance Guide | Dynawatt Engineering",
+    seoTitle: "Hybrid Solar System Maintenance Guide | Dynawatt Engineering Services",
     metaDesc: "Keep your batteries healthy and panels clean. Simple solar maintenance tips for Kampala homeowners to maximize efficiency of your off-grid or hybrid setup.",
     heroImage: "/hybrid-solar-installation-kampala.webp"
   },
   [Page.SEO_BULB_BLOWOUTS]: {
-    seoTitle: "Why Do My LED Bulbs Keep Blowing Out? | Dynawatt Engineering",
+    seoTitle: "Why Do My LED Bulbs Keep Blowing Out? | Dynawatt Engineering Services",
     metaDesc: "Are you constantly replacing LED or halogen bulbs? Uncover the 5 common causes including voltage surges, low-quality drivers, and neutral faults in Kampala.",
     heroImage: "/electrical-repairs-maintenance-kampala.jpg"
   },
   [Page.SEO_WIRING_2_BEDROOM]: {
-    seoTitle: "2-Bedroom House Wiring Costs in Uganda | Dynawatt Engineering",
+    seoTitle: "2-Bedroom House Wiring Costs in Uganda | Dynawatt Engineering Services",
     metaDesc: "Detailed cost guide for a 2-bedroom electrical house wiring in Uganda. Average prices, material list, distribution board details, and labor rates.",
     heroImage: "/house-wiring-slab-piping-mukono.webp"
   },
@@ -309,7 +309,7 @@ const seoMetadataMap: Record<string, { seoTitle: string; metaDesc: string; heroI
 };
 
 export const SeoMeta = ({ page }: { page: Page }) => {
-  let title = "Electrical Installation & Solar Energy Uganda | Dynawatt Engineering";
+  let title = "Electrical Installation & Solar Energy Uganda | Dynawatt Engineering Services";
   let description = "Professional electrical installation, hybrid solar packages (DW1-DW5), and architectural profile lighting in Kampala and nationwide Uganda. ERA-licensed.";
   let url = "https://dynawattengineering.com";
   let image = "https://dynawattengineering.com/dynawatt-engineering-logo.png";
@@ -334,43 +334,43 @@ export const SeoMeta = ({ page }: { page: Page }) => {
     // Core pages static switch fallbacks
     switch (page) {
       case Page.HOME:
-        title = "Electrical Installation Services in Kampala | Dynawatt Engineering";
+        title = "Electrical Installation Services in Kampala | Dynawatt Engineering Services";
         description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free quotation today.";
         break;
       case Page.SERVICES:
-        title = "Electrical Installation Services in Kampala | Dynawatt Engineering";
+        title = "Electrical Installation Services in Kampala | Dynawatt Engineering Services";
         description = "Professional electrical wiring, architectural lighting, and CCTV installation across Kampala, Wakiso & Mukono. BS 7671 certified. Get a free quotation today.";
         break;
       case Page.SOLAR:
-        title = "Hybrid Solar Packages Uganda DW1-DW5 | Dynawatt Engineering";
+        title = "Hybrid Solar Packages Uganda DW1-DW5 | Dynawatt Engineering Services";
         description = "5 hybrid solar packages from UGX 4.4M to 19.2M. DEYE inverters, LiFePO4 batteries. ERA licensed solar installation across Kampala, Wakiso & Mukono.";
         break;
       case Page.ABOUT:
-        title = "About Dynawatt Engineering | BS 7671 Certified Electricians Kampala";
+        title = "About Dynawatt Engineering Services | BS 7671 Certified Electricians Kampala";
         description = "Kampala's trusted electrical engineers. ERA licensed, BS 7671 certified, UEDCL approved. Professional electrical installation and solar energy company in Uganda.";
         break;
       case Page.LOCATION:
-        title = "Electrical Services Kampala Wakiso Mukono | Dynawatt Engineering";
+        title = "Electrical Services Kampala Wakiso Mukono | Dynawatt Engineering Services";
         description = "Professional electrical installation and solar energy across Kampala, Wakiso, Mukono, Kira, Entebbe, Nansana and surrounding areas of Central Uganda.";
         break;
       case Page.GUARANTEE:
-        title = "3-Month Service Guarantee | Dynawatt Engineering Kampala";
-        description = "Dynawatt Engineering backs every installation with a 3-month repair guarantee. ERA licensed and BS 7671 certified electrical work you can trust.";
+        title = "3-Month Service Guarantee | Dynawatt Engineering Services Kampala";
+        description = "Dynawatt Engineering Services backs every installation with a 3-month repair guarantee. ERA licensed and BS 7671 certified electrical work you can trust.";
         break;
       case Page.CONTACT:
-        title = "Contact Dynawatt Engineering | Free Quotation Kampala";
+        title = "Contact Dynawatt Engineering Services | Free Quotation Kampala";
         description = "Request a free quotation in Kampala, Wakiso & Mukono. Call +256 751 473 830 or WhatsApp us. Fast response across Central Uganda.";
         break;
       case Page.BLOG:
-        title = "Electrical & Solar Tips Blog | Dynawatt Engineering Uganda";
-        description = "Expert electrical and solar energy tips for Ugandan homeowners and businesses. Guides on wiring, solar systems, and energy savings from Dynawatt Engineering.";
+        title = "Electrical & Solar Tips Blog | Dynawatt Engineering Services Uganda";
+        description = "Expert electrical and solar energy tips for Ugandan homeowners and businesses. Guides on wiring, solar systems, and energy savings from Dynawatt Engineering Services.";
         break;
       case Page.PRIVACY_POLICY:
-        title = "Privacy Policy | Dynawatt Engineering Uganda";
-        description = "Read our Privacy Policy. Learn how Dynawatt Engineering collects, processes, and protects your dynamic site details in compliance with standard policies.";
+        title = "Privacy Policy | Dynawatt Engineering Services Uganda";
+        description = "Read our Privacy Policy. Learn how Dynawatt Engineering Services collects, processes, and protects your dynamic site details in compliance with standard policies.";
         break;
       case Page.TERMS_OF_SERVICE:
-        title = "Terms of Service | Dynawatt Engineering Uganda";
+        title = "Terms of Service | Dynawatt Engineering Services Uganda";
         description = "Read our Terms of Service. Learn about our physical service guarantees, workmanship warranties, and site-plan assessment terms in Uganda.";
         break;
     }
@@ -390,7 +390,7 @@ export const SeoMeta = ({ page }: { page: Page }) => {
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={image} />
-      <meta property="og:site_name" content="Dynawatt Engineering" />
+      <meta property="og:site_name" content="Dynawatt Engineering Services" />
       <meta property="og:locale" content="en_UG" />
       <meta property="og:type" content="website" />
 
@@ -485,7 +485,7 @@ function App() {
       script.innerHTML = JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Dynawatt Engineering",
+        "name": "Dynawatt Engineering Services",
         "description": "Professional electrical installation and solar energy company in Kampala, Uganda. BS 7671 certified, ERA licensed, UEDCL approved.",
         "url": "https://dynawattengineering.com",
         "telephone": "+256751473830",
@@ -529,8 +529,8 @@ function App() {
         "priceRange": "UGX 1,500,000 - 19,200,000",
         "openingHours": "Mo-Su 07:00-19:00",
         "sameAs": [
-          "https://www.facebook.com/dynawattengineering",
-          "https://www.instagram.com/dynawattengineering",
+          "https://www.facebook.com/dynawattengineeringservices",
+          "https://www.instagram.com/dynawattengineeringservices",
           "https://www.trustpilot.com/review/dynawattengineering.com"
         ]
       });
@@ -589,7 +589,7 @@ function App() {
     emergencyMode: false,
     contactPhone: '+256 751 473 830',
     whatsapp: '+256 751 473 830',
-    heroHeadline: 'Dynawatt Engineering: Premier Electrical & Lighting Solutions in Uganda',
+    heroHeadline: 'Dynawatt Engineering Services: Premier Electrical & Lighting Solutions in Uganda',
     formspreeId: 'mkgdnkzb'
   });
 
@@ -763,7 +763,7 @@ function App() {
     console.log(leads, updateConfig, updateLeadStatus, deleteLead, handleAdminLogout);
   }
 
-  const whatsappMessage = encodeURIComponent("Hello, Im interested in working with DYNAWATT ENGINEERING. Is anyone available to chat");
+  const whatsappMessage = encodeURIComponent("Hello, Im interested in working with DYNAWATT ENGINEERING SERVICES. Is anyone available to chat");
 
   const scrollToQuote = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -786,7 +786,7 @@ function App() {
       category: "Residential",
       location: "Salaama, Makindye",
       image: "/modern-residential-lighting-salaama-kampala.jpg",
-      alt: "Modern residential lighting design and installation in Salaama, Makindye by Dynawatt Engineering",
+      alt: "Modern residential lighting design and installation in Salaama, Makindye by Dynawatt Engineering Services",
       tags: ["Residential Wiring", "Ambient Lighting", "Smart Home"]
     },
     {
@@ -794,7 +794,7 @@ function App() {
       category: "Solar",
       location: "Kira Municipality",
       image: "/hybrid-solar-installation-kira-wakiso.webp",
-      alt: "Hybrid solar power system installation in Kira Municipality by Dynawatt Engineering",
+      alt: "Hybrid solar power system installation in Kira Municipality by Dynawatt Engineering Services",
       tags: ["Solar Backup", "Inverter Setup", "Battery Storage"]
     },
     {
@@ -802,7 +802,7 @@ function App() {
       category: "Lighting",
       location: "Industrial Area 7th Street, Kampala",
       image: "/premium-profile-lighting-7th-street-kampala.webp",
-      alt: "Premium aluminum profile lighting installation on 7th Street, Industrial Area, Kampala by Dynawatt Engineering",
+      alt: "Premium aluminum profile lighting installation on 7th Street, Industrial Area, Kampala by Dynawatt Engineering Services",
       tags: ["Profile Lighting", "Architectural Lighting", "Seamless Lines"]
     },
     {
@@ -810,7 +810,7 @@ function App() {
       category: "Residential",
       location: "Biira",
       image: "/complete-house-wiring-biira-wakiso.webp",
-      alt: "Complete residential house wiring and electrical fit-out in Biira, Wakiso by Dynawatt Engineering",
+      alt: "Complete residential house wiring and electrical fit-out in Biira, Wakiso by Dynawatt Engineering Services",
       tags: ["Residential Wiring", "Main Panel", "Yaka Meter"]
     },
     {
@@ -818,7 +818,7 @@ function App() {
       category: "Lighting",
       location: "Kitukutwe, Kira",
       image: "/architectural-lighting-kampala.webp",
-      alt: "Exterior architectural lighting and security illumination in Kitukutwe, Kira by Dynawatt Engineering",
+      alt: "Exterior architectural lighting and security illumination in Kitukutwe, Kira by Dynawatt Engineering Services",
       tags: ["Architectural Lighting", "Security Lights", "Home Exterior"]
     },
     {
@@ -826,7 +826,7 @@ function App() {
       category: "Construction",
       location: "Mukono",
       image: "/house-wiring-slab-piping-mukono.webp",
-      alt: "Electrical slab piping and structural wiring for a new house build in Mukono by Dynawatt Engineering",
+      alt: "Electrical slab piping and structural wiring for a new house build in Mukono by Dynawatt Engineering Services",
       tags: ["New Home Wiring", "Slab Piping", "Electrical Design"]
     }
   ];
@@ -996,7 +996,7 @@ function App() {
                 src="/premium-profile-lighting-7th-street-kampala.webp"
                 srcSet="/premium-profile-lighting-7th-street-kampala-mobile.webp 768w, /premium-profile-lighting-7th-street-kampala.webp 1920w"
                 sizes="(max-width: 768px) 100vw, 100vw"
-                alt="Premium profile lighting installation by Dynawatt Engineering in Kampala, Uganda"
+                alt="Premium profile lighting installation by Dynawatt Engineering Services in Kampala, Uganda"
                 width={1920}
                 height={1080}
                 loading="eager"
@@ -1033,7 +1033,7 @@ function App() {
                   </a>
                   {/* Facebook */}
                   <a 
-                    href="https://www.facebook.com/dynawattengineering"
+                    href="https://www.facebook.com/dynawattengineeringservices"
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-1.5 bg-slate-900/80 hover:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-800 text-xs text-slate-100 font-extrabold shadow-md transition-colors group"
@@ -1086,7 +1086,7 @@ function App() {
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-700/50 hidden md:block min-h-0 md:min-h-[192px] w-full" style={{ aspectRatio: '3/1' }}>
                   <img 
                     src="/architectural-lighting-kampala.webp" 
-                    alt="Architectural exterior lighting installation illuminating modern residential homes in Kampala, Uganda by Dynawatt Engineering" 
+                    alt="Architectural exterior lighting installation illuminating modern residential homes in Kampala, Uganda by Dynawatt Engineering Services" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
                     width="600"
                     height="200"
@@ -1252,7 +1252,7 @@ function App() {
 
               <div className="prose prose-lg max-w-none text-slate-600 space-y-8 md:space-y-12">
                 <p className="text-lg md:text-xl leading-relaxed">
-                  At <strong>Dynawatt Engineering</strong>, we provide certified electrical solutions for residential and commercial clients across <strong>Kampala</strong> and the greater central region. 
+                  At <strong>Dynawatt Engineering Services</strong>, we provide certified electrical solutions for residential and commercial clients across <strong>Kampala</strong> and the greater central region. 
                   From complex industrial 3-phase wiring to high-end architectural lighting, our team ensures every project meets international safety standards while maintaining modern aesthetics.
                 </p>
 
@@ -1282,7 +1282,7 @@ function App() {
                 </p>
 
                 <p className="text-base md:text-lg leading-relaxed bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm italic">
-                  "At Dynawatt Engineering, we bridge the gap between technical complexity and customer peace of mind. As a modern engineering and smart systems company, we design and install with the same care we would our own homes, ensuring every joint, breaker, and fixture is a testament to premium Ugandan engineering."
+                  "At Dynawatt Engineering Services, we bridge the gap between technical complexity and customer peace of mind. As a modern engineering and smart systems company, we design and install with the same care we would our own homes, ensuring every joint, breaker, and fixture is a testament to premium Ugandan engineering."
                 </p>
               </div>
 
@@ -1346,7 +1346,7 @@ function App() {
                 {/* Electrical Installation */}
                 <div onClick={() => setPage(Page.SEO_ELEC_INSTALL)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
-                    <img src="/electrical-engineering-kampala.webp" alt="Professional commercial and residential electrical installations by Dynawatt Engineering in Kampala, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/electrical-engineering-kampala.webp" alt="Professional commercial and residential electrical installations by Dynawatt Engineering Services in Kampala, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Zap className="h-3 w-3 mr-1 text-amber-500" />
                       Residential & Commercial
@@ -1366,7 +1366,7 @@ function App() {
                 {/* Architectural Lighting */}
                 <div onClick={() => setPage(Page.SEO_PROFILE_LIGHTING)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
-                    <img src="/luxury-staircase-lighting.webp" alt="Luxury staircase lighting featuring recessed LED step lights and custom architectural profile lighting in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/luxury-staircase-lighting.webp" alt="Luxury staircase lighting featuring recessed LED step lights and custom architectural profile lighting in Kampala, Uganda by Dynawatt Engineering Services" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-amber-500/95 backdrop-blur-sm shadow-sm text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Award className="h-3 w-3 mr-1" />
                       Premium Service
@@ -1386,7 +1386,7 @@ function App() {
                 {/* Solar Installation */}
                 <div onClick={() => setPage(Page.SEO_SOLAR)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
-                    <img src="/solar-hero-bg.webp" alt="Hybrid solar installation with battery backup by Dynawatt Engineering in Kira, Wakiso, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/solar-hero-bg.webp" alt="Hybrid solar installation with battery backup by Dynawatt Engineering Services in Kira, Wakiso, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Sun className="h-3 w-3 mr-1 text-amber-500" />
                       Energy Systems
@@ -1406,7 +1406,7 @@ function App() {
                 {/* Smart Home Solutions */}
                 <div onClick={() => setPage(Page.SEO_SMART_HOME)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
-                    <img src="/smart_home_switches.webp" alt="Finished smart home installation featuring elegant glass-face touch control panel on the wall by Dynawatt Engineering in Kampala, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/smart_home_switches.webp" alt="Finished smart home installation featuring elegant glass-face touch control panel on the wall by Dynawatt Engineering Services in Kampala, Uganda" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Home className="h-3 w-3 mr-1 text-amber-500" />
                       Smart Automation
@@ -1426,7 +1426,7 @@ function App() {
                 {/* CCTV & Security Systems */}
                 <div onClick={() => setPage(Page.SEO_CCTV)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
-                    <img src="/blog-smart-home.jpg" alt="Premium CCTV camera and advanced residential security system installation in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/blog-smart-home.jpg" alt="Premium CCTV camera and advanced residential security system installation in Kampala, Uganda by Dynawatt Engineering Services" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Shield className="h-3 w-3 mr-1 text-amber-500" />
                       Security Systems
@@ -1446,7 +1446,7 @@ function App() {
                 {/* Repairs & Maintenance */}
                 <div onClick={() => setPage(Page.SEO_MAINTENANCE)} className="cursor-pointer bg-white rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col text-left">
                    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
-                    <img src="/electrical-repairs-maintenance-kampala.webp" alt="Professional electrical repairs, fault-finding, and power board maintenance service in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
+                    <img src="/electrical-repairs-maintenance-kampala.webp" alt="Professional electrical repairs, fault-finding, and power board maintenance service in Kampala, Uganda by Dynawatt Engineering Services" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" loading="lazy" referrerPolicy="no-referrer" />
                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm shadow-sm text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center">
                       <Icons.Wrench className="h-3 w-3 mr-1 text-amber-500" />
                       Maintenance
@@ -1586,7 +1586,7 @@ function App() {
                     beforeImage: "/before_wiring_messy.webp",
                     beforeDesc: "A severely overloaded and badly burnt main distribution board with melted insulation, chaotic uninsulated wiring, and zero surge protection, posing an extreme fire hazard.",
                     afterDesc: "Fully engineered three-phase distribution board wiring, neatly arranged conduits, labeled circuit breakers, and optimal earthing systems.",
-                    alt: "Certified complete residential wiring consumer board in Biira, Wakiso by Dynawatt Engineering"
+                    alt: "Certified complete residential wiring consumer board in Biira, Wakiso by Dynawatt Engineering Services"
                   },
                   {
                     id: "lighting",
@@ -1596,7 +1596,7 @@ function App() {
                     beforeImage: "/before_lighting_plain.webp",
                     beforeDesc: "Cold fluorescent fittings and simple hanging bare bulbs casting deep, dark shadows on concrete.",
                     afterDesc: "Polished false ceiling fitted with custom embedded aluminum profile LED warm strip lights for premium luxury lighting design.",
-                    alt: "Elegantly finished custom profile ceiling lighting by Dynawatt Engineering in Kampala"
+                    alt: "Elegantly finished custom profile ceiling lighting by Dynawatt Engineering Services in Kampala"
                   },
                   {
                     id: "solar",
@@ -1606,7 +1606,7 @@ function App() {
                     beforeImage: "/before_solar_generator.webp",
                     beforeDesc: "Subject to severe grid blackouts, disrupted operations, noisy generators, and high Yaka consumption tariffs.",
                     afterDesc: "Optimized solar panel roof arrays harvesting 5.4kW clean energy seamlessly integrated with low-maintenance hybrid smart inverters.",
-                    alt: "Hybrid solar installation with premium tier-1 solar panels on a roof in Kira by Dynawatt Engineering"
+                    alt: "Hybrid solar installation with premium tier-1 solar panels on a roof in Kira by Dynawatt Engineering Services"
                   }
                 ].map((item) => (
                   <TransformationCard key={item.id} item={item} />
@@ -1636,22 +1636,22 @@ function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-                <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative w-full rounded-2xl overflow-hidden group" style={{ aspectRatio: '1/1' }}>
-                  <img src="/instagram-feed-1.jpg" alt="Premium recessed aluminum profile lighting installed in a modern residential ceiling in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
+                <a href="https://www.instagram.com/dynawattengineeringservices" target="_blank" rel="noreferrer" className="relative w-full rounded-2xl overflow-hidden group" style={{ aspectRatio: '1/1' }}>
+                  <img src="/instagram-feed-1.jpg" alt="Premium recessed aluminum profile lighting installed in a modern residential ceiling in Kampala, Uganda by Dynawatt Engineering Services" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Icons.Instagram className="h-8 w-8 text-white mb-3" />
                     <p className="text-white text-sm font-medium leading-snug">#AluminumProfileLighting #ModernHomeLighting #ArchitecturalLighting #Kampala</p>
                   </div>
                 </a>
-                <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative w-full rounded-2xl overflow-hidden group" style={{ aspectRatio: '1/1' }}>
-                  <img src="/instagram-feed-2.jpg" alt="Industrial electrical panel and premium distribution board wiring installation in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
+                <a href="https://www.instagram.com/dynawattengineeringservices" target="_blank" rel="noreferrer" className="relative w-full rounded-2xl overflow-hidden group" style={{ aspectRatio: '1/1' }}>
+                  <img src="/instagram-feed-2.jpg" alt="Industrial electrical panel and premium distribution board wiring installation in Kampala, Uganda by Dynawatt Engineering Services" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Icons.Instagram className="h-8 w-8 text-white mb-3" />
                     <p className="text-white text-sm font-medium leading-snug">#ElectricalEngineering #PanelInstallation #IndustrialWiring #SecurePowerUganda</p>
                   </div>
                 </a>
-                <a href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" target="_blank" rel="noreferrer" className="relative w-full rounded-2xl overflow-hidden group hidden md:block" style={{ aspectRatio: '1/1' }}>
-                  <img src="/luxury-staircase-lighting.webp" alt="Luxury staircase profile lighting integrated into marble steps and modern ambient ceiling lights in Kampala, Uganda by Dynawatt Engineering" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
+                <a href="https://www.instagram.com/dynawattengineeringservices" target="_blank" rel="noreferrer" className="relative w-full rounded-2xl overflow-hidden group hidden md:block" style={{ aspectRatio: '1/1' }}>
+                  <img src="/luxury-staircase-lighting.webp" alt="Luxury staircase profile lighting integrated into marble steps and modern ambient ceiling lights in Kampala, Uganda by Dynawatt Engineering Services" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" width="400" height="400" loading="lazy" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Icons.Instagram className="h-8 w-8 text-white mb-3" />
                     <p className="text-white text-sm font-medium leading-snug">#LuxuryCeilingLighting #AmbientLighting #SmartHome #InteriorDesignUganda</p>
@@ -1661,7 +1661,7 @@ function App() {
               
               <div className="mt-10 text-center">
                 <a 
-                  href="https://www.instagram.com/dynawattengineering?igsh=MWp5Y3R1MmkxNW0xZQ==" 
+                  href="https://www.instagram.com/dynawattengineeringservices" 
                   target="_blank" 
                   rel="noreferrer"
                   className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 transition"
@@ -1698,7 +1698,7 @@ function App() {
                 <div className="lg:w-1/2 flex flex-col justify-center">
                   <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose DYNAWATT?</h2>
                   <p className="text-slate-300 mb-8 text-base md:text-lg leading-relaxed">
-                    At Dynawatt Engineering, we believe that good electrical work goes unnoticed, while bad electrical work can be a disaster. We bridge the gap between technical expertise and customer peace of mind.
+                    At Dynawatt Engineering Services, we believe that good electrical work goes unnoticed, while bad electrical work can be a disaster. We bridge the gap between technical expertise and customer peace of mind.
                   </p>
                   
                   <div className="grid grid-cols-1 gap-6 md:gap-8">
@@ -1788,7 +1788,7 @@ function App() {
               </h2>
               <div className="h-1 w-20 bg-amber-500 mx-auto rounded mb-8"></div>
               <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                <strong>Dynawatt Engineering</strong> was founded in Kampala with one mission: to bring reliable, certified electrical work to Ugandan homes and businesses — work that meets international standards, uses genuine materials, and lasts. With <strong>100+ completed projects</strong> across Kampala, Wakiso, Mukono, and beyond, our team of certified engineers has become the trusted name for homeowners, landlords, banks, and developers who refuse to compromise on safety or quality.
+                <strong>Dynawatt Engineering Services</strong> was founded in Kampala with one mission: to bring reliable, certified electrical work to Ugandan homes and businesses — work that meets international standards, uses genuine materials, and lasts. With <strong>100+ completed projects</strong> across Kampala, Wakiso, Mukono, and beyond, our team of certified engineers has become the trusted name for homeowners, landlords, banks, and developers who refuse to compromise on safety or quality.
               </p>
             </div>
           </section>
@@ -1999,7 +1999,7 @@ function App() {
               </h2>
               <div className="max-w-4xl mx-auto mb-10 md:mb-12 space-y-4">
                 <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-                  At <strong>Dynawatt Engineering</strong>, we bring professional, certified electrical solutions directly to your doorstep. We are fully equipped, mobile, and ready to serve — providing world-class engineering, architectural lighting, and solar installations across <strong>Kampala, Wakiso, Mukono, and all upcountry districts nationwide.</strong>
+                  At <strong>Dynawatt Engineering Services</strong>, we bring professional, certified electrical solutions directly to your doorstep. We are fully equipped, mobile, and ready to serve — providing world-class engineering, architectural lighting, and solar installations across <strong>Kampala, Wakiso, Mukono, and all upcountry districts nationwide.</strong>
                 </p>
                 <p className="text-base md:text-lg text-slate-600 leading-relaxed">
                   Whether you are renovating a residence in <strong>Kololo</strong>, setting up a new office in <strong>Bugolobi</strong>, wiring a commercial building in <strong>Jinja</strong>, or requiring hybrid solar backup in <strong>Mbarara</strong> or <strong>Gulu</strong>, our team has the specialized logistics to deliver premium service upcountry.
@@ -2080,14 +2080,14 @@ function App() {
             </p>
 
             <p className="text-xs md:text-sm text-slate-300 mb-6 max-w-lg leading-relaxed text-center">
-              Thank you for reaching out to Dynawatt Engineering. Your request has been received and logged with our engineering team. We will be in touch with you shortly.
+              Thank you for reaching out to Dynawatt Engineering Services. Your request has been received and logged with our engineering team. We will be in touch with you shortly.
             </p>
 
             {/* Showcase project photo requested between confirmation paragraph and what happens next */}
             <div className="w-full mb-6 overflow-hidden rounded-xl border border-slate-800/80 shadow-2xl bg-slate-900">
               <img 
                 src="/premium-profile-lighting-7th-street-kampala.webp" 
-                alt="Premium profile lighting installation on 7th Street Kampala by Dynawatt Engineering" 
+                alt="Premium profile lighting installation on 7th Street Kampala by Dynawatt Engineering Services" 
                 className="w-full h-56 md:h-80 lg:h-96 object-cover transition-transform duration-550 hover:scale-[1.02]" 
                 width="800"
                 height="450"
@@ -2143,7 +2143,7 @@ function App() {
         <Footer setPage={setPage} />
       ) : (
         <footer className="bg-slate-950 text-slate-400 py-6 border-t border-slate-900 text-center text-xs space-y-2">
-          <p className="max-w-md mx-auto px-4 font-sans">&copy; {new Date().getFullYear()} DYNAWATT ENGINEERING Uganda. All rights reserved.</p>
+          <p className="max-w-md mx-auto px-4 font-sans">&copy; {new Date().getFullYear()} DYNAWATT ENGINEERING SERVICES Uganda. All rights reserved.</p>
           <div className="flex justify-center space-x-4 text-slate-400">
             <a
               href="/privacy-policy"
@@ -2197,7 +2197,7 @@ function App() {
         href={`https://wa.me/${config.whatsapp.replace(/[^0-9]/g, '')}?text=${whatsappMessage}`}
         target="_blank"
         rel="noreferrer"
-        aria-label="Chat with Dynawatt Engineering on WhatsApp"
+        aria-label="Chat with Dynawatt Engineering Services on WhatsApp"
         className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] transition-all duration-300 transform hover:scale-110 z-50 flex items-center justify-center group"
       >
         <Icons.MessageCircle className="h-6 w-6 md:h-8 md:w-8" />
