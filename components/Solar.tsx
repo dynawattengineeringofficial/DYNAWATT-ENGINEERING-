@@ -105,7 +105,7 @@ const SOLAR_PACKAGES = [
     priceLabel: "UGX 10,800,000",
     badge: "FAMILY CHOSEN",
     inverter: "5kVA Sumry / Amp Nova / Felicity / Solar Riio Sun",
-    battery: "7.5kWh Felicity / Amp Nova / Sumry",
+    battery: "5kWh Felicity / Amp Nova / Sumry",
     panels: "8 × 455W",
     arrayKw: "3.64kWp",
     dailyGen: "14.6kWh/day",
@@ -129,7 +129,7 @@ const SOLAR_PACKAGES = [
     tvCaution: null,
     includes: [
       "5kVA Sumry / Amp Nova / Felicity / Solar Riio Sun Hybrid Inverter",
-      "7.5kWh Felicity / Amp Nova / Sumry Lithium LiFePO₄ Battery (5,000+ cycles)",
+      "5kWh Felicity / Amp Nova / Sumry Lithium LiFePO₄ Battery (5,000+ cycles)",
       "8 × 455W Jinko/Canadian Solar Panels (3.64kWp array)",
       "Aluminium Roof Rail Bracket Kit",
       "Copper Grounding Rods & Earthing Kit",

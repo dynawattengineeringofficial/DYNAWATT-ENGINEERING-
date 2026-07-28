@@ -14,10 +14,18 @@ const TrustpilotReviews: React.FC = () => {
 
   useEffect(() => {
     const loadScript = () => {
-      if (document.getElementById('trustpilot-script')) {
-        if (window.Trustpilot) {
-          window.Trustpilot.loadFromElement(widgetRef.current);
+      const initWidget = () => {
+        if (widgetRef.current && window.Trustpilot && typeof window.Trustpilot.loadFromElement === 'function') {
+          try {
+            window.Trustpilot.loadFromElement(widgetRef.current);
+          } catch (e) {
+            console.warn('Trustpilot widget load error:', e);
+          }
         }
+      };
+
+      if (document.getElementById('trustpilot-script')) {
+        initWidget();
         return;
       }
       const script = document.createElement('script');
@@ -26,9 +34,7 @@ const TrustpilotReviews: React.FC = () => {
       script.src = '/api/trustpilot-bootstrap';
       script.async = true;
       script.onload = () => {
-        if (window.Trustpilot) {
-          window.Trustpilot.loadFromElement(widgetRef.current);
-        }
+        initWidget();
       };
       document.body.appendChild(script);
     };
