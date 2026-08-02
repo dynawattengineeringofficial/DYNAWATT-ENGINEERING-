@@ -561,9 +561,9 @@ export const seoEducationalPagesData = {
     seoTitle: "Certified Lightning Arrestor Installation in Uganda | Dynawatt Engineering Services",
     metaDesc: "Protect your school, home, or building from lightning strikes with certified ESE lightning arrestors and grounding in Uganda. See our Kawuku Wakiso project.",
     headline: "Certified Lightning Arrestor & Protection Systems in Uganda",
-    heroImage: "/wakiso_lightning_school.jpg",
+    heroImage: "/certified-lightning-arrestor-installation-uganda.webp",
     description: "Lightning strikes present a severe threat to buildings, schools, and electronic systems across Uganda, especially during intense rainy seasons. At Dynawatt Engineering Services, we design and install certified Early Streamer Emission (ESE) lightning arrestors, heavy-gauge copper down-conductors, and low-impedance earthing systems that safely redirect high-voltage surges directly into the ground.\n\nOur certified engineers install lightning protection networks that conform strictly to international safety codes (NF C 17-102 and IEC 62305). One of our key landmark installations was executed at <strong class=\"font-bold text-slate-900\">Broader Vision Primary School in Kawuku, Wakiso District</strong>, where our team was sub-contracted to safely mount ESE terminals and heavy-duty copper tapes on the new classroom block to secure the entire student body and administrative electronics. Whether you are safeguarding an institutional campus, an apartment block, or a residential home, our copper bonding systems deliver absolute peace of mind.",
-    projectPhoto: "/wakiso_lightning_school.jpg",
+    projectPhoto: "/certified-lightning-arrestor-installation-uganda.webp",
     projectPhotoAlt: "Certified Dynawatt crew installing ESE lightning protection at Broader Vision Primary School in Kawuku, Wakiso",
     projectPhotoCaption: "Professional installation of solid copper down-conductors and ESE lightning protection terminals on wooden scaffolding for the new classroom block at Broader Vision Primary School in Kawuku, Wakiso District.",
     author: {
