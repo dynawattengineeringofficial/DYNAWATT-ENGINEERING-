@@ -99,6 +99,10 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
       case Page.GUARANTEE: return '/guarantee';
       case Page.BLOG: return '/blog';
       
+      case Page.PRIVACY_POLICY: return '/privacy-policy';
+      case Page.TERMS_OF_SERVICE: return '/terms-of-service';
+      case Page.THANK_YOU: return '/thank-you';
+      
       // Clean Blog & SEO routes
       case Page.SEO_SOLAR: return '/blog/solar-installation-kampala';
       case Page.SEO_ELEC_INSTALL: return '/blog/electrical-installation-kampala';
@@ -118,6 +122,7 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
       case Page.SEO_WIRING_3_BEDROOM: return '/blog/3-bedroom-house-wiring-cost';
       case Page.SEO_WIRING_COMMERCIAL: return '/blog/commercial-building-wiring-cost';
       case Page.SEO_BLOG_CCTV: return '/blog/cctv-camera-selection-guide';
+      case Page.SEO_LIGHTNING_PROTECTION: return '/blog/lightning-protection-arrestor-uganda';
       
       // Clean Location routes
       case Page.LOC_KAMPALA: return '/areas-we-serve/kampala';
@@ -134,7 +139,7 @@ const Navbar: React.FC<NavbarProps> = ({ setPage, page, contactPhone }) => {
       case Page.LOC_NAKWEERO: return '/solar-installation-nakweero';
       case Page.LOC_SEETA: return '/lightning-arrestor-installation-seeta';
       
-      default: return `/?page=${targetPage}`;
+      default: return '/';
     }
   };
 
