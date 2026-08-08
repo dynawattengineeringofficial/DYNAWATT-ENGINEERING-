@@ -18,7 +18,7 @@ const DEFAULT_CONFIG = {
   emergencyMode: false,
   contactPhone: "+256 751 473 830",
   whatsapp: "+256 751 473 830",
-  heroHeadline: "Dynawatt Engineering: Premier Electrical & Lighting Solutions in Uganda",
+  heroHeadline: "Dynawatt Engineering Services: Premier Electrical & Lighting Solutions in Uganda",
   formspreeId: "mkgdnkzb"
 };
 
@@ -229,10 +229,10 @@ async function startServer() {
       const { message, history } = req.body;
       const ai = getAI();
 
-      const systemInstruction = `You are the Dynawatt Engineering Assistant, a helpful and professional bot for an electrical engineering company in Uganda.
+      const systemInstruction = `You are the Dynawatt Engineering Services Assistant, a helpful and professional bot for an electrical engineering company in Uganda.
       
       Company Info:
-      - Name: Dynawatt Engineering
+      - Name: Dynawatt Engineering Services
       - Location: Kampala, Uganda (serving greater Kampala region including Mukono, Wakiso, Entebbe).
       - Services: Residential wiring, Commercial fit-outs, Industrial solutions, Solar installation, Modern lighting (Floating chandeliers, Aluminum profile lighting), CCTV, Yaka meter repair.
       - Contact: +256 751 473 830 (Phone & WhatsApp).
@@ -257,6 +257,89 @@ async function startServer() {
       console.error("Chat Error:", error);
       res.status(500).json({ error: "I'm having trouble connecting right now. Please try again or call us directly at +256 751 473 830." });
     }
+  });
+
+  // 301 Permanent Redirects for legacy query string URLs (?page=xxx) to clean slugs
+  app.use((req, res, next) => {
+    if (req.method === 'GET' && req.query.page) {
+      const pageQuery = String(req.query.page).toLowerCase().trim();
+      const legacyRedirectMap: Record<string, string> = {
+        'home': '/',
+        'about': '/about',
+        'services': '/services',
+        'solar': '/solar',
+        'contact': '/contact',
+        'quote': '/contact',
+        'guarantee': '/guarantee',
+        'blog': '/blog',
+        'location': '/areas-we-serve',
+        'privacy_policy': '/privacy-policy',
+        'privacy-policy': '/privacy-policy',
+        'terms_of_service': '/terms-of-service',
+        'terms-of-service': '/terms-of-service',
+        'thank_you': '/thank-you',
+        'thank-you': '/thank-you',
+
+        // Location query params
+        'loc_kampala': '/areas-we-serve/kampala',
+        'loc_entebbe': '/areas-we-serve/entebbe',
+        'loc_wakiso': '/areas-we-serve/wakiso',
+        'loc_kololo': '/areas-we-serve/kololo',
+        'loc_kira': '/areas-we-serve/kira',
+        'loc_najjera': '/areas-we-serve/najjera',
+        'loc_mukono': '/solar-installation-mukono',
+        'loc_hoima': '/solar-installation-hoima',
+        'loc_lira': '/electrical-installation-lira',
+        'loc_gulu': '/electrical-installation-gulu',
+        'loc_kiboga': '/lighting-installation-kiboga',
+        'loc_nakweero': '/solar-installation-nakweero',
+        'loc_seeta': '/lightning-arrestor-installation-seeta',
+
+        // SEO and blog query params
+        'seo_solar': '/blog/solar-installation-kampala',
+        'seo_elec_install': '/blog/electrical-installation-kampala',
+        'elec_install': '/blog/electrical-installation-kampala',
+        'seo_profile_lighting': '/blog/aluminum-profile-lighting-uganda',
+        'seo_lighting': '/blog/aluminum-profile-lighting-uganda',
+        'profile_lighting': '/blog/aluminum-profile-lighting-uganda',
+        'seo_cctv': '/blog/cctv-installation-uganda',
+        'cctv': '/blog/cctv-installation-uganda',
+        'seo_house_wiring_cost': '/blog/cost-wiring-house-uganda',
+        'seo_wiring_cost': '/blog/cost-wiring-house-uganda',
+        'house_wiring_cost': '/blog/cost-wiring-house-uganda',
+        'seo_smart_home': '/blog/smart-home-installation-uganda',
+        'smart_home': '/blog/smart-home-installation-uganda',
+        'seo_blog_conduit_slab': '/blog/slab-conduit-works-uganda',
+        'seo_conduit': '/blog/slab-conduit-works-uganda',
+        'seo_arch_lighting': '/blog/modern-lighting-designs-uganda',
+        'arch_lighting': '/blog/modern-lighting-designs-uganda',
+        'seo_lighting_design': '/blog/modern-lighting-designs-uganda',
+        'seo_commercial': '/blog/commercial-electrical-contractors',
+        'commercial': '/blog/commercial-building-wiring-cost',
+        'seo_maintenance': '/blog/electrical-maintenance-guide-uganda',
+        'maintenance': '/blog/electrical-maintenance-guide-uganda',
+        'seo_yaka_meter': '/blog/yaka-meter-troubleshooting',
+        'yaka_meter': '/blog/yaka-meter-troubleshooting',
+        'seo_warm_switches': '/blog/why-electrical-switches-get-warm',
+        'warm_switches': '/blog/why-electrical-switches-get-warm',
+        'seo_solar_maintenance': '/blog/solar-panel-maintenance-uganda',
+        'solar_maintenance': '/blog/solar-panel-maintenance-uganda',
+        'seo_bulb_blowouts': '/blog/why-do-my-light-bulbs-keep-blowing',
+        'bulb_blowouts': '/blog/why-do-my-light-bulbs-keep-blowing',
+        'seo_wiring_2_bedroom': '/blog/2-bedroom-house-wiring-cost',
+        'wiring_2_bedroom': '/blog/2-bedroom-house-wiring-cost',
+        'seo_wiring_3_bedroom': '/blog/3-bedroom-house-wiring-cost',
+        'wiring_3_bedroom': '/blog/3-bedroom-house-wiring-cost',
+        'seo_wiring_commercial': '/blog/commercial-building-wiring-cost',
+        'wiring_commercial': '/blog/commercial-building-wiring-cost',
+        'seo_blog_cctv': '/blog/cctv-camera-selection-guide',
+        'seo_lightning_protection': '/blog/lightning-protection-arrestor-uganda'
+      };
+
+      const targetPath = legacyRedirectMap[pageQuery] || '/';
+      return res.redirect(301, targetPath);
+    }
+    next();
   });
 
   // Vite middleware for development
